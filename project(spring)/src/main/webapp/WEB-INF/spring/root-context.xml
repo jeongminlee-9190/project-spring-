@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+<!-- //////////////////////////////////////////jdbc.properties////////////////////////////////////////// -->	
+	<context:property-placeholder location="classpath:com/config/jdbc.properties"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.userid}"/>
+		<property name="password" value="${jdbc.passwd}"/>
+	</bean>
+	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/config/SoMapper.xml</value>
+				<value>classpath:com/config/AdminMapper.xml</value>
+			</list>
+		</property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="typeAliases">
+			<list>
+				<value>com.dto.SoDTO</value>
+				<value>com.dto.AdminDTO</value>
+				<value>com.dto.MemberDTO</value>
+				<value>com.dto.MNoticeDTO</value>
+				<value>com.dto.MPageDTO</value>
+				<value>com.dto.PageDTO</value>
+				<value>com.dto.SDTO</value>
+				<value>com.dto.SoNoticeDTO</value>
+				<value>com.dto.SoQnaDTO</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="factoryBean"/>
+	</bean>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->	
+
+	
+</beans>
