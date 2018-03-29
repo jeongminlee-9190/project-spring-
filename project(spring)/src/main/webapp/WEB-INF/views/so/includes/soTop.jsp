@@ -28,6 +28,7 @@
 		        </ul>
 		    </li>
 		    <li><a href="#">예약관리</a></li>
+		    <li><a href="#"></a></li>
 	     </ul>
 	     
 	     <ul class="nav navbar-nav navbar-right">
