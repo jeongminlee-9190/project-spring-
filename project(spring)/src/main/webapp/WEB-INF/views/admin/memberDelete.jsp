@@ -35,4 +35,3 @@ $(document).ready(function(){
 	 </tr>
 	</c:forEach>
 </table>
-	<button id="memberAdd">등록</button>

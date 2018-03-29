@@ -95,7 +95,7 @@
   			<col width="65%">
   		</colgroup>
   		<tr>
-  			<td colspan="2"><img src="images/logo.png" class="logo"></td>
+  			<td colspan="2"><img src="resources/images/logo.png" class="logo"></td>
   		</tr>
   		<tr>
   			<td colspan="2"><h3>관리자 페이지</h3></td>

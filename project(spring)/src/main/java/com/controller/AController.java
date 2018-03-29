@@ -65,19 +65,18 @@ public class AController {
 	@RequestMapping("/soList2")
 	public ModelAndView soList2(ArrayList<Object> list) {
 		ModelAndView mav = new ModelAndView();
-		list = (ArrayList<Object>)service.soList();
-		mav.addObject("soList",list);
+		list = (ArrayList<Object>)service.soList2();
+		mav.addObject("soList2",list);
 		mav.setViewName("admin/soList2");
 		return mav;
 	}
 	
 	@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
-		System.out.println(map);
 		service.changeSoLevel(map);
-		ArrayList<Object> list = (ArrayList<Object>)service.soList();
-		session.setAttribute("soList",list);
-		return "redirect:soList";
+		ArrayList<Object> list = (ArrayList<Object>)service.soList2();
+		session.setAttribute("soList2",list);
+		return "redirect:soList2";
 	}
 	
 	
