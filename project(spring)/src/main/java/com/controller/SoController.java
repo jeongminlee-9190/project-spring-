@@ -3,6 +3,7 @@ package com.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,18 +22,25 @@ public class SoController {
 	SoService service;
 
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session,HttpServletRequest request) {
 		System.out.println(map);
 		SoDTO sDTO = service.login(map);
+		String nextPage=null;
 		System.out.println(sDTO);
 		if(sDTO==null) {
 			request.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		}else {
-			mav.addObject("SoLogin",sDTO);
-			mav.setViewName("main_shopowner");
+			nextPage = "main_shopowner";
+			session.setAttribute("SoLogin",sDTO);
 		}
-		return mav;
+		return nextPage;
+	}
+	
+	@RequestMapping("/sologout")
+	public String logout(HttpSession session,HttpServletRequest request) {
+		session.invalidate();
+		request.setAttribute("SoLogout","로그아웃 되었습니다.");
+		return "index_shopowner";
 	}
 	
 	@RequestMapping("/soJoinForm")

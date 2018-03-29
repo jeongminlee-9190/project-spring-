@@ -15,9 +15,9 @@
    </script>
 </c:if>
 
-<c:if test="${!empty logout}">
+<c:if test="${!empty SoLogout}">
 	<script type="text/javascript">
-    	alert('${logout}');
+    	alert('${SoLogout}');
     </script>
 </c:if>
 
