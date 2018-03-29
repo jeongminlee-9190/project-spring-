@@ -9,8 +9,6 @@
 	
 	<mvc:annotation-driven/>
 	<mvc:view-controller path="/" view-name="home" />
-	<mvc:resources location="/resources/images/" mapping="/images/**"/>
-	<mvc:resources location="/resources/css/" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
 	
@@ -19,12 +17,5 @@
 		<property name="suffix" value=".jsp"/> 
 	</bean>	
 	
-	
-	
 	<context:component-scan base-package="com.*" />
-	<!-- <context:annotation-config/> @Autowired 활성화
-	<bean id="homecontroller" class="com.controller.HomeController"/>
-	<bean id="socontroller" class="com.controller.SoController"/>
-	<bean id="soService" class="com.service.SoService"/>
-	<bean id="soDAO" class="com.dao.SoDAO"/> -->
 </beans>

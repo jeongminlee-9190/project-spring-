@@ -20,6 +20,7 @@ $(document).ready(function(){
 	}); */
 });
 </script>
+<jsp:include page="admin_top.jsp" flush="true"/>
 <form action="changeSoLevel" method="get">
 	<table border="1">
 		<tr>
