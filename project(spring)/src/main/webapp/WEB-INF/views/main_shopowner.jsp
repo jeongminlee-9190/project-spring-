@@ -24,7 +24,7 @@
 </c:if>
 
 <jsp:include page="so/includes/soTop.jsp" flush="true"/>
-<jsp:include page="so/includes/soContainer.jsp" flush="true"/>
+<jsp:include page="so/soContainer.jsp" flush="true"/>
 
 	<div class="footer">
 		footer
