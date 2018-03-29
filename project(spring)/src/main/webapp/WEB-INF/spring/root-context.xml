@@ -36,6 +36,7 @@
 				<value>com.dto.SDTO</value>
 				<value>com.dto.SoNoticeDTO</value>
 				<value>com.dto.SoQnaDTO</value>
+				<value>com.dto.SvDTO</value>
 			</list>
 		</property>
 	</bean>
