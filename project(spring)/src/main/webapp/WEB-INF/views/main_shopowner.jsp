@@ -24,18 +24,7 @@
 </c:if>
 
 <jsp:include page="so/includes/soTop.jsp" flush="true"/>
-<div class="wrapper">
-	<div class="mainwrapper">
-		<div class="mainmenu">
-			
-		</div>
-	</div>
-	
-	<div class="contentwrapper">
-		<div class="content_top">
-			<jsp:include page="so/includes/soContent_top.jsp" flush="true"/>
-		</div>
-	</div>
+<jsp:include page="so/includes/soContainer.jsp" flush="true"/>
 
 	<div class="footer">
 		footer

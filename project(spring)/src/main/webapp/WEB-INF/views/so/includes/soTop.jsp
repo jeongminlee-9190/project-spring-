@@ -16,11 +16,11 @@
 	     </div>
 	     
 	     <ul class="nav navbar-nav">
-	     	<li><a href="#">서비스 소개</a></li>
-	     	<li><a href="#">상점 관리</a></li>
-	     	<li><a href="#">서비스 결제</a></li>
+	     	<li><a href="#" class="active">서비스 소개</a></li>
+	     	<li><a href="#" class="active">상점 관리</a></li>
+	     	<li><a href="#" class="active">서비스 결제</a></li>
 	        <li class="dropdown">
-	        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
+	        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
 	 			<ul class="dropdown-menu">
 		           <li><a href="#">공지사항</a></li>
 		           <li><a href="#">자주 묻는 질문</a></li>
