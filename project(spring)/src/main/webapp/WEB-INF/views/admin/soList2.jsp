@@ -5,8 +5,21 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+		
+	$("#btn_del_so").on("click",function(){
+		location.href="mDeleteServlet?mId="+$("#soId").text();
+	});
+	
+	$("#soAdd").on("click",function(){
+		location.href="";
+	});
+	
+	/* $("#btn_change_soLevel").on("click",function(){
+		location.href="changeSoLevel?soId="+$("#soId").text()+"&soLevel="+$("#soLevel").val();
+	}); */
+});
 </script>
-<jsp:include page="admin_top.jsp" flush="true"/>
 <form action="changeSoLevel" method="get">
 	<table border="1">
 		<tr>
@@ -41,3 +54,4 @@
 		</c:forEach>
 	</table>
 </form>
+	<button id="soAdd">등록</button>

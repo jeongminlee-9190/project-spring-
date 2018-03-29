@@ -62,6 +62,15 @@ public class AController {
 		return mav;
 	}
 	
+	@RequestMapping("/soList2")
+	public ModelAndView soList2(ArrayList<Object> list) {
+		ModelAndView mav = new ModelAndView();
+		list = (ArrayList<Object>)service.soList();
+		mav.addObject("soList",list);
+		mav.setViewName("admin/soList2");
+		return mav;
+	}
+	
 	@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
 		System.out.println(map);

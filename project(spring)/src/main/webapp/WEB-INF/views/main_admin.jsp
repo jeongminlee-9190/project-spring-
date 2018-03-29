@@ -7,10 +7,7 @@
 <title>admin 메인화면</title>
 </head>
 <body>
-<table>
-	<tr>
-		<td><jsp:include page="admin/aMenu.jsp" flush="true"/></td>
-	</tr>
-</table>
+<jsp:include page="admin/admin_top.jsp" flush="true"/></td>
+
 </body>
 </html>
