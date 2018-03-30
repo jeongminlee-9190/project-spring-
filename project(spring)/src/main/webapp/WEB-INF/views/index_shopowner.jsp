@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/resources/css/so_index.css" rel="stylesheet" >
+<link href="resources/css/so_index.css" rel="stylesheet" >
 </head>
 <body>
 <c:if test="${! empty success}">
