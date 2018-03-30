@@ -18,7 +18,7 @@
 	     <ul class="nav navbar-nav">
 	     	<li><a href="#" class="active">서비스 소개</a></li>
 	     	<li><a href="#" class="active">상점 관리</a></li>
-	     	<li><a href="payMentUI" class="active">서비스 결제</a></li>
+	     	<li><a href="#" class="active">서비스 결제</a></li>
 	        <li class="dropdown">
 	        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
 	 			<ul class="dropdown-menu">
@@ -39,5 +39,14 @@
 	  </div>
 	</nav>
 </c:if>
+<script>
 
+</script>
+<form action="payMent" method="post">
+	<input type="radio" name="selectPay" value="30" checked="checked"> 30일 상품 [ 16000원 ]<br>
+	<input type="radio" name="selectPay" value="60"> 60일 상품 [ 28000원 ]<br>
+    <input type="radio" name="selectPay" value="90"> 90일 상품 [ 40000원 ]<br>
+    <input type="radio" name="selectPay" value="120"> 120일 상품 [ 52000원 ]<br>
+	<input type="submit" value="결제하기">
+</form>
 

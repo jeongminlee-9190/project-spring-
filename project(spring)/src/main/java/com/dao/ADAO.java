@@ -28,6 +28,10 @@ public class ADAO {
 		return template.selectList("AdminMapper.soList");
 	}
 	
+	public List<Object> soList2() {
+		return template.selectList("AdminMapper.soList2");
+	}
+	
 	public void changeSoLevel(HashMap<String, String> map) {
 		template.update("AdminMapper.soLevelChange",map);
 	}

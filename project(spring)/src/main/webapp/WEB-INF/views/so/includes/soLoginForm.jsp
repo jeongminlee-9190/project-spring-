@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<c:if test="${empty login}">
+<c:if test="${empty SoLogin}">
 	<form action="sologin" method="get">
 		<span class="loginText">로그인을 해주세요!</span><br>
 		<input type="text" name="soId" class="input_soId" placeholder="아이디(이메일 형식)" maxlength="30"><br>
@@ -16,8 +16,8 @@
 	
 </c:if>
 
-<c:if test="${!empty login}">
-	<span class="state_login">${login.soId}&nbsp;</span>
-	<a href="SoLogoutServlet"><span class="state_login">로그아웃</span></a>
+<c:if test="${!empty SoLogin}">
+	<span class="state_login">${SoLogin.soId}&nbsp;</span>
+	<a href="sologout"><span class="state_login">로그아웃</span></a>
 	<a href="SoPwCheckUIServlet"><span class="state_login">MyPage</span></a>
 </c:if>

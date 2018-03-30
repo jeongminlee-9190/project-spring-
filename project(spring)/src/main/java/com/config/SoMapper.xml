@@ -54,5 +54,9 @@
 		delete from shopowner
 		where soId=#{soId}
 	</delete>
-  
+  	
+  	<insert id="payment" parameterType="SvDTO">
+  		insert into payment(soId,payNum,payDate,period,price)
+		values(#{soId},#{payNum},default,#{period},#{price})
+  	</insert>
 </mapper>

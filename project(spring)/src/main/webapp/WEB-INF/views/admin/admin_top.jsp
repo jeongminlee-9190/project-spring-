@@ -11,9 +11,15 @@
 <nav class="navbar navbar-inverse">
    <div class="container-fluid">
      <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	       <span class="icon-bar"></span>
+	       <span class="icon-bar"></span>
+	       <span class="icon-bar"></span>                        
+	    </button>
         <a class="navbar-brand" href="main_admin">갬성갱단</a>
      </div>
      
+     <div class="navbar-collapse collapse" id="myNavbar">
      <ul class="nav navbar-nav">
         <li class="dropdown">
         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">개인 회원 관리<span class="caret"></span></a>
@@ -46,6 +52,7 @@
      <ul class="nav navbar-nav navbar-right">
        <li><a href="adminLogout">로그아웃</a></li>
      </ul>
+     </div>
   </div>
 </nav>
 

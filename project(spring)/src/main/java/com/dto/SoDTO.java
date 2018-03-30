@@ -103,4 +103,11 @@ public class SoDTO {
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
 	}
+	@Override
+	public String toString() {
+		return "SoDTO [rownum=" + rownum + ", soId=" + soId + ", soPasswd=" + soPasswd + ", soName=" + soName
+				+ ", soPhone=" + soPhone + ", soLicense=" + soLicense + ", soPost=" + soPost + ", soAddr=" + soAddr
+				+ ", soLevel=" + soLevel + ", soJoindate=" + soJoindate + "]";
+	}
+	
 }

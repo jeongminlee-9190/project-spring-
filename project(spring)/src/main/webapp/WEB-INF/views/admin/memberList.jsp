@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-
+<jsp:include page="admin_top.jsp" flush="true"/>
 <table border="1">
 	<tr>
 		<th>번호</th>
@@ -35,4 +35,3 @@ $(document).ready(function(){
 	 </tr>
 	</c:forEach>
 </table>
-	<button id="memberAdd">등록</button>

@@ -17,31 +17,14 @@
    </script>
 </c:if>
 
-<c:if test="${!empty logout}">
+<c:if test="${!empty SoLogout}">
 	<script type="text/javascript">
-    	alert('${logout}');
+    	alert('${SoLogout}');
     </script>
 </c:if>
 
-
-<div class="wrapper">
-	<div class="mainwrapper">
-		<div class="logo">
-			<span>(갬성갱단)상점 관리 센터</span><br>
-		</div>
-		<div class="loginForm">
-			<jsp:include page="so/soLoginForm2.jsp" flush="true"/>
-		</div>
-		<div class="mainmenu">
-			<jsp:include page="so/includes/soTop.jsp" flush="true"/>
-		</div>
-	</div>
-	
-	<div class="contentwrapper">
-		<div class="content_top">
-			<jsp:include page="so/includes/coContent_top.jsp" flush="true"/>
-		</div>
-	</div>
+<jsp:include page="so/includes/soTop.jsp" flush="true"/>
+<jsp:include page="so/soContainer.jsp" flush="true"/>
 
 	<div class="footer">
 		footer
