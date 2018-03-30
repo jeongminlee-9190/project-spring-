@@ -24,24 +24,7 @@
 			</list>
 		</property>
 		<property name="dataSource" ref="dataSource"/>
-<<<<<<< HEAD
 		<property name="typeAliasesPackage" value="com.dto" />
-=======
-		<property name="typeAliases">
-			<list>
-				<value>com.dto.SoDTO</value>
-				<value>com.dto.AdminDTO</value>
-				<value>com.dto.MemberDTO</value>
-				<value>com.dto.MNoticeDTO</value>
-				<value>com.dto.MPageDTO</value>
-				<value>com.dto.PageDTO</value>
-				<value>com.dto.SDTO</value>
-				<value>com.dto.SoNoticeDTO</value>
-				<value>com.dto.SoQnaDTO</value>
-				<value>com.dto.SvDTO</value>
-			</list>
-		</property>
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	</bean>
 	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg name="sqlSessionFactory" ref="factoryBean"/>

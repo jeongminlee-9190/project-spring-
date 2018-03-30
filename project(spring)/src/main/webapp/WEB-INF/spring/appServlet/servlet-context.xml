@@ -10,15 +10,12 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="home" />
-<<<<<<< HEAD
 	<!-- <mvc:resources location="/resources/js/" mapping="/js/**"></mvc:resources> -->
-=======
 	<mvc:view-controller path="memberForm" view-name="memberForm"/>
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
 	<mvc:resources location="/resources/" mapping="/resources/**"/>
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"/>
