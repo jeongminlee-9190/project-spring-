@@ -8,42 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
-<style>
-	.logo{
-		width:100px;
-	}
-	.container-fluid{
-		margin-top: 100px;
-	}
-	
-	.table-hover{
-		font-size: 13px;
-	}
-	.col-sm-4{
-		margin-left: 5%;
-		margin-right: 5%;
-	}
-	.black-background{
-		border: 1px solid #343A40;
-		background-color: #343A40;
-		width: 280px;
-		color: white;
-	}
-	.black-border{
-		border: 1px solid #343A40;
-		background-color: white;
-		color: #343A40;
-		width: 280px;
-	}
-	.sm-black-background{
-		border: 1px solid #343A40;
-		background-color: #343A40;
-		width: 60px;
-		font-size: 14px;
-		color: white;
-	}
-</style>
-
+<link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -79,10 +44,7 @@
 </c:if>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	
-       <a class="navbar-brand" href="views/main_admin"><img src="resources/images/logo.png" class="logo"></a>
-     
+    <a class="navbar-brand" href="main_admin"><img src="resources/images/logo.png" class="logo"> 관리자 센터</a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
        <ul class="navbar-nav">
         <li class="nav-item active dropdown">
@@ -121,17 +83,13 @@
 	   <span class="navbar-toggler-icon"></span>                       
 	</button>
 </nav>
-</nav>
-
-
-
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-md-5">
 			<div class="pagebox">
 				<h3>개인회원 공지사항 목록</h3>
-				<form action="mNotice" method="GET">
+				<form action="mNotice" method="GET" class="form-inline" role="form">
 					<table class="noticesearch_tbl">
   						<tr align="center">
    							<td colspan="5" align="center">
@@ -139,7 +97,7 @@
         							<option value="title">제목</option>
         							<option value="content">내용</option>
      							</select>
-			     				<input type="text" name="searchValue" size="40">
+			     				<input type="text" class="form-control" id="searchValue" name="searchValue">
 			     				<input type="submit" class="btn btn-primary sm-black-background" value="검색">
    							</td>
  						</tr>
@@ -147,15 +105,15 @@
   				</form>
 				<table class="table table-hover">
 					<colgroup>
-						<col width="20%">
-						<col width="40%">
-						<col width="20%">
-						<col width="20%">
+						<col width="15%">
+						<col width="45%">
+						<col width="25%">
+						<col width="15%">
 					</colgroup>
 				 			
 					<thead class="thead-light">
 						<tr>
-					  		<th scope="col">글번호</th>
+					  		<th scope="col">번호</th>
 					  		<th scope="col">제목</th>
 					  		<th scope="col">작성일</th>
 					  		<th scope="col">조회수</th>
@@ -195,7 +153,7 @@
 				  </table>
 			</div>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-md-7">
 			<div class="pagebox">
 				<h3>개인회원 공지사항 쓰기</h3>
 				<form action="mNoticeWrite" method="POST">

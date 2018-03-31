@@ -23,13 +23,13 @@
 	button{
  		margin-top: 5%;
  	}
- 	
+ 		
 	.row{
 	 	margin-top: 200px;
-	 	margin-left: 25%;
+	 	margin-left: 17%;
  	}
  	.col-sm-4{
- 	 	width: 200px;
+ 	 	max-width: 310px;
  	 	height: 250px;
  	 	text-align: center;
  	}
@@ -41,6 +41,7 @@
 </head>
 <body>
 <div class="container-fluid">
+		시연/구현용 페이지
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="pagebox">

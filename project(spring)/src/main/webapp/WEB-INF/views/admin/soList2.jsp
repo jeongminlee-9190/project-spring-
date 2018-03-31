@@ -3,10 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 
 
@@ -30,50 +26,7 @@ $(document).ready(function(){
 	}
 </style>
 
-
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	
-       <a class="navbar-brand" href="views/main_admin">갬성갱단</a>
-     
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-       <ul class="navbar-nav">
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">개인 회원 관리<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
- 			   <li><a class="dropdown-item" href="memberList">회원 목록</a></li>
- 			   <li><a class="dropdown-item" href="memberList">회원 등록</a></li>
-	           <li><a class="dropdown-item" href="memberDelete">휴면 계정 삭제</a></li>
-	        </ul>
-	    </li>
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">상점 회원 관리<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
- 			   <li><a class="dropdown-item" href="soList">회원 목록</a></li>
- 			   <li><a class="dropdown-item" href="soList2">가입 승인</a></li>
- 			   <li><a class="dropdown-item" href="soList">회원 등록</a></li>
-	           <li><a class="dropdown-item" href="soList2">회원 레벨 변경</a></li>
-	           <li><a class="dropdown-item" href="soDelete">휴면 계정 삭제</a></li>
-	           <li><a class="dropdown-item" href="#">1:1 문의 접수 현황</a></li>
-	        </ul>
-	    </li>
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">공지사항<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
-	           <li><a class="dropdown-item" href="#">개인 회원 공지사항</a></li>
-	           <li><a class="dropdown-item" href="#">상점 회원 공지사항</a></li>
-	        </ul>
-	    </li>
-     </ul>
-     
-     <ul class="navbar-nav ml-auto">
-       <li><a href="adminLogout">로그아웃</a></li>
-     </ul>
-     </div>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-	   <span class="navbar-toggler-icon"></span>                       
-	</button>
-</nav>
+<jsp:include page="admin_top.jsp" flush="true"/>
 
 <div class="container">
 	<form action="changeSoLevel" method="get">

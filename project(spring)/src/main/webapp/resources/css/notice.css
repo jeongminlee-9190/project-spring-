@@ -1,13 +1,18 @@
-<style>
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+	body { font-family:"Nanum Gothic"; }
+	td,th{
+		align: left;
+	}
+	.logo{
+		width:100px;
+	}
 	.container-fluid{
 		margin-top: 100px;
 	}
 	
 	.table-hover{
 		font-size: 13px;
-	}
-	.col-sm-4{
-		margin-left: 10%;
 	}
 	.black-background{
 		border: 1px solid #343A40;
@@ -21,4 +26,10 @@
 		color: #343A40;
 		width: 280px;
 	}
-</style>
+	.sm-black-background{
+		border: 1px solid #343A40;
+		background-color: #343A40;
+		width: 60px;
+		font-size: 14px;
+		color: white;
+	}

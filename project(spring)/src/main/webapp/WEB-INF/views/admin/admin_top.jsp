@@ -15,9 +15,7 @@
 </style>
 	
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	
-       <a class="navbar-brand" href="views/main_admin"><img src="resources/images/logo.png" class="logo"></a>
-     
+    <a class="navbar-brand" href="main_admin"><img src="resources/images/logo.png" class="logo"> 관리자 센터</a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
        <ul class="navbar-nav">
         <li class="nav-item active dropdown">

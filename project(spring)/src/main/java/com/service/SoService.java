@@ -17,6 +17,10 @@ public class SoService {
 		return sDTO;
 	}
 	
+	public SoDTO soMyPage(String soId) {
+		return dao.soMyPage(soId);
+	}
+	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = dao.findSoId(map);
 		return soId;

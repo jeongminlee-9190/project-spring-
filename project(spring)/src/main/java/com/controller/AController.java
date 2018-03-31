@@ -26,6 +26,11 @@ public class AController {
 	AService service;
 	NoticeService nService;
 	
+	@RequestMapping(value= "/main_admin", method=RequestMethod.GET)
+	public String main_admin() {
+		return "main_admin";
+	}
+	
 	@RequestMapping(value= "/adminLogin", method=RequestMethod.POST)
 	public String adminLogin(@RequestParam HashMap<String, String> map, HttpSession session) {
 		AdminDTO dto = service.login(map);

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 	.container{
 		margin-top: 100px;
