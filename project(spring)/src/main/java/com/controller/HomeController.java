@@ -16,7 +16,6 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		
 		return "home";
 	}
 	
@@ -28,5 +27,10 @@ public class HomeController {
 	@RequestMapping(value = "/index_admin")
 	public String index_admin() {
 		return "index_admin";
+	}
+	
+	@RequestMapping(value = "/main0")
+	public String main0() {
+		return "main0";
 	}
 }

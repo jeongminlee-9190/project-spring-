@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ShopMapper">
+
+	<select id="selectAll" resultType="ShopDTO">
+		select * from shop
+	</select>
+	
+	<select id="selectShop" parameterType="String" resultType="ShopDTO">
+		select * from shop
+		where sCode = #{sCode}
+	</select>
+	
+	<select id="selectByStation" parameterType="String" resultType="ShopDTO">
+		select * from shop
+		where ssubway = #{station}
+	</select>
+
+<!-- 	<select id="search" parameterType="arraylist" resultType="ScoreDTO">
+		select scategory, scode, good, bad
+		from score
+		where scategory in
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+	</select> -->
+	
+	<select id="isInterest" parameterType="hashmap" resultType="InterestDTO">
+		select * from interest
+		where mId = #{mId} and sCode = #{sCode}
+	</select>
+	
+	<insert id="insertInterest" parameterType="hashmap">
+		insert into interest(iCode, mId, sCode)
+		values (#{iCode}, #{mId}, #{sCode})
+	</insert>
+	
+	<delete id="deleteInterest" parameterType="hashmap">
+		delete from interest
+		where iCode=#{iCode}
+	</delete>
+	
+	<select id="search" parameterType="hashmap" resultType="SearchResultDTO">
+		SELECT S.SCODE, sum(S.GOOD-S.BAD) SCORESUM, 
+			SH.SNAME,SH.SSUBWAY,SH.SOID,SH.SOID,SH.SPOST,SH.SADDR, 
+         SH.SPHONE,SH.SBUSINESSHOURS,SH.SPARKINGLOT,SH.STERRACE,
+         SH.SMENU1,SH.SMENU2,SH.SCATEGORY,SH.SIMAGE,SH.SLIKE,SH.SHATE,SH.SINTEREST
+		FROM SCORE S, SHOP SH
+		WHERE S.SCODE = SH.SCODE
+		<if test="station != ''">
+		AND SH.SSUBWAY =#{station} 
+		</if>
+		<if test="keyword != null">
+		AND S.CATEGORY IN
+		<foreach collection="keyword" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+		</if>
+		GROUP BY S.SCODE,SH.SNAME,SH.SSUBWAY,SH.SOID,SH.SPOST,SH.SADDR,
+          SH.SPHONE,SH.SBUSINESSHOURS,SH.SPARKINGLOT,SH.STERRACE,
+          SH.SMENU1,SH.SMENU2,SH.SCATEGORY,SH.SIMAGE,SH.SLIKE,SH.SHATE,SH.SINTEREST
+		ORDER BY SCORESUM DESC 
+	</select>
+	
+	
+	
+	
+	
+</mapper>
