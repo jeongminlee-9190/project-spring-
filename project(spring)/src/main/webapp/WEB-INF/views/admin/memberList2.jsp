@@ -4,6 +4,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		
+	$("#delBtn").on("click",function(){
+		location.href="mDeleteServlet?mId="+$("#mid").text();
+	});
+	
+	$("#memberAdd").on("click",function(){
+		location.href="";
+	});
+});
+</script>
 <style>
 	.container{
 		margin-top: 100px;
@@ -16,7 +28,7 @@
 
 <jsp:include page="admin_top.jsp" flush="true"/>
 <div class="container">
-	<h4>개인회원 목록</h4>
+	<h4>개인회원 - 휴면계정 삭제</h4>
 	<form action="memberList" method="get">
 		<table class="noticesearch_tbl">
   			<tr align="center">
@@ -38,15 +50,17 @@
 					<th>아이디</th>
 					<th>이름</th>
 					<th>핸드폰</th>
+					<th>휴면기간</th>
 				</tr>
 			</thead>
-			<c:forEach var="dto" items="${memberList}" varStatus="status">
+			<c:forEach var="dto" items="${memberList2}" varStatus="status">
 			<tbody>
 				<tr>
 					<td>${dto.rownum}</td>
-		  			<td id="mid">${dto.mId}</td>
-		  			<td>${dto.mName}</td>
-		  			<td>${dto.mPhone}</td>
+	  				<td id="mid">${dto.mId}</td>
+	  				<td>${dto.mName}</td>
+	  				<td>${dto.mPhone}</td>
+	  				<td>${dto.mLastLogin}<button id="delBtn">삭제(휴면계정)</button></td>
 				</tr>
 			</tbody>
 			</c:forEach>

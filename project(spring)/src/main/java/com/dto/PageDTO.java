@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.type.Alias;
 @Alias("PageDTO")
 public class PageDTO {
-	private List<SoNoticeDTO> list; // 게시판 목록
+	private List<NoticeDTO> list; // 게시판 목록
 	private List<SoQnaDTO> qnaList; // 게시판 목록
 	private int perPage=10; // 페이지 당 보여줄 갯수
 	private int curPage; // 현재 페이지 번호
@@ -28,7 +28,7 @@ public class PageDTO {
 	}
 
 	//notice
-	public PageDTO(List<SoNoticeDTO> list, int perPage, int curPage, int totalcnt, String searchValue) {
+	public PageDTO(List<NoticeDTO> list, int perPage, int curPage, int totalcnt, String searchValue) {
 		super();
 		this.list = list;
 		this.perPage = perPage;
@@ -45,11 +45,11 @@ public class PageDTO {
 		this.qnaList = qnaList;
 	}
 
-	public List<SoNoticeDTO> getList() {
+	public List<NoticeDTO> getList() {
 		return list;
 	}
 
-	public void setList(List<SoNoticeDTO> list) {
+	public void setList(List<NoticeDTO> list) {
 		this.list = list;
 	}
 
