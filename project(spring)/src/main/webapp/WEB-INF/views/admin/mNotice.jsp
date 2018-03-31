@@ -47,10 +47,10 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
-		  $(".soNoticeRetrieve").on("click",function(){
+		  $(".mNoticeRetrieve").on("click",function(){
 			  var num =  $(this).attr("data-num");
 			  $.ajax({
-				  url:"soNoticeRetrieve",
+				  url:"mNoticeRetrieve",
 				  type:"get",
 				  data:{
 					num:num
@@ -130,8 +130,8 @@
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="pagebox">
-				<h3>상점회원 공지사항 목록</h3>
-				<form action="soNotice" method="GET">
+				<h3>개인회원 공지사항 목록</h3>
+				<form action="mNotice" method="GET">
 					<table class="noticesearch_tbl">
   						<tr align="center">
    							<td colspan="5" align="center">
@@ -165,7 +165,7 @@
 						<tbody>
 					 		<tr>
 					  			<td align="center">${dto.noticeNum}</td>
-					  			<td><a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" data-num="${dto.noticeNum}">${dto.noticeTitle}</a></td>
+					  			<td><a data-toggle="modal" data-target="#myModal" class="mNoticeRetrieve" data-num="${dto.noticeNum}">${dto.noticeTitle}</a></td>
 					  			<td align="center">${dto.noticeWritedate}</td>
 					  			<td align="center">${dto.noticeReadcnt}</td>
 					  			<!-- The Modal -->
@@ -188,7 +188,7 @@
 					 		</tr>
 				 		</tbody>
 					</c:forEach>
-				    <!-- 페이지번호 -->
+				  	<!-- 페이지번호 -->
 				  	<tr>
 				   		<td colspan="5" align="center">◀&nbsp;<jsp:include page="noticePaging.jsp" flush="true" />▶</td>
 				  	</tr>
@@ -197,8 +197,8 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="pagebox">
-				<h3>상점회원 공지사항 쓰기</h3>
-				<form action="soNoticeWrite" method="POST">
+				<h3>개인회원 공지사항 쓰기</h3>
+				<form action="mNoticeWrite" method="POST">
 					<table class="NoticeWrite_tbl">
 						 <tr>
 							<td>
@@ -216,11 +216,11 @@
 								  </div>
 							  </td>
 						</tr>
-						<tr>
+						 <tr>
 						 	<td colspan="2" align="center">
-						 		<input type="submit" class="btn btn-primary black-background" value="작성완료">
-						 		<input type="reset" class="btn btn-primary black-border" value="취소"></td>
-						</tr>
+						 	<input type="submit" class="btn btn-primary black-background" value="작성완료">
+						 	<input type="reset" class="btn btn-primary black-border" value="취소"></td>
+						 </tr>
 					</table>
 				</form>
 			</div>

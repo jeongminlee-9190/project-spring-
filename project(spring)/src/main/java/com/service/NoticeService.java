@@ -14,9 +14,8 @@ public class NoticeService {
 	@Autowired
 	NoticeDAO dao;
 	
+	//////////////////////////////////////////////////////////////////////////////////////////////////
 	public PageDTO soNoticeList(HashMap<String, String> map, int curPage){
-		System.out.println("map: "+map+" curPage: "+curPage);
-		System.out.println("soNoticeList service접근");
 		return dao.soNoticeList(map,curPage);
 	}
 	
@@ -34,5 +33,27 @@ public class NoticeService {
 	
 	public void soNoticeUpdate(NoticeDTO dto){
 		dao.soNoticeUpdate(dto);
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	public PageDTO mNoticeList(HashMap<String, String> map, int curPage){
+		return dao.mNoticeList(map,curPage);
+	}
+	
+	public void mNoticeWrite(NoticeDTO dto){
+		System.out.println("mNoticeWrite service");
+		dao.mNoticeWrite(dto);
+	}
+	
+	public NoticeDTO mNoticeRetrieve(int num){
+		return dao.mNoticeRetrieve(num);
+	}
+	
+	public void mNoticeDelete(int num){
+		dao.mNoticeDelete(num);
+	}
+	
+	public void mNoticeUpdate(NoticeDTO dto){
+		dao.mNoticeUpdate(dto);
 	}
 }

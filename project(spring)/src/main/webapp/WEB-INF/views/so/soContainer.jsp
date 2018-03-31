@@ -20,18 +20,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-      	<img src="${pageContext.request.contextPath}/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
+      	<img src="resoures/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
         <div class="logo">
-        	<img src="${pageContext.request.contextPath}/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
+        	<img src="resoures/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
         </div>
       </div>
 
       <div class="item">
-        <img src="${pageContext.request.contextPath}/images/main_bg02.jpg" alt="main_bg02.jpg" style="width:170%;">
+        <img src="resoures/images/main_bg02.jpg" alt="main_bg02.jpg" style="width:170%;">
       </div>
     
       <div class="item">
-        <img src="${pageContext.request.contextPath}/images/main_bg03.jpg" alt="main_bg03.jpg" style="width:170%;">
+        <img src="resoures/images/main_bg03.jpg" alt="main_bg03.jpg" style="width:170%;">
       </div>
     </div>
 

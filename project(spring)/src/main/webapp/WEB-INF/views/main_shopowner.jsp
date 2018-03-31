@@ -16,19 +16,50 @@
     alert('${success}');
    </script>
 </c:if>
-
+<c:remove var="success"/>
 <c:if test="${!empty SoLogout}">
 	<script type="text/javascript">
     	alert('${SoLogout}');
     </script>
 </c:if>
 
-<jsp:include page="so/includes/soTop.jsp" flush="true"/>
+<c:if test="${!empty SoLogin}"> 
+	<nav class="navbar navbar-inverse">
+	   <div class="container-fluid">
+	     <div class="navbar-header">
+	        <a class="navbar-brand" href="main_admin">갬성갱단</a>
+	     </div>
+	     
+	     <ul class="nav navbar-nav">
+	     	<li><a href="#" class="active">서비스 소개</a></li>
+	     	<li><a href="#" class="active">상점 관리</a></li>
+	     	<li><a href="payMentUI" class="active">서비스 결제</a></li>
+	        <li class="dropdown">
+	        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
+	 			<ul class="dropdown-menu">
+		           <li><a href="#">공지사항</a></li>
+		           <li><a href="#">자주 묻는 질문</a></li>
+		           <li><a href="#">1:1 문의</a></li>
+		        </ul>
+		    </li>
+		    <li><a href="#">예약관리</a></li>
+		    <li><a href="#"></a></li>
+	     </ul>
+	     
+	     <ul class="nav navbar-nav navbar-right">
+	       <li><a href="#">계정: ${SoLogin.soId}</a></li>
+	       <li><a href="sologout">로그아웃</a></li>
+	       <li><a href="sologout">마이페이지</a></li>
+	     </ul>
+	  </div>
+	</nav>
+</c:if>
+
+
 <jsp:include page="so/soContainer.jsp" flush="true"/>
 
 	<div class="footer">
 		footer
 	</div>	
-</div>
 </body>
 </html>
