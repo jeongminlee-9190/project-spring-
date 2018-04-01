@@ -10,6 +10,7 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="home" />
+	<mvc:view-controller path="/main_admin" view-name="main_admin" />
 	<!-- <mvc:resources location="/resources/js/" mapping="/js/**"></mvc:resources> -->
 	<mvc:view-controller path="memberForm" view-name="memberForm"/>
 	<mvc:resources location="/resources/" mapping="/resources/**"/>

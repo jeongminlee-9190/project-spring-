@@ -19,6 +19,11 @@ public class SoDAO {
 		return sDTO;
 	}
 	
+	public SoDTO soMyPage(String soId) {
+		SoDTO sDTO = template.selectOne("SoMapper.soMyPage",soId);
+		return sDTO;
+	}
+	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = template.selectOne("SoMapper.findSoId",map);
 		return soId;

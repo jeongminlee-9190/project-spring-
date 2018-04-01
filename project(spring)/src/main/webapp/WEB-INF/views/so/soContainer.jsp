@@ -8,9 +8,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<<style>
+<style>
+	.carousel-inner img {
+	      width: 100%;
+	      height: 100%;
+	  }
+	.container-fluid{
+		background-color: black;
+	}
 	.logo{
 		width:10%;
+		margin-top: 3%;
+		margin-left: 39%;
+		
 	}
 </style>
 
@@ -20,18 +30,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-      	<img src="${pageContext.request.contextPath}/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
+      	<img src="resources/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
         <div class="logo">
-        	<img src="${pageContext.request.contextPath}/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
+        	<img src="resources/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
         </div>
       </div>
 
       <div class="item">
-        <img src="${pageContext.request.contextPath}/images/main_bg02.jpg" alt="main_bg02.jpg" style="width:170%;">
+        <img src="resources/images/main_bg02.jpg" alt="main_bg02.jpg" style="width:170%;">
       </div>
     
       <div class="item">
-        <img src="${pageContext.request.contextPath}/images/main_bg03.jpg" alt="main_bg03.jpg" style="width:170%;">
+        <img src="resources/images/main_bg03.jpg" alt="main_bg03.jpg" style="width:170%;">
       </div>
     </div>
 

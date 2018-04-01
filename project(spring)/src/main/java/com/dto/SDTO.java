@@ -50,7 +50,7 @@ public class SDTO {
 
 	public SDTO(String sCode, String sName, String soId, String sPost, String sAddr, String sPhone, String sCategory,
 			String sBusinesshours, String sParkinglot, String sTerrace, String sMenu1, String sMenu2, String sImage,
-			String sLike,String sSubway) {
+			String sSubway,String sLike) {
 		super();
 		this.sCode = sCode;
 		this.sName = sName;
@@ -65,8 +65,8 @@ public class SDTO {
 		this.sMenu1 = sMenu1;
 		this.sMenu2 = sMenu2;
 		this.sImage = sImage;
-		this.sLike = sLike;
 		this.sSubway = sSubway;
+		this.sLike = sLike;
 	}
 
 

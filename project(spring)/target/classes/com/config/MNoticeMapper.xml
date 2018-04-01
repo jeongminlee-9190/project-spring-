@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MNoticeMapper">
+
+	<select id="mNoticeList" parameterType="hashmap" resultType="NoticeDTO">
+		select noticeNum, noticeTitle, noticeContent, to_char(noticeWritedate,'YYYY-MM-DD') as noticeWritedate, noticeWriter, noticeReadcnt
+		from noticetom
+		
+		<if test="searchName=='title'">
+			where noticeTitle like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='content'">
+			where noticeContent like '%'||#{searchValue}||'%'
+		</if>
+		order by noticeNum desc
+	</select>
+
+
+	<select id="mNoticeTotalCount" resultType="int">
+     select count(*)
+     from noticetom
+    </select>
+    
+    <select id="mNoticeTotalSearchCount" resultType="int" parameterType="hashmap">
+     select count(*)
+     from noticetom
+     <if test="searchName == 'title'">
+	     where noticeTitle LIKE '%'||#{searchValue}||'%'
+	   </if>
+	   <if test="searchName == 'content'">
+	     where noticeContent LIKE '%'||#{searchValue}||'%'
+	   </if>
+    </select>
+    
+    
+    <insert id="mNoticeInsert" parameterType="NoticeDTO">
+       insert into noticetom(noticeNum, noticeTitle, noticeContent, noticeWritedate, noticeWriter)
+       values(SEQ_NOTICETOSO_NOTICENUM.nextval, #{noticeTitle},#{noticeContent},default,default)
+    </insert>
+    
+    
+     <!-- 공지사항 자세히 보기 -->
+    <select id="mNoticeRetrieve" parameterType="int" resultType="NoticeDTO">
+		select noticeNum, noticeTitle, noticeContent, to_char(noticeWritedate,'YYYY-MM-DD') as noticeWritedate, noticeWriter, noticeReadcnt
+		from noticetom
+		where noticeNum=#{noticeNum}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="mNoticeReadCnt" parameterType="int">
+	    update noticetom 
+	    set noticeReadcnt = noticeReadcnt + 1
+	    where noticeNum = #{noticeNum}
+	</update>
+	
+	<update id="mNoticeUpdate" parameterType="NoticeDTO">
+	 update noticetom
+	 set noticeTitle = #{noticeTitle}, noticeContent=#{noticeContent}, noticeWriter=#{noticeWriter}
+	 where noticeNum = #{noticeNum}
+	</update>
+	
+	<delete id="mNoticeDelete" parameterType="int">
+	 delete from noticetom
+	 where noticeNum = #{noticeNum}
+	</delete>
+
+</mapper>

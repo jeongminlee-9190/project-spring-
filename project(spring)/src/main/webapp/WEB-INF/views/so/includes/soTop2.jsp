@@ -19,14 +19,11 @@
  	
  	}
 </style>
-<c:if test="${!empty login}">
-	<div class="main_menu">
-		<a href=""><span>서비스 소개</span></a>&nbsp;&nbsp;
-		<a href="SManagementUIServlet"><span>상점 관리</span></a>&nbsp;&nbsp;
-		<a href="SPaymentUIServlet"><span>서비스 결제</span></a>&nbsp;&nbsp;
-		<a href="SoCenterUIServlet"><span>공지사항</span></a>
-	</div>
-</c:if>
+
+<div class="main_menu">
+	<a href="SoFindsoIdServlet"><span>아이디 찾기</span></a>&nbsp;&nbsp;
+	<a href="SoFindsoPasswdServlet"><span>비밀번호 찾기</span></a>&nbsp;&nbsp;
+</div>
 
 
 
