@@ -3,33 +3,14 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ShopMapper">
-
-	<select id="selectAll" resultType="ShopDTO">
-		select * from shop
-	</select>
-	
 	<select id="selectShop" parameterType="String" resultType="ShopDTO">
 		select * from shop
 		where sCode = #{sCode}
 	</select>
 	
-	<select id="selectByStation" parameterType="String" resultType="ShopDTO">
-		select * from shop
-		where ssubway = #{station}
-	</select>
-
-<!-- 	<select id="search" parameterType="arraylist" resultType="ScoreDTO">
-		select scategory, scode, good, bad
-		from score
-		where scategory in
-		<foreach collection="list" item="item" separator=",">
-			#{item}
-		</foreach>
-	</select> -->
-	
 	<select id="isInterest" parameterType="hashmap" resultType="InterestDTO">
 		select * from interest
-		where mId = #{mId} and sCode = #{sCode}
+		where iCode = #{iCode}
 	</select>
 	
 	<insert id="insertInterest" parameterType="hashmap">
@@ -63,9 +44,4 @@
           SH.SMENU1,SH.SMENU2,SH.SCATEGORY,SH.SIMAGE,SH.SLIKE,SH.SHATE,SH.SINTEREST
 		ORDER BY SCORESUM DESC 
 	</select>
-	
-	
-	
-	
-	
 </mapper>
