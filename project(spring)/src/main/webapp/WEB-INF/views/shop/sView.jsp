@@ -177,7 +177,7 @@
 	<div class="container-fluid sInfo">
 		<div class="row">
 			<div class="panel panel-default Info1">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#info1"><h3>상점 기본 정보</h3><a></div>
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#info1"><h3 class="panel-title">상점 기본 정보</h3><a></div>
 				<div id="info1" class="panel-collapse collapse in">
 					<div class="panel-body">
 						<div class="col-sm-6">
@@ -234,7 +234,7 @@
 		</div><!-- end of row -->
 		<div class="row">
 			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3>메뉴</h3><a></div>
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
 				<div id="menu" class="panel-collapse collapse">
 					<div class="panel-body">
 					메뉴.....
@@ -245,7 +245,7 @@
 		
 		<div class="row">
 			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#reservation"><h3>예약</h3><a></div>
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#reservation"><h3 class="panel-title">예약</h3><a></div>
 				<div id="reservation" class="panel-collapse collapse">
 					<div class="panel-body">
 					예약.....
@@ -256,7 +256,7 @@
 		
 		<div class="row">
 			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#review"><h3>후기</h3><a></div>
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#review"><h3 class="panel-title">후기</h3><a></div>
 				<div id="review" class="panel-collapse collapse">
 					<div class="panel-body">
 					후기.....

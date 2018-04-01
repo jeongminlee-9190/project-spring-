@@ -11,8 +11,9 @@
     .col-sm-7{
     	border: 1px solid grey;
     }
-    h4{
+    .panel-title{
     	font-weight: bold;
+    	color: orange;
     }
     .span_Info1{
     	font-size: 16px;
