@@ -14,14 +14,21 @@
 	      height: 100%;
 	  }
 	.container-fluid{
+		position: relative;
 		background-color: black;
 	}
+	
 	.logo{
+		position: absolute;
 		width:10%;
 		margin-top: 3%;
-		margin-left: 39%;
+		margin-left: 42%;
 		
 	}
+	#myCarousel{
+		margin-top: 50px;
+	}
+	
 </style>
 
 <c:if test="${!empty SoLogin}"> 
@@ -30,10 +37,11 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-      	<img src="resources/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
+      	
         <div class="logo">
         	<img src="resources/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
         </div>
+        <img src="resources/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
       </div>
 
       <div class="item">

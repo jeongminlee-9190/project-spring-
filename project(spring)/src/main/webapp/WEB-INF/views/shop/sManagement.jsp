@@ -7,150 +7,51 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-<style>
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
-	hr{
-		border: 2px solid orange;
-	}
-	p{
-		font-size: 12px;
-	}
-	span{
-		font-size: 16px;
-	}
-	.card{
-		position: relative;
-		height: 180px;
-	}
-	
-	.card1{
-		position: absolute;
-		margin-left: 10%;
-	}
-	
-	.card2{
-		position: absolute;
-		margin-left: 57%;
-	}
-	/* .card{
-		position: fixed;
-		width: 170px;
-	}
-	.card2{
-		position: fixed;
-		margin-left: 12%;
-		width: 170px;
-	} */
-	
-/* 	
-	.shopEnroll{
-		position: relative;
-		text-align: center;
-		top: 52px;
-		width: 400px;
-		height: 300px;
-	}
-	
-	.shopbasicInfoform {
-		position: absolute;
-		text-align: center;
-		width: 40%;
-		height: 50%;	
-	}
-	.shopimageInfoform {
-		position: absolute;
-		text-align: center;
-		width: 40%;
-		height: 50%;	
-	}
-	
-	
-	.shopView{
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-	
-
-	.shopModify{
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-
-
-	.shopDeleteform {
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-	
-	
-	.shopbasicinfo,.shopimageinfo,.shopdelete {
-		font-size: 20px;
-		text-align: center;
-	}
-	
-	
-	.shopdeletewarn{
-		color: red;
-	}
-
-	.btn_enroll{
-		border: 1px solid #99e6ff;
-		background-color: #99e6ff;
-		margin-top: 10px;
-		height:35px;
-		width: 100px;
-	} */
-</style>
+<link href="${pageContext.request.contextPath}/resources/css/s_management.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
 <c:if test="${!empty SoLogin}"> 
-	<nav class="navbar navbar-inverse">
-		   <div class="container-fluid">
-		     <div class="navbar-header">
-		        <a class="navbar-brand" href="main_shopowner">갬성갱단 상점 관리 센터</a>
-		     </div>
-		     
-		     <ul class="nav navbar-nav">
-		     	<li><a href="#" class="active">서비스 소개</a></li>
-		     	<li><a href="sManagement" class="active">상점 관리</a></li>
-		     	<li><a href="payMentUI" class="active">서비스 결제</a></li>
-		        <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="#">공지사항</a></li>
-			           <li><a href="#">자주 묻는 질문</a></li>
-			           <li><a href="#">1:1 문의</a></li>
-			        </ul>
-			    </li>
-			    <li><a href="#">예약관리</a></li>
-			    <li><a href="#"></a></li>
-		     </ul>
-		     
-		     <ul class="nav navbar-nav navbar-right">
-		       <li><a href="#">계정: ${SoLogin.soId}</a></li>
-		       <li><a href="sologout">로그아웃</a></li>
-		       <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="soMyPage">기본정보</a></li>
-			           <li><a href="#">서비스 결제 내역</a></li>
-			        </ul>
-			    </li>
-		     </ul>
-		 </div>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					   <span class="icon-bar"></span>
+					   <span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="main_shopowner">갬성갱단 상점 센터</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" >서비스 소개</a></li>
+					<li class="active"><a href="sManagement" >상점 관리</a></li>
+					<li class="active"><a href="payMentUI">서비스 결제</a></li>
+					<li class="active"><a href="#">예약관리</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">계정: ${SoLogin.soId}</a></li>
+					<li class="active"><a href="sologout">로그아웃</a></li>
+					<li class="dropdown active">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="soMyPage">기본정보</a></li>
+							<li><a href="#">서비스 결제 내역</a></li>
+						</ul>
+					</li>
+					<li class="dropdown active">
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
+					 	<ul class="dropdown-menu">
+						    <li><a href="#">공지사항</a></li>
+						    <li><a href="#">자주 묻는 질문</a></li>
+						    <li><a href="#">1:1 문의</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</nav>
 </c:if>
+
+
 <input type="hidden" value="${sInfo}">
 <!-- 레벨이 0인 경우 메뉴를 클릭하면 다른페이지로 -->
 <br>
@@ -260,4 +161,7 @@
 			</div>
 		</div>
 	</div>	
+</div>
+<div class="footer">
+		footer
 </div>

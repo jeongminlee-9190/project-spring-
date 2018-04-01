@@ -5,8 +5,6 @@
 	/* 페이지 하단 */
 	.footer{
 		border: 1px solid grey;
-		position: fixed;
-		top: 90%;
 		width: 99%;
 		height: 9%;
 		text-align:center;

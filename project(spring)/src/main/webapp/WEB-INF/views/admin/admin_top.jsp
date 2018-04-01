@@ -49,7 +49,7 @@
      <ul class="navbar-nav ml-auto">
        <li><a href="adminLogout">로그아웃</a></li>
      </ul>
-     </div>
+   </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 	   <span class="navbar-toggler-icon"></span>                       
 	</button>
