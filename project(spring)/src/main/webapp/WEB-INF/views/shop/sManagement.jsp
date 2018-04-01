@@ -2,13 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-<link href="${pageContext.request.contextPath}/resources/css/s_management.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+	<link href="${pageContext.request.contextPath}/resources/css/s_management.css" rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+	<title>상점 관리</title>
+</head>
+
+<body>
 <c:if test="${!empty SoLogin}"> 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -69,7 +76,7 @@
  					<div class="card2">
     					<h3>2단계</h3>
 						<span class="shopimageinfo">상점 사진정보</span><br><br>
-						<p class="shopdeletewarn">기본정보 먼저 등록해주세요.</p>
+						<p class="shopwarn">기본정보 먼저 등록해주세요.</p>
  					</div>
  				</div>	
 			</c:if>
@@ -113,17 +120,17 @@
 				<p>확인할 수 있습니다.</p>
 				<br>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">
-					<a href="SViewServlet"><input type="button" class="btn_enroll"value="상점 확인"></a><br><br>
+					<a href="sView"><input type="button" class="btn_enroll"value="상점 확인"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && !empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본 정보를 등록해주세요.</p>
+					<p class="shopwarn">기본 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${!empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본정보와 사진 정보를</p>
-					<p class="shopdeletewarn">등록해주세요.</p>
+					<p class="shopwarn">기본정보와 사진 정보를</p>
+					<p class="shopwarn">등록해주세요.</p>
 				</c:if>
 			</div>
 		</div>
@@ -135,11 +142,11 @@
 				<br>
 				<c:if test="${!empty sInfo.sCode && empty sInfo.sImage}">
 					<a href="SViewServlet"><input type="button" class="btn_enroll"value="기본정보 수정"></a><br><br>
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본 정보를 등록해주세요.</p>
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">기본 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">
 					<a href="SInfoUpdateServlet"><input type="button" class="btn_enroll"value="기본정보 수정"></a><br><br>
@@ -150,13 +157,13 @@
 		<div class="col-sm-2" >
 			<div class="shopDeleteform">
 				<h3>상점 삭제</h3><hr><br>
-				<p class="shopdeletewarn">삭제하면 복원되지 않습니다.<p>
+				<p class="shopwarn">삭제하면 복원되지 않습니다.<p>
 				<br>
 				<c:if test="${(!empty sInfo.sCode && !empty sInfo.sImage) ||(empty sInfo.sCode && !empty sInfo.sImage) ||(!empty sInfo.sCode && empty sInfo.sImage)}">
 					<a href="SDeletionServlet"><input type="button" class="btn_enroll"value="상점 삭제"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">삭제할 정보가 없습니다.</p>
+					<p class="shopwarn">삭제할 정보가 없습니다.</p>
 				</c:if>
 			</div>
 		</div>
@@ -165,3 +172,4 @@
 <div class="footer">
 		footer
 </div>
+</body>

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+	a{
+		text-decoration: none;
+	}
+	.top{
+		position: relative;
+    }
+    .col-sm-5{
+    	border: 1px solid grey;
+    }
+    .col-sm-7{
+    	border: 1px solid grey;
+    }
+    h4{
+    	font-weight: bold;
+    }
+    .span_Info1{
+    	font-size: 16px;
+    	font-weight: bold;
+    }
+    .span_warn{
+    	font-size: 14px;
+    	color: red;
+    }
+	.sbasicInfo{
+		position: absolute;
+		margin-top: 50px;
+		height: 140px;
+		/* background-color: #FA8072; */
+		background-color: orange;
+		width: 100%;
+	}
+	.panel{
+		border: 1px solid orange;
+	}
+	.panel-body{
+		color: black;
+	}
+	
+	.Info1{
+		margin-top: 200px;
+		margin-left: 5%;
+		margin-right: 5%;
+		background-color: white;
+	}
+	
+	#map{
+	}
+	
+	.sName{
+		position: absolute;
+		margin-top: 25px;
+		font-size: 30px;
+		font-weight: bold;
+		left: 5%;
+		color: white;	
+	}
+	.sbasicInfo_tbl1{
+		position: absolute;
+		border-top: 1px solid white;
+		top: 50%;
+		left: 15%;
+		color: white;
+	}
+	.sbasicInfo_tbl1 td{
+		width: 150px;
+		height: 13px;
+		
+	}
+	
+	.sbasicInfo_tbl2{
+		position: absolute;
+		top: 20%;
+		margin-left: 20%;
+		color: white;
+	}
+	.sbasicInfo_tbl2_header{
+    	text-align: center;
+    	color: white;
+    }
+	.sbasicInfo_tbl2 td{
+		padding: 10px 0px 10px 0px;
+	}
+	
+	.menu{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	.reservation{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	.sMenu_tbl{
+		position: absolute;
+		top: 40%;
+		left: 5%;
+		width: 70%;
+		color: white;
+	}
+	.imageView{
+		position: absolute;
+		top: 10px;
+		left: 0%;
+	}
+	.image1,.image2,.image3,.image4,.image5{
+		width:130px;
+		height:130px;
+	}
+	
+	.btn_sInfoView{
+		background-color: #FA8072;
+		border: 1px solid white;
+		font-size: 15px;
+		font-weight: bold;
+		color: white;
+		padding: 5px 5px 5px 5px;
+	}
+	
+	.setDiv {
+        text-align: center;
+    }
+    .setDiv2 {
+        text-align: center;
+    }
+    .mask {
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:9999;
+        background-color:white;
+        display:none;
+    }
+    .mask2 {
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:9999;
+        background-color:white;
+        display:none;
+    }
+    .window {
+        display: none;
+        background-color: #000;
+        width: 750px;
+        height: 450px;
+        z-index:99000;
+        text-align: left;
+    }
+    .close{
+    	float:right;
+    	background-color: black;
+    	border: 1px solid black;
+    	color: white;
+    }
+     .window2 {
+        display: none;
+        background-color: #000;
+        width: 750px;
+        height: 450px;
+        z-index:99000;
+        text-align: left;
+    }
+	
