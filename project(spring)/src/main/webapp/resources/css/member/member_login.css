@@ -10,10 +10,16 @@
 *html #login_content_wrapper { height:100%;}
 
 #login_title {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	margin-top:80px;
+}
+
+#login_title p{
 	display:block;
 	position:relative;
 	left:-80px;
-	margin-top:80px;
 	margin-left:50%;
 	font-family: gotham_Bold; 
 	font-style: normal; 

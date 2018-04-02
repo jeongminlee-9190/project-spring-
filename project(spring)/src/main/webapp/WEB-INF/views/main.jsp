@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- css -->
 <!-- reset -->
-<link rel="stylesheet" href="resources/css/member/reset.css">
+<link rel="stylesheet" href="resources/css/reset.css">
 <!-- font -->
 <link rel="stylesheet" href="resources/css/fonts.css">
 
@@ -62,9 +62,7 @@
 	<jsp:include page="search/keyword.jsp" flush="true" />
 </div>
 
-<div id="footer">
-	<jsp:include page="footer/footer.jsp" flush="true" />
-</div>
+<jsp:include page="footer/footer.jsp" flush="true" />
 
 </body>
 </html>
