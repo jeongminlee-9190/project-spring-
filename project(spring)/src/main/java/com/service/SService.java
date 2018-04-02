@@ -16,4 +16,9 @@ public class SService {
 	public SDTO sInfo(String soId) {
 		return dao.sInfo(soId);
 	}
+	
+	public void SInfoEnroll(SDTO dto) {
+		dao.SInfoEnroll(dto);
+	}
+
 }

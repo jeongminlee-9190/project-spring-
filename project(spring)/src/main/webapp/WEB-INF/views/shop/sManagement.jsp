@@ -41,6 +41,7 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="soMyPage">기본정보</a></li>
+							<li><a href="soPasswdUpdate">비밀번호 변경</a></li>
 							<li><a href="#">서비스 결제 내역</a></li>
 						</ul>
 					</li>
@@ -71,7 +72,7 @@
 					<div class="card1">
     					<h3>1단계</h3>
 						<span class="shopbasicinfo">상점 기본정보</span><br><br>
-						<a href="SInfoEnrollFormServlet"><input type="button" class="btn_enroll"value="등록"></a><br><br>
+						<a href="SInfoEnrollForm"><input type="button" class="btn_enroll"value="등록"></a><br><br>
  					</div>	
  					<div class="card2">
     					<h3>2단계</h3>

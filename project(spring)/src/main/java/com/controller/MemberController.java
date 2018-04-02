@@ -20,6 +20,21 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@RequestMapping("/main")
+	public String main() {
+		return "main";
+	}
+	
+	@RequestMapping("/mLoginForm")
+	public String mLogin() {
+		return "member/mLoginForm";
+	}
+
+	@RequestMapping("/mJoin")
+	public String mJoin() {
+		return "member/mLoginForm";
+	}
+	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
 		return "search/login";
