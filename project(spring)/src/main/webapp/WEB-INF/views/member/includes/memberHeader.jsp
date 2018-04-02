@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="loginHeader">
-	<a href="index.jsp" id="member_logo">
+	<a href="main" id="member_logo">
 		<img src="resources/images/logo_login.png" title="home">
 	</a>
 </div>

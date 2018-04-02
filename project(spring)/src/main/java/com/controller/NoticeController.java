@@ -30,6 +30,16 @@ public class NoticeController {
 		mav.setViewName("admin/mNotice");
 		return mav;
 	}
+	
+	@RequestMapping(value="/mNotice2" , method=RequestMethod.GET)
+	public ModelAndView mNotice2(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
+		PageDTO pageDTO = nService.mNoticeList(map, curPage);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pageDTO",pageDTO);
+		mav.setViewName("member/mNotice");
+		return mav;
+	}
+	
 	@RequestMapping(value="/mNoticeWrite", method=RequestMethod.POST)
 	public String mNoticeWrite(NoticeDTO dto, HttpSession session) { //map 또는 +requestParam 사용 가능
 		nService.mNoticeWrite(dto);
