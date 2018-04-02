@@ -80,4 +80,4 @@
     <div class="col-sm-3"></div>
   </div>
 </div>
-<jsp:include page="soFooter.jsp" flush="true"/>
+<jsp:include page="includes/soFooter.jsp" flush="true"/>

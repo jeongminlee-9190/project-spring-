@@ -13,7 +13,6 @@
 	width:100px;
 }
 </style>
-<c:if test="${!empty SoLogin}"> 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -47,13 +46,12 @@
 				 		<ul class="dropdown-menu">
 					        <li><a href="#">공지사항</a></li>
 					        <li><a href="#">자주 묻는 질문</a></li>
-					        <li><a href="#">1:1 문의</a></li>
+					        <li><a href="soQna">1:1 문의</a></li>
 					    </ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-</c:if>
 
 
