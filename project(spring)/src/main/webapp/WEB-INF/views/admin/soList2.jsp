@@ -4,6 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+
+
+  
+
 <script type="text/javascript">
 $(document).ready(function(){
 		
@@ -14,44 +18,50 @@ $(document).ready(function(){
 	$("#soAdd").on("click",function(){
 		location.href="";
 	});
-	
-	/* $("#btn_change_soLevel").on("click",function(){
-		location.href="changeSoLevel?soId="+$("#soId").text()+"&soLevel="+$("#soLevel").val();
-	}); */
 });
 </script>
-<form action="changeSoLevel" method="get">
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<th>아이디</th>
-			<th>이름</th>
-			<th>핸드폰</th>
-			<th>사업자번호</th>
-			<th>주소</th>
-			<th>회원레벨</th>
-			<th>가입일자</th>
-		</tr>
-		<c:forEach var="dto" items="${soList}" varStatus="status">
-		 <tr>
-		  <td>${dto.rownum}</td>
-		  <td>${dto.soId}<input type="hidden" name="soId" value="${dto.soId}"></td>
-		  <td>${dto.soName}</td>
-		  <td>${dto.soPhone}</td>
-		  <td>${dto.soLicense}</td>
-		  <td>${dto.soAddr}</td>
-		  <td>${dto.soLevel}
-		  	  <select id="soLevel" name="soLevel">
-		  	  	<option selected="selected" value="0">0: 미승인</option>
-		  	  	<option value="1">1: 승인, 체험회원</option>
-		  	  	<option value="2">2: 승인, 유료회원</option>
-		  	  </select>
-		  	  <input type="submit" id="btn_change_soLevel" value="수정">
-		  </td>
-		  <td>${dto.soJoindate}</td>
-		  <td><button id="btn_del_so">삭제</button></td>
-		 </tr>
-		</c:forEach>
-	</table>
-</form>
-	<button id="soAdd">등록</button>
+<style>
+	.container{
+		margin-top: 100px;
+	}
+</style>
+
+<jsp:include page="admin_top.jsp" flush="true"/>
+
+<div class="container">
+	<form action="changeSoLevel" method="get">
+		<table class="table table-hover">
+			<colgroup>
+				<col width="20%">
+				<col width="30%">
+				<col width="20%">
+				<col width="30%">
+			</colgroup>
+	    	<thead class="thead-light">
+				<tr>
+					<th>번호</th>
+					<th>아이디</th>
+					<th>가입일자</th>
+					<th>회원레벨</th>
+				</tr>
+			</thead>
+			<c:forEach var="dto" items="${soList2}" varStatus="status">
+			<tbody>
+				  <tr>
+					  <td>${dto.rownum}</td>
+					  <td>${dto.soId}<input type="hidden" name="soId" value="${dto.soId}"></td>
+					  <td>${dto.soJoindate}</td>
+					  <td>${dto.soLevel}
+					  	  <select id="soLevel" name="soLevel">
+					  	  	<option selected="selected" value="0">0: 미승인</option>
+					  	  	<option value="1">1: 승인, 체험회원</option>
+					  	  	<option value="2">2: 승인, 유료회원</option>
+					  	  </select>
+					  	  <input type="submit" id="btn_change_soLevel" value="수정">
+					  </td>
+				  </tr>
+			</tbody>
+			</c:forEach>
+		</table>
+	</form>
+</div>

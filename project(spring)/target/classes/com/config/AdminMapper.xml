@@ -12,7 +12,7 @@
 	
 	<!-- 2. member 리스트 -->
 	<select id="memberlist"  resultType="MemberDTO">
-		select rownum,mId,mPasswd,mName,mPhone
+		select rownum,mId,mPasswd,mName,mPhone,mLastLogin
 		from member
 	</select>
 	
@@ -38,8 +38,15 @@
 		select rownum,soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
 	</select>
+	
+	<!-- 6. 회원 레벨이 0인  shopowner-->
+	<select id="soList2"  resultType="SoDTO">
+		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
+   		from shopowner
+   		where soLevel=0
+	</select>
    
-    <!-- 6. soLevel 부여 -->
+    <!-- 7. soLevel 부여 -->
 	<update id="soLevelChange" parameterType="hashmap">
 		update shopowner
 		set soLevel=#{soLevel}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SoNoticeMapper">
+
+	<select id="soNoticeList" parameterType="hashmap" resultType="NoticeDTO">
+		select noticeNum, noticeTitle, noticeContent, to_char(noticeWritedate,'YYYY-MM-DD') as noticeWritedate, noticeWriter, noticeReadcnt
+		from noticetoso
+		
+		<if test="searchName=='title'">
+			where noticeTitle like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='content'">
+			where noticeContent like '%'||#{searchValue}||'%'
+		</if>
+		order by noticeNum desc
+	</select>
+
+
+	<select id="soNoticeTotalCount" resultType="int">
+     select count(*)
+     from noticetoso
+    </select>
+    
+    <select id="soNoticeTotalSearchCount" resultType="int" parameterType="hashmap">
+     select count(*)
+     from noticetoso
+     <if test="searchName == 'title'">
+	     where noticeTitle LIKE '%'||#{searchValue}||'%'
+	   </if>
+	   <if test="searchName == 'content'">
+	     where noticeContent LIKE '%'||#{searchValue}||'%'
+	   </if>
+    </select>
+    
+    
+    <insert id="soNoticeInsert" parameterType="NoticeDTO">
+       insert into noticetoso(noticeNum, noticeTitle, noticeContent, noticeWritedate, noticeWriter)
+       values(SEQ_NOTICETOSO_NOTICENUM.nextval, #{noticeTitle},#{noticeContent},default,'관리자')
+    </insert>
+    
+    
+     <!-- 공지사항 자세히 보기 -->
+    <select id="soNoticeRetrieve" parameterType="int" resultType="NoticeDTO">
+		select noticeNum, noticeTitle, noticeContent, to_char(noticeWritedate,'YYYY-MM-DD') as noticeWritedate, noticeWriter, noticeReadcnt
+		from noticetoso
+		where noticeNum=#{noticeNum}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="soNoticeReadCnt" parameterType="int">
+	    update noticetoso 
+	    set noticeReadcnt = noticeReadcnt + 1
+	    where noticeNum = #{noticeNum}
+	</update>
+	
+	<update id="soNoticeUpdate" parameterType="NoticeDTO">
+	 update noticetoso
+	 set noticeTitle = #{noticeTitle}, noticeContent=#{noticeContent}, noticeWriter=#{noticeWriter}
+	 where noticeNum = #{noticeNum}
+	</update>
+	
+	<delete id="soNoticeDelete" parameterType="int">
+	 delete from noticetoso
+	 where noticeNum = #{noticeNum}
+	</delete>
+
+</mapper>

@@ -9,38 +9,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>페이지 선택</title>
-<style>
-	hr{
-		border: 2px solid midnightblue;
-	}
-	p{
-		font-size: 14px;
-	}
-	span{
-		color: #EF4836;
-		font-size: 11px;
-	}
-	button{
- 		margin-top: 5%;
- 	}
- 	
-	.row{
-	 	margin-top: 200px;
-	 	margin-left: 25%;
- 	}
- 	.col-sm-4{
- 	 	width: 200px;
- 	 	height: 250px;
- 	 	text-align: center;
- 	}
- 	.pagebox{
- 		margin-left: 3%;
- 	}
- 	
-</style>
+<link href="${pageContext.request.contextPath}/resources/css/home.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 </head>
 <body>
 <div class="container-fluid">
+		시연/구현용 페이지
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="pagebox">
@@ -48,7 +22,7 @@
 					<hr><br>
 					<p>개인 사용자 접속페이지</p>
 					<span>회원/비회원 가능</span><br>
-					<a href=""><button type="button" class="btn btn-outline-primary">접속하기</button></a>
+					<a href="main"><button type="button" class="btn btn-outline-primary">접속하기</button></a>
 				</div>
 			</div>
 			<div class="col-sm-4">
@@ -70,5 +44,7 @@
 			</div>
 		</div>
 </div>
+
+<h4><a href="main0">조혁주 작업 진입로</a></h4>
 </body>
 </html>

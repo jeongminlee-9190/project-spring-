@@ -26,6 +26,10 @@ public class AService {
 		return dao.soList();
 	}
 	
+	public List<Object> soList2() {
+		return dao.soList2();
+	}
+	
 	public void changeSoLevel(HashMap<String, String> map) {
 		dao.changeSoLevel(map);
 	}

@@ -3,6 +3,7 @@ package com.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,20 +20,31 @@ import com.service.SoService;
 public class SoController {
 	@Autowired
 	SoService service;
+	
+	@RequestMapping(value= "/main_shopowner", method=RequestMethod.GET)
+	public String main_shopowner() {
+		return "main_shopowner";
+	}
 
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		System.out.println(map);
-		SoDTO sDTO = service.login(map);
-		System.out.println(sDTO);
-		if(sDTO==null) {
-			request.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
+	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session) {
+		SoDTO soDTO = service.login(map);
+		String nextPage=null;
+		if(soDTO==null) {
+			session.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			nextPage = "index_shopowner";
 		}else {
-			mav.addObject("SoLogin",sDTO);
-			mav.setViewName("main_shopowner");
+			nextPage = "main_shopowner";
+			session.setAttribute("SoLogin",soDTO);
 		}
-		return mav;
+		return nextPage;
+	}
+	
+	@RequestMapping("/sologout")
+	public String logout(HttpSession session,HttpServletRequest request) {
+		session.invalidate();
+		request.setAttribute("SoLogout","로그아웃 되었습니다.");
+		return "index_shopowner";
 	}
 	
 	@RequestMapping("/soJoinForm")
@@ -105,6 +117,16 @@ public class SoController {
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
 		return "index_shopowner";
 	}
+	
+	@RequestMapping(value= "/soMyPage", method=RequestMethod.GET)
+	public String soMyPage(HttpSession session) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		String soId = soDTO.getSoId();
+		soDTO = service.soMyPage(soId);
+		session.setAttribute("SoMyPage", soDTO);
+		return "so/soMyPage";
+	}
+	//@RequestMapping(value= "/soPasswdUpdate", method=RequestMethod.POST)
 	
 	/*
 	@RequestMapping("/SoFindPw")

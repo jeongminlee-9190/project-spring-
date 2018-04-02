@@ -10,6 +10,7 @@ public class MemberDTO {
    private String mName;
    private String mPhone;
    private String mBirth;
+   private String mLastLogin;
    
    public MemberDTO() {
 	   super();
@@ -24,6 +25,19 @@ public class MemberDTO {
 	   this.mPhone = mPhone;
 	   this.mBirth = mBirth;
    }
+
+   
+	public MemberDTO(int rownum, String mId, String mPasswd, String mName, String mPhone, String mBirth,
+		String mLastLogin) {
+	super();
+	this.rownum = rownum;
+	this.mId = mId;
+	this.mPasswd = mPasswd;
+	this.mName = mName;
+	this.mPhone = mPhone;
+	this.mBirth = mBirth;
+	this.mLastLogin = mLastLogin;
+}
 
 	public MemberDTO(String mId, String mPasswd, String mName, String mPhone, String mBirth) {
 	super();
@@ -81,5 +95,14 @@ public class MemberDTO {
 	public void setmBirth(String mBirth) {
 		this.mBirth = mBirth;
 	}
+
+	public String getmLastLogin() {
+		return mLastLogin;
+	}
+
+	public void setmLastLogin(String mLastLogin) {
+		this.mLastLogin = mLastLogin;
+	}
+	
 	   
 }
