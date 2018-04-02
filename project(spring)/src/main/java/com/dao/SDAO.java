@@ -16,4 +16,8 @@ public class SDAO {
 	public SDTO sInfo(String soId) {
 		return template.selectOne("SMapper.sInfo",soId);
 	}
+	
+	public void SInfoEnroll(SDTO dto) {
+		template.insert("SMapper.sAdd",dto);
+	}
 }
