@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+hr{
+		border: 2px solid midnightblue;
+	}
+	p{
+		font-size: 14px;
+	}
+	span{
+		color: #EF4836;
+		font-size: 11px;
+	}
+	button{
+ 		margin-top: 5%;
+ 	}
+ 		
+	.row{
+	 	margin-top: 200px;
+	 	margin-left: 17%;
+ 	}
+ 	.col-sm-4{
+ 	 	max-width: 310px;
+ 	 	height: 250px;
+ 	 	text-align: center;
+ 	}
+ 	.pagebox{
+ 	}
+ 	

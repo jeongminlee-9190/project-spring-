@@ -1,5 +1,11 @@
 @charset "UTF-8";
-	.col-sm-4{
+	td {
+		width: 400px;
+	}
+	.row{
+		/* border: 1px solid grey; */
+	}
+	.col-sm-6{
 		margin-top: 70px;
 	}
 	
