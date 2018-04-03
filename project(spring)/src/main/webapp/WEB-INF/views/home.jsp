@@ -22,7 +22,7 @@
 					<hr><br>
 					<p>개인 사용자 접속페이지</p>
 					<span>회원/비회원 가능</span><br>
-					<a href="main"><button type="button" class="btn btn-outline-primary">접속하기</button></a>
+					<a href="main0"><button type="button" class="btn btn-outline-primary">접속하기</button></a>
 				</div>
 			</div>
 			<div class="col-sm-4">
@@ -45,6 +45,5 @@
 		</div>
 </div>
 
-<h4><a href="main0">조혁주 작업 진입로</a></h4>
 </body>
 </html>

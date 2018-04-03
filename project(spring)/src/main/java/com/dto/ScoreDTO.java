@@ -10,18 +10,7 @@ public class ScoreDTO {
 	private int good;
 	private int bad;
 	private int scoreSum;
-	public ScoreDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public ScoreDTO(String sCategory, String sCode, int good, int bad, int scoreSum) {
-		super();
-		this.sCategory = sCategory;
-		this.sCode = sCode;
-		this.good = good;
-		this.bad = bad;
-		this.scoreSum = scoreSum;
-	}
+
 	public String getsCategory() {
 		return sCategory;
 	}

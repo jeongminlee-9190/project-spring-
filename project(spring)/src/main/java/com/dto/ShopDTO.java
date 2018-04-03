@@ -21,32 +21,8 @@ public class ShopDTO {
 	private int sHate;
 	private int sInterest;
 	private String sSubway;
-	public ShopDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public ShopDTO(String sCode, String sName, String soId, String sPost, String sAddr, String sPhone,
-			String sBusinessHours, String sParkingLot, String sTerrace, String sMenu1, String sMenu2, String sCategory,
-			String sImage, int sLike, int sHate, int sInterest, String sSubway) {
-		super();
-		this.sCode = sCode;
-		this.sName = sName;
-		this.soId = soId;
-		this.sPost = sPost;
-		this.sAddr = sAddr;
-		this.sPhone = sPhone;
-		this.sBusinessHours = sBusinessHours;
-		this.sParkingLot = sParkingLot;
-		this.sTerrace = sTerrace;
-		this.sMenu1 = sMenu1;
-		this.sMenu2 = sMenu2;
-		this.sCategory = sCategory;
-		this.sImage = sImage;
-		this.sLike = sLike;
-		this.sHate = sHate;
-		this.sInterest = sInterest;
-		this.sSubway = sSubway;
-	}
+
+	
 	@Override
 	public String toString() {
 		return "ShopDTO [sCode=" + sCode + ", sName=" + sName + ", soId=" + soId + ", sPost=" + sPost + ", sAddr="

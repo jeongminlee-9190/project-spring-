@@ -16,6 +16,12 @@
 </head>
 
 <body>
+<c:if test="${!empty success}">
+   <script type="text/javascript">
+       alert('${success}');
+    </script>
+</c:if>
+<c:remove var="success"/>
 <c:if test="${!empty SoLogin}"> 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">

@@ -8,16 +8,8 @@ public class InterestDTO {
 	private String iCode;
 	private String mId;
 	private String sCode;
-	public InterestDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public InterestDTO(String iCode, String mId, String sCode) {
-		super();
-		this.iCode = iCode;
-		this.mId = mId;
-		this.sCode = sCode;
-	}
+
+	
 	public String getiCode() {
 		return iCode;
 	}

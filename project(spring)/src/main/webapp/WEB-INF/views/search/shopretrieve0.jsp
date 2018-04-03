@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script type="text/javascript" src="/resource/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="http://localhost:8090/controller/resources/js/jquery-3.3.1.js"></script>
 
 <c:set var="login" value="${loginInfo }" scope="session"></c:set>
 <c:set var="shop" value="${shopInfo }" scope="request"></c:set>

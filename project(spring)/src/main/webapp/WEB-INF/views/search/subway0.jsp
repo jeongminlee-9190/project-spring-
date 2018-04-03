@@ -18,18 +18,14 @@
   
   
 <script type="text/javascript" >
-console.log("hong");
 $("#line").on("change",function(){
 	  var line = $("#line").val();
 	  var station;
-	  console.log("change")
 	  $.ajax({
 	    type : "get",
-	    url : "/station/line.jsp",
+	    url : "line",
 	    dataType : "json",
 	    success : function(data,status,xhr){
-	  	  //var x = JSON.parse(data);
-	  	 //var x = eval("("+data+")");
 	    var stationInfo = data[line];
 	    $("#station").empty();
 	    if(line != ""){
