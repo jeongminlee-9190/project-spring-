@@ -15,7 +15,7 @@
 	}
 
 </style>
-<jsp:include page="admin_top.jsp" flush="true"/>
+<jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container">
 	<form action="memberList" method="get">
 		<table class="table table-hover">

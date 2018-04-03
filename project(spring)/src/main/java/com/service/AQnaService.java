@@ -1,20 +1,22 @@
 package com.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dao.SoQnaDAO;
-import com.dto.SoQnaDTO;
+import com.dao.AQnaDAO;
+import com.dto.AQnaDTO;
 
 @Service
-public class SoQnaService {
+public class AQnaService {
 	@Autowired
-	SoQnaDAO dao;
+	AQnaDAO dao;
 	
-	public List<SoQnaDTO> soQna(String soId){
+	public List<AQnaDTO> qna() {
+		return dao.qna();
+	}
+	/*public List<SoQnaDTO> soQna(String soId){
 		return dao.soQna(soId);
 	}
 	
@@ -24,5 +26,5 @@ public class SoQnaService {
 	
 	public void soQnaDelete(HashMap<String, Integer> map) {
 		dao.soQnaDelete(map);
-	}
+	}*/
 }

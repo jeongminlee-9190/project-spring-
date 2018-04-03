@@ -26,7 +26,7 @@ $(document).ready(function(){
 	}
 </style>
 
-<jsp:include page="admin_top.jsp" flush="true"/>
+<jsp:include page="includes/admin_top.jsp" flush="true"/>
 
 <div class="container">
 	<form action="changeSoLevel" method="get">

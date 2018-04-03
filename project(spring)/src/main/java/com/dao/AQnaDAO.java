@@ -3,20 +3,19 @@ package com.dao;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dto.SoQnaDTO;
+import com.dto.AQnaDTO;
 
 @Repository
-public class SoQnaDAO {
+public class AQnaDAO {
 	@Autowired
 	SqlSessionTemplate template;
 	
-	public List<SoQnaDTO> soQna(String soId) {
-		return template.selectList("SoQnaMapper.soQna",soId);
+	public List<AQnaDTO> qna() {
+		return template.selectList("AQnaMapper.qna");
 	}
 	
 	public void soQnaWrite(HashMap<String, String> map) {

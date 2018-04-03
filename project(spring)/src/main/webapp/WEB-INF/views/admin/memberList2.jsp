@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 </style>
 
-<jsp:include page="admin_top.jsp" flush="true"/>
+<jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container">
 	<h4>개인회원 - 휴면계정 삭제</h4>
 	<form action="memberList" method="get">
