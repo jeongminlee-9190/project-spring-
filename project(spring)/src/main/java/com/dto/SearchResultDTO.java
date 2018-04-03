@@ -29,37 +29,8 @@ public class SearchResultDTO {
 		private int sHate;
 		private int sInterest;
 		private String sSubway;
-		public SearchResultDTO() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
-		public SearchResultDTO(String category, String sCode, int good, int bad, int scoresum, String sName,
-				String soId, String sPost, String sAddr, String sPhone, String sBusinesshours, String sParkinglot,
-				String sTerrace, String sMenu1, String sMenu2, String sCategory, String sImage, int sLike, int sHate,
-				int sInterest, String sSubway) {
-			super();
-			this.category = category;
-			this.sCode = sCode;
-			this.good = good;
-			this.bad = bad;
-			this.scoresum = scoresum;
-			this.sName = sName;
-			this.soId = soId;
-			this.sPost = sPost;
-			this.sAddr = sAddr;
-			this.sPhone = sPhone;
-			this.sBusinesshours = sBusinesshours;
-			this.sParkinglot = sParkinglot;
-			this.sTerrace = sTerrace;
-			this.sMenu1 = sMenu1;
-			this.sMenu2 = sMenu2;
-			this.sCategory = sCategory;
-			this.sImage = sImage;
-			this.sLike = sLike;
-			this.sHate = sHate;
-			this.sInterest = sInterest;
-			this.sSubway = sSubway;
-		}
+
+		
 		public String getCategory() {
 			return category;
 		}

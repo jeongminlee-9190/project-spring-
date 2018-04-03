@@ -12,21 +12,7 @@ public class ReviewDTO {
 	private int sLike;
 	private int sHate;
 	private String sCode;
-	public ReviewDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public ReviewDTO(int rvNum, String rvContent, String mName, String rvWritedate, int sLike, int sHate,
-			String sCode) {
-		super();
-		this.rvNum = rvNum;
-		this.rvContent = rvContent;
-		this.mName = mName;
-		this.rvWritedate = rvWritedate;
-		this.sLike = sLike;
-		this.sHate = sHate;
-		this.sCode = sCode;
-	}
+
 	public int getRvNum() {
 		return rvNum;
 	}

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.ShopDAO;
 import com.dto.InterestDTO;
+import com.dto.parameter.ReviewParameterDTO;
 
 @Service
 public class ShopService {
@@ -33,6 +34,10 @@ public class ShopService {
 			interestCheck = "1";
 		}
 		return interestCheck;
+	}
+	
+	public void reviewWrite(ReviewParameterDTO dto, HashMap<String, String> map) {
+		
 	}
 
 }
