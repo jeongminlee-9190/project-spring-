@@ -9,35 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>페이지 선택</title>
-<style>
-	hr{
-		border: 2px solid midnightblue;
-	}
-	p{
-		font-size: 14px;
-	}
-	span{
-		color: #EF4836;
-		font-size: 11px;
-	}
-	button{
- 		margin-top: 5%;
- 	}
- 		
-	.row{
-	 	margin-top: 200px;
-	 	margin-left: 17%;
- 	}
- 	.col-sm-4{
- 	 	max-width: 310px;
- 	 	height: 250px;
- 	 	text-align: center;
- 	}
- 	.pagebox{
- 		margin-left: 3%;
- 	}
- 	
-</style>
+<link href="${pageContext.request.contextPath}/resources/css/home.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 </head>
 <body>
 <div class="container-fluid">

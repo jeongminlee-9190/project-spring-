@@ -11,7 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
 <title></title>
 <link href="${pageContext.request.contextPath}/resources/css/index_admin.css" rel="stylesheet" >
-
+<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 </head>
 <body>
 <c:if test="${! empty success}">
@@ -41,14 +41,22 @@
 </c:if>
 
 <div class="container-fluid">
-  <form action="adminLogin" method="post" class="adminLoginForm">
-  	<img src="resources/images/logo.png" class="logo"></td>
-  	<h3>관리자 센터</h3>
-  	<input type="text" name="adminId" class="input_adminId" placeholder="아이디" maxlength="30"><br>
-	<input type="password" name="adminPasswd" class="input_adminPasswd" placeholder="비밀번호" maxlength="10"><br>
-  	<input type="submit" class="btn btn-primary orange-background" value="로그인">
- 	<input type="reset" class="btn btn-primary orange-border" value="취소">
-   </form>
+
+  	<div class="row">
+  		<div class="col-sm-4"></div>
+  		<div class="col-sm-4">
+  			<form action="adminLogin" method="post" class="adminLoginForm">
+			  	<img src="resources/images/logo.png" class="logo"></td>
+			  	<h3>관리자 센터</h3>
+			  	<input type="text" name="adminId" class="input_adminId" placeholder="아이디" maxlength="30"><br>
+				<input type="password" name="adminPasswd" class="input_adminPasswd" placeholder="비밀번호" maxlength="10"><br>
+			  	<input type="submit" class="btn btn-primary orange-background" value="로그인">
+			 	<input type="reset" class="btn btn-primary orange-border" value="취소">
+		 	</form> 
+		</div>
+	 	<div class="col-sm-4"></div>
+	 </div>
+ 
  </div>
 
 

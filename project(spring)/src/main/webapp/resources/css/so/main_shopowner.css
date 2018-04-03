@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+	.main{
+		background-color: black;
+	}
+	.container-fluid{
+		position: relative;
+		background-color: black;
+	}
+	.bg-black{
+		background-color: black;
+		border: 1px solid black;
+	}
+	.carousel-inner img {
+	      width: 100%;
+	      height: 100%;
+	  }
+	
+	.logo{
+		position: absolute;
+		width:10%;
+		margin-top: 3%;
+		margin-left: 45%;
+		
+	}
+	#myCarousel{
+		margin-top: 50px;
+	}
+	.badge{
+		color: orange;
+	}
+	.btn-group-justified{
+		height: 50px;
+	}
+	.row{
+		margin-top: 7px;
+		text-align: center;
+	}
+	.ranking{
+		background-color: white;
+	}

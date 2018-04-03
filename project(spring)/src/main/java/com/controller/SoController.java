@@ -126,6 +126,8 @@ public class SoController {
 		session.setAttribute("SoMyPage", soDTO);
 		return "so/soMyPage";
 	}
+	//@RequestMapping(value= "/soPasswdUpdate", method=RequestMethod.POST)
+	
 	/*
 	@RequestMapping("/SoFindPw")
 	public String SoFindPw(@RequestParam HashMap<String, String> map, HttpSession session) {

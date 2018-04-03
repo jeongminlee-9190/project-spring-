@@ -2,155 +2,64 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-<style>
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
-	hr{
-		border: 2px solid orange;
-	}
-	p{
-		font-size: 12px;
-	}
-	span{
-		font-size: 16px;
-	}
-	.card{
-		position: relative;
-		height: 180px;
-	}
-	
-	.card1{
-		position: absolute;
-		margin-left: 10%;
-	}
-	
-	.card2{
-		position: absolute;
-		margin-left: 57%;
-	}
-	/* .card{
-		position: fixed;
-		width: 170px;
-	}
-	.card2{
-		position: fixed;
-		margin-left: 12%;
-		width: 170px;
-	} */
-	
-/* 	
-	.shopEnroll{
-		position: relative;
-		text-align: center;
-		top: 52px;
-		width: 400px;
-		height: 300px;
-	}
-	
-	.shopbasicInfoform {
-		position: absolute;
-		text-align: center;
-		width: 40%;
-		height: 50%;	
-	}
-	.shopimageInfoform {
-		position: absolute;
-		text-align: center;
-		width: 40%;
-		height: 50%;	
-	}
-	
-	
-	.shopView{
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+	<link href="${pageContext.request.contextPath}/resources/css/s_management.css" rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+	<title>상점 관리</title>
+</head>
 
-	.shopModify{
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-
-
-	.shopDeleteform {
-		position: absolute;
-		text-align: center;
-		top: 72px;
-		
-		width: 200px;
-		height: 300px;
-	}
-	
-	
-	.shopbasicinfo,.shopimageinfo,.shopdelete {
-		font-size: 20px;
-		text-align: center;
-	}
-	
-	
-	.shopdeletewarn{
-		color: red;
-	}
-
-	.btn_enroll{
-		border: 1px solid #99e6ff;
-		background-color: #99e6ff;
-		margin-top: 10px;
-		height:35px;
-		width: 100px;
-	} */
-</style>
+<body>
 <c:if test="${!empty SoLogin}"> 
-	<nav class="navbar navbar-inverse">
-		   <div class="container-fluid">
-		     <div class="navbar-header">
-		        <a class="navbar-brand" href="main_shopowner">갬성갱단 상점 관리 센터</a>
-		     </div>
-		     
-		     <ul class="nav navbar-nav">
-		     	<li><a href="#" class="active">서비스 소개</a></li>
-		     	<li><a href="sManagement" class="active">상점 관리</a></li>
-		     	<li><a href="payMentUI" class="active">서비스 결제</a></li>
-		        <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="#">공지사항</a></li>
-			           <li><a href="#">자주 묻는 질문</a></li>
-			           <li><a href="#">1:1 문의</a></li>
-			        </ul>
-			    </li>
-			    <li><a href="#">예약관리</a></li>
-			    <li><a href="#"></a></li>
-		     </ul>
-		     
-		     <ul class="nav navbar-nav navbar-right">
-		       <li><a href="#">계정: ${SoLogin.soId}</a></li>
-		       <li><a href="sologout">로그아웃</a></li>
-		       <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="soMyPage">기본정보</a></li>
-			           <li><a href="#">서비스 결제 내역</a></li>
-			        </ul>
-			    </li>
-		     </ul>
-		 </div>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					   <span class="icon-bar"></span>
+					   <span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="main_shopowner">갬성갱단 상점 센터</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" >서비스 소개</a></li>
+					<li class="active"><a href="sManagement" >상점 관리</a></li>
+					<li class="active"><a href="payMentUI">서비스 결제</a></li>
+					<li class="active"><a href="#">예약관리</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">계정: ${SoLogin.soId}</a></li>
+					<li class="active"><a href="sologout">로그아웃</a></li>
+					<li class="dropdown active">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="soMyPage">기본정보</a></li>
+							<li><a href="soPasswdUpdate">비밀번호 변경</a></li>
+							<li><a href="#">서비스 결제 내역</a></li>
+						</ul>
+					</li>
+					<li class="dropdown active">
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
+					 	<ul class="dropdown-menu">
+						    <li><a href="#">공지사항</a></li>
+						    <li><a href="#">자주 묻는 질문</a></li>
+						    <li><a href="#">1:1 문의</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</nav>
 </c:if>
+
+
 <input type="hidden" value="${sInfo}">
 <!-- 레벨이 0인 경우 메뉴를 클릭하면 다른페이지로 -->
 <br>
@@ -163,12 +72,12 @@
 					<div class="card1">
     					<h3>1단계</h3>
 						<span class="shopbasicinfo">상점 기본정보</span><br><br>
-						<a href="SInfoEnrollFormServlet"><input type="button" class="btn_enroll"value="등록"></a><br><br>
+						<a href="SInfoEnrollForm"><input type="button" class="btn_enroll"value="등록"></a><br><br>
  					</div>	
  					<div class="card2">
     					<h3>2단계</h3>
 						<span class="shopimageinfo">상점 사진정보</span><br><br>
-						<p class="shopdeletewarn">기본정보 먼저 등록해주세요.</p>
+						<p class="shopwarn">기본정보 먼저 등록해주세요.</p>
  					</div>
  				</div>	
 			</c:if>
@@ -212,17 +121,17 @@
 				<p>확인할 수 있습니다.</p>
 				<br>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">
-					<a href="SViewServlet"><input type="button" class="btn_enroll"value="상점 확인"></a><br><br>
+					<a href="sView"><input type="button" class="btn_enroll"value="상점 확인"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && !empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본 정보를 등록해주세요.</p>
+					<p class="shopwarn">기본 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${!empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본정보와 사진 정보를</p>
-					<p class="shopdeletewarn">등록해주세요.</p>
+					<p class="shopwarn">기본정보와 사진 정보를</p>
+					<p class="shopwarn">등록해주세요.</p>
 				</c:if>
 			</div>
 		</div>
@@ -234,11 +143,11 @@
 				<br>
 				<c:if test="${!empty sInfo.sCode && empty sInfo.sImage}">
 					<a href="SViewServlet"><input type="button" class="btn_enroll"value="기본정보 수정"></a><br><br>
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">기본 정보를 등록해주세요.</p>
-					<p class="shopdeletewarn">사진 정보를 등록해주세요.</p>
+					<p class="shopwarn">기본 정보를 등록해주세요.</p>
+					<p class="shopwarn">사진 정보를 등록해주세요.</p>
 				</c:if>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">
 					<a href="SInfoUpdateServlet"><input type="button" class="btn_enroll"value="기본정보 수정"></a><br><br>
@@ -249,15 +158,19 @@
 		<div class="col-sm-2" >
 			<div class="shopDeleteform">
 				<h3>상점 삭제</h3><hr><br>
-				<p class="shopdeletewarn">삭제하면 복원되지 않습니다.<p>
+				<p class="shopwarn">삭제하면 복원되지 않습니다.<p>
 				<br>
 				<c:if test="${(!empty sInfo.sCode && !empty sInfo.sImage) ||(empty sInfo.sCode && !empty sInfo.sImage) ||(!empty sInfo.sCode && empty sInfo.sImage)}">
 					<a href="SDeletionServlet"><input type="button" class="btn_enroll"value="상점 삭제"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
-					<p class="shopdeletewarn">삭제할 정보가 없습니다.</p>
+					<p class="shopwarn">삭제할 정보가 없습니다.</p>
 				</c:if>
 			</div>
 		</div>
 	</div>	
 </div>
+<div class="footer">
+		footer
+</div>
+</body>

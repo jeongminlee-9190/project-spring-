@@ -6,17 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/resources/css/so_mainwrapper.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_maincontent.css" rel="stylesheet" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/so/main_shopowner.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
-<style type="text/css">
-	.main{
-		background-color: black;
-	}
-	.logo{
-		width:100px;
-	}
-</style>
 </head>
 <body>
 <c:if test="${! empty success}">
@@ -33,47 +29,50 @@
 
 <div class="main">
 	<c:if test="${!empty SoLogin}"> 
-	
-		<nav class="navbar navbar-inverse">
-		   <div class="container-fluid">
-		     <div class="navbar-header">
-		        <a class="navbar-brand" href="main_shopowner">갬성갱단 상점 관리 센터</a>
-		     </div>
-		     
-		     <ul class="nav navbar-nav">
-		     	<li><a href="#" class="active">서비스 소개</a></li>
-		     	<li><a href="sManagement" class="active">상점 관리</a></li>
-		     	<li><a href="payMentUI" class="active">서비스 결제</a></li>
-		        <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">고객센터<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="#">공지사항</a></li>
-			           <li><a href="#">자주 묻는 질문</a></li>
-			           <li><a href="#">1:1 문의</a></li>
-			        </ul>
-			    </li>
-			    <li><a href="#">예약관리</a></li>
-			    <li><a href="#"></a></li>
-		     </ul>
-		     
-		     <ul class="nav navbar-nav navbar-right">
-		       <li><a href="#">계정: ${SoLogin.soId}</a></li>
-		       <li><a href="sologout">로그아웃</a></li>
-		       <li class="dropdown">
-		        	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
-		 			<ul class="dropdown-menu">
-			           <li><a href="soMyPage">기본정보</a></li>
-			           <li><a href="#">서비스 결제 내역</a></li>
-			        </ul>
-			    </li>
-		     </ul>
-		  </div>
-		</nav>
+		<jsp:include page="so/includes/soTop.jsp" flush="true"/>
+		<div class="container-fluid"> 
+		  	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			    <!-- Wrapper for slides -->
+			    <div class="carousel-inner">
+			      <div class="item active">
+			      	
+			        <div class="logo">
+			        	<img src="resources/images/logo.png" alt="main_bg01.jpg" style="width:170%;">
+			        </div>
+			        <img src="resources/images/main_bg01.jpg" alt="main_bg01.jpg" style="width:170%;">
+			      </div>
+			
+			      <div class="item">
+			        <img src="resources/images/main_bg02.jpg" alt="main_bg02.jpg" style="width:170%;">
+			      </div>
+			    
+			      <div class="item">
+			        <img src="resources/images/main_bg03.jpg" alt="main_bg03.jpg" style="width:170%;">
+			      </div>
+			    </div>
+			
+			    <!-- Left and right controls -->
+			    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			      <span class="glyphicon glyphicon-chevron-left"></span>
+			      <span class="sr-only">Previous</span>
+			    </a>
+			    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+			      <span class="glyphicon glyphicon-chevron-right"></span>
+			      <span class="sr-only">Next</span>
+			    </a>
+			    
+			     <!-- Indicators -->
+			    <ol class="carousel-indicators">
+			      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			      <li data-target="#myCarousel" data-slide-to="1"></li>
+			      <li data-target="#myCarousel" data-slide-to="2"></li>
+			    </ol>
+			  </div>
+		</div>
+		<jsp:include page="so/includes/soAlert.jsp" flush="true"/>
+		<jsp:include page="so/includes/soRanking.jsp" flush="true"/>
+		<jsp:include page="so/includes/soFooter.jsp" flush="true"/>
 	</c:if>
-	<jsp:include page="so/soContainer.jsp" flush="true"/>
-	<div class="footer">
-		footer
-	</div>	
 </div>
 </body>
 </html>
