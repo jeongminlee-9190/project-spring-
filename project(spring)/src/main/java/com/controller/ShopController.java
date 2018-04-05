@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dto.ShopDTO;
 import com.dto.parameter.ReviewParameterDTO;
+import com.service.SearchService;
 import com.service.ShopService;
 
 @Controller
@@ -20,47 +21,43 @@ public class ShopController {
 	@Autowired
 	ShopService shopService;
 	
-	@RequestMapping("/interest")
-	@ResponseBody String interest(@RequestParam String sCode, @RequestParam String mId) {
-		String iCode = mId+sCode;
-		HashMap<String, String> map = new HashMap<>();
-		map.put("iCode", iCode);
-		map.put("mId", mId);
-		map.put("sCode", sCode);
-		
-		
-		return shopService.interest(map);
-	}
-	
-	@RequestMapping("/isInterest")
-	@ResponseBody String isInterest(@RequestParam String sCode, @RequestParam String mId) {
-		String iCode = mId+sCode;
-		HashMap<String, String> map = new HashMap<>();
-		map.put("iCode", iCode);
-		map.put("mId", mId);
-		map.put("sCode", sCode);
-		return shopService.isInterest(map);
-	}
+	@Autowired
+	SearchService searchService;
 	
 	@RequestMapping("/reviewWrite")
-	void reviewWrite(ReviewParameterDTO rpDTO) {
+	String reviewWrite(ReviewParameterDTO rpDTO, HttpServletRequest request) {
 		
-//		HashMap<String, String> reviewMap = new HashMap<>();
-//		reviewMap.put("reviewContent", rpDTO.getReviewContent());
-//		reviewMap.put("mName", rpDTO.getmName());
-//		reviewMap.put("sCode", rpDTO.getsCode());
-		
-		HashMap<String, String> keywordMap = new HashMap<>();
+		HashMap<String, Object> keywordMap = new HashMap<>();
 		String[] keywords = rpDTO.getFavorKeywords();
-		List<String> keywordList = new ArrayList<>();
+		List<String> goodKeywordList = new ArrayList<>();
+		List<String> badKeywordList = new ArrayList<>();
 		for (String keyword : keywords) {
 			String[] devideKeyword = keyword.split(",");
-			
-			keywordMap.put(devideKeyword[1], devideKeyword[0]);
+			if(devideKeyword[0].equals("good")) {
+				goodKeywordList.add(devideKeyword[1]);
+			}else {
+				badKeywordList.add(devideKeyword[1]);
+			}
 		}
 		keywordMap.put("sCode", rpDTO.getsCode());
 		keywordMap.put("reviewContent", rpDTO.getReviewContent());
-		keywordMap.put("mName", rpDTO.getmName());
+		keywordMap.put("mId", rpDTO.getmId());
+		keywordMap.put("goodKeyword", goodKeywordList);
+		keywordMap.put("badKeyword", badKeywordList);
+		shopService.reviewWrite(keywordMap);
+		
+		ShopDTO sdto = searchService.shopRetrieve(rpDTO.getsCode());
+		String [] images = sdto.getsImage().split("/");
+		List<String> shopImages = new ArrayList<>();
+		for (String string : images) {
+			shopImages.add(string);
+		}
+//		List<ReviewDTO> list = stService.selectReview(sCode);
+		request.setAttribute("shopInfo", sdto);
+		request.setAttribute("shopImages", shopImages);
+//		request.setAttribute("reviewList", list);
+		return "search/shopretrieve0";
+		
 	}
 	
 

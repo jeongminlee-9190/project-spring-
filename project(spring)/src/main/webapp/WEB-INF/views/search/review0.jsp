@@ -11,24 +11,24 @@ ${login.mName }<br>
 <form id="reviewWriteForm" action="reviewWrite" method="post">
   <input type="text" name="reviewContent" style="width:800; height:200">
   <input type="submit" name="" value="남기기" >
-  <input type="hidden" name="mName" value="${login.mName}">
+  <input type="hidden" name="mId" value="${login.mId}">
   <input type="hidden" name="sCode" value="${shop.sCode}">
 
   <div class="meal">
-    식사<input type="checkbox" class="meal" name="favorKeywords" value="good,meal">
-    <input type="checkbox" class="meal" name="favorKeywords" value="bad,meal">
+    식사<input type="checkbox" class="meal" name="favorKeywords" value="good,식사">
+    <input type="checkbox" class="meal" name="favorKeywords" value="bad,식사">
   </div>
   <div class="together">
-    회식<input type="checkbox" class="together" name="favorKeywords" value="good,together">
-    <input type="checkbox" class="together" name="favorKeywords" value="bad,together">
+    회식<input type="checkbox" class="together" name="favorKeywords" value="good,회식">
+    <input type="checkbox" class="together" name="favorKeywords" value="bad,회식">
   </div>
   <div class="date">
-    식사<input type="checkbox" class="date" name="favorKeywords" value="good,date">
-    <input type="checkbox" class="date" name="favorKeywords" value="bad,date">
+    데이트<input type="checkbox" class="date" name="favorKeywords" value="good,데이트">
+    <input type="checkbox" class="date" name="favorKeywords" value="bad,데이트">
   </div>
   <div class="party">
-    파티<input type="checkbox" class="party" name="favorKeywords" value="good,party">
-    <input type="checkbox" class="party" name="favorKeywords" value="bad,party">
+    파티<input type="checkbox" class="party" name="favorKeywords" value="good,파티">
+    <input type="checkbox" class="party" name="favorKeywords" value="bad,파티">
   </div>
 
 </form>

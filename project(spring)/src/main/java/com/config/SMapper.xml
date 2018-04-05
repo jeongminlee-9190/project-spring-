@@ -54,7 +54,7 @@
 	
 	<delete id="sDel" parameterType="string">
 		delete from shop
-		where soId=#{soId}
+		where sCode=#{sCode}
 	</delete>
 	
 	<delete id="sDelScore" parameterType="string">

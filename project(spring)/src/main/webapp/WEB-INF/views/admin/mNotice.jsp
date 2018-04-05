@@ -17,6 +17,8 @@
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script src="resources/js/admin_mNotice.js"></script>
+
+
 </head>
 
 <body>
@@ -47,13 +49,23 @@
 						</colgroup>
   						<tr align="center">
    							<td colspan="5" align="center">
-    							<select class="form-control" name="searchName">
-        							<option value="title">제목</option>
+   								<c:if test="${empty searchName || searchName=='title'}">
+    							<select name="searchName">
+        							<option value="title" selected="selected">제목</option>
         							<option value="content">내용</option>
+     							</select>     					
+								</c:if>
+     							
+     							<c:if test="${empty searchName || searchName=='content'}">
+    							<select name="searchName">
+        							<option value="title">제목</option>
+        							<option value="content" selected="selected">내용</option>
      							</select>
-     						</td>
-     						<td><input type="text" class="form-control" id="searchValue" name="searchValue"></td>
-     						<td><input type="submit" class="btn btn-primary sm-black-background" value="검색"></td>
+     							</c:if>
+     						
+			     				<input type="text" class="form-control" id="searchValue" name="searchValue">
+			     				<input type="submit" class="btn btn-primary sm-black-background" value="검색">
+   							</td>
  						</tr>
   					</table>
   				</form>

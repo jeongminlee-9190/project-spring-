@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dto.ReviewDTO;
 import com.dto.SearchResultDTO;
@@ -29,15 +30,33 @@ public class SearchController {
 		return "station/line";
 	}
 	
+	@RequestMapping("/interest")
+	@ResponseBody String interest(@RequestParam String sCode, @RequestParam String mId) {
+		String iCode = mId+sCode;
+		HashMap<String, String> map = new HashMap<>();
+		map.put("iCode", iCode);
+		map.put("mId", mId);
+		map.put("sCode", sCode);
+		return searchService.interest(map);
+	}
+	
+	@RequestMapping("/isInterest")
+	@ResponseBody String isInterest(@RequestParam String sCode, @RequestParam String mId) {
+		String iCode = mId+sCode;
+		HashMap<String, String> map = new HashMap<>();
+		map.put("iCode", iCode);
+		map.put("mId", mId);
+		map.put("sCode", sCode);
+		return searchService.isInterest(map);
+	}
+	
 	@RequestMapping("/search")
 	public String search(@RequestParam String station, 
 			@RequestParam("search") String keywords,
 			HttpServletRequest request) {
 		
 		String[] keywordsArray = keywords.split(",");
-
 		List<String> keywordsList = new ArrayList<>();
-		
 		if(keywords == "") {
 			keywordsList=null;
 		}else {
@@ -48,12 +67,8 @@ public class SearchController {
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("station", station);
 		map.put("keyword", keywordsList);
-		
 		List<SearchResultDTO> srDTO = searchService.search(map);
-		
 		request.setAttribute("shopList", srDTO);
-		
-		
 		return "search/searchpage0";
 	}
 	

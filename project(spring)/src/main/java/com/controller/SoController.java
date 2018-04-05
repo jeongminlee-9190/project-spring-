@@ -32,6 +32,7 @@ public class SoController {
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
 	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session) {
 		SoDTO soDTO = service.login(map);
+
 		String nextPage=null;
 		
 		if(soDTO==null) {
