@@ -6,7 +6,7 @@ import org.apache.ibatis.type.Alias;
 public class ReviewParameterDTO {
 	
 	private String reviewContent;
-	private String mName;
+	private String mId;
 	private String sCode;
 	private String [] favorKeywords;
 	
@@ -17,11 +17,11 @@ public class ReviewParameterDTO {
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
 	}
-	public String getmName() {
-		return mName;
+	public String getmId() {
+		return mId;
 	}
-	public void setmName(String mName) {
-		this.mName = mName;
+	public void setmId(String mId) {
+		this.mId = mId;
 	}
 	public String getsCode() {
 		return sCode;

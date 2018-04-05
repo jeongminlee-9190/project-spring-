@@ -3,45 +3,57 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ShopMapper">
-	<select id="selectShop" parameterType="String" resultType="ShopDTO">
-		select * from shop
-		where sCode = #{sCode}
+
+	<insert id="insertReview" parameterType="hashmap">
+		insert into review(rvnum, rvContent, mId, rvWritedate, sCode)
+		values(0, #{reviewContent}, #{mId}, sysdate, #{sCode} )
+	</insert>
+
+	<select id="checkReview" parameterType="hashmap" resultType="ReviewDTO">
+		select * from review
+		where mId = #{mId} and sCode = #{sCode}
 	</select>
 	
-	<select id="isInterest" parameterType="hashmap" resultType="InterestDTO">
-		select * from interest
-		where iCode = #{iCode}
-	</select>
+	<update id="updateReview" parameterType="hashmap">
+		update review 
+		set rvWriteDate = sysdate, rvContent = #{reviewContent}
+		where mId = #{mId} and sCode = #{sCode}
+	</update>
 	
-	<insert id="insertInterest" parameterType="hashmap">
-		insert into interest(iCode, mId, sCode)
-		values (#{iCode}, #{mId}, #{sCode})
+	<insert id="insertGoodScore" parameterType="hashmap">
+		insert All
+		<foreach collection="goodKeyword" item="keyword">
+			into score (keyword, scode, good, bad, mId)
+			values(#{keyword}, #{sCode}, 1, 0, #{mId})
+		</foreach>  SELECT * FROM DUAL
 	</insert>
 	
-	<delete id="deleteInterest" parameterType="hashmap">
-		delete from interest
-		where iCode=#{iCode}
-	</delete>
 	
-	<select id="search" parameterType="hashmap" resultType="SearchResultDTO">
-		SELECT S.SCODE, sum(S.GOOD-S.BAD) SCORESUM, 
-			SH.SNAME,SH.SSUBWAY,SH.SOID,SH.SOID,SH.SPOST,SH.SADDR, 
-         SH.SPHONE,SH.SBUSINESSHOURS,SH.SPARKINGLOT,SH.STERRACE,
-         SH.SMENU1,SH.SMENU2,SH.SCATEGORY,SH.SIMAGE,SH.SLIKE,SH.SHATE,SH.SINTEREST
-		FROM SCORE S, SHOP SH
-		WHERE S.SCODE = SH.SCODE
-		<if test="station != ''">
-		AND SH.SSUBWAY =#{station} 
-		</if>
-		<if test="keyword != null">
-		AND S.CATEGORY IN
-		<foreach collection="keyword" item="item" separator="," open="(" close=")">
-			#{item}
-		</foreach>
-		</if>
-		GROUP BY S.SCODE,SH.SNAME,SH.SSUBWAY,SH.SOID,SH.SPOST,SH.SADDR,
-          SH.SPHONE,SH.SBUSINESSHOURS,SH.SPARKINGLOT,SH.STERRACE,
-          SH.SMENU1,SH.SMENU2,SH.SCATEGORY,SH.SIMAGE,SH.SLIKE,SH.SHATE,SH.SINTEREST
-		ORDER BY SCORESUM DESC 
+	<insert id="insertBadScore" parameterType="hashmap">
+		insert All
+		<foreach collection="badKeyword" item="keyword">
+			into score (keyword, scode, good, bad, mId)
+			values(#{keyword}, #{sCode}, 0, 1, #{mId})
+		</foreach>  SELECT * FROM DUAL
+	</insert>
+	
+	<delete id="deleteScore" parameterType="hashmap">
+		delete from score
+		<where>
+			mId = #{mId} and sCode = #{sCode} and (keyword in
+			<foreach collection="goodKeyword" item="keyword" open="(" close=")" separator=",">
+				#{keyword}
+			</foreach>
+			or keyword in 
+			<foreach collection="badKeyword" item="keyword" open="(" close=")" separator=",">
+				#{keyword}
+			</foreach>
+			)
+		</where>
+	</delete>
+
+	<select id="selectReview" parameterType="String" resultType="ReviewDTO">
+		select * from review
+		where sCode = #{sCode}
 	</select>
 </mapper>
