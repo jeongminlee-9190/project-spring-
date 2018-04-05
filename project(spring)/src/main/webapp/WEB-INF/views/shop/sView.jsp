@@ -16,136 +16,10 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript">
-    function wrapWindowByMask(){
-        // 화면의 높이와 너비를 변수로 만듭니다.
-        var maskHeight = $(document).height();
-        var maskWidth = $(window).width();
- 
-        // 마스크의 높이와 너비를 화면의 높이와 너비 변수로 설정합니다.
-        $('.mask').css({'width':maskWidth,'height':maskHeight});
- 
-        // fade 애니메이션 : 1초 동안 검게 됐다가 80%의 불투명으로 변합니다.
-        $('.mask').fadeIn(1000);
-        $('.mask').fadeTo("slow",0.8);
- 
-        // 레이어 팝업을 가운데로 띄우기 위해 화면의 높이와 너비의 가운데 값과 스크롤 값을 더하여 변수로 만듭니다.
-        var left = ( $(window).scrollLeft() + ( $(window).width() - $('.window').width()) / 2 );
-        var top = ( $(window).scrollTop() + ( $(window).height() - $('.window').height()) / 4);
- 
-        // css 스타일을 변경합니다.
-        $('.window').css({'left':left,'top':top, 'position':'absolute'});
- 
-        // 레이어 팝업을 띄웁니다.
-        $('.window').show();
-    }
- 
-    function wrapWindowByMask2(){
-        // 화면의 높이와 너비를 변수로 만듭니다.
-        var maskHeight = $(document).height();
-        var maskWidth = $(window).width();
- 
-        // 마스크의 높이와 너비를 화면의 높이와 너비 변수로 설정합니다.
-        $('.mask2').css({'width':maskWidth,'height':maskHeight});
- 
-        // fade 애니메이션 : 1초 동안 검게 됐다가 80%의 불투명으로 변합니다.
-        $('.mask2').fadeIn(1000);
-        $('.mask2').fadeTo("slow",0.8);
- 
-        // 레이어 팝업을 가운데로 띄우기 위해 화면의 높이와 너비의 가운데 값과 스크롤 값을 더하여 변수로 만듭니다.
-        var left = ( $(window).scrollLeft() + ( $(window).width() - $('.window2').width()) / 2 );
-        var top = ( $(window).scrollTop() + ( $(window).height() - $('.window2').height()) / 4);
- 
-        // css 스타일을 변경합니다.
-        $('.window2').css({'left':left,'top':top, 'position':'absolute'});
- 
-        // 레이어 팝업을 띄웁니다.
-        $('.window2').show();
-    }
-    
-    $(document).ready(function(){
-        // showMask를 클릭시 작동하며 검은 마스크 배경과 레이어 팝업을 띄웁니다.
-        $('.showMask').click(function(e){
-            // preventDefault는 href의 링크 기본 행동을 막는 기능입니다.
-            e.preventDefault();
-            wrapWindowByMask();
-        });
 
-        // 닫기(close)를 눌렀을 때 작동합니다.
-        $('.window .close').click(function (e) {
-            e.preventDefault();
-            $('.mask, .window').hide();
-        });
-        
-    	// 뒤 검은 마스크를 클릭시에도 모두 제거하도록 처리합니다.
-        $('.mask').click(function () {
-            $(this).hide();
-            $('.window').hide();
-        });
-        
-        $('.showMask2').click(function(e){
-            // preventDefault는 href의 링크 기본 행동을 막는 기능입니다.
-            e.preventDefault();
-            wrapWindowByMask2();
-        });
- 
- 
-     // 닫기(close)를 눌렀을 때 작동합니다.
-        $('.window2 .close').click(function (e) {
-            e.preventDefault();
-            $('.mask2, .window2').hide();
-        });
- 
-     // 뒤 검은 마스크를 클릭시에도 모두 제거하도록 처리합니다.
-        $('.mask2').click(function () {
-            $(this).hide();
-            $('.window2').hide();
-        });
-    });
-</script>
 <body>
 <c:if test="${!empty SoLogin}"> 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid top">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					   <span class="icon-bar"></span>
-					   <span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="main_shopowner">갬성갱단 상점 센터</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" >서비스 소개</a></li>
-					<li class="active"><a href="sManagement" >상점 관리</a></li>
-					<li class="active"><a href="payMentUI">서비스 결제</a></li>
-					<li class="active"><a href="#">예약관리</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">계정: ${SoLogin.soId}</a></li>
-					<li class="active"><a href="sologout">로그아웃</a></li>
-					<li class="dropdown active">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="soMyPage">기본정보</a></li>
-							<li><a href="soPasswdUpdate">비밀번호 변경</a></li>
-							<li><a href="#">서비스 결제 내역</a></li>
-						</ul>
-					</li>
-					<li class="dropdown active">
-					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
-					 	<ul class="dropdown-menu">
-						    <li><a href="#">공지사항</a></li>
-						    <li><a href="#">자주 묻는 질문</a></li>
-						    <li><a href="#">1:1 문의</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	
+	<jsp:include page="../so/includes/soTop.jsp" flush="true"/>
 	<div class="container-fluid sbasicInfo">
 		<c:set var="sdto" value="${sInfo}"></c:set>
 		<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
@@ -235,10 +109,145 @@
 		</div><!-- end of row -->
 		<div class="row">
 			<div class="panel panel-default menu">
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#image"><h3 class="panel-title">사진</h3><a></div>
+				<div id="image" class="panel-collapse collapse">
+					<div class="panel-body">
+						<a href="resources/upload/${fn: split(sdto.sImage,'/')[0]}"><img class="image1" src="resources/upload/${fn: split(sdto.sImage,'/')[0]}"></a>
+						<img class="image2" src="resources/upload/${fn: split(sdto.sImage,'/')[1]}">
+						<img class="image3" src="resources/upload/${fn: split(sdto.sImage,'/')[2]}">
+						<img class="image4" src="resources/upload/${fn: split(sdto.sImage,'/')[3]}">
+						<img class="image5" src="resources/upload/${fn: split(sdto.sImage,'/')[4]}">
+					</div>
+				</div><!-- collapse -->
+			</div><!-- pannel -->
+		</div><!-- end of row -->
+		
+		<div class="row">
+			<div class="panel panel-default menu">
 				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
 				<div id="menu" class="panel-collapse collapse">
 					<div class="panel-body">
-					메뉴.....
+<<<<<<< HEAD
+						<div class="col-sm-12">
+							<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
+							<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
+							<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
+							<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+								
+							<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
+							<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
+							<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
+							<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
+				       			
+				       		<table>
+				       			<th>-${sMenuCategory1}-</th>
+				   				<td>${fn: split(sC1Menu1,':')[0]}</td>
+				   				<td>${fn: split(sC1Menu1,':')[1]}</td>
+				   				<td>${fn: split(sC1Menu1,':')[2]}원</td>
+							</table>	
+								<%-- <tr>
+									<td scope="col">${fn: split(sC1Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC1Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[2]}원</td>
+								</tr>
+								
+								<tr><!-- 메뉴2카테고리 -->
+									<td align="left" colspan="3"><br>-${sMenuCategory2}-</td>
+								</tr>
+								
+								<tr>
+									<td scope="col">${fn: split(sC2Menu1,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[2]}원</td>
+								</tr>
+								
+								<tr>
+									<td scope="col">${fn: split(sC2Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC2Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[2]}원</td>
+								</tr>
+							</table> --%>
+			       		</div>
+=======
+						<div class="col-sm-6">
+							<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
+							<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
+							<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
+							<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+								
+							<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
+							<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
+							<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
+							<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
+							
+							<table>
+								<colgroup>
+				       				<col width="25%"></col>
+				       				<col width="40%"></col>
+				       				<col width="10%"></col>
+	       						</colgroup>
+								<tr>
+									<td align="left" colspan="3">-${sMenuCategory1}-</td>
+								
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC1Menu1,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu1,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu1,':')[2]}원</td>
+								</tr>
+					
+								<tr>
+									<td scope="col">${fn: split(sC1Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC1Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[2]}원</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-sm-6">
+							<table>
+								<colgroup>
+				       				<col width="25%"></col>
+				       				<col width="40%"></col>
+				       				<col width="10%"></col>
+	       						</colgroup>
+								<tr>
+									<td align="left" colspan="3">-${sMenuCategory2}-</td>
+								
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC2Menu1,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[2]}원</td>
+								</tr>
+					
+								<tr>
+									<td scope="col">${fn: split(sC2Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC2Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[2]}원</td>
+								</tr>
+							</table>
+						</div>
+>>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 					</div>
 				</div><!-- collapse -->
 			</div><!-- pannel -->
@@ -253,7 +262,7 @@
 					</div>
 				</div><!-- collapse -->
 			</div><!-- pannel -->
-		</div>
+		</div><!-- end of row -->
 		
 		<div class="row">
 			<div class="panel panel-default menu">
@@ -279,22 +288,10 @@
     	<div class="window">
        		<input type="button" href="#" class="close" value="닫기"/ >
        		<div class="imageView">
-				<img class="image1" src="upload/${fn: split(sdto.sImage,'/')[0]}">
-				<img class="image2" src="upload/${fn: split(sdto.sImage,'/')[1]}">
-				<img class="image3" src="upload/${fn: split(sdto.sImage,'/')[2]}">
-				<img class="image4" src="upload/${fn: split(sdto.sImage,'/')[3]}">
-				<img class="image5" src="upload/${fn: split(sdto.sImage,'/')[4]}">
+				
 			</div>
        			
-       		<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
-			<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
-			<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
-			<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
-				
-			<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
-			<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
-			<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
-			<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
+       		
        			
        		<table class="sMenu_tbl">
        			<colgroup>
@@ -349,8 +346,3 @@
 	</div>
 </c:if>
 </body>
-
-
-
-
-

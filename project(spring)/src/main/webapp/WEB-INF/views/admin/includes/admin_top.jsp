@@ -3,11 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="./js/jquery-3.3.1.js"></script>   
 <style>
 	.logo{
 		width:100px;
@@ -15,7 +10,7 @@
 </style>
 	
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="main_admin"><img src="resources/images/logo.png" class="logo"> 관리자 센터</a>
+    <a class="navbar-brand" href="main_admin">관리자 센터</a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
        <ul class="navbar-nav">
         <li class="nav-item active dropdown">
@@ -34,7 +29,7 @@
  			   <li><a class="dropdown-item" href="soList">회원 등록</a></li>
 	           <li><a class="dropdown-item" href="soList2">회원 레벨 변경</a></li>
 	           <li><a class="dropdown-item" href="soDelete">휴면 계정 삭제</a></li>
-	           <li><a class="dropdown-item" href="#">1:1 문의 접수 현황</a></li>
+	           <li><a class="dropdown-item" href="aQna">1:1 문의 접수 현황</a></li>
 	        </ul>
 	    </li>
         <li class="nav-item active dropdown">
@@ -49,7 +44,7 @@
      <ul class="navbar-nav ml-auto">
        <li><a href="adminLogout">로그아웃</a></li>
      </ul>
-   </div>
+     </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 	   <span class="navbar-toggler-icon"></span>                       
 	</button>

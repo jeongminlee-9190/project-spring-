@@ -26,7 +26,14 @@
 		where soId=#{soId}
 	</select>
 	
-	
+	<insert id="insertAll" parameterType="arraylist">
+		insert all
+		<foreach collection="list" item="keyword">
+			into score(keyword, sCdoe)
+			values(#{keyword}, #{sCode})
+		</foreach>
+		select * from dual
+	</insert>
 	
 	<insert id="sScoreInsert1" parameterType="string">
 		insert into score (category,sCode)	values ('식사',#{sCode})

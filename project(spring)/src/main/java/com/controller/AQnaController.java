@@ -1,43 +1,42 @@
 package com.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dto.SoDTO;
-import com.dto.SoQnaDTO;
-import com.service.SoQnaService;
+import com.dto.AQnaDTO;
+import com.dto.AdminDTO;
+import com.service.AQnaService;
 
 @Controller
-public class SoQnaController {
+public class AQnaController {
 	@Autowired
-	SoQnaService service;
+	AQnaService service;
 	
-	@RequestMapping("/soQna")
-	public String soQna(HttpSession session) {
-		SoDTO sodto = (SoDTO)session.getAttribute("SoLogin");
-		String nextPage=null;
-		if(sodto==null) {
-			session.setAttribute("fail", "로그인을 해주세요");
-			nextPage ="index_shopowner";
-		}else {
-			String soId = sodto.getSoId();
-			List<SoQnaDTO> list= service.soQna(soId);
-			session.setAttribute("soQna", list);
-			nextPage="so/soQna";
+	@RequestMapping("/aQna")
+	public String aQna(HttpSession session) {
+		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
+		List<AQnaDTO> list = null;
+		String nextPage = null;
+		if(adto==null) {
+			session.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_admin";
 		}
+		else {
+			list = service.qna();
+			session.setAttribute("aQna", list);
+			nextPage ="admin/aQna";
+		}
+		
 		return nextPage;
 	}
 	
-	@RequestMapping("/soQnaWriteForm")
+	/*@RequestMapping("/soQnaWriteForm")
 	public String soQnaWriteForm() {
 		return "so/soQnaWrite";
 	}
@@ -63,5 +62,5 @@ public class SoQnaController {
 	public String soQnaDelete(@RequestParam HashMap<String, Integer> map) {
 		service.soQnaDelete(map);
 		return "redirect:soQna";
-	}
+	}*/
 }

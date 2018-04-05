@@ -41,11 +41,23 @@ public class SvController {
 	}
 	
 	@RequestMapping(value="/payMent", method=RequestMethod.POST)
-	public String payMent(@RequestParam SvDTO dto,String soId,HttpSession session) {
-		dto.setSoId((String)session.getAttribute("SoId"));
-		System.out.println(dto.getSoId());	
-		/*service.payment(dto);
-		*/	
+	public String payMent(@RequestParam String period ,String soId,HttpSession session) {
+		String sDTO = (String)session.getAttribute("SoId");
+		int price = 0;
+		if(period.equals("30")) {
+			price=16800;
+		}else if(period.equals("60")) {
+			price=26800;
+		}else {
+			price=36800;
+		}
+		SvDTO svDTO= new SvDTO();
+		svDTO.setSoId(sDTO);
+		svDTO.setPrice(price);
+		svDTO.setPeriod(Integer.parseInt(period));
+		
+		service.payment(svDTO);
+		session.setAttribute("success", "결제가 완료되었습니다.");
 		return "main_shopowner";
 	}
 }
