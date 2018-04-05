@@ -14,6 +14,8 @@ public class SoDTO {
 	private String soAddr;
 	private String soLevel;
 	private String soJoindate;
+	private String sLastLogin;
+	private String sLastLogin2;
 	
 	public SoDTO() {
 		super();
@@ -30,9 +32,10 @@ public class SoDTO {
 		this.soPost = soPost;
 		this.soAddr = soAddr;
 	}
-	public SoDTO(String soId, String soPasswd, String soName, String soPhone, String soLicense, String soPost,
-			String soAddr, String soLevel, String soJoindate) {
+	public SoDTO(int rownum, String soId, String soPasswd, String soName, String soPhone, String soLicense,
+			String soPost, String soAddr, String soLevel, String soJoindate, String sLastLogin, String sLastLogin2) {
 		super();
+		this.rownum = rownum;
 		this.soId = soId;
 		this.soPasswd = soPasswd;
 		this.soName = soName;
@@ -42,6 +45,14 @@ public class SoDTO {
 		this.soAddr = soAddr;
 		this.soLevel = soLevel;
 		this.soJoindate = soJoindate;
+		this.sLastLogin = sLastLogin;
+		this.sLastLogin2 = sLastLogin2;
+	}
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 	public String getSoId() {
 		return soId;
@@ -97,17 +108,17 @@ public class SoDTO {
 	public void setSoJoindate(String soJoindate) {
 		this.soJoindate = soJoindate;
 	}
-	public int getRownum() {
-		return rownum;
+	public String getsLastLogin() {
+		return sLastLogin;
 	}
-	public void setRownum(int rownum) {
-		this.rownum = rownum;
+	public void setsLastLogin(String sLastLogin) {
+		this.sLastLogin = sLastLogin;
 	}
-	@Override
-	public String toString() {
-		return "SoDTO [rownum=" + rownum + ", soId=" + soId + ", soPasswd=" + soPasswd + ", soName=" + soName
-				+ ", soPhone=" + soPhone + ", soLicense=" + soLicense + ", soPost=" + soPost + ", soAddr=" + soAddr
-				+ ", soLevel=" + soLevel + ", soJoindate=" + soJoindate + "]";
+	public String getsLastLogin2() {
+		return sLastLogin2;
+	}
+	public void setsLastLogin2(String sLastLogin2) {
+		this.sLastLogin2 = sLastLogin2;
 	}
 	
 }

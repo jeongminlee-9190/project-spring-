@@ -2,23 +2,13 @@
 
 
 footer {
-<<<<<<< HEAD
-/* 	position: absolute; */
+	position:fixed!important;
    	left: 0;
    	bottom: 0;
    	width: 100%;
 	display:block;
 	text-align:center;
 	background-color:#343a40;
-=======
-	position: fixed;
-   	left: 0;
-   	bottom: 0;
-   	width: 100%;
-	display:block;
-	text-align:center;
-	background-color:black;
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	color:#858585;
 	height:50px;
 	font-size:12px;
