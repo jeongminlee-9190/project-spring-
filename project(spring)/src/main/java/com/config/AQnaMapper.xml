@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AQnaMapper">
+    <!-- 1:1 문의 리스트 -->
+	<select id="qna" parameterType="string" resultType="AQnaDTO">
+		select qnaNum, soId, qnaTitle , qnaContent,
+		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
+		from soqna
+		order by qnaNum desc
+	</select>
+	
+	<insert id="soQnaWrite" parameterType="hashmap">
+		insert into soqna (qnaNum, soId, qnaTitle , qnaContent,qnaWritedate,qnaComplete,qnaCategory)
+		values(SEQ_noticetoso_noticeNum.NEXTVAL, #{soId},#{qnaTitle},#{qnaContent},default,default,#{qnaCategory})
+	</insert>
+	
+	<update id="soQnaModify" parameterType="hashmap">
+		update soqna
+		set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}
+		where soId=#{soId} and qnaNum=#{qnaNum}
+	</update>
+
+	<delete id="soQnaDelete" parameterType="hashmap">
+		delete from soqna
+		where soId=#{soId} and qnaNum=#{qnaNum}
+	</delete>
+
+	<!--페이징 처리 
+	<select id="totalCnt" parameterType="hashmap" resultType="int">
+    	select count(*) from soqnaboard where oId=#{oId}
+    </select>
+    -->
+    
+    <!-- 1:1 문의 자세히 보기 -->
+    <select id="soQnaRetrieve" parameterType="int" resultType="SoQnaDTO">
+		select qnaNum, soId,qnaTitle, qnaContent,
+		to_char(qnaWritedate,'YYYY-MM-DD') as qnaWritedate,qnaComplete,qnaCategory
+		from soqna
+		where qnaNum=#{qnaNum}
+	</select>
+    
+    <delete id="soDelQna">
+    	delete from soqna
+    	where soId=#{soId}
+    </delete>
+</mapper>

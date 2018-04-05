@@ -18,8 +18,38 @@
 	.row{
 		margin-top: 70px;
 	}
+	.red{
+		color: red;
+	}
 
 </style>
+<script>
+	$(document).ready(function(){
+		$(".btn_qnaDelete").click(function(){
+			var qnaNum =  $(this).attr("data-num");
+			var soId = $("#soId").val();
+			console.log(qnaNum+"\t"+soId);
+			$.ajax({
+				url: "soQnaDelete",
+				type:"get",
+				data:{
+					qnaNum:qnaNum,
+					soId:soId
+				},
+				dataType:"text",
+				success:function(responseData,status,xhr){
+					alert('1:1 문의가 삭제되었습니다.');
+					location.reload(); // 페이지 새로고침
+				},
+				error:function(){
+					console.log("tlfvo");
+				}
+			});
+		});
+	});
+
+
+</script>
 </head>
 <body>
 <c:if test="${! empty success}">
@@ -69,9 +99,24 @@
 					</thead>
 					<tbody>
 						<c:forEach var="dto" items="${soQna}" varStatus="status">
+							<input type="hidden" name="soId" id="soId" value="${dto.soId}">
 							<tr>
 								<td>${dto.qnaCategory}</td>
-								<td><a href="soQnaRetrieveServlet?qnaNum=${dto.qnaNum}">${dto.qnaTitle}</a></td>
+								<%-- <td><a href="soQnaRetrieveServlet?qnaNum=${dto.qnaNum}">${dto.qnaTitle}</a></td> --%>
+								<td>	
+									<a data-toggle="collapse" data-parent="#accordion" href="#soQnaRetrieve${dto.qnaNum}">${dto.qnaTitle}</a>
+									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
+										${dto.qnaContent}
+										<br>
+										<c:if test="${dto.qnaComplete=='확인중'}">
+											<button class="btn_qnaModify">수정</button>&nbsp;
+											<input type="button" class="btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
+										</c:if>
+										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='답변완료'}">
+											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
+										</c:if>
+									</div><!-- collapse -->
+								</td>
 								<td>${dto.qnaWritedate}</td>
 								<td>${dto.qnaComplete}</td>
 							</tr>

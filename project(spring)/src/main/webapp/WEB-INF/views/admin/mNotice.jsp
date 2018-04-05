@@ -2,35 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
-<script type="text/javascript">
+<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
+<script src="resources/js/admin_mNotice.js"></script>
+</head>
 
-	$(document).ready(function(){
-		  $(".mNoticeRetrieve").on("click",function(){
-			  var num =  $(this).attr("data-num");
-			  $.ajax({
-				  url:"mNoticeRetrieve",
-				  type:"get",
-				  data:{
-					num:num
-				  },
-				  dataType:"text",
-				  success:function(responseData,status,xhr){
-					  $(".modal-body").html(responseData);
-				  },
-				  error:function(){}
-			  });
-		   });
-	});
-		 
-</script>
-
+<body>
 <c:if test="${! empty success}">
    <script type="text/javascript">
     alert('${success}');
@@ -42,48 +30,7 @@
     	alert('${ALogout}');
     </script>
 </c:if>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="main_admin"><img src="resources/images/logo.png" class="logo"> 관리자 센터</a>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-       <ul class="navbar-nav">
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">개인 회원 관리<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
- 			   <li><a class="dropdown-item" href="memberList">회원 목록</a></li>
- 			   <li><a class="dropdown-item" href="memberList">회원 등록</a></li>
-	           <li><a class="dropdown-item" href="memberList2">휴면 계정 삭제</a></li>
-	        </ul>
-	    </li>
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">상점 회원 관리<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
- 			   <li><a class="dropdown-item" href="soList">회원 목록</a></li>
- 			   <li><a class="dropdown-item" href="soList2">가입 승인</a></li>
- 			   <li><a class="dropdown-item" href="soList">회원 등록</a></li>
-	           <li><a class="dropdown-item" href="soList2">회원 레벨 변경</a></li>
-	           <li><a class="dropdown-item" href="soDelete">휴면 계정 삭제</a></li>
-	           <li><a class="dropdown-item" href="#">1:1 문의 접수 현황</a></li>
-	        </ul>
-	    </li>
-        <li class="nav-item active dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">공지사항<span class="caret"></span></a>
- 			<ul class="dropdown-menu">
-	           <li><a class="dropdown-item" href="mNotice">개인 회원 공지사항</a></li>
-	           <li><a class="dropdown-item" href="soNotice">상점 회원 공지사항</a></li>
-	        </ul>
-	    </li>
-     </ul>
-     
-     <ul class="navbar-nav ml-auto">
-       <li><a href="adminLogout">로그아웃</a></li>
-     </ul>
-     </div>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-	   <span class="navbar-toggler-icon"></span>                       
-	</button>
-</nav>
-
+<jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-5">
@@ -148,7 +95,7 @@
 					</c:forEach>
 				  	<!-- 페이지번호 -->
 				  	<tr>
-				   		<td colspan="5" align="center">◀&nbsp;<jsp:include page="noticePaging.jsp" flush="true" />▶</td>
+				   		<td colspan="5" align="center">◀&nbsp;<jsp:include page="includes/noticePaging.jsp" flush="true" />▶</td>
 				  	</tr>
 				  </table>
 			</div>
@@ -170,7 +117,7 @@
 						 	<td colspan="2">
 							 	  <div class="form-group">
 								  	<label for="noticeContent">내용:</label>
-								  	<textarea class="form-control" rows="13" id="comment" name="noticeContent"></textarea>
+								  	<textarea class="form-control" rows="12" id="comment" name="noticeContent"></textarea>
 								  </div>
 							  </td>
 						</tr>
@@ -185,5 +132,6 @@
 		</div>
 	</div>
 </div>
-
+<jsp:include page="includes/admin_footer.jsp" flush="true"/>	
+</body>
   

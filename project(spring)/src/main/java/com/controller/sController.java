@@ -24,9 +24,10 @@ public class sController {
 	}
 	
 	@RequestMapping("/SInfoEnroll")
-	public String SInfoEnroll(HttpServletRequest request) {
-		String soId= request.getParameter("soId");
-		String soLicense = request.getParameter("soLicense");
+	public String SInfoEnroll(HttpSession session,HttpServletRequest request) {
+		
+		String soId = request.getParameter("soId");
+		String soLicense =request.getParameter("soLicense");
 		String sName = request.getParameter("sName");
 		String sPhone1 = request.getParameter("sPhone1");
 		String sPhone2 = request.getParameter("sPhone2");
@@ -82,7 +83,9 @@ public class sController {
 		SDTO dto = new SDTO(sCode, sName, soId, sPost, sAddr, sPhone, sCategory, sBusinesshours, sParkinglot, sTerrace, sMenu1, sMenu2,sSubway);
 		
 		service.SInfoEnroll(dto);
-		return "sManagement";
+		session.setAttribute("sInfo", dto);
+	    session.setAttribute("success", "상점 기본정보 등록 완료");
+	    return "redirect:sManagement";
 	}
 	
 	
@@ -122,4 +125,24 @@ public class sController {
 		return nextPage;
 	}
 	
+	
+	
+/*	
+	@RequestMapping("/sView")
+	public String sView(HttpSession session) {
+		System.out.println("sView start");
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String nextPage=null;
+
+		if(sDTO==null) {
+			session.setAttribute("fail", "상점 정보 먼저 등록해주세요.");
+			nextPage ="shop/sManagement";
+		}else
+		{
+			nextPage ="shop/sView";
+		}
+		System.out.println("sView end");
+		return nextPage;
+	}
+	*/
 }

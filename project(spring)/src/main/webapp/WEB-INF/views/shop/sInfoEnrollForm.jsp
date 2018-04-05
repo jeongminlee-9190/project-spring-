@@ -345,7 +345,7 @@
 		<div class="sEnroll_title">
 			<span class="title">상점 기본 정보 등록</span>  <span class="stress"> *상점은 한 곳만 등록 가능합니다.</span>
 		</div>
-		<c:set var="dto" value="${login}"></c:set>
+		<c:set var="dto" value="${SoLogin}"></c:set>
 		<!-- sCode를 위한 사업자번호 뒤 7자리 가져오기 -->
 		<c:set var="soLicense1" value="${dto.soLicense}"></c:set>
 		<c:set var="soLicense" value="${fn:substring(soLicense1,3,10)}"></c:set>

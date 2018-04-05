@@ -21,4 +21,8 @@ public class SoQnaService {
 	public void soQnaWrite(HashMap<String, String> map) {
 		dao.soQnaWrite(map);
 	}
+	
+	public void soQnaDelete(HashMap<String, Integer> map) {
+		dao.soQnaDelete(map);
+	}
 }

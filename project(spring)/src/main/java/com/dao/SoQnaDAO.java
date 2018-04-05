@@ -22,4 +22,8 @@ public class SoQnaDAO {
 	public void soQnaWrite(HashMap<String, String> map) {
 		template.insert("SoQnaMapper.soQnaWrite",map);
 	}
+	
+	public void soQnaDelete(HashMap<String, Integer> map) {
+		template.delete("SoQnaMapper.soQnaDelete",map);
+	}
 }
