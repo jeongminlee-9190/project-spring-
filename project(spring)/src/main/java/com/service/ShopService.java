@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.ShopDAO;
-import com.dto.InterestDTO;
-import com.dto.parameter.ReviewParameterDTO;
+import com.dto.ReviewDTO;
 
 @Service
 public class ShopService {
@@ -15,29 +15,19 @@ public class ShopService {
 	@Autowired
 	ShopDAO shopDAO;
 	
-	public String interest(HashMap<String, String> map) {
-		InterestDTO idto = shopDAO.isInterest(map);
-		String interestCheck = "0";
-		if(idto == null) {
-			shopDAO.insertInterest(map);
-			interestCheck = "1";
+	@Transactional
+	public void reviewWrite(HashMap<String, Object> map) {
+		ReviewDTO rdto = shopDAO.chechReview(map);
+		if(rdto==null) {
+			shopDAO.insertReview(map);
+			if(map.get("goodKeyword")!=null)shopDAO.insertGoodScore(map);
+			if(map.get("badKeyword")!=null)shopDAO.insertBadScore(map);
 		}else {
-			shopDAO.deleteInterest(map);
+			shopDAO.updateReview(map);
+			shopDAO.deleteScore(map);
+			if(map.get("goodKeyword")!=null)shopDAO.insertGoodScore(map);
+			if(map.get("badKeyword")!=null)shopDAO.insertBadScore(map);
 		}
-		return interestCheck;
-	}
-	
-	public String isInterest(HashMap<String, String> map) {
-		InterestDTO idto = shopDAO.isInterest(map);
-		String interestCheck = "0";
-		if(idto != null) {
-			interestCheck = "1";
-		}
-		return interestCheck;
-	}
-	
-	public void reviewWrite(ReviewParameterDTO dto, HashMap<String, String> map) {
-		
 	}
 
 }

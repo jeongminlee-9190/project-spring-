@@ -125,6 +125,7 @@ public class sController {
 		return nextPage;
 	}
 	
+
 	@RequestMapping("/SDeletion")
 	public String SDeletion(HttpSession session,String sCode) {
 		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
@@ -143,4 +144,25 @@ public class sController {
 		}
 		return nextPage;
 	}
+
+	
+	
+/*	
+	@RequestMapping("/sView")
+	public String sView(HttpSession session) {
+		System.out.println("sView start");
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String nextPage=null;
+
+		if(sDTO==null) {
+			session.setAttribute("fail", "상점 정보 먼저 등록해주세요.");
+			nextPage ="shop/sManagement";
+		}else
+		{
+			nextPage ="shop/sView";
+		}
+		System.out.println("sView end");
+		return nextPage;
+	}
+	*/
 }

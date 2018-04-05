@@ -14,7 +14,7 @@
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script src="resources/js/admin_mNotice.js"></script>
 </head>
 
@@ -117,7 +117,7 @@
 						 	<td colspan="2">
 							 	  <div class="form-group">
 								  	<label for="noticeContent">내용:</label>
-								  	<textarea class="form-control" rows="13" id="comment" name="noticeContent"></textarea>
+								  	<textarea class="form-control" rows="12" id="comment" name="noticeContent"></textarea>
 								  </div>
 							  </td>
 						</tr>
