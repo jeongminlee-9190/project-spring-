@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +24,14 @@ public class NoticeController {
 	NoticeService nService;
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/mNotice" , method=RequestMethod.GET)
-	public ModelAndView mNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
+	public ModelAndView mNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+								HttpServletRequest request) {
 		PageDTO pageDTO = nService.mNoticeList(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
 		mav.setViewName("admin/mNotice");
+		String searchName = map.get("searchName");
+		request.setAttribute("searchName", searchName);
 		return mav;
 	}
 	

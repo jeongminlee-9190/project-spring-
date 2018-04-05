@@ -167,7 +167,7 @@
 				<p class="shopwarn">삭제하면 복원되지 않습니다.<p>
 				<br>
 				<c:if test="${(!empty sInfo.sCode && !empty sInfo.sImage) ||(empty sInfo.sCode && !empty sInfo.sImage) ||(!empty sInfo.sCode && empty sInfo.sImage)}">
-					<a href="SDeletionServlet"><input type="button" class="btn_enroll"value="상점 삭제"></a><br><br>
+					<a href="SDeletion"><input type="button" class="btn_enroll"value="상점 삭제"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
 					<p class="shopwarn">삭제할 정보가 없습니다.</p>

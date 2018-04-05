@@ -7,7 +7,7 @@ import org.apache.ibatis.type.Alias;
 public class PageDTO {
 	private List<NoticeDTO> list; // 게시판 목록
 	private List<SoQnaDTO> qnaList; // 게시판 목록
-	private int perPage=8; // 페이지 당 보여줄 갯수
+	private int perPage=7; // 페이지 당 보여줄 갯수
 	private int curPage; // 현재 페이지 번호
 	private int totalCnt; // 전체 레코드 갯수
 	private String searchName;

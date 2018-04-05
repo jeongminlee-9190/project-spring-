@@ -10,7 +10,8 @@ public class MemberDTO {
    private String mName;
    private String mPhone;
    private String mBirth;
-   private String mLastLogin;
+   private String mLastLogin;   
+   private String mLastLogin2;
    
    public MemberDTO() {
 	   super();
@@ -28,7 +29,7 @@ public class MemberDTO {
 
    
 	public MemberDTO(int rownum, String mId, String mPasswd, String mName, String mPhone, String mBirth,
-		String mLastLogin) {
+		String mLastLogin,String mLastLogin2) {
 	super();
 	this.rownum = rownum;
 	this.mId = mId;
@@ -37,6 +38,7 @@ public class MemberDTO {
 	this.mPhone = mPhone;
 	this.mBirth = mBirth;
 	this.mLastLogin = mLastLogin;
+	this.mLastLogin2 = mLastLogin2;
 }
 
 	public MemberDTO(String mId, String mPasswd, String mName, String mPhone, String mBirth) {
@@ -102,6 +104,14 @@ public class MemberDTO {
 
 	public void setmLastLogin(String mLastLogin) {
 		this.mLastLogin = mLastLogin;
+	}
+
+	public String getmLastLogin2() {
+		return mLastLogin2;
+	}
+
+	public void setmLastLogin2(String mLastLogin2) {
+		this.mLastLogin2 = mLastLogin2;
 	}
 	
 	   

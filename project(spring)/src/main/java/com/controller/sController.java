@@ -125,4 +125,44 @@ public class sController {
 		return nextPage;
 	}
 	
+
+	@RequestMapping("/SDeletion")
+	public String SDeletion(HttpSession session,String sCode) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		sCode = sDTO.getsCode();
+		System.out.println(sCode);
+		if(soDTO==null) {
+			session.setAttribute("fail", "로그인을 해주세요");
+			nextPage ="shop/sManagement";
+		}else{
+			service.sDelAll(sCode);
+			session.setAttribute("success", "삭제 성공");
+			nextPage ="redirect:sManagement";
+		}
+		return nextPage;
+	}
+
+	
+	
+/*	
+	@RequestMapping("/sView")
+	public String sView(HttpSession session) {
+		System.out.println("sView start");
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String nextPage=null;
+
+		if(sDTO==null) {
+			session.setAttribute("fail", "상점 정보 먼저 등록해주세요.");
+			nextPage ="shop/sManagement";
+		}else
+		{
+			nextPage ="shop/sView";
+		}
+		System.out.println("sView end");
+		return nextPage;
+	}
+	*/
 }

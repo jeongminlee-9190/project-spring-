@@ -13,11 +13,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
 <style type="text/css">
 	.row{
 		margin-top: 70px;
+		font-size: 12px;
 	}
 	.red{
 		color: red;
@@ -70,12 +71,13 @@
 					<colgroup>
 						<col width="15%">
 						<col width="40%">
+						<col width="15%">
 						<col width="10%">
 						<col width="10%">
 					</colgroup>
 					<thead class="thead-light">
 						<tr>
-							<td colspan="4" align="right">
+							<td colspan="5" align="right">
 								<span>답변 상태  </span>
 								<select>
 									<option>확인중</option>
@@ -99,6 +101,7 @@
 						<tr>
 						  <th scope="col">문의유형</th>
 						  <th scope="col">제목</th>
+						  <th scope="col">작성자</th>
 						  <th scope="col">문의날짜</th>
 						  <th scope="col">답변상태</th>
 			 			</tr>
@@ -123,6 +126,7 @@
 										</c:if>
 									</div><!-- collapse -->
 								</td>
+								<td>${dto.soId}</td>
 								<td>${dto.qnaWritedate}</td>
 								<td>${dto.qnaComplete}</td>
 							</tr>

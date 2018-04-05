@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,10 @@
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script src="resources/js/admin_mNotice.js"></script>
+
+
 </head>
 
 <body>
@@ -33,17 +36,33 @@
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-md-1"></div>
 		<div class="col-md-5">
 			<div class="pagebox">
-				<h3>개인회원 공지사항 목록</h3>
-				<form action="mNotice" method="GET" class="form-inline" role="form">
-					<table class="noticesearch_tbl">
+				<h3>개인회원 공지사항</h3>
+				<form action="mNotice" method="GET" role="form">
+					<table class="table">
+						<colgroup>
+							<col width="15%">
+							<col width="70%">
+							<col width="15%">
+						</colgroup>
   						<tr align="center">
    							<td colspan="5" align="center">
+   								<c:if test="${empty searchName || searchName=='title'}">
+    							<select name="searchName">
+        							<option value="title" selected="selected">제목</option>
+        							<option value="content">내용</option>
+     							</select>     					
+								</c:if>
+     							
+     							<c:if test="${empty searchName || searchName=='content'}">
     							<select name="searchName">
         							<option value="title">제목</option>
-        							<option value="content">내용</option>
+        							<option value="content" selected="selected">내용</option>
      							</select>
+     							</c:if>
+     						
 			     				<input type="text" class="form-control" id="searchValue" name="searchValue">
 			     				<input type="submit" class="btn btn-primary sm-black-background" value="검색">
    							</td>
@@ -70,7 +89,8 @@
 						<tbody>
 					 		<tr>
 					  			<td align="center">${dto.noticeNum}</td>
-					  			<td><a data-toggle="modal" data-target="#myModal" class="mNoticeRetrieve" data-num="${dto.noticeNum}">${dto.noticeTitle}</a></td>
+					  			<td><c:set var="noticeTitle" value="${dto.noticeTitle}"/>
+					  				<a data-toggle="modal" data-target="#myModal" class="mNoticeRetrieve" data-num="${dto.noticeNum}">${fn:substring(noticeTitle, 0, 16)}</a></td>
 					  			<td align="center">${dto.noticeWritedate}</td>
 					  			<td align="center">${dto.noticeReadcnt}</td>
 					  			<!-- The Modal -->
@@ -100,16 +120,16 @@
 				  </table>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-6">
 			<div class="pagebox">
-				<h3>개인회원 공지사항 쓰기</h3>
+				<h3></h3>
 				<form action="mNoticeWrite" method="POST">
 					<table class="NoticeWrite_tbl">
 						 <tr>
 							<td>
 								<div class="form-group">
 								  	<label for="title">제목:</label>
-								  	<input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
+								  	<input type="text" class="form-control" id="noticeTitle" name="noticeTitle" maxlength="30">
 								</div>
 							</td>
 						 </tr>
@@ -117,7 +137,7 @@
 						 	<td colspan="2">
 							 	  <div class="form-group">
 								  	<label for="noticeContent">내용:</label>
-								  	<textarea class="form-control" rows="13" id="comment" name="noticeContent"></textarea>
+								  	<textarea class="form-control" rows="12" id="comment" name="noticeContent" maxlength="1000"></textarea>
 								  </div>
 							  </td>
 						</tr>

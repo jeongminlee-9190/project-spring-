@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.SDAO;
 import com.dto.SDTO;
@@ -20,5 +21,9 @@ public class SService {
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);
 	}
-
+	@Transactional
+	public void sDelAll(String sCode) {
+		System.out.println("Service_sDelAll시작");
+		dao.sDelAll(sCode);
+	}
 }

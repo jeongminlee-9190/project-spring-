@@ -11,16 +11,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
+<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script src="resources/js/admin_soNotice.js"></script>
-<script type="text/javascript">
 
-	
-		 
-</script>
 </head>
 <body>
 <c:if test="${! empty success}">
@@ -38,22 +34,28 @@
 
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-md-1"></div>
 		<div class="col-md-5">
 			<div class="pagebox">
-				<h3>상점회원 공지사항 목록</h3>
-				<form action="soNotice" method="GET" class="form-inline" role="form">
-					<table class="noticesearch_tbl">
+				<h3>상점회원 공지사항</h3>
+				<form action="soNotice" method="GET" role="form" id="search">
+					<table class="table">
+						<colgroup>
+							<col width="15%">
+							<col width="70%">
+							<col width="15%">
+						</colgroup>
   						<tr align="center">
    							<td colspan="5" align="center">
-   								<div class="form-group">
-	    							<select name="searchName">
-	        							<option value="title">제목</option>
-	        							<option value="content">내용</option>
-	     							</select>
-	    							<input type="text" class="form-control" id="searchValue" name="searchValue"> 
-				     				<input type="submit" class="btn btn-primary sm-black-background" value="검색">
-  							    </div>
-   							</td>
+    							<select class="form-control" id="searchName" name="searchName">
+    								<div class="searchName2">
+        								<option value="title">제목</option>
+        								<option value="content">내용</option>
+        							</div>
+     							</select>
+     						</td>
+     						<td><input type="text" class="form-control" id="searchValue" name="searchValue"></td>
+     						<td><input type="submit" class="btn btn-primary sm-black-background" value="검색"></td>
  						</tr>
   					</table>
   				</form>
@@ -77,7 +79,9 @@
 						<tbody>
 					 		<tr>
 					  			<td align="center">${dto.noticeNum}</td>
-					  			<td><a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" data-num="${dto.noticeNum}">${dto.noticeTitle}</a></td>
+					  			<td>
+					  				<c:set var="noticeTitle" value="${dto.noticeTitle}"/>
+					  				<a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" data-num="${dto.noticeNum}">${fn:substring(noticeTitle, 0, 16)}</a></td>
 					  			<td align="center">${dto.noticeWritedate}</td>
 					  			<td align="center">${dto.noticeReadcnt}</td>
 					  			<!-- The Modal -->
@@ -107,16 +111,16 @@
 				  </table>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-6">
 			<div class="pagebox">
-				<h3>상점회원 공지사항 쓰기</h3>
+				<h3></h3>
 				<form action="soNoticeWrite" method="POST">
 					<table class="NoticeWrite_tbl">
 						 <tr>
 							<td>
 								<div class="form-group">
 								  	<label for="title">제목:</label>
-								  	<input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
+								  	<input type="text" class="form-control" id="noticeTitle" name="noticeTitle" maxlength="30">
 								</div>
 							</td>
 						 </tr>
@@ -124,7 +128,7 @@
 						 	<td colspan="2">
 							 	  <div class="form-group">
 								  	<label for="noticeContent">내용:</label>
-								  	<textarea class="form-control" rows="13" id="comment" name="noticeContent"></textarea>
+								  	<textarea class="form-control" rows="12" id="comment" name="noticeContent" maxlength="1000"></textarea>
 								  </div>
 							  </td>
 						</tr>
@@ -139,6 +143,12 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="includes/admin_footer.jsp" flush="true"/>	
+<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+
+<script type="text/javascript">
+
+
+
+</script>	
 </body>
   

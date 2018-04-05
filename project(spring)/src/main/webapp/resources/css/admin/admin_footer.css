@@ -2,13 +2,13 @@
 
 
 footer {
-	position: fixed;
+	position:fixed!important;
    	left: 0;
    	bottom: 0;
    	width: 100%;
 	display:block;
 	text-align:center;
-	background-color:black;
+	background-color:#343a40;
 	color:#858585;
 	height:50px;
 	font-size:12px;
