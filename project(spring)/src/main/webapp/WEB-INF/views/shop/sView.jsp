@@ -112,7 +112,56 @@
 				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
 				<div id="menu" class="panel-collapse collapse">
 					<div class="panel-body">
-					메뉴.....
+						<div class="col-sm-12">
+							<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
+							<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
+							<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
+							<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+								
+							<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
+							<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
+							<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
+							<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
+				       			
+				       		<table>
+				       			<th>-${sMenuCategory1}-</th>
+				   				<td>${fn: split(sC1Menu1,':')[0]}</td>
+				   				<td>${fn: split(sC1Menu1,':')[1]}</td>
+				   				<td>${fn: split(sC1Menu1,':')[2]}원</td>
+							</table>	
+								<%-- <tr>
+									<td scope="col">${fn: split(sC1Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC1Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC1Menu3,':')[2]}원</td>
+								</tr>
+								
+								<tr><!-- 메뉴2카테고리 -->
+									<td align="left" colspan="3"><br>-${sMenuCategory2}-</td>
+								</tr>
+								
+								<tr>
+									<td scope="col">${fn: split(sC2Menu1,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu1,':')[2]}원</td>
+								</tr>
+								
+								<tr>
+									<td scope="col">${fn: split(sC2Menu2,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu2,':')[2]}원</td>
+								</tr>
+								<tr>
+									<td scope="col">${fn: split(sC2Menu3,':')[0]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[1]}</td>
+									<td scope="col">${fn: split(sC2Menu3,':')[2]}원</td>
+								</tr>
+							</table> --%>
+			       		</div>
 					</div>
 				</div><!-- collapse -->
 			</div><!-- pannel -->
@@ -223,8 +272,3 @@
 	</div>
 </c:if>
 </body>
-
-
-
-
-
