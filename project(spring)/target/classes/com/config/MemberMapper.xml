@@ -9,4 +9,9 @@
 		where mId = #{mId} and mPasswd = #{mPasswd}
 	</select>
 	
+	<insert id="memberAdd" parameterType="MemberDTO">
+		insert into member (mId,mPasswd,mName,mPhone,mBirth)
+		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})
+	</insert>
+	
 </mapper>

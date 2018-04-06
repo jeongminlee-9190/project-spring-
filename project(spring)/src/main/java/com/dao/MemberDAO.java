@@ -17,5 +17,9 @@ public class MemberDAO {
 	public MemberDTO login(HashMap<String, String> map) {
 		return template.selectOne("MemberMapper.login",map);
 	}
+	
+	public void memberAdd(HashMap<String, String> map) {
+		template.insert("MemberMapper.memberAdd",map);
+	}
 
 }
