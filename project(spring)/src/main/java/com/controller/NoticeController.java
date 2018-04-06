@@ -31,7 +31,9 @@ public class NoticeController {
 		mav.addObject("pageDTO",pageDTO);
 		mav.setViewName("admin/mNotice");
 		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
 		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
 		return mav;
 	}
 	
@@ -79,11 +81,16 @@ public class NoticeController {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping(value="/soNotice", method=RequestMethod.GET)
-	public ModelAndView soNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
+	public ModelAndView soNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
 		PageDTO pageDTO = nService.soNoticeList(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
 		mav.setViewName("admin/soNotice");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
 		return mav;
 	}
 	

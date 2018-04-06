@@ -16,8 +16,7 @@
         <li class="nav-item active dropdown">
         	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">개인 회원 관리<span class="caret"></span></a>
  			<ul class="dropdown-menu">
- 			   <li><a class="dropdown-item" href="memberList">회원 목록</a></li>
- 			   <li><a class="dropdown-item" href="memberList">회원 등록</a></li>
+ 			   <li><a class="dropdown-item" href="mList">회원 목록</a></li>
 	           <li><a class="dropdown-item" href="mDormantList">휴면 계정 삭제</a></li>
 	        </ul>
 	    </li>

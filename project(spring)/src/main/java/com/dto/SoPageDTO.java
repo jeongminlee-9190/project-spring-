@@ -6,7 +6,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("SoPageDTO")
 public class SoPageDTO {
 	private List<SoPageDTO> list; // 게시판 목록
-	private int perPage=8; // 페이지 당 보여줄 갯수
+	private int perPage=7; // 페이지 당 보여줄 갯수
 	private int curPage; // 현재 페이지 번호
 	private int totalCnt; // 전체 레코드 갯수
 	public SoPageDTO() {

@@ -21,9 +21,39 @@ public class ADAO {
 	public AdminDTO login(HashMap<String, String> map) {
 		return template.selectOne("AdminMapper.adminlogin",map);
 	}
+
+	public MPageDTO mList(HashMap<String, String> map,int curPage) {
+		MPageDTO mpageDTO = new MPageDTO();
+		//목록은 0부터 시작
+		System.out.println("mList DAO"+map+curPage);
+		int start = (curPage-1)*mpageDTO.getPerPage(); //페이징 시작 글 번호
+		List<MPageDTO> list =null;  //게시판 목록
+		list= template.selectList("AdminMapper.mList",map,new RowBounds(start ,mpageDTO.getPerPage()));
+		int totalCnt=0;
+		String searchValue = map.get("searchValue");
+		String searchName = map.get("searchName");
+		
+		if(searchValue==null) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
+			totalCnt=mListTotalCount();
+			System.out.println("1:"+totalCnt);
+		}
+		else {//입력된 searchValue가 포함된 게시판 글들의 목록을 보여줌
+			totalCnt=mListTotalSearchCount(map);
+			System.out.println("2:"+totalCnt);
+		}
+		mpageDTO.setList(list);
+		mpageDTO.setCurPage(curPage);
+		mpageDTO.setTotalCnt(totalCnt);
+		System.out.println("mList DAO"+list+curPage+totalCnt+mpageDTO.getPerPage());
+		return mpageDTO;
+	}
 	
-	public List<Object> memberList() {
-		return template.selectList("AdminMapper.memberlist");
+	public int mListTotalCount(){
+		return template.selectOne("AdminMapper.mListTotalCount");
+	}
+
+	public int mListTotalSearchCount(HashMap<String, String> map){
+		return template.selectOne("AdminMapper.mListTotalSearchCount",map);
 	}
 	
 	public MPageDTO mDormantList(int curPage) {
@@ -37,10 +67,6 @@ public class ADAO {
 		mpageDTO.setList(list);
 		mpageDTO.setCurPage(curPage);
 		mpageDTO.setTotalCnt(totalCnt);
-/*		System.out.println("start"+start);
-		System.out.println("perpage"+mpageDTO.getPerPage());
-		System.out.println("curPage"+curPage);
-		System.out.println("totalCnt"+totalCnt);*/
 		return mpageDTO;
 	}
 	
@@ -48,9 +74,14 @@ public class ADAO {
 		return template.selectOne("AdminMapper.mDormantListTotalCount");
 	}
 	
-	/*public List<Object> mDormantList() {
-		return template.selectList("AdminMapper.mDormantList");
-	}*/
+	public void mDormantDel(String mId) {
+		template.delete("AdminMapper.mDormantDel",mId);
+	}
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////////////////
 	
 	public List<Object> soList() {
 		return template.selectList("AdminMapper.soList");
@@ -78,6 +109,13 @@ public class ADAO {
 		return template.selectOne("AdminMapper.soDormantListTotalCount");
 	}
 	
+	public void soDormantDel(String soId) {
+		System.out.println("soId: "+soId);
+		template.delete("AdminMapper.sDormantDel",soId);
+		template.delete("AdminMapper.soDormantDel",soId);
+		
+		
+	}
 	public void changeSoLevel(HashMap<String, String> map) {
 		template.update("AdminMapper.soLevelChange",map);
 	}

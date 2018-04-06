@@ -13,7 +13,8 @@
 </script>
 <style>
 	.container{
-		margin-top: 100px;
+		margin-top: 90px;
+		margin-bottom: 40px;
 	}
 	.table-hover{
 		font-size: 13px;
@@ -23,16 +24,46 @@
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container">
 	<form action="memberList" method="get">
+		<h4>상점 회원 목록</h4>
+		<table class="table">
+		  	<tr align="center">
+		   		<td colspan="5">
+		   			<c:if test="${empty searchName || searchName=='memberId'}">
+    					<select class="form-control" name="searchName">
+        					<option value="memberId" selected="selected">아이디</option>
+		        			<option value="memberName">이름</option>
+		        			<option value="memberPhone">사업자번호</option>
+     					</select> 
+     					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
+					</c:if>
+					<c:if test="${searchName=='memberName'}">
+    					<select class="form-control" name="searchName">
+        					<option value="memberId">아이디</option>
+		        			<option value="memberName">이름</option>
+		        			<option value="memberPhone selected="selected">사업자번호</option>
+     					</select>
+     					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>  					
+					</c:if>
+					<c:if test="${searchName=='memberPhone'}">
+    					<select class="form-control" name="searchName">
+        					<option value="memberId">아이디</option>
+		        			<option value="memberName">이름</option>
+		        			<option value="memberPhone" selected="selected">사업자번호</option>
+     					</select>
+     					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>     					
+					</c:if>		
+     			<td><input type="submit" class="btn btn-primary sm-black-background" value="검색"></td>
+		 	</tr>
+		  </table>
 		<table class="table table-hover">
 			<colgroup>
-				<col width="5%">
-				<col width="17%">
-				<col width="10%">
-				<col width="10%">
-				<col width="10%">
-				<col width="25%">
+				<col width="6%">
+				<col width="20%">
 				<col width="8%">
-				<col width="15%">
+				<col width="12%">
+				<col width="10%">
+				<col width="36%">
+				<col width="8%">
 			</colgroup>
 	    	<thead class="thead-light">
 				<tr>
@@ -43,7 +74,6 @@
 					<th>사업자번호</th>
 					<th>주소</th>
 					<th>회원레벨</th>
-					<th>가입일자</th>
 				</tr>
 			</thead>
 			<c:forEach var="dto" items="${soList}" varStatus="status">
@@ -56,7 +86,6 @@
 				    <td>${dto.soLicense}</td>
 				    <td>${dto.soAddr}</td>
 				    <td>${dto.soLevel}</td>
-				    <td>${dto.soJoindate}</td>
 				</tr>
 			</tbody>
 			</c:forEach>
