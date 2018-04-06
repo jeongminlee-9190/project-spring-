@@ -54,45 +54,93 @@ public class AController {
 		return "index_admin";
 	}
 	
-	@RequestMapping("/memberList")
-	public ModelAndView memberList(ArrayList<Object> list) {
-		ModelAndView mav = new ModelAndView();
-		list = (ArrayList<Object>)service.memberList();
-		mav.addObject("memberList",list);
-		mav.setViewName("admin/memberList");
-		return mav;
-	}
-	
-	/*@RequestMapping(value="/mNotice" , method=RequestMethod.GET)
-	public ModelAndView mNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
-		PageDTO pageDTO = nService.mNoticeList(map, curPage);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("pageDTO",pageDTO);
-		mav.setViewName("admin/mNotice");
-		return mav;
-	}*/
-	//휴면계정 리스트
-	
-	@RequestMapping(value="/mDormantList", method=RequestMethod.GET)
-	public ModelAndView mDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
-		MPageDTO mpageDTO = service.mDormantList(curPage);
+	@RequestMapping(value="/mList",method=RequestMethod.GET)
+	public ModelAndView mList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
+		MPageDTO mpageDTO = service.mList(map, curPage);
 		System.out.println(mpageDTO);
 		System.out.println(mpageDTO.getCurPage());
 		System.out.println(mpageDTO.getPerPage());
 		System.out.println(mpageDTO.getTotalCnt());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mListpageDTO",mpageDTO);
+		mav.setViewName("admin/mList");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
+		return mav;
+	}
+	
+	
+	//휴면계정 리스트	
+	@RequestMapping(value="/mDormantList", method=RequestMethod.GET)
+	public ModelAndView mDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
+		MPageDTO mpageDTO = service.mDormantList(curPage);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mpageDTO",mpageDTO);
 		mav.setViewName("admin/mDormantList");
 		return mav;
 	}
 	
-	@RequestMapping("/soList")
-	public ModelAndView soList(ArrayList<Object> list) {
+	@RequestMapping(value="/mDormantDel" , method=RequestMethod.GET)
+	public String mDormantDel(@RequestParam String mId) {
+		service.mDormantDel(mId);
+		return "redirect:mDormantList";
+	}
+	
+	
+	
+	/*@RequestMapping(value="/mList",method=RequestMethod.GET)
+	public ModelAndView mList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
+		MPageDTO mpageDTO = service.mList(map, curPage);
+		System.out.println(mpageDTO);
+		System.out.println(mpageDTO.getCurPage());
+		System.out.println(mpageDTO.getPerPage());
+		System.out.println(mpageDTO.getTotalCnt());
 		ModelAndView mav = new ModelAndView();
-		list = (ArrayList<Object>)service.soList();
-		mav.addObject("soList",list);
-		mav.setViewName("admin/soList");
+		mav.addObject("mListpageDTO",mpageDTO);
+		mav.setViewName("admin/mList");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
 		return mav;
+	}*/
+	
+	@RequestMapping("/soList")
+	public ModelAndView soList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
+		SoPageDTO sopageDTO = service.soList(map, curPage);
+		System.out.println(sopageDTO);
+		System.out.println(sopageDTO.getCurPage());
+		System.out.println(sopageDTO.getPerPage());
+		System.out.println(sopageDTO.getTotalCnt());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("soListpageDTO",sopageDTO);
+		mav.setViewName("admin/soList");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
+		return mav;
+	}
+
+	@RequestMapping(value="/SoDormantList", method=RequestMethod.GET)
+	public ModelAndView SoDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
+		SoPageDTO sopageDTO=service.soDormantList(curPage);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("sopageDTO",sopageDTO);
+		mav.setViewName("admin/SoDormantList");
+		return mav;
+	}
+	
+	@RequestMapping(value="/soDormantDel" , method=RequestMethod.GET)
+	public String soDormantDel(@RequestParam String soId) {
+		service.soDormantDel(soId);
+		return "redirect:SoDormantList";
 	}
 /*	
 	@RequestMapping("/soList2")
@@ -112,12 +160,4 @@ public class AController {
 		return "redirect:soList2";
 	}*/
 	
-	@RequestMapping(value="/SoDormantList", method=RequestMethod.GET)
-	public ModelAndView SoDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
-		SoPageDTO sopageDTO=service.soDormantList(curPage);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("sopageDTO",sopageDTO);
-		mav.setViewName("admin/SoDormantList");
-		return mav;
-	}
 }

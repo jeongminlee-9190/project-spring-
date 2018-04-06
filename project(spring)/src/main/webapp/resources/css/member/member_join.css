@@ -1,120 +1,368 @@
 @charset "UTF-8";
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
-	.welcome{
-		margin-top: 70px;
-		margin-left: 50px;
-		font-size: 20px;
-		text-align: center;
-		color: grey;
-	}
-	/* 회원정보 입력 테이블*/
-	.join_tbl {
-		position: fixed;
-		margin-top:15px;
-		height:700px;
-		width: 500px;
-		left:3%;
-	}
-	th{
-		width: 150px;
-	}
-	input{
-		height:30px;
-		margin-top: 5px;
-	}
-	#result1,#result2{
-		font-size:10px;
-		color: red;
-	}
-	.btn_addr{
-		border: 1px solid #99e6ff;
-		background-color: white;
-	
-	}
-	
-	/* 회원가입 완료, 취소 테이블  */
-	.joincomplete{
-		margin-left: auto;
-        margin-right: auto;
-	}
-	
-	.btn_submit {
-		border: 1px solid #99e6ff;
-		background-color: #99e6ff;
-		margin-top: 20px;
-		height:35px;
-		width: 300px;
-		/*color: white;*/
-	}
-	
-	.btn_cancel{
-		border: 1px solid #99e6ff;
-		background-color: white;
-		margin-top: 10px;
-		height:35px;
-		width: 300px;
-		/*color: white;*/
-	}
 
-	/* 약관  */
-	.term_1,.term_2{
-		position: fixed;
-		left:40%;
-		font-size: 13px;
-	}
-	.term_1{
-		margin-top:20px;
-	}
-	.term_2{
-		margin-top:210px;
-	}
-	/* 약관 동의 체크박스 */
-	#term_1{
-		
-	}
-	.term_headline{
-	
-	}
-	.term_text{
-		font-size: 12px;
-	}
-	.term_stress{
-		color:red;	
-	}
-	.bx_term_agree_1,.bx_term_agree_2,.bx_term_agree_3{
-		position: fixed;
-		left:650px;
-		border:1px solid #ccc;
-		height:140px;
-		max-width: 800px;
-		overflow:hidden;
-		overflow-y:scroll;
-		color:#666;
-	}
-	
-	.bx_term_agree_1 {
-		margin-top:50px;
-	}
-	.bx_term_agree_2 {
-		margin-top:240px;
-	}
-	
-	dt,dd{
-		font-size: 12px;
-	}
-	.agree_tbl{
-		
-		text-align: center;
-	}
-	.agree_tbl th{
-		border: 1px solid grey;
-		height: 20px;
-	}
-	.agree_tbl td{
-		border: 1px solid grey;
-		height: 20px;
-	}
-	.term_headline{
-		font-size: 12px;
-	}
+#join_content_wrapper {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	padding-bottom:90px;
+	font-size:14px;
+}
+
+*html #join_content_wrapper { height:100%;}
+
+/* SIGN US */
+#join_title {
+	display:block;
+	position:relative;
+	margin-top:80px;
+	min-width:1200px;
+}
+
+#join_title p{
+	display:block;
+	position:relative;
+	left:-105px;
+	margin-left:50%;
+	font-family: gotham_Bold; 
+	font-style: normal; 
+	font-weight: normal;
+	font-size:50px;
+	color:#5e5e5e;
+}
+
+/* 전체 감싼 form */
+#join_wrap {
+	display:block;
+	position:relative;
+	left:-221px;
+	margin-top:50px;
+	margin-left:50%;
+}
+
+/* 아이디.....출생년도 텍스트 */
+.join_title{
+	display:inline-block;
+	width:120px;
+	padding:12px 0;
+	color:#5e5e5e;
+	margin-right:30px;
+}
+
+/* 아이디.....출생년도 사용자가 적는 텍스트 박스 */
+.join_text {
+	width:283px; /* border 1px 1px */
+	height:38px; /* border 1px 1px */
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	outline:none;
+	-webkit-appearance: none;
+   	-webkit-border-radius: 0;
+}
+
+/* 검색 placeholder */
+.join_text::-webkit-input-placeholder{font-size:14px;color:#a5a5a5; }  /* Chrome/Opera/Safari */
+.join_text:-moz-placeholder{font-size:14px;color:#a5a5a5;}			   /* Mozilla Firefox 4 to 18 */
+.join_text::-moz-placeholder{font-size:14px;color:#a5a5a5;}		   /* Mozilla Firefox 19+ */
+.join_text:-ms-input-placeholder{font-size:14px;color:#a5a5a5;}	   /* Internet Explorer 10+ */
+
+#join_content_wrapper div {
+	margin-top:10px;
+}
+
+#join_content_wrapper button {
+	outline:none;
+	cursor:pointer;
+}
+
+/* 휴대전화 */
+#mPhone1{
+	width:80px;
+	height:38px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	margin-right:8px;
+}
+
+#mPhone_icon {
+	padding-left:10px;
+}
+
+/* 휴대전화 010 스크롤 */
+#mPhone_number {
+	display:none;
+	width:78px;
+	height:78px;
+	overflow:scroll;
+	position:relative;
+	top:-1px;
+	left:154px;
+	text-align:center;
+	border-left:1px solid #e0e0e0;
+	border-right:1px solid #e0e0e0;
+	border-bottom:1px solid #e0e0e0;
+	color:#5e5e5e;
+	cursor:pointer;
+}
+
+#mPhone_number li {
+	padding:10px 0;
+}
+
+#mPhone2{
+	width:65px;
+	height:38px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	margin:0 8px;
+	outline:none;
+	-webkit-appearance: none;
+   	-webkit-border-radius: 0;
+}
+
+#mPhone3{
+	width:65px;
+	height:38px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	margin-left:8px;
+	outline:none;
+	-webkit-appearance: none;
+   	-webkit-border-radius: 0;
+}
+
+/* 출생년도 */
+#mBirth_wrap span:last-child {
+	display:block;
+	font-size:11px;
+	margin-left:158px;
+	margin-top:5px;
+	color:#5e5e5e;
+}
+
+/* 이벤트 수신 동의 */
+#mSMS_wrap{
+	margin-bottom:50px;
+}
+
+input[id="mSMS1"] {
+	display:none;
+}
+
+input[id="mSMS1"] + label {
+	display:inline-block;
+	width: 18px;
+	height:18px;
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+	margin-bottom:-4px;
+}
+
+input[id="mSMS1"]:checked + label:after {
+	display:block;
+	content:''; 
+	width:20px;
+	height:23px;
+	margin-top:-4px;
+	background:url('../images/check.gif') no-repeat;
+	background-size:100%;
+	background-position:0px 3px;
+	border:none;
+}
+
+input[id="mSMS2"] {
+	display:none;
+}
+
+input[id="mSMS2"] + label {
+	display:inline-block;
+	width: 18px;
+	height:18px;
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+	margin-bottom:-4px;
+	margin-left:30px;
+}
+
+input[id="mSMS2"]:checked + label:after {
+	display:block;
+	content:''; 
+	width:20px;
+	height:23px;
+	margin-top:-4px;
+	background:url('../images/check.gif') no-repeat;
+	background-size:100%;
+	background-position:0px 3px;
+	border:none;
+}
+
+.mSMS_t {
+	color:#a5a5a5;
+}
+
+/* 이용약관 전체 */
+#mAgree_wrap {
+	display:block;
+	width:460px;
+	padding-top:11px;
+	border-top:1px solid #909090;
+	margin-bottom:55px;
+}
+
+#mAgree_title {
+	padding-bottom:11px;
+	border-bottom:1px solid #909090;
+	margin-bottom:15px;
+	color:#5e5e5e;
+	font-size:14px;
+}
+
+/* 이용약관 */
+input[id="mAgree1"] {
+	display:none;
+}
+
+input[id="mAgree1"] + label {
+	display:inline-block;
+	width: 18px;
+	height:18px;
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+	margin-bottom:-4px;
+}
+
+/* 개인정보 취급방침 */
+input[id="mAgree1"]:checked + label:after {
+	display:block;
+	content:''; 
+	width:20px;
+	height:23px;
+	margin-top:-4px;
+	background:url('../images/check.gif') no-repeat;
+	background-size:100%;
+	background-position:0px 3px;
+	border:none;
+}
+
+input[id="mAgree2"] {
+	display:none;
+}
+
+input[id="mAgree2"] + label {
+	display:inline-block;
+	width: 18px;
+	height:18px;
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+	margin-bottom:-4px;
+}
+
+input[id="mAgree2"]:checked + label:after {
+	display:block;
+	content:''; 
+	width:20px;
+	height:23px;
+	margin-top:-4px;
+	background:url('../images/check.gif') no-repeat;
+	background-size:100%;
+	background-position:0px 3px;
+	border:none;
+}
+
+.mAgree_t {
+	color:#a5a5a5;
+}
+
+.mAgree_btn {
+	float:right;
+	background-color:#fff;
+	border:none;
+	color:#979797;
+	font-size:12px;
+}
+
+#mAgree_wrap div:nth-child(3) {
+	padding-bottom:5px;
+}
+
+/* 전체동의 */
+#mAgree_all {
+	border-top:1px solid #909090;
+	text-align:right;
+	padding-top:15px;
+}
+
+input[id="mAgreeAll"] {
+	display:none;
+}
+
+input[id="mAgreeAll"] + label {
+	display:inline-block;
+	width: 18px;
+	height:18px;
+	border: 1px solid #e0e0e0;
+	cursor: pointer;
+	margin-bottom:-4px;
+}
+
+input[id="mAgreeAll"]:checked + label:after {
+	display:block;
+	content:''; 
+	width:20px;
+	height:23px;
+	margin-top:-4px;
+	background:url('../images/check.gif') no-repeat;
+	background-size:100%;
+	background-position:0px 3px;
+	border:none;
+}
+
+.mAgree_about {
+	display:none;
+	font-size:11px;
+	color:#5e5e5e;
+	margin:10px;	
+}
+
+.mAgree_table {
+	margin-top:10px;
+}
+
+.mAgree_table tr,td,th {
+	border:1px solid #e0e0e0;
+	padding:5px;
+}
+
+/* 가입하기 전체 */
+.joinComplete {
+	display:block;
+	width:460px;
+	text-align:right;
+}
+
+/* 가입하기 */
+.btn_submit {
+	display:block;
+	background-color:#faa72a;
+	width:100%;
+	border:none;
+	padding:17px;
+	color:#fff;
+	font-size:18px;
+	font-weight:900;
+	cursor:pointer;
+}
+
+/* 취소하기 */
+.btn_cancel {
+	border:none;
+	color:#5e5e5e;
+	background-color:#fff;
+	margin-top:15px;
+	outline:none;
+	cursor:pointer;
+}

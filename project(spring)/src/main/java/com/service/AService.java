@@ -20,21 +20,31 @@ public class AService {
 		return dao.login(map);
 	}
 	
-	public List<Object> memberList() {
-		return dao.memberList();
+	public MPageDTO mList(HashMap<String, String> map,int curPage) {
+		return dao.mList(map, curPage);
 	}
-	
 	
 	public MPageDTO mDormantList(int curPage) {
 		return dao.mDormantList(curPage);
 	}
 	
-	public List<Object> soList() {
-		return dao.soList();
+	public void mDormantDel(String mId) {
+		dao.mDormantDel(mId);
+	}
+	
+	
+	/////////////////////////////////////////////////////////////////////////////////
+	public SoPageDTO soList(HashMap<String, String> map,int curPage) {
+		return dao.soList(map, curPage);
 	}
 	
 	public SoPageDTO soDormantList(int curPage) {
 		return dao.soDormantList(curPage);
+	}
+	
+	public void soDormantDel(String soId) {
+		System.out.println("soDormantDel 접근");
+		dao.soDormantDel(soId);
 	}
 	
 	public void changeSoLevel(HashMap<String, String> map) {

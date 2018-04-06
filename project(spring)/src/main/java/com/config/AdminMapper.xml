@@ -10,12 +10,42 @@
 		where adminId = #{adminId} and adminPasswd= #{adminPasswd}
 	</select>
 	
+	
 	<!-- 2. member 리스트 -->
-	<select id="memberlist"  resultType="MemberDTO">
+	<select id="mList"  resultType="MemberDTO">
 		select rownum,mId,mPasswd,mName,mPhone,mLastLogin
 		from member
+		<if test="searchName=='memberId'">
+			where mId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='memberName'">
+			where mName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='memberPhone'">
+			where mPhone like '%'||#{searchValue}||'%'
+		</if>
+		order by rownum desc
 	</select>
 	
+	<select id="mListTotalCount" resultType="int">
+	     select count(*)
+	     from member
+    </select>
+    
+    <select id="mListTotalSearchCount" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from member
+	    <if test="searchName=='memberId'">
+			where mId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='memberName'">
+			where mName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='memberPhone'">
+			where mPhone like '%'||#{searchValue}||'%'
+		</if>
+    </select>
+
 	<!-- 2-2. member 리스트 -->
 	<select id="mDormantList"  resultType="MemberDTO">
 		select rownum,mId,mPasswd,mName,mPhone,mLastLogin,floor(sysdate-mLastLogin) as mLastLogin2 
@@ -23,17 +53,19 @@
 		where (sysdate-mLastLogin)>90
 	</select>
 	<select id="mDormantListTotalCount" resultType="int">
-     select count(*)
-     from member
-     where (sysdate-mLastLogin)>90
+	     select count(*)
+	     from member
+	     where (sysdate-mLastLogin)>90
     </select>
 	
+	
 	<!-- 3. member 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
-	<delete id="m_delete" parameterType="string">
+	<delete id="mDormantDel" parameterType="string">
 		delete 
 		from member
 		where mId = #{mId}
 	</delete>
+	
 	
 	<!-- 4. member 리스트 -->
 	<select id="m_updatelist" parameterType="int" resultType="MemberDTO">
@@ -47,10 +79,39 @@
 	
 	<!-- 5. so 리스트 -->
 	<select id="soList"  resultType="SoDTO">
-		select rownum,soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
+		select rownum,soId,soName,soPhone,soLicense,soPost,soAddr,soLevel
    		from shopowner
+   		<if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soName'">
+			where soName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soLicense'">
+			where soLicense like '%'||#{searchValue}||'%'
+		</if>
+		order by rownum desc
 	</select>
 	
+	<select id="soListTotalCount" resultType="int">
+	     select count(*)
+	     from shopowner
+    </select>
+    
+    <select id="soListTotalSearchCount" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from shopowner
+	    <if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soName'">
+			where soName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soLicense'">
+			where soLicense like '%'||#{searchValue}||'%'
+		</if>
+    </select>
+    
 	<!-- 5-2. so 리스트 -->
 	<select id="soDormantList"  resultType="SoDTO">
 		select rownum,soId,soPasswd,soName,soPhone,sLastLogin,floor(sysdate-sLastLogin) as sLastLogin2
@@ -63,14 +124,27 @@
      where (sysdate-sLastLogin)>90
     </select>
 	
-	<!-- 6. 회원 레벨이 0인  shopowner-->
+	<!-- 6. shopowner 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
+	<delete id="soDormantDel" parameterType="string">
+		delete 
+		from shopowner
+		where soId = #{soId}
+	</delete>
+	
+	<delete id="sDormantDel" parameterType="string">
+		delete 
+		from shop
+		where soId = #{soId}
+	</delete>
+	
+	<!-- 7. 회원 레벨이 0인  shopowner-->
 	<select id="soList2"  resultType="SoDTO">
 		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
    		where soLevel=0
 	</select>
    
-    <!-- 7. soLevel 부여 -->
+    <!-- 8. soLevel 부여 -->
 	<update id="soLevelChange" parameterType="hashmap">
 		update shopowner
 		set soLevel=#{soLevel}

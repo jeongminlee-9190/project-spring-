@@ -7,7 +7,6 @@
 	<select id="mNoticeList" parameterType="hashmap" resultType="NoticeDTO">
 		select noticeNum, noticeTitle, noticeContent, to_char(noticeWritedate,'YYYY-MM-DD') as noticeWritedate, noticeWriter, noticeReadcnt
 		from noticetom
-		
 		<if test="searchName=='title'">
 			where noticeTitle like '%'||#{searchValue}||'%'
 		</if>
