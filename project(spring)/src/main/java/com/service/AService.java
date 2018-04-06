@@ -38,6 +38,14 @@ public class AService {
 		return dao.soList(map, curPage);
 	}
 	
+	public List<Object> soList2() {
+		return dao.soList2();
+	}
+	
+	public void soApprove(String soId) {
+		dao.soApprove(soId);
+	}
+	
 	public SoPageDTO soDormantList(int curPage) {
 		return dao.soDormantList(curPage);
 	}
@@ -45,6 +53,10 @@ public class AService {
 	public void soDormantDel(String soId) {
 		System.out.println("soDormantDel 접근");
 		dao.soDormantDel(soId);
+	}
+	
+	public void soApprove(HashMap<String, String> map) {
+		
 	}
 	
 	public void changeSoLevel(HashMap<String, String> map) {

@@ -12,9 +12,11 @@
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_main.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="admin/includes/admin_top.jsp" flush="true"/>
+<jsp:include page="admin/includes/admin_mainAlert.jsp" flush="true"/>
 <jsp:include page="admin/includes/admin_footer.jsp" flush="true"/>
 </body>
 </html>

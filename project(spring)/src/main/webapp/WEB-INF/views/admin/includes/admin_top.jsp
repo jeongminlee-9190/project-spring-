@@ -25,10 +25,14 @@
  			<ul class="dropdown-menu">
  			   <li><a class="dropdown-item" href="soList">회원 목록</a></li>
  			   <li><a class="dropdown-item" href="soList2">가입 승인</a></li>
- 			   <li><a class="dropdown-item" href="soList">회원 등록</a></li>
-	           <li><a class="dropdown-item" href="soList2">회원 레벨 변경</a></li>
 	           <li><a class="dropdown-item" href=SoDormantList>휴면 계정 삭제</a></li>
 	           <li><a class="dropdown-item" href="aQna">1:1 문의 접수 현황</a></li>
+	        </ul>
+	    </li>
+	    <li class="nav-item active dropdown">
+        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">상점 관리<span class="caret"></span></a>
+ 			<ul class="dropdown-menu">
+ 			   <li><a class="dropdown-item" href="sList">상점 목록</a></li>
 	        </ul>
 	    </li>
         <li class="nav-item active dropdown">

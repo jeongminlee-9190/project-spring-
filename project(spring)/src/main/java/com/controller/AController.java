@@ -90,26 +90,6 @@ public class AController {
 		return "redirect:mDormantList";
 	}
 	
-	
-	
-	/*@RequestMapping(value="/mList",method=RequestMethod.GET)
-	public ModelAndView mList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
-			HttpServletRequest request) {
-		MPageDTO mpageDTO = service.mList(map, curPage);
-		System.out.println(mpageDTO);
-		System.out.println(mpageDTO.getCurPage());
-		System.out.println(mpageDTO.getPerPage());
-		System.out.println(mpageDTO.getTotalCnt());
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("mListpageDTO",mpageDTO);
-		mav.setViewName("admin/mList");
-		String searchName = map.get("searchName");
-		String searchValue = map.get("searchValue");
-		request.setAttribute("searchName", searchName);
-		request.setAttribute("searchValue", searchValue);
-		return mav;
-	}*/
-	
 	@RequestMapping("/soList")
 	public ModelAndView soList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpServletRequest request) {
@@ -142,7 +122,7 @@ public class AController {
 		service.soDormantDel(soId);
 		return "redirect:SoDormantList";
 	}
-/*	
+
 	@RequestMapping("/soList2")
 	public ModelAndView soList2(ArrayList<Object> list) {
 		ModelAndView mav = new ModelAndView();
@@ -150,8 +130,17 @@ public class AController {
 		mav.addObject("soList2",list);
 		mav.setViewName("admin/soList2");
 		return mav;
-	}*/
+	}
 	
+	
+	@RequestMapping(value="/soApprove", method=RequestMethod.GET)
+	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
+		String soId = map.get("soId");
+		System.out.println("soId: "+soId);
+		service.soApprove(soId);
+		return "redirect:soList2";
+	}
+	/*	
 	/*@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
 		service.changeSoLevel(map);

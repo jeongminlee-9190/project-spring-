@@ -117,6 +117,14 @@ public class ADAO {
 		return template.selectOne("AdminMapper.soListTotalSearchCount",map);
 	}
 	
+	public List<Object> soList2() {
+		return template.selectList("AdminMapper.soList2");
+	}
+	
+	public void soApprove(String soId) {
+		template.update("AdminMapper.soApprove",soId);
+	}
+	
 	
 	public SoPageDTO soDormantList(int curPage) {
 		SoPageDTO sopageDTO = new SoPageDTO();

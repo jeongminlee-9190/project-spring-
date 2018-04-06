@@ -24,7 +24,7 @@
 		<if test="searchName=='memberPhone'">
 			where mPhone like '%'||#{searchValue}||'%'
 		</if>
-		order by rownum desc
+		order by mId desc
 	</select>
 	
 	<select id="mListTotalCount" resultType="int">
@@ -142,9 +142,17 @@
 		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
    		where soLevel=0
+   		order by soJoindate desc
 	</select>
    
-    <!-- 8. soLevel 부여 -->
+   <!-- 8. 가입승인 -->
+	<update id="soApprove" parameterType="string">
+		update shopowner
+		set soLevel='1'
+		where soId=#{soId}
+	</update>
+	
+    <!-- 9. soLevel 부여 -->
 	<update id="soLevelChange" parameterType="hashmap">
 		update shopowner
 		set soLevel=#{soLevel}

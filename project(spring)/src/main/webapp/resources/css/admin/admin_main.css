@@ -1,0 +1,25 @@
+@charset "UTF-8";
+	.top{
+		background-color: black;
+		margin-top: 50px;
+		height: 30px;
+		color: white;
+	}
+	.middle{
+		background-color: black;
+		text-align: center;
+	}
+	.bg-black{
+		background-color: black;
+		border: 1px solid black;
+	}
+	.badge{
+		color: orange;
+	}
+	.row{
+		margin-top: 7px;
+		text-align: center;
+	}
+	h4{
+		margin-top: 5px;
+	}
