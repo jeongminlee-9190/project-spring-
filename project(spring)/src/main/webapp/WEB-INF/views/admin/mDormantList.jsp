@@ -18,7 +18,7 @@ $(document).ready(function(){
 </script>
 <style>
 	.row{
-		margin-top: 90px;
+		margin-top: 100px;
 		font-size: 12px;
 	}
 	.table-hover{

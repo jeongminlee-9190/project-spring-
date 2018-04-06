@@ -32,6 +32,7 @@ $(document).ready(function(){
 <div class="container">
 	<form action="changeSoLevel" method="get">
 		<table class="table table-hover">
+			<h3>가입 승인</h3>
 			<colgroup>
 				<col width="20%">
 				<col width="30%">
@@ -53,12 +54,12 @@ $(document).ready(function(){
 					  <td>${dto.soId}<input type="hidden" name="soId" value="${dto.soId}"></td>
 					  <td>${dto.soJoindate}</td>
 					  <td>${dto.soLevel}
-					  	  <select id="soLevel" name="soLevel">
+					  	  <!-- <select id="soLevel" name="soLevel">
 					  	  	<option selected="selected" value="0">0: 미승인</option>
 					  	  	<option value="1">1: 승인, 체험회원</option>
 					  	  	<option value="2">2: 승인, 유료회원</option>
-					  	  </select>
-					  	  <input type="submit" id="btn_change_soLevel" value="수정">
+					  	  </select> -->
+					  	  <input type="submit" id="btn_change_soLevel" value="가입승인">
 					  </td>
 				  </tr>
 			</tbody>

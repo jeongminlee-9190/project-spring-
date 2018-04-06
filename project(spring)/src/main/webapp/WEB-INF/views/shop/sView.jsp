@@ -27,19 +27,16 @@
 		<!-- 상점명, 좋아요 개수, 후기 개수, 메뉴 보기 버튼, 상점정보 보기 버튼 -->
 		<div class="row">
 			<span class="sName">${sdto.sName}</span>
-			<table class="sbasicInfo_tbl1" border="1">
+			<table class="sbasicInfo_tbl1">
 				<colgroup>
 		       		<col width="15%"></col>
 		       		<col width="15%"></col>
 		       		<col width="15%"></col>
-		       		<col width="50%"></col>
 		       	</colgroup>
 				<tr>
 					<td align="center">${sdto.sCategory}</td>
 					<td align="center">좋아요</td>
 					<td align="center">후기</td>
-					<td align="right" rowspan="2"><a href="#" class="showMask"><input type="button" class="btn_sInfoView" value="메뉴"></a>
-					<a href="#" class="showMask2"><input type="button" class="btn_sInfoView" value="상점 정보"></a></td>
 				</tr>
 				<tr>
 					<td></td>

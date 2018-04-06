@@ -56,7 +56,7 @@
      							</select>     					
 								</c:if>
      							
-     							<c:if test="${empty searchName || searchName=='content'}">
+     							<c:if test="${searchName=='content'}">
     							<select name="searchName">
         							<option value="title">제목</option>
         							<option value="content" selected="selected">내용</option>
