@@ -9,6 +9,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_soList.css" rel="stylesheet" >
 <script type="text/javascript">
 </script>
 <style>
@@ -23,32 +24,33 @@
 </style>
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container">
-	<form action="memberList" method="get">
+	<form action="soList" method="get">
 		<h4>상점 회원 목록</h4>
+		<span class="info">검색값을 입력하지 않고 검색을 클릭하면 전체 조회</span>
 		<table class="table">
 		  	<tr align="center">
 		   		<td colspan="5">
-		   			<c:if test="${empty searchName || searchName=='memberId'}">
+		   			<c:if test="${empty searchName || searchName=='soId'}">
     					<select class="form-control" name="searchName">
-        					<option value="memberId" selected="selected">아이디</option>
-		        			<option value="memberName">이름</option>
-		        			<option value="memberPhone">사업자번호</option>
+        					<option value="soId" selected="selected">아이디</option>
+		        			<option value="soName">이름</option>
+		        			<option value="soLicense">사업자번호</option>
      					</select> 
      					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
 					</c:if>
-					<c:if test="${searchName=='memberName'}">
+					<c:if test="${searchName=='soName'}">
     					<select class="form-control" name="searchName">
-        					<option value="memberId">아이디</option>
-		        			<option value="memberName">이름</option>
-		        			<option value="memberPhone selected="selected">사업자번호</option>
+        					<option value="soId">아이디</option>
+		        			<option value="soName">이름</option>
+		        			<option value="soLicense selected="selected">사업자번호</option>
      					</select>
      					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>  					
 					</c:if>
-					<c:if test="${searchName=='memberPhone'}">
+					<c:if test="${searchName=='soLicense'}">
     					<select class="form-control" name="searchName">
-        					<option value="memberId">아이디</option>
-		        			<option value="memberName">이름</option>
-		        			<option value="memberPhone" selected="selected">사업자번호</option>
+        					<option value="soId">아이디</option>
+		        			<option value="soName">이름</option>
+		        			<option value="soLicense" selected="selected">사업자번호</option>
      					</select>
      					<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>     					
 					</c:if>		
@@ -76,7 +78,7 @@
 					<th>회원레벨</th>
 				</tr>
 			</thead>
-			<c:forEach var="dto" items="${soList}" varStatus="status">
+			<c:forEach var="dto" items="${soListpageDTO.list}" varStatus="status">
 			<tbody>
 				<tr>
 					<td>${dto.rownum}</td>
@@ -89,6 +91,10 @@
 				</tr>
 			</tbody>
 			</c:forEach>
+			<!-- 페이지번호 -->
+			<tr>
+				<td colspan="7" align="center">&nbsp;<jsp:include page="includes/soListPaging.jsp" flush="true" /></td>
+			</tr>
 		</table>
 	</form>
 </div>

@@ -79,10 +79,39 @@
 	
 	<!-- 5. so 리스트 -->
 	<select id="soList"  resultType="SoDTO">
-		select rownum,soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
+		select rownum,soId,soName,soPhone,soLicense,soPost,soAddr,soLevel
    		from shopowner
+   		<if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soName'">
+			where soName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soLicense'">
+			where soLicense like '%'||#{searchValue}||'%'
+		</if>
+		order by rownum desc
 	</select>
 	
+	<select id="soListTotalCount" resultType="int">
+	     select count(*)
+	     from shopowner
+    </select>
+    
+    <select id="soListTotalSearchCount" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from shopowner
+	    <if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soName'">
+			where soName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soLicense'">
+			where soLicense like '%'||#{searchValue}||'%'
+		</if>
+    </select>
+    
 	<!-- 5-2. so 리스트 -->
 	<select id="soDormantList"  resultType="SoDTO">
 		select rownum,soId,soPasswd,soName,soPhone,sLastLogin,floor(sysdate-sLastLogin) as sLastLogin2

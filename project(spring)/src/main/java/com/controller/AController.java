@@ -111,11 +111,20 @@ public class AController {
 	}*/
 	
 	@RequestMapping("/soList")
-	public ModelAndView soList(ArrayList<Object> list) {
+	public ModelAndView soList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
+		SoPageDTO sopageDTO = service.soList(map, curPage);
+		System.out.println(sopageDTO);
+		System.out.println(sopageDTO.getCurPage());
+		System.out.println(sopageDTO.getPerPage());
+		System.out.println(sopageDTO.getTotalCnt());
 		ModelAndView mav = new ModelAndView();
-		list = (ArrayList<Object>)service.soList();
-		mav.addObject("soList",list);
+		mav.addObject("soListpageDTO",sopageDTO);
 		mav.setViewName("admin/soList");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
 		return mav;
 	}
 

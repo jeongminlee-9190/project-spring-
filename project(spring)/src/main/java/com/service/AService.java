@@ -21,7 +21,6 @@ public class AService {
 	}
 	
 	public MPageDTO mList(HashMap<String, String> map,int curPage) {
-		System.out.println("mList 접근"+map+curPage);
 		return dao.mList(map, curPage);
 	}
 	
@@ -35,8 +34,8 @@ public class AService {
 	
 	
 	/////////////////////////////////////////////////////////////////////////////////
-	public List<Object> soList() {
-		return dao.soList();
+	public SoPageDTO soList(HashMap<String, String> map,int curPage) {
+		return dao.soList(map, curPage);
 	}
 	
 	public SoPageDTO soDormantList(int curPage) {

@@ -83,9 +83,40 @@ public class ADAO {
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	
-	public List<Object> soList() {
-		return template.selectList("AdminMapper.soList");
+	public SoPageDTO soList(HashMap<String, String> map,int curPage) {
+		SoPageDTO sopageDTO = new SoPageDTO();
+		//목록은 0부터 시작
+		System.out.println("soList DAO"+map+curPage);
+		int start = (curPage-1)*sopageDTO.getPerPage(); //페이징 시작 글 번호
+		List<SoPageDTO> list =null;  //게시판 목록
+		list= template.selectList("AdminMapper.soList",map,new RowBounds(start ,sopageDTO.getPerPage()));
+		int totalCnt=0;
+		String searchValue = map.get("searchValue");
+
+		if(searchValue==null) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
+			totalCnt=soListTotalCount();
+			System.out.println("1:"+totalCnt);
+		}
+		else {//입력된 searchValue가 포함된 게시판 글들의 목록을 보여줌
+			totalCnt=soListTotalSearchCount(map);
+			System.out.println("2:"+totalCnt);
+		}
+		sopageDTO.setList(list);
+		sopageDTO.setCurPage(curPage);
+		sopageDTO.setTotalCnt(totalCnt);
+		System.out.println("soList DAO"+list+curPage+totalCnt+sopageDTO.getPerPage());
+		return sopageDTO;
 	}
+	
+	
+	public int soListTotalCount(){
+		return template.selectOne("AdminMapper.soListTotalCount");
+	}
+
+	public int soListTotalSearchCount(HashMap<String, String> map){
+		return template.selectOne("AdminMapper.soListTotalSearchCount",map);
+	}
+	
 	
 	public SoPageDTO soDormantList(int curPage) {
 		SoPageDTO sopageDTO = new SoPageDTO();
