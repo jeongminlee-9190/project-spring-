@@ -9,29 +9,37 @@
 	<div class="NoticeRetrieve">
 		<table class="table">
 			<colgroup>
+				<col width="10%">
+				<col width="10%">
+				<col width="10%">
+				<col width="70%">
+			</colgroup>
+			<tbody>
+	 			<tr>
+	  				<th>글번호</th>
+	  				<td>${soNoticeRetrieve.noticeNum}</td>
+	  				<th>제목</th>
+	  				<td>${soNoticeRetrieve.noticeTitle}</td>
+	 			</tr>
+ 			<tbody>
+		</table>
+		<table class="table">
+			<colgroup>
 				<col width="15%">
+				<col width="20%">
 				<col width="15%">
-				<col width="15%">
-				<col width="25%">
+				<col width="20%">
 				<col width="15%">
 				<col width="15%">
 			</colgroup>
-			<thead class="thead-light">
-	 			<tr>
-	  				<th scope="col">글번호</th>
-	  				<td>${soNoticeRetrieve.noticeNum}</td>
-	  				<th scope="col">제목</th>
-	  				<td colspan="3">${soNoticeRetrieve.noticeTitle}</td>
-	 			</tr>
- 			</thead>
  			<tbody>
 	 			<tr>
-	 				<th>작성자</th>
-	 				<td>${soNoticeRetrieve.noticeWriter}</td>
-	 				<th>작성일</th>
-	 				<td>${soNoticeRetrieve.noticeWritedate}</td>
-	 				<th>조회수</th>
-	 				<td>${soNoticeRetrieve.noticeReadcnt}</td>
+	 				<th scope="col">작성자</th>
+	 				<td scope="col">${soNoticeRetrieve.noticeWriter}</td>
+	 				<th scope="col">작성일</th>
+	 				<td scope="col">${soNoticeRetrieve.noticeWritedate}</td>
+	 				<th scope="col">조회수</th>
+	 				<td scope="col">${soNoticeRetrieve.noticeReadcnt}</td>
 	 			</tr>
 	 			<tr>
 	 				<td colspan="6" align="left" class="noticeContent">${soNoticeRetrieve.noticeContent}</td>	

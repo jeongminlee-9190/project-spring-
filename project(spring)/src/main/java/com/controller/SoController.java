@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dto.SDTO;
 import com.dto.SoDTO;
+import com.service.SService;
 import com.service.SoService;
 
 
@@ -20,6 +22,7 @@ import com.service.SoService;
 public class SoController {
 	@Autowired
 	SoService service;
+	SService service2;
 	
 	@RequestMapping(value= "/main_shopowner", method=RequestMethod.GET)
 	public String main_shopowner() {
@@ -29,7 +32,9 @@ public class SoController {
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
 	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session) {
 		SoDTO soDTO = service.login(map);
+
 		String nextPage=null;
+		
 		if(soDTO==null) {
 			session.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			nextPage = "index_shopowner";
@@ -37,6 +42,7 @@ public class SoController {
 			nextPage = "main_shopowner";
 			session.setAttribute("SoLogin",soDTO);
 		}
+		
 		return nextPage;
 	}
 	

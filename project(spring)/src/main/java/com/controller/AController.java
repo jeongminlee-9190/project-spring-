@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.AdminDTO;
+import com.dto.MPageDTO;
 import com.dto.NoticeDTO;
 import com.dto.PageDTO;
+import com.dto.SoPageDTO;
 import com.service.AService;
 import com.service.NoticeService;
 
@@ -61,12 +63,26 @@ public class AController {
 		return mav;
 	}
 	
-	@RequestMapping("/memberList2")
-	public ModelAndView memberList2(ArrayList<Object> list) {
+	/*@RequestMapping(value="/mNotice" , method=RequestMethod.GET)
+	public ModelAndView mNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
+		PageDTO pageDTO = nService.mNoticeList(map, curPage);
 		ModelAndView mav = new ModelAndView();
-		list = (ArrayList<Object>)service.memberList();
-		mav.addObject("memberList2",list);
-		mav.setViewName("admin/memberList2");
+		mav.addObject("pageDTO",pageDTO);
+		mav.setViewName("admin/mNotice");
+		return mav;
+	}*/
+	//휴면계정 리스트
+	
+	@RequestMapping(value="/mDormantList", method=RequestMethod.GET)
+	public ModelAndView mDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
+		MPageDTO mpageDTO = service.mDormantList(curPage);
+		System.out.println(mpageDTO);
+		System.out.println(mpageDTO.getCurPage());
+		System.out.println(mpageDTO.getPerPage());
+		System.out.println(mpageDTO.getTotalCnt());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mpageDTO",mpageDTO);
+		mav.setViewName("admin/mDormantList");
 		return mav;
 	}
 	
@@ -78,7 +94,7 @@ public class AController {
 		mav.setViewName("admin/soList");
 		return mav;
 	}
-	
+/*	
 	@RequestMapping("/soList2")
 	public ModelAndView soList2(ArrayList<Object> list) {
 		ModelAndView mav = new ModelAndView();
@@ -86,24 +102,22 @@ public class AController {
 		mav.addObject("soList2",list);
 		mav.setViewName("admin/soList2");
 		return mav;
-	}
+	}*/
 	
-	@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
+	/*@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
 		service.changeSoLevel(map);
 		ArrayList<Object> list = (ArrayList<Object>)service.soList2();
 		session.setAttribute("soList2",list);
 		return "redirect:soList2";
+	}*/
+	
+	@RequestMapping(value="/SoDormantList", method=RequestMethod.GET)
+	public ModelAndView SoDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
+		SoPageDTO sopageDTO=service.soDormantList(curPage);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("sopageDTO",sopageDTO);
+		mav.setViewName("admin/SoDormantList");
+		return mav;
 	}
-	
-	@RequestMapping(value="/soDelete")
-	public String memberDelete(@RequestParam HashMap<String, String> map, HttpSession session) {
-		service.changeSoLevel(map);
-		ArrayList<Object> list = (ArrayList<Object>)service.soList2();
-		session.setAttribute("soList2",list);
-		return "redirect:memberList";
-	}
-	
-	
-
 }

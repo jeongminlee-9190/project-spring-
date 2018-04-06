@@ -19,6 +19,12 @@
 		<property name="username" value="${jdbc.userid}"/>
 		<property name="password" value="${jdbc.passwd}"/>
 	</bean>
+	<!-- transaction -->
+		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource" />
+		</bean>
+		<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- transaction -->
 	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="mapperLocations">
 			<list>
@@ -32,9 +38,6 @@
 		<constructor-arg name="sqlSessionFactory" ref="factoryBean"/>
 	</bean>
 <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+
 	
 </beans>

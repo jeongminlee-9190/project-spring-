@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.dao.ADAO;
 import com.dto.AdminDTO;
+import com.dto.MPageDTO;
+import com.dto.SoPageDTO;
 
 @Service
 public class AService {
@@ -22,12 +24,17 @@ public class AService {
 		return dao.memberList();
 	}
 	
+	
+	public MPageDTO mDormantList(int curPage) {
+		return dao.mDormantList(curPage);
+	}
+	
 	public List<Object> soList() {
 		return dao.soList();
 	}
 	
-	public List<Object> soList2() {
-		return dao.soList2();
+	public SoPageDTO soDormantList(int curPage) {
+		return dao.soDormantList(curPage);
 	}
 	
 	public void changeSoLevel(HashMap<String, String> map) {
