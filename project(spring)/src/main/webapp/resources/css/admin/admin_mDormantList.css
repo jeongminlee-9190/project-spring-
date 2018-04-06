@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+	.row{
+		margin-top: 90px;
+		margin-bottom: 40px;
+		font-size: 12px;
+	}
+	.table-hover{
+		font-size: 13px;
+	}
+	
+	.sm-black-background{
+		background-color:#343a40;
+		border: 1px solid #343a40;
+		color:white;
+		height:30px;
+		font-size: 13px;
+		text-align: center;
+	}

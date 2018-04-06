@@ -38,6 +38,7 @@
 		<div class="col-md-5">
 			<div class="pagebox">
 				<h3>상점회원 공지사항</h3>
+				<span class="info">검색값을 입력하지 않고 검색을 클릭하면 전체 조회</span>
 				<form action="soNotice" method="GET" role="form" id="search">
 					<table class="table">
 						<colgroup>
@@ -47,14 +48,22 @@
 						</colgroup>
   						<tr align="center">
    							<td colspan="5" align="center">
+    							<c:if test="${empty searchName || searchName=='title'}">
     							<select class="form-control" id="searchName" name="searchName">
-    								<div class="searchName2">
-        								<option value="title">제목</option>
-        								<option value="content">내용</option>
-        							</div>
+        							<option value="title" selected="selected">제목</option>
+        							<option value="content">내용</option>
+     							</select> 
+     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
+								</c:if>
+     							
+     							<c:if test="${searchName=='content'}">
+    							<select class="form-control" id="searchName" name="searchName">
+        							<option value="title">제목</option>
+        							<option value="content" selected="selected">내용</option>
      							</select>
+     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>
+     							</c:if>
      						</td>
-     						<td><input type="text" class="form-control" id="searchValue" name="searchValue"></td>
      						<td><input type="submit" class="btn btn-primary sm-black-background" value="검색"></td>
  						</tr>
   					</table>

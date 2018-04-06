@@ -13,12 +13,11 @@
     <c:set var="pageNum" value="${pageNum+1}" />
 </c:if>
 
-
 <c:forEach var="i" begin="1" end="${pageNum}" varStatus="status">
     <c:if test="${curPage == (status.index)}">
       ${status.index}&nbsp;&nbsp;
     </c:if>
     <c:if test="${curPage != (status.index)}">
-    <a href="mDormantList?curPage=${status.index}">${status.index}</a>&nbsp;&nbsp;
+    	<a href="mDormantList?curPage=${status.index}">${status.index}</a>&nbsp;&nbsp;
     </c:if>
 </c:forEach>

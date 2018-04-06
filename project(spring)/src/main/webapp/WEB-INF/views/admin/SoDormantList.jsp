@@ -3,29 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
-<script type="text/javascript">
-$(document).ready(function(){	
-	$("#delBtn").on("click",function(){
-		location.href="mDeleteServlet?mId="+$("#mid").text();
-	});
-});
-</script>
-<style>
-	.row{
-		margin-top: 90px;
-		font-size: 12px;
-	}
-	.table-hover{
-		font-size: 13px;
-	}
-</style>
-
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_soDormantList.css" rel="stylesheet" >
+<script src="resources/js/admin_soDormentDel.js"></script>
+</head>
+<body>
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container-fluid">
 	<div class="row">
@@ -57,7 +48,7 @@ $(document).ready(function(){
 			  				<td id="mid">${dto.soId}</td>
 			  				<td>${dto.soName}</td>
 			  				<td>${dto.soPhone}</td>
-			  				<td>${dto.sLastLogin2}일<button id="delBtn">탈퇴처리</button></td>
+			  				<td>${dto.sLastLogin2}일<input type="button" id="soDormantDel" data-num="${dto.soId}" class="btn btn-primary sm-black-background" value="삭제"></td>
 						</tr>
 					</tbody>
 					</c:forEach>
@@ -75,3 +66,5 @@ $(document).ready(function(){
 	
 </div>
 <jsp:include page="includes/admin_footer.jsp" flush="true"/>
+</body>
+</html>
