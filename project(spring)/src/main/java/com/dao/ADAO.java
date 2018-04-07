@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dto.AdminDTO;
 import com.dto.MPageDTO;
-import com.dto.NoticeDTO;
+import com.dto.SPageDTO;
 import com.dto.SoPageDTO;
 
 @Repository
@@ -31,7 +31,6 @@ public class ADAO {
 		list= template.selectList("AdminMapper.mList",map,new RowBounds(start ,mpageDTO.getPerPage()));
 		int totalCnt=0;
 		String searchValue = map.get("searchValue");
-		String searchName = map.get("searchName");
 		
 		if(searchValue==null) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
 			totalCnt=mListTotalCount();
@@ -121,6 +120,11 @@ public class ADAO {
 		return template.selectList("AdminMapper.soList2");
 	}
 	
+	public int soList2TotalCount(){
+		return template.selectOne("AdminMapper.soList2TotalCount");
+	}
+	
+	
 	public void soApprove(String soId) {
 		template.update("AdminMapper.soApprove",soId);
 	}
@@ -137,10 +141,6 @@ public class ADAO {
 		sopageDTO.setList(list);
 		sopageDTO.setCurPage(curPage);
 		sopageDTO.setTotalCnt(totalCnt);
-		System.out.println("start"+start);
-		System.out.println("perpage"+sopageDTO.getPerPage());
-		System.out.println("curPage"+curPage);
-		System.out.println("totalCnt"+totalCnt);
 		return sopageDTO;
 	}
 	
@@ -157,5 +157,36 @@ public class ADAO {
 	}
 	public void changeSoLevel(HashMap<String, String> map) {
 		template.update("AdminMapper.soLevelChange",map);
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////
+	public SPageDTO sList(HashMap<String, String> map,int curPage) {
+		SPageDTO spageDTO = new SPageDTO();
+		//목록은 0부터 시작
+		int totalCnt=0;
+		int start = (curPage-1)*spageDTO.getPerPage(); //페이징 시작 글 번호
+		List<SPageDTO> list =null;  //게시판 목록
+		list= template.selectList("AdminMapper.sList",map,new RowBounds(start ,spageDTO.getPerPage()));
+		String searchValue = map.get("searchValue");
+
+		if(searchValue==null) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
+			totalCnt=sListTotalCount();
+		}
+		else {//입력된 searchValue가 포함된 게시판 글들의 목록을 보여줌
+			totalCnt=sListTotalSearchCount(map);
+		}
+		spageDTO.setList(list);
+		spageDTO.setCurPage(curPage);
+		spageDTO.setTotalCnt(totalCnt);
+		return spageDTO;
+	}
+	
+	public int sListTotalCount(){
+		return template.selectOne("AdminMapper.sListTotalCount");
+	}
+
+	public int sListTotalSearchCount(HashMap<String, String> map){
+		return template.selectOne("AdminMapper.sListTotalSearchCount",map);
 	}
 }

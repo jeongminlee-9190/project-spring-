@@ -17,19 +17,19 @@
 	<div class="btn-group btn-group-sm">
 	  	<div class="row">
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">승인 대기 <span class="badge">0</span></a>
+	  			<a href="soList2" class="btn btn-primary bg-black">승인 대기 <span class="badge">${soList2TotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">개인 회원<span class="badge">0</span></a>
+	  			<a href="mList" class="btn btn-primary bg-black">개인 회원(누적)<span class="badge">${mListTotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">상점 회원<span class="badge">0</span></a>
+	  			<a href="soList" class="btn btn-primary bg-black">상점 회원(누적)<span class="badge">${soListTotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">상점 <span class="badge">0</span></a>
+	  			<a href="sList" class="btn btn-primary bg-black">상점(누적) <span class="badge">${sListTotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">휴면계정 <span class="badge">0</span></a>
+	  			<a href="#" class="btn btn-primary bg-black">휴면계정 <span class="badge">${mDormantListTotalCount+soDormantListTotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
 	  			<a href="#" class="btn btn-primary bg-black">1:1 문의 <span class="badge">0</span></a>

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.AdminDTO;
 import com.dto.MPageDTO;
-import com.dto.NoticeDTO;
-import com.dto.PageDTO;
+import com.dto.SPageDTO;
 import com.dto.SoPageDTO;
 import com.service.AService;
 import com.service.NoticeService;
@@ -29,20 +27,31 @@ public class AController {
 	NoticeService nService;
 	
 	@RequestMapping(value= "/main_admin", method=RequestMethod.GET)
-	public String main_admin() {
+	public String main_admin(HttpSession session) {
+		int soList2TotalCount = service.soList2TotalCount();
+		session.setAttribute("soList2TotalCount", soList2TotalCount);
+		int mListTotalCount = service.mListTotalCount();
+		session.setAttribute("mListTotalCount", mListTotalCount);
+		int soListTotalCount = service.soListTotalCount();
+		session.setAttribute("soListTotalCount", soListTotalCount);
+		int sListTotalCount = service.sListTotalCount();
+		session.setAttribute("sListTotalCount", sListTotalCount);
+		int mDormantListTotalCount = service.mDormantListTotalCount();
+		session.setAttribute("mDormantListTotalCount", mDormantListTotalCount);
+		int soDormantListTotalCount = service.soDormantListTotalCount();
+		session.setAttribute("soDormantListTotalCount", soDormantListTotalCount);
 		return "main_admin";
 	}
 	
 	@RequestMapping(value= "/adminLogin", method=RequestMethod.POST)
 	public String adminLogin(@RequestParam HashMap<String, String> map, HttpSession session) {
 		AdminDTO dto = service.login(map);
-		
 		String nextPage = null;
 		if(dto==null) {
 			nextPage= "index_admin";
 		}else {
 			session.setAttribute("adminLogin", dto);
-			nextPage="main_admin";
+			nextPage="redirect:main_admin";
 		}
 		return nextPage;
 	}
@@ -58,10 +67,6 @@ public class AController {
 	public ModelAndView mList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpServletRequest request) {
 		MPageDTO mpageDTO = service.mList(map, curPage);
-		System.out.println(mpageDTO);
-		System.out.println(mpageDTO.getCurPage());
-		System.out.println(mpageDTO.getPerPage());
-		System.out.println(mpageDTO.getTotalCnt());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mListpageDTO",mpageDTO);
 		mav.setViewName("admin/mList");
@@ -77,7 +82,6 @@ public class AController {
 	@RequestMapping(value="/mDormantList", method=RequestMethod.GET)
 	public ModelAndView mDormantList(@RequestParam(required=false, defaultValue="1") int curPage) {
 		MPageDTO mpageDTO = service.mDormantList(curPage);
-		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mpageDTO",mpageDTO);
 		mav.setViewName("admin/mDormantList");
@@ -94,10 +98,6 @@ public class AController {
 	public ModelAndView soList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpServletRequest request) {
 		SoPageDTO sopageDTO = service.soList(map, curPage);
-		System.out.println(sopageDTO);
-		System.out.println(sopageDTO.getCurPage());
-		System.out.println(sopageDTO.getPerPage());
-		System.out.println(sopageDTO.getTotalCnt());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("soListpageDTO",sopageDTO);
 		mav.setViewName("admin/soList");
@@ -136,10 +136,23 @@ public class AController {
 	@RequestMapping(value="/soApprove", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
 		String soId = map.get("soId");
-		System.out.println("soId: "+soId);
 		service.soApprove(soId);
 		return "redirect:soList2";
 	}
+	
+	@RequestMapping(value = "/sList", method=RequestMethod.GET)
+	public String sList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpSession session) {
+		SPageDTO spageDTO = new SPageDTO();
+		spageDTO = service.sList(map, curPage);
+		session.setAttribute("sListpageDTO", spageDTO);		
+		/*System.out.println(sopageDTO);
+		System.out.println(sopageDTO.getCurPage());
+		System.out.println(sopageDTO.getPerPage());
+		System.out.println(sopageDTO.getTotalCnt());*/
+		return "admin/sList";
+	}
+	
 	/*	
 	/*@RequestMapping(value="/changeSoLevel", method=RequestMethod.GET)
 	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {

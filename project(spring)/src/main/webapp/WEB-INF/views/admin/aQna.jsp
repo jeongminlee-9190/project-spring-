@@ -14,19 +14,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
-<script type="text/javascript" src="./js/jquery-3.3.1.js"></script> 
+<script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script> 
 <style type="text/css">
-	.row{
-		margin-top: 70px;
+	.row1{
+		margin-top: 90px;
+		margin-bottom: 40px;
 		font-size: 12px;
 	}
 	.red{
 		color: red;
 	}
+	
+	.black-background{
+		border: 1px solid #858585;
+		background-color: #858585;
+		color: white;
+	}
 
 </style>
 <script>
-	$(document).ready(function(){
+	/* $(document).ready(function(){
 		$(".btn_qnaDelete").click(function(){
 			var qnaNum =  $(this).attr("data-num");
 			var soId = $("#soId").val();
@@ -49,7 +56,28 @@
 			});
 		});
 	});
-
+ */
+	$(document).ready(function(){
+		$(".soQnaRetrieve").on("click",function(){
+			var qnaNum =  $(this).attr("data-num");
+			$.ajax({
+				url:"soQnaRetrieve",
+				type:"get",
+				data:{
+					qnaNum:qnaNum
+				},
+				dataType:"text",
+				success:function(responseData,status,xhr){
+					$(".modal-body").html(responseData);
+				},
+				error:function(){}
+			});
+		});
+		
+		$(".close").on("click",function(){
+			$(location).attr('href', "aQna");
+		});
+	});
 
 </script>
 </head>
@@ -63,10 +91,10 @@
 
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row row1">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				<h3>1:1 문의(modal로 처리 예정)</h3>
+				<h3>1:1 문의</h3>
 				<table class="table table-hover">
 					<colgroup>
 						<col width="15%">
@@ -111,21 +139,27 @@
 							<input type="hidden" name="soId" id="soId" value="${dto.soId}">
 							<tr>
 								<td>${dto.qnaCategory}</td>
-								<%-- <td><a href="soQnaRetrieveServlet?qnaNum=${dto.qnaNum}">${dto.qnaTitle}</a></td> --%>
-								<td>	
-									<a data-toggle="collapse" data-parent="#accordion" href="#soQnaRetrieve${dto.qnaNum}">${dto.qnaTitle}</a>
-									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
-										${dto.qnaContent}
-										<br>
-										<c:if test="${dto.qnaComplete=='확인중'}">
-											<button class="btn_qnaModify">답변하기</button>&nbsp;
-											<input type="button" class="btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
-										</c:if>
-										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='답변완료'}">
-											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
-										</c:if>
-									</div><!-- collapse -->
+								<td><c:set var="qnaTitle" value="${dto.qnaTitle}"/>	
+									<a data-toggle="modal" data-target="#myModal" class="soQnaRetrieve" data-num="${dto.qnaNum}">${fn:substring(qnaTitle, 0, 16)}</a>
 								</td>
+								<!-- The Modal -->
+								<div class="modal fade" id="myModal">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+												      
+											<!-- Modal Header -->
+											<div class="modal-header">
+												<h4 class="modal-title">1:1 문의 답변하기</h4>
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+											</div>
+													        
+											<!-- Modal body -->
+											<div class="modal-body">
+											</div>
+										</div>
+									</div>
+								</div>
+								
 								<td>${dto.soId}</td>
 								<td>${dto.qnaWritedate}</td>
 								<td>${dto.qnaComplete}</td>
