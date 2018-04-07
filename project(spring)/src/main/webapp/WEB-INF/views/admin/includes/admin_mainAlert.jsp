@@ -32,7 +32,7 @@
 	  			<a href="#" class="btn btn-primary bg-black">휴면계정 <span class="badge">${mDormantListTotalCount+soDormantListTotalCount}</span></a>
 	  		</div>
 	  		<div class="col-sm-2">
-	  			<a href="#" class="btn btn-primary bg-black">1:1 문의 <span class="badge">0</span></a>
+	  			<a href="aQnaList" class="btn btn-primary bg-black">1:1 문의 <span class="badge">${aQnaListTotalCount}</span></a>
 	  		</div>
 		</div>
 	</div>

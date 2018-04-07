@@ -3,12 +3,14 @@ package com.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.AQnaDAO;
 import com.dto.AQnaDTO;
+import com.dto.AQnaPageDTO;
 import com.dto.QnaReplyDTO;
 import com.dto.SoQnaDTO;
 
@@ -17,9 +19,24 @@ public class AQnaService {
 	@Autowired
 	AQnaDAO dao;
 	
-	public List<AQnaDTO> qna() {
-		return dao.qna();
+	public AQnaPageDTO aQnaList(HashMap<String, String> map,int curPage) {
+		return dao.aQnaList(map, curPage);
 	}
+	
+	public int aQnaListTotalCount(){
+		return dao.aQnaListTotalCount();
+	}
+
+	public int aQnaListTotalSearchCount(HashMap<String, String> map){
+		return dao.aQnaListTotalSearchCount(map);
+	}
+	/*public List<SoQnaDTO> aQnaList() {
+		return dao.aQnaList();
+	}
+	
+	public List<SoQnaDTO> aQnaSort(HashMap<String, String> map) {
+		return dao.aQnaSort(map);
+	}*/
 	
 	public SoQnaDTO soQnaRetrieve(int qnaNum) {
 		return dao.soQnaRetrieve(qnaNum);

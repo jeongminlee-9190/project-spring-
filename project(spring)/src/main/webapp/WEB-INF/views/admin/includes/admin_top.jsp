@@ -26,7 +26,7 @@
  			   <li><a class="dropdown-item" href="soList">회원 목록</a></li>
  			   <li><a class="dropdown-item" href="soList2">가입 승인</a></li>
 	           <li><a class="dropdown-item" href=SoDormantList>휴면 계정 삭제</a></li>
-	           <li><a class="dropdown-item" href="aQna">1:1 문의 접수 현황</a></li>
+	           <li><a class="dropdown-item" href="aQnaList">1:1 문의 접수 현황</a></li>
 	        </ul>
 	    </li>
 	    <li class="nav-item active dropdown">

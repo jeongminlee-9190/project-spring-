@@ -18,53 +18,7 @@
 </head>
 <body>
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-			<h4>상점회원 - 휴면계정 삭제(90일이상 휴면)</h4>
-			<form action="memberList" method="get">
-				<table class="table table-hover">
-					<colgroup>
-						<col width="10%">
-						<col width="30%">
-						<col width="20%">
-						<col width="20%">
-						<col width="20%">
-					</colgroup>
-			    	<thead class="thead-light">
-						<tr>
-							<th>번호</th>
-							<th>아이디</th>
-							<th>이름</th>
-							<th>핸드폰</th>
-							<th>휴면기간</th>
-						</tr>
-					</thead>
-				    <c:forEach var="dto" items="${sopageDTO.list}" varStatus="status">
-					<tbody>
-						<tr>
-							<td>${dto.rownum}</td>
-			  				<td id="mid">${dto.soId}</td>
-			  				<td>${dto.soName}</td>
-			  				<td>${dto.soPhone}</td>
-			  				<td>${dto.sLastLogin2}일<input type="button" id="soDormantDel" data-num="${dto.soId}" class="btn btn-primary sm-black-background" value="삭제"></td>
-						</tr>
-					</tbody>
-					</c:forEach>
-					<!-- 페이지번호 -->
-				  	<tr>
-				   		<td colspan="5" align="center">&nbsp;<jsp:include page="includes/soPaging.jsp" flush="true" /></td>
-				  	</tr>
-				</table>
-			</form>
-		</div>
-		<div class="col-md-3"></div>
-	</div>
-</div>	
-<div class="container">
-	
-</div>
+<jsp:include page="includes/SoDormantList.jsp" flush="true"/>
 <jsp:include page="includes/admin_footer.jsp" flush="true"/>
 </body>
 </html>

@@ -142,7 +142,7 @@
 		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
    		where soLevel=0
-   		order by rownum desc
+   		order by rownum asc
 	</select>
 	
 	<select id="soList2TotalCount"  resultType="int">

@@ -37,7 +37,7 @@
    <script type="text/javascript">
     alert('${fail}');
    </script>
-   <c:remove var="fail" scope="session" />
+   <c:remove var="fail" />
 </c:if>
 
 <div class="container-fluid">
