@@ -29,7 +29,7 @@ public class AQnaDAO {
 		String searchName = map.get("searchName");
 		String searchName2 = map.get("searchName2");
 		
-		if((searchName==null && searchName2==null) ||(searchName=="" && searchName2=="")) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
+		if((searchName==null || searchName=="") &&(searchName=="" || searchName2==null)) {//searchValue값이 없는 상태로 검색을 누르면 전체목록 보여주기
 			System.out.println("aQnaList searchName: "+searchName+"searchName2: "+searchName2);
 			list= template.selectList("AQnaMapper.aQnaList",map,new RowBounds(start ,aqnapageDTO.getPerPage()));
 			totalCnt=aQnaListTotalCount();
