@@ -22,9 +22,13 @@ public class MemberService {
 		memberDAO.memberAdd(map);
 	}
 	
-	public int mJoinIdCheck(String mIdchk) {
-		return memberDAO.mJoinIdCheck(mIdchk);
+	public int mJoinIdCheck(String mIdChk) {
+		return memberDAO.mJoinIdCheck(mIdChk);
 	}
+	
+	/*public int mJoinNameCheck(String mNameChk) {
+		return memberDAO.mJoinNameCheck(mNameChk);
+	}*/
 
 
 }
