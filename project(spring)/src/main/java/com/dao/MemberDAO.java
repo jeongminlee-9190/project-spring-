@@ -21,5 +21,9 @@ public class MemberDAO {
 	public void memberAdd(HashMap<String, String> map) {
 		template.insert("MemberMapper.memberAdd",map);
 	}
+	
+	public int mJoinIdCheck(String mIdchk) {
+		return template.selectOne("MemberMapper.mJoinIdCheck",mIdchk);
+	}
 
 }

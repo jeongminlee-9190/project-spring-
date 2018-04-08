@@ -21,6 +21,10 @@ public class MemberService {
 	public void memberAdd(HashMap<String, String> map) {
 		memberDAO.memberAdd(map);
 	}
+	
+	public int mJoinIdCheck(String mIdchk) {
+		return memberDAO.mJoinIdCheck(mIdchk);
+	}
 
 
 }

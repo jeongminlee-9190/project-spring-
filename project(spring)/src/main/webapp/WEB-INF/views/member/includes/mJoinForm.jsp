@@ -37,7 +37,7 @@
 			<span class="join_title" ><strong>휴대전화</strong></span>
 			<button type="button" id="mPhone1">
 				<span id="m_number">010</span>
-				<span id="mPhone_icon"><img src="images/mPhone_icon.png" title="check"></span>
+				<span id="mPhone_icon"><img src="resources/images/mPhone_icon.png" title="check"></span>
 			</button>
 				- <input type="text" name="mPhone2" id="mPhone2" maxlength="4" >
 				- <input type="text" name="mPhone2" id="mPhone3" maxlength="4" >
