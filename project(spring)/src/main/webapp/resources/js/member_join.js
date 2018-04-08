@@ -170,31 +170,28 @@ $(document).ready(function(){
 	});
 	
 	// 아이디 중복 체크 실시간 
-	var checkAjaxSetTimeout;
     $("#mId").keyup(function(){
-        clearTimeout(checkAjaxSetTimeout);
-        checkAjaxSetTimeout = setTimeout(function(){
-	        if ( $("#mId").val().length > 6) {
-	            var mId = $(this).val();
-	            // ajax 실행
-	            $.ajax({
-	                type : 'POST',
-	                url : '/mJoinForm',
-	                data:
-	                {
-	                	"mId": mId
-	                },
-	                success : function(data){
-	                    console.log(data);
-	                    if ($.trim(data) == 0) {
-	                        $("#result1").text('').html("사용 가능한 아이디 입니다.");
-	                    } else {
-	                        $("#result1").text('').html("사용 불가능한 아이디 입니다.");
-	                    }
-	                }
-	            }); // end ajax
-	        } // if
-        },1000); //end setTimeout
+    	if ( $("#mId").val().length > 6) {
+    		var mId = $(this).val();
+		    $.ajax({
+		        url:'/controller/mJoinForm',
+		        type:'post',
+		        data:{
+		        	mId:mId
+		        },
+		        success:function(data){
+		        	console.log(data);
+		            if($.trim(data)==0){
+		                $("#result1").text('').html("사용가능한 아이디입니다.").css("color","blue");               
+		            } else if (!mId){
+		            	$("#result1").text('').html("");
+		            } else {
+		                $("#result1").text('').html("이미 사용중인 아이디입니다.").css("color","red");  
+		                $("#mId_wrap").css("width","650px");
+		            }
+		        }
+		    }); //end ajax
+    	}
     }); // end keyup
 	
 	//비밀번호 재입력 일치 여부	
@@ -203,6 +200,8 @@ $(document).ready(function(){
 		if (mPasswd.val() != mPasswd2.val()) {
 			$("#result2").text('').html("비밀번호 불일치").css("color","red");
 			return false;
+		} else if(!mPasswd.val()){
+			$("#result2").text('').html("");
 		} else {
 			$("#result2").text('').html("비밀번호 일치").css("color","blue");
 		}

@@ -10,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- css -->
 <!-- reset -->
-<link rel="stylesheet" href="resources/css/reset.css">
+<link rel="stylesheet" type="text/css" href="resources/css/reset.css">
 <!-- font -->
-<link rel="stylesheet" href="resources/css/fonts.css">
+<link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
 
 <link rel="stylesheet" href="resources/css/member/main.css">
 <link rel="stylesheet" href="resources/css/member/login.css">

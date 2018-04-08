@@ -28,9 +28,7 @@
 
 <jsp:include page="includes/memberHeader.jsp" flush="true"/>
 
-<c:if test="${empty memberlogin}">
-	<jsp:include page="includes/mLoginForm.jsp" flush="true"/>
-</c:if>
+<jsp:include page="includes/mLoginForm.jsp" flush="true"/>
 
 <jsp:include page="../footer/footer.jsp" flush="true" />
 
