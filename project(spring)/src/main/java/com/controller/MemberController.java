@@ -2,10 +2,12 @@ package com.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,9 +32,9 @@ public class MemberController {
 		return "member/mLoginForm";
 	}
 
-	@RequestMapping("/mJoin")
+	@RequestMapping("/mJoinForm")
 	public String mJoin() {
-		return "member/mLoginForm";
+		return "member/mJoinForm";
 	}
 	
 	@RequestMapping("/loginForm")
@@ -58,6 +60,29 @@ public class MemberController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "main0";
+	}
+	
+	@RequestMapping(value="/mJoin",  method=RequestMethod.POST)
+	public String memberAdd(@RequestParam HashMap<String, String> map, HttpServletRequest request) {
+		String mPhone1 = map.get("mPhone1");
+		String mPhone2 = map.get("mPhone2");
+		String mPhone3 = map.get("mPhone3");
+		String mPhone = mPhone1+"-"+mPhone2+"-"+mPhone3;
+		map.remove("mPhone1");
+		map.remove("mPhone2");
+		map.remove("mPhone3");
+		map.put("mPhone",mPhone);
+		memberService.memberAdd(map);
+		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
+		return "main";
+
+	}
+	
+	@RequestMapping(value="/idCheck", method=RequestMethod.GET)
+	public int idCheck(@RequestParam String soId) {
+		int idCheckCnt = 0;
+		
+		return idCheckCnt;
 	}
 	
 }

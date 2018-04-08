@@ -3,29 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
-<script type="text/javascript">
-$(document).ready(function(){	
-	$("#delBtn").on("click",function(){
-		location.href="mDeleteServlet?mId="+$("#mid").text();
-	});
-});
-</script>
-<style>
-	.row{
-		margin-top: 90px;
-		font-size: 12px;
-	}
-	.table-hover{
-		font-size: 13px;
-	}
-</style>
-
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_mDormantList.css" rel="stylesheet" >
+<script src="resources/js/admin_mDormentDel.js"></script>
+</head>
+<body>
 <jsp:include page="includes/admin_top.jsp" flush="true"/>
 <div class="container-fluid">
 	<div class="row">
@@ -57,13 +48,13 @@ $(document).ready(function(){
 			  				<td id="mid">${dto.mId}</td>
 			  				<td>${dto.mName}</td>
 			  				<td>${dto.mPhone}</td>
-			  				<td>${dto.mLastLogin2}일<button id="delBtn">탈퇴처리</button></td>
+			  				<td>${dto.mLastLogin2}일<input type="button" id="mDormantDel" data-num="${dto.mId}" class="btn btn-primary sm-black-background" value="삭제"></td>
 						</tr>
 					</tbody>
 					</c:forEach>
 					<!-- 페이지번호 -->
 				  	<tr>
-				   		<td colspan="5" align="center">&nbsp;<jsp:include page="includes/memberPaging.jsp" flush="true" /></td>
+				   		<td colspan="5" align="center">&nbsp;<jsp:include page="includes/mDormantPaging.jsp" flush="true" /></td>
 				  	</tr>
 				</table>
 			</form>
@@ -71,7 +62,6 @@ $(document).ready(function(){
 		<div class="col-md-3"></div>
 	</div>
 </div>	
-<div class="container">
-	
-</div>
 <jsp:include page="includes/admin_footer.jsp" flush="true"/>
+</body>
+</html>

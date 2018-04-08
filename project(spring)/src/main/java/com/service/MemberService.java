@@ -17,6 +17,10 @@ public class MemberService {
 	public MemberDTO login(HashMap<String, String> map) {
 		return memberDAO.login(map);
 	}
+	
+	public void memberAdd(HashMap<String, String> map) {
+		memberDAO.memberAdd(map);
+	}
 
 
 }

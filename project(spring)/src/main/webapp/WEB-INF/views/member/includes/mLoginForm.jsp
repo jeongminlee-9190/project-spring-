@@ -13,7 +13,7 @@
 		<input type="text" name="mId" id="mId" placeholder="아이디 또는 이메일">
 		<input type="text" name="mPasswd" id="mPasswd" placeholder="비밀번호">
 		<input type="submit" value="LOGIN" id="mLogin">
-		<a href="mJoin" title="회원가입">
+		<a href="mJoinForm" title="회원가입">
 			<input type="submit" value="회원가입">
 		</a>
 		

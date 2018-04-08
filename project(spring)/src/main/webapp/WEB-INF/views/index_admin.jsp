@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
 <title></title>
-<link href="${pageContext.request.contextPath}/resources/css/index_admin.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/so/index_admin.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 </head>
 <body>
@@ -37,14 +37,13 @@
    <script type="text/javascript">
     alert('${fail}');
    </script>
-   <c:remove var="fail" scope="session" />
+   <c:remove var="fail" />
 </c:if>
 
 <div class="container-fluid">
 
   	<div class="row">
-  		<div class="col-sm-4"></div>
-  		<div class="col-sm-4">
+  		<div class="col-sm-12">
   			<form action="adminLogin" method="post" class="adminLoginForm">
 			  	<img src="resources/images/logo.png" class="logo"></td>
 			  	<h3>관리자 센터</h3>
@@ -54,9 +53,7 @@
 			 	<input type="reset" class="btn btn-primary orange-border" value="취소">
 		 	</form> 
 		</div>
-	 	<div class="col-sm-4"></div>
 	 </div>
- 
  </div>
 
 
