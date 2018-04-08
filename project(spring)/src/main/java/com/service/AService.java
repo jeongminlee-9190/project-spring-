@@ -75,10 +75,6 @@ public class AService {
 		dao.soDormantDel(soId);
 	}
 	
-	public void soApprove(HashMap<String, String> map) {
-		
-	}
-	
 	public void changeSoLevel(HashMap<String, String> map) {
 		dao.changeSoLevel(map);
 	}

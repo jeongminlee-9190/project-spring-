@@ -13,15 +13,39 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/so/so_qna.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
 <style type="text/css">
 	.row{
-		margin-top: 70px;
+		margin-top: 90px;
+		margin-bottom: 40px;
 	}
 	.red{
 		color: red;
+		font-size: 12px;
+	}
+	.orange-background{
+		border: 1px solid orange;
+		background-color: orange;
+		width: 110px;
+	}
+	.orange-background2{
+		border: 1px solid orange;
+		background-color: orange;
+		width: 70px;
+	}
+	
+	.btn_qnaModify,.btn_qnaDelete {
+		border: 1px solid orange;
+		background-color: white;
+		color: orange;
+		margin-top: 10px;
+		width: 70px;
 	}
 
+	.buttons{
+		text-align: center;
+	}
 </style>
 <script>
 	$(document).ready(function(){
@@ -39,6 +63,29 @@
 				dataType:"text",
 				success:function(responseData,status,xhr){
 					alert('1:1 문의가 삭제되었습니다.');
+					location.reload(); // 페이지 새로고침
+				},
+				error:function(){
+					console.log("tlfvo");
+				}
+			});
+		});
+		
+		$(".btn_qnaModify").click(function(){
+			var qnaNum =  $(this).attr("data-num");
+			var soId = $("#soId").val();
+			var qnaContent = $("#qnaContent").val();
+			$.ajax({
+				url: "soQnaModify",
+				type:"get",
+				data:{
+					qnaNum:qnaNum,
+					soId:soId,
+					qnaContent:qnaContent
+				},
+				dataType:"text",
+				success:function(responseData,status,xhr){
+					alert('1:1 문의가 수정되었습니다.');
 					location.reload(); // 페이지 새로고침
 				},
 				error:function(){
@@ -74,22 +121,79 @@
 					</colgroup>
 					<thead class="thead-light">
 						<tr>
-							<td>
-								<a href="soQnaWriteForm"><input type="button" name="btn_submit" value="1:1 문의하기"></a>
-							</td>
-							<td colspan="3" align="right">
-								<span>답변 상태  </span>
-								<a href=""><input type="button" name="btn_submite" value="확인중"></a>
-								<a href=""><input type="button" name="btn_submite" value="처리중"></a>
-								<a href=""><input type="button" name="btn_submite" value="처리완료"></a>
-								&nbsp;&nbsp;&nbsp;
-								<span>조회 기간  </span>
-								<a href=""><input type="button" name="btn_submite" value="1개월"></a>
-								<a href=""><input type="button" name="btn_submite" value="3개월"></a>
-								<a href=""><input type="button" name="btn_submite" value="6개월"></a>
+							<td colspan="4" align="center">
+								<form class="form-inline" action="soQna" method="GET">
+									<div class="form-group">
+										<a href="soQnaWriteForm"><input type="button" class="btn btn-primary orange-background" value="1:1 문의하기"></a>
+									</div>
+									&nbsp;&nbsp;&nbsp;
+								    <div class="form-group">
+								      <label for="focusedInput">답변</label>
+								      <c:if test="${empty searchName}">
+									  	<select class="form-control" name="searchName" id="searchName">
+											<option selected="selected"></option>
+											<option>확인중</option>
+											<option>처리중</option>
+											<option>처리완료</option>
+										</select>
+									  </c:if>
+									  <c:if test="${searchName=='확인중'}">
+										<select class="form-control" name="searchName" id="searchName">
+											<option></option>
+											<option selected="selected">확인중</option>
+											<option>처리중</option>
+											<option>처리완료</option>
+										</select>
+									  </c:if>
+									  <c:if test="${searchName=='처리중'}">
+										<select class="form-control" name="searchName" id="searchName">
+											<option></option>
+											<option>확인중</option>
+											<option selected="selected">처리중</option>
+											<option>처리완료</option>
+										</select>
+									  </c:if>
+									  <c:if test="${searchName=='처리완료'}">
+										<select class="form-control" name="searchName" id="searchName">
+											<option></option>
+											<option>확인중</option>
+											<option>처리중</option>
+											<option selected="selected">처리완료</option>
+										</select>
+									  </c:if>
+								    </div>
+								    &nbsp;&nbsp;&nbsp;
+								    <div class="form-group">
+								      <label for="inputPassword">기간</label>
+								      <c:if test="${empty searchName2}">
+										<select class="form-control" name="searchName2">
+											<option selected="selected"></option>
+											<option>1주일</option>
+											<option>1개월</option>
+										</select>
+									  </c:if>
+									  <c:if test="${searchName2=='1주일'}">
+										<select class="form-control" name="searchName2">
+											<option></option>
+											<option selected="selected">1주일</option>
+											<option>1개월</option>
+										</select>
+									  </c:if>
+									  <c:if test="${searchName2=='1개월'}">
+										<select class="form-control" name="searchName2">
+											<option></option>
+											<option>1주일</option>
+											<option selected="selected">1개월</option>
+										</select>
+									</c:if>
+								   </div>
+								   &nbsp;&nbsp;&nbsp;
+								   <div class="form-group">
+								   	<input type="submit" class="btn btn-primary orange-background2" value="검색">
+								   </div>
+								</form>
 							</td>
 						</tr>
-
 						<tr>
 						  <th scope="col">문의유형</th>
 						  <th scope="col">제목</th>
@@ -102,17 +206,21 @@
 							<input type="hidden" name="soId" id="soId" value="${dto.soId}">
 							<tr>
 								<td>${dto.qnaCategory}</td>
-								<%-- <td><a href="soQnaRetrieveServlet?qnaNum=${dto.qnaNum}">${dto.qnaTitle}</a></td> --%>
 								<td>	
 									<a data-toggle="collapse" data-parent="#accordion" href="#soQnaRetrieve${dto.qnaNum}">${dto.qnaTitle}</a>
 									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
-										${dto.qnaContent}
-										<br>
+										<label for="qnaContent">내용:</label>
 										<c:if test="${dto.qnaComplete=='확인중'}">
-											<button class="btn_qnaModify">수정</button>&nbsp;
-											<input type="button" class="btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
+  											<textarea class="form-control" rows="5" id="qnaContent">${dto.qnaContent}</textarea>
+											<div class="buttons">
+												<input type="button" class="btn btn-primary btn_qnaModify" data-num="${dto.qnaNum}" value="수정">
+												<input type="button" class="btn btn-primary btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
+											</div>
 										</c:if>
 										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='처리완료'}">
+											${dto.qnaContent}<br><br>
+											<label for="qnaContent">답변: </label> ${dto.qnaReplyContent}
+											<br>
 											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
 										</c:if>
 									</div><!-- collapse -->

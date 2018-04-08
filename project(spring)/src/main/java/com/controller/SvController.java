@@ -17,7 +17,6 @@ import com.dto.SvDTO;
 import com.service.SoService;
 import com.service.SvService;
 
-
 @Controller
 public class SvController {
 	@Autowired
@@ -28,9 +27,7 @@ public class SvController {
 	public String payMentUI(HttpSession session) {
 		SoDTO sDTO = (SoDTO)session.getAttribute("SoLogin");
 		String soid = sDTO.getSoId();
-		System.out.println(sDTO);
 		String nextPage=null;
-		
 		if(sDTO == null) {
 			nextPage="index_shopowner";
 		}else {
@@ -55,7 +52,6 @@ public class SvController {
 		svDTO.setSoId(sDTO);
 		svDTO.setPrice(price);
 		svDTO.setPeriod(Integer.parseInt(period));
-		
 		service.payment(svDTO);
 		session.setAttribute("success", "결제가 완료되었습니다.");
 		return "main_shopowner";

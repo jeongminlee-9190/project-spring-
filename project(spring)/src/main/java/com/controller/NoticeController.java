@@ -47,16 +47,14 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="/mNoticeWrite", method=RequestMethod.POST)
-	public String mNoticeWrite(NoticeDTO dto, HttpSession session) { //map 또는 +requestParam 사용 가능
+	public String mNoticeWrite(NoticeDTO dto, HttpSession session) { 
 		nService.mNoticeWrite(dto);
 		session.setAttribute("success", "게시판 글쓰기 성공");
-		//redirect:list3   /list3 으로 가라는 것    list3.jsp로 바로 가면 안되고 Controller를 거쳐야 한다.
 		return "redirect:mNotice";
-		//return "forward:list3";  URL이 변경되지 않는다. 새로고침하면 다시 저장되기 때문에 redirect를 써야 한다.
 	}
 	
 	@RequestMapping(value="/mNoticeRetrieve", method=RequestMethod.GET)
-	public ModelAndView mNoticeRetrieve(@RequestParam int num) { //@RequestParam("num") int num
+	public ModelAndView mNoticeRetrieve(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		NoticeDTO dto = nService.mNoticeRetrieve(num);
 		mav.addObject("mNoticeRetrieve",dto);
@@ -65,14 +63,14 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="/mNoticeDelete", method=RequestMethod.GET)
-		public String mNoticeDelete(@RequestParam int num, HttpSession session) { //@RequestParam("num") int num
+		public String mNoticeDelete(@RequestParam int num, HttpSession session) {
 		nService.mNoticeDelete(num);
 		session.setAttribute("success", "게시판 삭제 성공");
 		return "redirect:mNotice";
 	}
 	
 	@RequestMapping(value="/mNoticeUpdate", method=RequestMethod.POST)
-		public String mNoticeUpdate(NoticeDTO dto, HttpSession session) { //@RequestParam("num") int num
+		public String mNoticeUpdate(NoticeDTO dto, HttpSession session) {
 		nService.mNoticeUpdate(dto);
 		session.setAttribute("success","게시판 수정 성공");
 		return "redirect:mNotice";
@@ -109,17 +107,14 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="/soNoticeWrite", method=RequestMethod.POST)
-	public String soNoticeWrite(NoticeDTO dto, HttpSession session) { //map 또는 +requestParam 사용 가능
-		System.out.println("soNoticeWrite 접근"+dto);
+	public String soNoticeWrite(NoticeDTO dto, HttpSession session) { 
 		nService.soNoticeWrite(dto);
 		session.setAttribute("success", "게시판 글쓰기 성공");
-		//redirect:list3   /list3 으로 가라는 것    list3.jsp로 바로 가면 안되고 Controller를 거쳐야 한다.
 		return "redirect:soNotice";
-		//return "forward:list3";  URL이 변경되지 않는다. 새로고침하면 다시 저장되기 때문에 redirect를 써야 한다.
 	}
 	
 	@RequestMapping(value="/soNoticeRetrieve", method=RequestMethod.GET)
-	public ModelAndView soNoticeRetrieve(@RequestParam int num) { //@RequestParam("num") int num
+	public ModelAndView soNoticeRetrieve(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		NoticeDTO dto = nService.soNoticeRetrieve(num);
 		mav.addObject("soNoticeRetrieve",dto);
@@ -128,7 +123,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="/soNoticeRetrieve2", method=RequestMethod.GET)
-	public ModelAndView soNoticeRetrieve2(@RequestParam int num) { //@RequestParam("num") int num
+	public ModelAndView soNoticeRetrieve2(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		NoticeDTO dto = nService.soNoticeRetrieve(num);
 		mav.addObject("soNoticeRetrieve",dto);
@@ -137,14 +132,14 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="/soNoticeDelete", method=RequestMethod.GET)
-		public String delete(@RequestParam int num, HttpSession session) { //@RequestParam("num") int num
+		public String delete(@RequestParam int num, HttpSession session) { 
 		nService.soNoticeDelete(num);
 		session.setAttribute("success", "게시판 삭제 성공");
 		return "redirect:soNotice";
 	}
 	
 	@RequestMapping(value="/soNoticeUpdate", method=RequestMethod.POST)
-		public String soNoticeUpdate(NoticeDTO dto, HttpSession session) { //@RequestParam("num") int num
+		public String soNoticeUpdate(NoticeDTO dto, HttpSession session) { 
 		nService.soNoticeUpdate(dto);
 		session.setAttribute("success","게시판 수정 성공");
 		return "redirect:soNotice";
