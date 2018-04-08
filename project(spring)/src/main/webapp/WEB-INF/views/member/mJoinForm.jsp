@@ -9,18 +9,18 @@
 <meta charset="UTF-8">
 <!-- css -->
 <!-- reset -->
-<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="resources/css/reset.css">
 <!-- font -->
-<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
 
-<link rel="stylesheet" type="text/css" href="css/member_header.css">
-<link rel="stylesheet" type="text/css" href="css/member_join.css">
-<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/member_header.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/member_join.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 
 <!-- jquery -->
-<script src="js/jquery-3.3.1.js"></script>
-<script src="js/member_join.js"></script>
+<script src="resources/js/jquery-3.3.1.js"></script>
+<script src="resources/js/member_join.js"></script>
 
 <title>회원가입</title>
 

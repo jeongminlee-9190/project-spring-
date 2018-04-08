@@ -14,4 +14,9 @@
 		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})
 	</insert>
 	
+	<select id="mJoinIdCheck" parameterType="String" resultType="int">
+    	select count(*) from member
+    	where mId = {#mId}
+	</select>
+	
 </mapper>
