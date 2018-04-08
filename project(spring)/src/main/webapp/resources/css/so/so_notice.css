@@ -1,0 +1,23 @@
+@charset "UTF-8";
+	.row{
+		margin-top: 90px;
+		margin-botton: 40px;
+	}
+	.table-hover{
+		font-size: 13px;
+	}
+	.orange-background{
+		border: 1px solid orange;
+		background-color: orange;
+		color: white;
+		width: 70px;
+	}
+
+	.info{
+		color : blue;
+	}
+	.modal-title{
+		font-size: 18px;
+		font-weight: bold;
+	}
+	

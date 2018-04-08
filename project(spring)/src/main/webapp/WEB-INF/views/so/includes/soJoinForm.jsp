@@ -11,7 +11,7 @@
 						<tr>
 							 <th>아이디</th>
 							 <td><input type="text" name="soId" id="soId" placeholder="(예)zzz@naver.com" maxlength="30"size="32px">
-							 <span id="result1"></span></td>
+							 <br><span id="result1"></span></td>
 						</tr>
 					
 						<tr>

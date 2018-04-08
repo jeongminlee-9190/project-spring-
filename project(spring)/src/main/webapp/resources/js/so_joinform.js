@@ -1,21 +1,34 @@
  	$(document).ready(function(){
+ 		var re_email=/^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{3,6})$/;
  		$("#soId").keyup(function(){
 			var soId = $("#soId").val();
-			$.ajax({
-				url: "soIdCheck",
-				type: "GET",
-				data:{
-					soId:soId
-				},
-				dataType:"text",
-				success:function(responseData){
-					$("#result1").text(responseData);
-					console.log(responseData);
-				},
-				error:function(error){
-					console.log("error"+error);
-				}
-			});
+			var length = soId.length;
+			console.log(length);
+			if(length>5){
+				$.ajax({
+					url: "soIdCheck",
+					type: "GET",
+					data:{
+						soId:soId
+					},
+					dataType:"text",
+					success:function(responseData){
+						if(responseData==0){
+							if(re_email.test($("#soId").val())!= true){
+								$("#result1").text("아이디는 이메일 형식으로 입력해주세요.");
+				 			}else{
+				 				$("#result1").text("아이디 사용 가능");
+				 			}
+						}
+						else if(responseData==1){
+							$("#result1").text("아이디 중복");
+						}
+					},
+					error:function(error){
+						console.log("error"+error);
+					}
+				});
+			}
 		});
  		
  		$("#passwd").keyup(function(){

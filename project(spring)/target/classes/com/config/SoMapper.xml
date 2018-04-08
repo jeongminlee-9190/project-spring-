@@ -38,11 +38,17 @@
    		where soId = #{soId} and soLicense = #{soLicense} and soName = #{soName} and soPhone = #{soPhone}
 	</select>
 	
-	<update id="soPasswdUpdate" parameterType="hashmap">
+	<update id="soPwUpdate" parameterType="hashmap">
 		update shopowner
 		set soPasswd=#{soPasswd}
 		where soId=#{soId}
 	</update>
+	
+	<select id="soPwCheck" parameterType="hashmap" resultType="int">
+		select count(*) 
+		from shopowner
+		where soId=#{soId} and soPasswd=#{soPasswd}
+	</select>
 	
 	<update id="soPhoneUpdate" parameterType="hashmap">
 		update shopowner
