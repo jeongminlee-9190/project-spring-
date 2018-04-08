@@ -94,6 +94,20 @@ public class NoticeController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/soNotice2", method=RequestMethod.GET)
+	public ModelAndView soNotice2(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request) {
+		PageDTO pageDTO = nService.soNoticeList(map, curPage);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pageDTO",pageDTO);
+		mav.setViewName("so/soNotice");
+		String searchName = map.get("searchName");
+		String searchValue = map.get("searchValue");
+		request.setAttribute("searchName", searchName);
+		request.setAttribute("searchValue", searchValue);
+		return mav;
+	}
+	
 	@RequestMapping(value="/soNoticeWrite", method=RequestMethod.POST)
 	public String soNoticeWrite(NoticeDTO dto, HttpSession session) { //map 또는 +requestParam 사용 가능
 		System.out.println("soNoticeWrite 접근"+dto);
@@ -110,6 +124,15 @@ public class NoticeController {
 		NoticeDTO dto = nService.soNoticeRetrieve(num);
 		mav.addObject("soNoticeRetrieve",dto);
 		mav.setViewName("admin/soNoticeRetrieve");
+		return mav;
+	}
+	
+	@RequestMapping(value="/soNoticeRetrieve2", method=RequestMethod.GET)
+	public ModelAndView soNoticeRetrieve2(@RequestParam int num) { //@RequestParam("num") int num
+		ModelAndView mav = new ModelAndView();
+		NoticeDTO dto = nService.soNoticeRetrieve(num);
+		mav.addObject("soNoticeRetrieve",dto);
+		mav.setViewName("so/soNoticeRetrieve2");
 		return mav;
 	}
 	

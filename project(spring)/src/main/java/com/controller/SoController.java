@@ -185,6 +185,19 @@ public class SoController {
 		return nextPage;
 	}
 	
+	@RequestMapping(value="/soPwCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public int soPwCheck(@RequestParam String soPasswd,HttpSession session) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String soId = soDTO.getSoId();
+		HashMap<String, String> map = new HashMap<>();
+		map.put("soId", soId);
+		map.put("soPasswd", soPasswd);
+		int soPwCheckCnt = service.soPwCheck(map);
+		System.out.println("soPasswd: "+soPasswd+" soPwCheckCnt: "+soPwCheckCnt);
+		return soPwCheckCnt;
+	}
+	
 	@RequestMapping(value= "/soPwUpdate", method=RequestMethod.POST)
 	public String soPwUpdate(@RequestParam HashMap<String, String> map, HttpSession session, HttpServletRequest request) {
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
@@ -198,8 +211,8 @@ public class SoController {
 			String soPasswd = map.get("soPasswd");
 			System.out.println("새로운 soPasswd: "+soPasswd);
 			service.soPwUpdate(map);
-			request.setAttribute("success", "비밀번호가 변경되었습니다.");
-			nextPage="main_shopowner";
+			session.setAttribute("success", "비밀번호가 변경되었습니다.");
+			nextPage="redirect:main_shopowner";
 		}
 		return nextPage;
 	}

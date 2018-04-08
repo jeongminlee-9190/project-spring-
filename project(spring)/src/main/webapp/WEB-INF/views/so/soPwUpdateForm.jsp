@@ -9,42 +9,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/so/so_pwmodify.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/so/so_pwupdate.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
-<script type="text/javascript">
-$(document).ready(function(){
-		$(".old_soPasswd").keyup(function(){
-		var soPasswd = $(".old_soPasswd").val();
-		console.log(soPasswd);
-		console.log(soPasswd.length());
-		/* $.ajax({
-			url: "soIdCheck",
-			type: "GET",
-			data:{
-				soId:soId
-			},
-			dataType:"text",
-			success:function(responseData){
-				if(responseData==0){
-					$("#result1").text("아이디 사용 가능");
-				}
-				else if(responseData==1){
-					$("#result1").text("아이디 중복");
-				}
-			},
-			error:function(error){
-				console.log("error"+error);
-			}
-		}); */
-	});
-});
-</script>
+<script src="resources/js/so_pwupdateform.js"></script>
+
 <style>
- .row{
- 	/* text-align: center; */
- }
- 
+
 </style>
 <jsp:include page="includes/soTop.jsp" flush="true"/>
 <c:set var="dto" value="${SoMyPage}"></c:set>
@@ -53,27 +24,30 @@ $(document).ready(function(){
   	<div class="col-sm-3"></div>
     <div class="col-sm-6">
     	<h3>마이페이지-비밀번호 변경</h3>
-    	<br>
-		<form class="form-horizontal" action="soPwUpdate" method="POST">
+    	<br><br><br>
+		<form class="form-horizontal" action="soPwUpdate" id="soPwUpdate" method="POST">
 			<div class="form-group">
 			    <label class="col-sm-5 control-label">현재 비밀번호</label>
 			    <div class="col-sm-4">
-			        <input class="form-control" id="focusedInput old_soPasswd" class="old_soPasswd" maxlength="10" type="text">
+			        <input class="form-control" type="password" id="old_soPasswd" class="old_soPasswd" maxlength="10" type="text">
+			       	<span id="result1"></span>
 			    </div>
     		</div>
     		<div class="form-group">
 			    <label class="col-sm-5 control-label">새로운 비밀번호</label>
 			    <div class="col-sm-4">
-			        <input class="form-control" id="focusedInput" name="soPasswd" maxlength="10" type="text">
+			        <input class="form-control" type="password" id="soPasswd" name="soPasswd" maxlength="10" type="text">
+			        <span id="result2"></span>
 			    </div>
     		</div>
     		<div class="form-group">
 			    <label class="col-sm-5 control-label">새로운 비밀번호 재입력</label>
 			    <div class="col-sm-4">
-			        <input class="form-control" id="focusedInput" name="soPasswd2" maxlength="10" type="text">
+			        <input class="form-control" type="password" id="soPasswd2" name="soPasswd2" maxlength="10" type="text">
+			        <span id="result3"></span>
 			    </div>
     		</div>
-    		<div class="form-group">
+    		<div class="form-group botton">
 			   <input type="submit" class="btn btn-primary orange-background" value="변경하기">
     		</div>
     	</form>

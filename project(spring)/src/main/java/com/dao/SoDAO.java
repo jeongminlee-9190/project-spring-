@@ -42,11 +42,14 @@ public class SoDAO {
 		return sDTO;
 	}
 	
-	public void soPhoneUpdate(@RequestParam HashMap<String, String> map) {
+	public void soPhoneUpdate(HashMap<String, String> map) {
 		template.update("SoMapper.soPhoneUpdate",map);
 	}
 	
-	public void soPwUpdate(@RequestParam HashMap<String, String> map) {
+	public void soPwUpdate(HashMap<String, String> map) {
 		template.update("SoMapper.soPwUpdate",map);
 	}	
+	public int soPwCheck(HashMap<String, String> map) {
+		return template.selectOne("SoMapper.soPwCheck",map);
+	}
 }

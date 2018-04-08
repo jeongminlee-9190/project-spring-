@@ -2,14 +2,18 @@
 	td {
 		width: 400px;
 	}
-	.row{
+	.botton{
 		/* border: 1px solid grey; */
+		text-align: center;
 	}
 	.col-sm-6{
 		margin-top: 90px;
 		margin-bottom: 40px;
 	}
-	
+    #result1,#result2,#result3{
+ 	color: red;
+ 	font-size: 12px;
+ 	}
 	.orange-background{
 		border: 1px solid orange;
 		background-color: orange;

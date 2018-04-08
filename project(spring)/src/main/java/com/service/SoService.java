@@ -39,4 +39,7 @@ public class SoService {
 	public void soPwUpdate(@RequestParam HashMap<String, String> map) {
 		dao.soPwUpdate(map);
 	}
+	public int soPwCheck(HashMap<String, String> map) {
+		return dao.soPwCheck(map);
+	}
 }

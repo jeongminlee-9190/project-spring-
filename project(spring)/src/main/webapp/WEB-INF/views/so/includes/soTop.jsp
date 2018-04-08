@@ -44,7 +44,7 @@
 					<li class="dropdown active">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
 				 		<ul class="dropdown-menu">
-					        <li><a href="#">공지사항</a></li>
+					        <li><a href="soNotice2">공지사항</a></li>
 					        <li><a href="#">자주 묻는 질문</a></li>
 					        <li><a href="soQna">1:1 문의</a></li>
 					    </ul>
