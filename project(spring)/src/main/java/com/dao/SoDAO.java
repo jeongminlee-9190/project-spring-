@@ -19,11 +19,6 @@ public class SoDAO {
 		return sDTO;
 	}
 	
-	public SoDTO soMyPage(String soId) {
-		SoDTO sDTO = template.selectOne("SoMapper.soMyPage",soId);
-		return sDTO;
-	}
-	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = template.selectOne("SoMapper.findSoId",map);
 		return soId;
@@ -33,6 +28,7 @@ public class SoDAO {
 		String soPasswd = template.selectOne("SoMapper.findSoPasswd",map);
 		return soPasswd;
 	}
+	
 	public void soJoin(HashMap<String, String> map) {
 		template.insert("SoMapper.soJoin",map);
 	}
@@ -41,4 +37,12 @@ public class SoDAO {
 		return template.selectOne("SoMapper.soIdCheck",soId);
 	}
 	
+	public SoDTO soMyPage(String soId) {
+		SoDTO sDTO = template.selectOne("SoMapper.soMyPage",soId);
+		return sDTO;
+	}
+	
+	public void soPhoneUpdate(@RequestParam HashMap<String, String> map) {
+		template.update("SoMapper.soPhoneUpdate",map);
+	}	
 }
