@@ -48,7 +48,7 @@ public class AQnaController {
 	}
 	
 	@RequestMapping(value="/soQnaRetrieve", method=RequestMethod.GET)
-	public String soQnaRetrieve(@RequestParam int qnaNum,HttpSession session) { //@RequestParam("num") int num
+	public String soQnaRetrieve(@RequestParam int qnaNum,HttpSession session) {
 		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
 		String nextPage = null;
 		if(adto==null) {
