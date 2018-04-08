@@ -44,5 +44,9 @@ public class SoDAO {
 	
 	public void soPhoneUpdate(@RequestParam HashMap<String, String> map) {
 		template.update("SoMapper.soPhoneUpdate",map);
+	}
+	
+	public void soPwUpdate(@RequestParam HashMap<String, String> map) {
+		template.update("SoMapper.soPwUpdate",map);
 	}	
 }

@@ -36,4 +36,7 @@ public class SoService {
 	public void soPhoneUpdate(@RequestParam HashMap<String, String> map) {
 		dao.soPhoneUpdate(map);
 	}
+	public void soPwUpdate(@RequestParam HashMap<String, String> map) {
+		dao.soPwUpdate(map);
+	}
 }

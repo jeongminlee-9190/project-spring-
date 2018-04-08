@@ -6,8 +6,10 @@
 		text-align: center;
 	}
 	
+	.col-sm-4{
+		margin-left: 2%;
+	}
 	.adminLoginForm{
-		padding-top: 13%;
 		text-align:center;
 		background-color: black;
 		height: 450px;

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+	td {
+		width: 400px;
+	}
+	.row{
+		/* border: 1px solid grey; */
+	}
+	.col-sm-6{
+		margin-top: 90px;
+		margin-bottom: 40px;
+	}
+	
+	.orange-background{
+		border: 1px solid orange;
+		background-color: orange;
+		color: white;
+		width: 180px;
+		margin-top: 10px;
+	}

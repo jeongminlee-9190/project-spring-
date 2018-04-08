@@ -1,6 +1,7 @@
  	$(document).ready(function(){
  		$("#soId").keyup(function(){
 			var soId = $("#soId").val();
+			console.log(soId.length());
 			$.ajax({
 				url: "soIdCheck",
 				type: "GET",
@@ -9,8 +10,12 @@
 				},
 				dataType:"text",
 				success:function(responseData){
-					$("#result1").text(responseData);
-					console.log(responseData);
+					if(responseData==0){
+						$("#result1").text("아이디 사용 가능");
+					}
+					else if(responseData==1){
+						$("#result1").text("아이디 중복");
+					}
 				},
 				error:function(error){
 					console.log("error"+error);

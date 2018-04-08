@@ -112,7 +112,7 @@
 											<button class="btn_qnaModify">수정</button>&nbsp;
 											<input type="button" class="btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
 										</c:if>
-										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='답변완료'}">
+										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='처리완료'}">
 											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
 										</c:if>
 									</div><!-- collapse -->
