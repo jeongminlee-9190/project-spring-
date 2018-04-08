@@ -10,10 +10,10 @@
 		margin-left: 43%;
 		width: 550px;
 	}
-	.findResult {
-		margin-top: 10%;
-		margin-left: 43%;
-		width: 550px;
+	.container {
+		margin-top: 15%;
+		margin-bottom: 40px;
+		text-align: center;
 	}
 	.btn_main{
 		border: 1px solid #99e6ff;
@@ -25,14 +25,12 @@
 		/*color: white;*/
 	}
 	
-	.btn_login{
-		border: 1px solid #99e6ff;
+	.orange-border{
+		border: 1px solid orange;
 		background-color: white;
+		color: orange;
+		width: 280px;
 		margin-top: 10px;
-		margin-left:5%;
-		height:35px;
-		width: 200px;
-		/*color: white;*/
 	}
 </style>
 <c:if test="${!empty result}">
@@ -44,17 +42,29 @@
 	<c:remove var="result" scope="session" />
 </c:if>
 <c:if test="${!empty findSoIdResult}">
-	<div class="findResult">
-		아이디는 <span>${findSoIdResult}</span> 입니다.<br>
-		<a href="index_shopowner"><button class="btn_login">로그인 화면으로</button></a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				아이디는 <span>${findSoIdResult}</span> 입니다.<br>
+				<a href="index_shopowner"><button class="btn_login">로그인 화면으로</button></a>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
 	</div>
 	<c:remove var="findSoIdResult" scope="session" />
 </c:if>
 
 <c:if test="${!empty findSoPasswdResult}">
-	<div class="findResult">
-		비밀번호는 <span>${findSoPasswdResult}</span> 입니다.<br>
-		<a href="index_shopowner"><button class="btn_login">로그인 화면으로</button></a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				비밀번호는 <span>${findSoPasswdResult}</span> 입니다.<br>
+				<a href="index_shopowner"><button class="btn primary orange-border">로그인 화면으로</button></a>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
 	</div>
 	<c:remove var="findSoPasswdResult" scope="session" />
 </c:if>

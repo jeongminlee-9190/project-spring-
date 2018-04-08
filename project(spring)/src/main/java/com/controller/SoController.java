@@ -17,6 +17,8 @@ import com.dto.SoDTO;
 import com.service.SService;
 import com.service.SoService;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 
 @Controller
 public class SoController {
@@ -123,6 +125,15 @@ public class SoController {
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
 		return "index_shopowner";
 	}
+	
+	
+	@RequestMapping(value="/soIdCheck", method=RequestMethod.GET)
+	public int soIdCheck(@RequestParam String soId) {
+		int soIdCheckCnt = service.soIdCheck(soId);
+		System.out.println("soId: "+soId+" soIdCheckCnt: "+soIdCheckCnt);
+		return soIdCheckCnt;
+	}
+	
 	
 	@RequestMapping(value= "/soMyPage", method=RequestMethod.GET)
 	public String soMyPage(HttpSession session) {

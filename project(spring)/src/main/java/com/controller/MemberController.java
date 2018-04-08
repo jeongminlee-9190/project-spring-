@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,6 +76,13 @@ public class MemberController {
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
 		return "main";
 
+	}
+	
+	@RequestMapping(value="/idCheck", method=RequestMethod.GET)
+	public int idCheck(@RequestParam String soId) {
+		int idCheckCnt = 0;
+		
+		return idCheckCnt;
 	}
 	
 }

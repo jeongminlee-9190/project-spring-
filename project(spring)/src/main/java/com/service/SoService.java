@@ -33,4 +33,8 @@ public class SoService {
 	public void soJoin(HashMap<String, String> map) {
 		dao.soJoin(map);
 	}
+	
+	public int soIdCheck(String soId) {
+		return dao.soIdCheck(soId);
+	}
 }

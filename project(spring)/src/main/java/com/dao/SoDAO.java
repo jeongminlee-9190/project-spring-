@@ -37,5 +37,8 @@ public class SoDAO {
 		template.insert("SoMapper.soJoin",map);
 	}
 	
+	public int soIdCheck(String soId) {
+		return template.selectOne("SoMapper.soIdCheck",soId);
+	}
 	
 }
