@@ -23,7 +23,7 @@ public class SoQnaController {
 	SoQnaService service;
 	
 	@RequestMapping(value="/soQna", method=RequestMethod.GET)
-	public String soQna(HttpSession session) {
+	public String soQna(@RequestParam HashMap<String, String> map,HttpSession session,HttpServletRequest request) {
 		SoDTO sodto = (SoDTO)session.getAttribute("SoLogin");
 		String nextPage=null;
 		if(sodto==null) {
@@ -31,7 +31,10 @@ public class SoQnaController {
 			nextPage ="index_shopowner";
 		}else {
 			String soId = sodto.getSoId();
-			List<SoQnaDTO> list= service.soQna(soId);
+			map.put("soId", soId);
+			List<SoQnaDTO> list= service.soQna(map);
+			request.setAttribute("searchName", map.get("searchName"));
+			request.setAttribute("searchName2", map.get("searchName2"));
 			session.setAttribute("soQna", list);
 			nextPage="so/soQna";
 		}
@@ -78,6 +81,12 @@ public class SoQnaController {
 	@RequestMapping("/soQnaDelete")
 	public String soQnaDelete(@RequestParam HashMap<String, Integer> map) {
 		service.soQnaDelete(map);
+		return "redirect:soQna";
+	}
+	
+	@RequestMapping("/soQnaRead")
+	public String soQnaRead(@RequestParam int qnaNum) {
+		service.soQnaRead(qnaNum);
 		return "redirect:soQna";
 	}
 }
