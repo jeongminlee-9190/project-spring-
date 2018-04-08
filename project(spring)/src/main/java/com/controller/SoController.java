@@ -143,28 +143,22 @@ public class SoController {
 		session.setAttribute("SoMyPage", soDTO);
 		return "so/soMyPage";
 	}
-	//@RequestMapping(value= "/soPasswdUpdate", method=RequestMethod.POST)
 	
-	/*
-	@RequestMapping("/SoFindPw")
-	public String SoFindPw(@RequestParam HashMap<String, String> map, HttpSession session) {
+	@RequestMapping(value= "/soPhoneUpdate", method=RequestMethod.POST)
+	public String soPhoneUpdate(@RequestParam HashMap<String, String> map, HttpSession session) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String soId = soDTO.getSoId();
 		String soPhone1 = map.get("soPhone1");
 		String soPhone2 = map.get("soPhone2");
 		String soPhone3 = map.get("soPhone3");
-		String soPhone = soPhone1+"-"+soPhone2+"-"+soPhone3;
-		String nextPage=null;
-		map.remove("soPhone1");
-		map.remove("soPhone2");
-		map.remove("soPhone3");
-		map.put("soPhone",soPhone);
-		String soPasswd = service.findSoPasswd(map);
-		if(soPasswd!=null) {
-			session.setAttribute("findSoPasswdResult", soPasswd);
-			nextPage="so/soResult";
-		}else {
-			session.setAttribute("fail", "일치하는 정보가 없습니다.");
-			nextPage="so/soFindPwForm";
-		}
-		return nextPage;
-	}*/
+		String soPhone = soPhone1+soPhone2+soPhone3;
+		HashMap<String, String> map2 = new HashMap<>();
+		map2.put("soId", soId);
+		map2.put("soPhone", soPhone);
+		service.soPhoneUpdate(map2);
+		return "redirect:soMyPage";
+	}
+	
+	
+	//@RequestMapping(value= "/soPasswdUpdate", method=RequestMethod.POST)
 }
