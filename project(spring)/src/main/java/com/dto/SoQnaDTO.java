@@ -11,6 +11,7 @@ public class SoQnaDTO {
 	private String qnaWritedate;
 	private String qnaCategory;
 	private String qnaComplete;
+	private String qnaReplyContent;
 	public SoQnaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -25,6 +26,20 @@ public class SoQnaDTO {
 		this.qnaWritedate = qnaWritedate;
 		this.qnaCategory = qnaCategory;
 		this.qnaComplete = qnaComplete;
+	}
+	
+	
+	public SoQnaDTO(int qnaNum, String soId, String qnaTitle, String qnaContent, String qnaWritedate,
+			String qnaCategory, String qnaComplete, String qnaReplyContent) {
+		super();
+		this.qnaNum = qnaNum;
+		this.soId = soId;
+		this.qnaTitle = qnaTitle;
+		this.qnaContent = qnaContent;
+		this.qnaWritedate = qnaWritedate;
+		this.qnaCategory = qnaCategory;
+		this.qnaComplete = qnaComplete;
+		this.qnaReplyContent = qnaReplyContent;
 	}
 	public int getQnaNum() {
 		return qnaNum;
@@ -67,5 +82,11 @@ public class SoQnaDTO {
 	}
 	public void setQnaComplete(String qnaComplete) {
 		this.qnaComplete = qnaComplete;
+	}
+	public String getQnaReplyContent() {
+		return qnaReplyContent;
+	}
+	public void setQnaReplyContent(String qnaReplyContent) {
+		this.qnaReplyContent = qnaReplyContent;
 	}
 }

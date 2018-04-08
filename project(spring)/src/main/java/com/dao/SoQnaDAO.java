@@ -26,4 +26,8 @@ public class SoQnaDAO {
 	public void soQnaDelete(HashMap<String, Integer> map) {
 		template.delete("SoQnaMapper.soQnaDelete",map);
 	}
+	
+	public void soQnaModify(HashMap<String, Object> map) {
+		template.update("SoQnaMapper.soQnaModify",map);
+	}
 }

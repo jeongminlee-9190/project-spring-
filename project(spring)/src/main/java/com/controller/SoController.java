@@ -31,9 +31,7 @@ public class SoController {
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
 	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session) {
 		SoDTO soDTO = service.login(map);
-
 		String nextPage=null;
-		
 		if(soDTO==null) {
 			session.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			nextPage = "index_shopowner";
@@ -41,7 +39,6 @@ public class SoController {
 			nextPage = "main_shopowner";
 			session.setAttribute("SoLogin",soDTO);
 		}
-		
 		return nextPage;
 	}
 	
@@ -128,7 +125,6 @@ public class SoController {
 	@ResponseBody
 	public int soIdCheck(@RequestParam String soId) {
 		int soIdCheckCnt = service.soIdCheck(soId);
-		System.out.println("soId: "+soId+" soIdCheckCnt: "+soIdCheckCnt);
 		return soIdCheckCnt;
 	}
 	
@@ -194,7 +190,6 @@ public class SoController {
 		map.put("soId", soId);
 		map.put("soPasswd", soPasswd);
 		int soPwCheckCnt = service.soPwCheck(map);
-		System.out.println("soPasswd: "+soPasswd+" soPwCheckCnt: "+soPwCheckCnt);
 		return soPwCheckCnt;
 	}
 	
@@ -208,8 +203,6 @@ public class SoController {
 		}else {
 			String soId = soDTO.getSoId();
 			map.put("soId", soId);
-			String soPasswd = map.get("soPasswd");
-			System.out.println("새로운 soPasswd: "+soPasswd);
 			service.soPwUpdate(map);
 			session.setAttribute("success", "비밀번호가 변경되었습니다.");
 			nextPage="redirect:main_shopowner";

@@ -30,14 +30,7 @@ public class AQnaService {
 	public int aQnaListTotalSearchCount(HashMap<String, String> map){
 		return dao.aQnaListTotalSearchCount(map);
 	}
-	/*public List<SoQnaDTO> aQnaList() {
-		return dao.aQnaList();
-	}
-	
-	public List<SoQnaDTO> aQnaSort(HashMap<String, String> map) {
-		return dao.aQnaSort(map);
-	}*/
-	
+
 	public SoQnaDTO soQnaRetrieve(int qnaNum) {
 		return dao.soQnaRetrieve(qnaNum);
 	}
@@ -60,16 +53,4 @@ public class AQnaService {
 	public void soQnaReplyModify(HashMap<String, Object> map) {
 		dao.soQnaReplyModify(map);
 	}
-	
-	/*public List<SoQnaDTO> soQna(String soId){
-		return dao.soQna(soId);
-	}
-	
-	public void soQnaWrite(HashMap<String, String> map) {
-		dao.soQnaWrite(map);
-	}
-	
-	public void soQnaDelete(HashMap<String, Integer> map) {
-		dao.soQnaDelete(map);
-	}*/
 }
