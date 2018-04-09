@@ -34,7 +34,7 @@ $(document).ready(function(){
 	var mPasswd = $("#mPasswd");
 	var mPasswd2 = $("#mPasswd2");
 	var mName = $("#mName");
-	var m_number = $("#m_number");
+	var mPhone1;
 	var mPhone2 = $("#mPhone2");
 	var mPhone3 = $("#mPhone3");
 	var mBirth = $("#mBirth");
@@ -102,6 +102,12 @@ $(document).ready(function(){
 		// 닉네임 입력 체크
 		if(!mName.val()){
 			alert("닉네임을 입력하세요.");
+			mName.focus();
+			return false;
+		}
+		// 님네임 길이 체크
+		if(mName.val().length == 1){
+			alert("닉네임은 2글자 이상 입력해주세요.");
 			mName.focus();
 			return false;
 		}
@@ -174,7 +180,7 @@ $(document).ready(function(){
     	var mId = $(this).val();
     	if ( mId.length > 3) {
 		    $.ajax({
-		        url:'/controller/mJoinForm',
+		        url:'mJoinIdCheck',
 		        type:'post',
 		        data:{
 		        	mId : mId
@@ -211,24 +217,29 @@ $(document).ready(function(){
 	// 닉네임 실시간 중복 체크
     $("#mName").on("keyup",function(){
     	var mName = $(this).val();
-	    $.ajax({
-	        url:'mJoinNameCheck',
-	        type:'post',
-	        data:{
-	        	mName : mName
-	        },
-	        success:function(data){
-	            if($.trim(data)==0){
-	                $("#result3").text("사용가능한 닉네임입니다.").css("color","blue");  
-	                $("#mName_wrap").css("width","650px");
-	            }  else {
-	                $("#result3").text("이미 사용중인 닉네임입니다.").css("color","red");  
-	                $("#mName_wrap").css("width","650px");
-	            }
-	        }
-	    }); //end ajax
-		if (!mName){
+    	if( mName.length > 2 ){
+		    $.ajax({
+		        url:'mJoinNameCheck',
+		        type:'post',
+		        data:{
+		        	mName : mName
+		        },
+		        success:function(data){
+		            if($.trim(data)==0){
+		                $("#result3").text("사용가능한 닉네임입니다.").css("color","blue");  
+		                $("#mName_wrap").css("width","650px");
+		            }  else {
+		                $("#result3").text("이미 사용중인 닉네임입니다.").css("color","red");  
+		                $("#mName_wrap").css("width","650px");
+		            }
+		        }
+		    }); //end ajax
+    	} else if (!mName){
         	$("#result3").text("");
+        } else if ( mName.length == 1){
+        	$("#result3").text("닉네임은 2두글자 이상 적어주세요.").css("color","red"); 
+        	$("#mName_wrap").css("width","700px");
+        	return false;
         }
     }); // end keyup
 	
@@ -239,12 +250,14 @@ $(document).ready(function(){
 	});
 	
 	//휴대전화 번호 클릭시 해당 값 상단으로 출력
+
 	$("#mPhone_number li").on("click",function(){
 		
 		var n = $(this).text();
-		$("#mPhone1 #m_number").text(n);
+		mPhone1 = $("#mPhone1").attr("value",n);
 		$("#mPhone1").css("border-bottom","1px solid #e0e0e0");
 		$("#mPhone_number").slideUp("fast");
+		console.log(mPhone1.attr());
 		
 	});
 	

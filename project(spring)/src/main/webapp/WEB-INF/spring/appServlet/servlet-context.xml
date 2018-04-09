@@ -12,6 +12,7 @@
 	<mvc:view-controller path="/" view-name="home" />
 	<mvc:view-controller path="/main_admin" view-name="main_admin" />
 	<mvc:view-controller path="/WEB-INF/views/main" view-name="main" />
+	<mvc:view-controller path="/memberForm" view-name="memberForm"/>
 	<mvc:resources location="/resources/" mapping="/resources/**"/>
 	<!-- <mvc:resources location="/resources/js/" mapping="/js/**"></mvc:resources> -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

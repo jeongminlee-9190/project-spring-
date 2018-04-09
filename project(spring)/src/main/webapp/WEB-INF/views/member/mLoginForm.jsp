@@ -19,7 +19,7 @@
 
 <!-- jquery -->
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
-<script src="js/jquery-3.3.1.js"></script>
+<script src="resources/js/jquery-3.3.1.js"></script>
 <script src="resources/js/member_login.js"></script>
 
 <title>로그인</title>
