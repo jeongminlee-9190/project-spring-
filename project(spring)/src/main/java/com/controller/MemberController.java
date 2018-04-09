@@ -90,7 +90,7 @@ public class MemberController {
     }
 	
 	@ResponseBody
-    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    @RequestMapping(value="/mJoinNameCheck", method=RequestMethod.POST)
     public String mJoinNameCheck(HttpServletRequest request, Model model) {
         String mName = request.getParameter("mName");
         int result = memberService.mJoinNameCheck(mName);

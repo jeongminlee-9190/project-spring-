@@ -212,7 +212,7 @@ $(document).ready(function(){
     $("#mName").on("keyup",function(){
     	var mName = $(this).val();
 	    $.ajax({
-	        url:'/controller/mJoinForm',
+	        url:'mJoinNameCheck',
 	        type:'post',
 	        data:{
 	        	mName : mName
