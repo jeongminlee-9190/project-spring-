@@ -157,7 +157,7 @@ public class SoController {
 			String soPhone1 = map.get("soPhone1");
 			String soPhone2 = map.get("soPhone2");
 			String soPhone3 = map.get("soPhone3");
-			String soPhone = soPhone1+soPhone2+soPhone3;
+			String soPhone = soPhone1+"-"+soPhone2+"-"+soPhone3;
 			HashMap<String, String> map2 = new HashMap<>();
 			map2.put("soId", soId);
 			map2.put("soPhone", soPhone);
