@@ -89,13 +89,13 @@ public class MemberController {
         return String.valueOf(result);
     }
 	
-	/*@ResponseBody
+	@ResponseBody
     @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
     public String mJoinNameCheck(HttpServletRequest request, Model model) {
         String mName = request.getParameter("mName");
         int result = memberService.mJoinNameCheck(mName);
 
         return String.valueOf(result);
-    }*/
+    }
 
 }

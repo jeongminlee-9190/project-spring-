@@ -26,9 +26,9 @@ public class MemberService {
 		return memberDAO.mJoinIdCheck(mIdChk);
 	}
 	
-	/*public int mJoinNameCheck(String mNameChk) {
+	public int mJoinNameCheck(String mNameChk) {
 		return memberDAO.mJoinNameCheck(mNameChk);
-	}*/
+	}
 
 
 }
