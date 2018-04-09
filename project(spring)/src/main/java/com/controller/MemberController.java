@@ -79,27 +79,23 @@ public class MemberController {
 		return "member/mLoginForm";
 
 	}
-	
-	@RequestMapping(value="/idCheck", method=RequestMethod.GET)
-	public int idCheck(@RequestParam String soId) {
-		int idCheckCnt = 0;
-		
-		return idCheckCnt;
-	}
-	
-	/*@RequestMapping(value="/mJoinIdCheck", method=RequestMethod.POST)
-	public @ResponseBody String mJoinIdCheck(@ModelAttribute MemberDTO mId, Model model){
-	    int result = memberService.mJoinIdCheck(mId.getmId());
-	    return String.valueOf(result);
-	}*/
-	
 
-    @RequestMapping(value = "/mJoinIdCheck", method = RequestMethod.POST)
-    public @ResponseBody String mJoinIdCheck(HttpServletRequest request, Model model) {
+	@ResponseBody
+    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    public String mJoinIdCheck(HttpServletRequest request, Model model) {
         String mId = request.getParameter("mId");
         int result = memberService.mJoinIdCheck(mId);
-        
+
         return String.valueOf(result);
     }
+	
+	/*@ResponseBody
+    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    public String mJoinNameCheck(HttpServletRequest request, Model model) {
+        String mName = request.getParameter("mName");
+        int result = memberService.mJoinNameCheck(mName);
+
+        return String.valueOf(result);
+    }*/
 
 }

@@ -16,7 +16,12 @@
 	
 	<select id="mJoinIdCheck" parameterType="String" resultType="int">
     	select count(*) from member
-    	where mId = {#mId}
+    	where mId = #{mId}
 	</select>
+	
+	<!-- <select id="mJoinNameCheck" parameterType="String" resultType="int">
+    	select count(*) from member
+    	where mName = #{mName}
+	</select> -->
 	
 </mapper>

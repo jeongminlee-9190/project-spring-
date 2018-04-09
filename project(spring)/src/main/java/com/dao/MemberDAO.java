@@ -22,8 +22,12 @@ public class MemberDAO {
 		template.insert("MemberMapper.memberAdd",map);
 	}
 	
-	public int mJoinIdCheck(String mIdchk) {
-		return template.selectOne("MemberMapper.mJoinIdCheck",mIdchk);
+	public int mJoinIdCheck(String mIdChk) {
+		return template.selectOne("MemberMapper.mJoinIdCheck",mIdChk);
 	}
+	
+	/*public int mJoinNameCheck(String mNameChk) {
+		return template.selectOne("MemberMapper.mJoinNameCheck",mNameChk);
+	}*/
 
 }
