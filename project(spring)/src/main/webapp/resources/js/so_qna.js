@@ -43,24 +43,4 @@ $(document).ready(function(){
 				}
 			});
 		});
-		
-		/*$(".qnaReplyContentCheck").click(function(){
-			var qnaNum =  $(this).attr("data-num");
-			console.log(qnaNum);
-			$.ajax({
-				url: "soQnaModify",
-				type:"get",
-				data:{
-					qnaNum:qnaNum,
-					soId:soId,
-					qnaContent:qnaContent
-				},
-				dataType:"text",
-				success:function(responseData){
-				},
-				error:function(){
-					console.log("tlfvo");
-				}
-			});
-		});*/
 	});

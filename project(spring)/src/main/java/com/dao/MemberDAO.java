@@ -26,8 +26,8 @@ public class MemberDAO {
 		return template.selectOne("MemberMapper.mJoinIdCheck",mIdChk);
 	}
 	
-	/*public int mJoinNameCheck(String mNameChk) {
+	public int mJoinNameCheck(String mNameChk) {
 		return template.selectOne("MemberMapper.mJoinNameCheck",mNameChk);
-	}*/
+	}
 
 }

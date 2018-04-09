@@ -211,7 +211,7 @@ public class AController {
 	
 	@RequestMapping(value = "/sList", method=RequestMethod.GET)
 	public String sList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
-			HttpSession session) {
+			HttpSession session,HttpServletRequest request) {
 		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
 		String nextPage=null;
 		if(adto==null) {
@@ -222,6 +222,10 @@ public class AController {
 			SPageDTO spageDTO = new SPageDTO();
 			spageDTO = service.sList(map, curPage);
 			session.setAttribute("sListpageDTO", spageDTO);	
+			String searchName = map.get("searchName");
+			String searchValue = map.get("searchValue");
+			request.setAttribute("searchName", searchName);
+			request.setAttribute("searchValue", searchValue);
 			nextPage ="admin/sList";
 		}
 		return nextPage;

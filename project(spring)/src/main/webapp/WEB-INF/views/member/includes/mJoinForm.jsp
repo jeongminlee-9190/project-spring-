@@ -8,7 +8,7 @@
 	
 <div id="join_content_wrapper">
 
-	<form action="MJoinServlet" method="post" id="join_wrap">
+	<form action="memberAdd" method="post" id="join_wrap">
 
 		<div id="mId_wrap">
 		 	<span class="join_title" ><strong>아이디 또는 이메일</strong></span>
@@ -35,12 +35,9 @@
 		
 		<div id="mPhone_wrap">
 			<span class="join_title" ><strong>휴대전화</strong></span>
-			<button type="button" id="mPhone1">
-				<span id="m_number">010</span>
-				<span id="mPhone_icon"><img src="resources/images/mPhone_icon.png" title="check"></span>
-			</button>
-				- <input type="text" name="mPhone2" id="mPhone2" maxlength="4" >
-				- <input type="text" name="mPhone2" id="mPhone3" maxlength="4" >
+			<input type="button" name="mPhone1" id="mPhone1" value="010" >
+			- <input type="text" name="mPhone2" id="mPhone2" maxlength="4" >
+			- <input type="text" name="mPhone3" id="mPhone3" maxlength="4" >
 			<ul id="mPhone_number">
 				<li>010</li>
 				<li>011</li>
@@ -143,7 +140,7 @@
 		
 		<div class="joinComplete">
 				<input type="submit" value="가입하기" class="btn_submit">
-				<a href="index.jsp"><input type="button" value="취소하기" class="btn_cancel"></a>
+				<a href="index.jsp"><input type="reset" value="취소하기" class="btn_cancel"></a>
 		</div> <!-- End : joinComplete -->
 		
 	</form> <!-- End : form -->

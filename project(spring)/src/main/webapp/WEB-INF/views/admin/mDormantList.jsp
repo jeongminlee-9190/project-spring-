@@ -14,7 +14,28 @@
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_mDormantList.css" rel="stylesheet" >
-<script src="resources/js/admin_mDormentDel.js"></script>
+<!-- <script src="resources/js/admin_mDormentDel.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#mDormantDel").click(function(){
+		var mId =  $(this).attr("data-num");
+		$.ajax({
+			url: "mDormantDel",
+			type: "get",
+			data:{
+				mId:mId
+			},
+			success:function(responseData,status,xhr){
+				location.reload();
+			},
+			error:function(){
+			}
+		});
+	});
+});
+
+</script>
+
 </head>
 <body>
 <jsp:include page="includes/admin_top.jsp" flush="true"/>

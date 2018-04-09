@@ -64,7 +64,7 @@ public class MemberController {
 		return "main0";
 	}
 	
-	@RequestMapping(value="/mJoin",  method=RequestMethod.POST)
+	@RequestMapping(value="/memberAdd",  method=RequestMethod.POST)
 	public String memberAdd(@RequestParam HashMap<String, String> map, HttpServletRequest request) {
 		String mPhone1 = map.get("mPhone1");
 		String mPhone2 = map.get("mPhone2");
@@ -76,12 +76,13 @@ public class MemberController {
 		map.put("mPhone",mPhone);
 		memberService.memberAdd(map);
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
+		System.out.println(map.get("mPhone1"));
 		return "member/mLoginForm";
 
 	}
 
 	@ResponseBody
-    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    @RequestMapping(value="/mJoinIdCheck", method=RequestMethod.POST)
     public String mJoinIdCheck(HttpServletRequest request, Model model) {
         String mId = request.getParameter("mId");
         int result = memberService.mJoinIdCheck(mId);
@@ -89,13 +90,13 @@ public class MemberController {
         return String.valueOf(result);
     }
 	
-	/*@ResponseBody
-    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+	@ResponseBody
+    @RequestMapping(value="/mJoinNameCheck", method=RequestMethod.POST)
     public String mJoinNameCheck(HttpServletRequest request, Model model) {
         String mName = request.getParameter("mName");
         int result = memberService.mJoinNameCheck(mName);
 
         return String.valueOf(result);
-    }*/
+    }
 
 }
