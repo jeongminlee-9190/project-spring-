@@ -14,7 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/notice.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script src="resources/js/admin_soNotice.js"></script>
 </head>
@@ -24,14 +24,11 @@
     alert('${success}');
    </script>
 </c:if>
-<c:remove var="success"/>
-<c:if test="${!empty ALogout}">
-	<script type="text/javascript">
-    	alert('${ALogout}');
-    </script>
-</c:if>
-<jsp:include page="includes/admin_top.jsp" flush="true"/>
-<jsp:include page="includes/soNotice.jsp" flush="true"/>
-<jsp:include page="includes/admin_footer.jsp" flush="true"/>	
+<c:remove var="success" scope="session"/>
+<c:if test="${!empty adminLogin}"> 
+	<jsp:include page="includes/admin_top.jsp" flush="true"/>
+	<jsp:include page="includes/soNotice.jsp" flush="true"/>
+	<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+</c:if>	
 </body>
   

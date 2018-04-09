@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
 	hr{
 		border: 2px solid orange;
 	}
@@ -15,7 +13,7 @@
 		height: 180px;
 	}
 	
-	.card1{
+ 	.card1{
 		position: absolute;
 		margin-left: 10%;
 	}
@@ -23,11 +21,18 @@
 	.card2{
 		position: absolute;
 		margin-left: 57%;
-	}
+	} 
 	.row{
-		margin-top: 70px;
+		margin-top: 90px;
+		margin-bottom: 40px;
 	
 	}
 	.shopwarn{
 		color: red;
+	}
+	
+	.btn_enroll{
+		background-color: orange;
+		border: 1px solid orange;
+		color: white;
 	}

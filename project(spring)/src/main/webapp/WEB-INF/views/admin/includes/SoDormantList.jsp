@@ -32,7 +32,7 @@
 			  			<td id="mid">${dto.soId}</td>
 			  			<td>${dto.soName}</td>
 			  			<td>${dto.soPhone}</td>
-			  			<td>${dto.sLastLogin2}일<input type="button" id="soDormantDel" data-num="${dto.soId}" class="btn btn-primary sm-black-background" value="삭제"></td>
+			  			<td>${dto.sLastLogin2}일<input type="button" id="soDormantDel" data-num="${dto.soId}" class="btn btn-primary sm-black-background soDormantDel" value="삭제"></td>
 					</tr>
 				</tbody>
 				</c:forEach>

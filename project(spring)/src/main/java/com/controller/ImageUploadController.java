@@ -2,9 +2,11 @@ package com.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,8 +16,12 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import com.dto.SDTO;
 import com.dto.SoDTO;
 import com.dto.Upload;
+import com.service.SService;
 @Controller
 public class ImageUploadController {
+	@Autowired
+	SService sservice;
+	
 	@RequestMapping(value = "/sImageUploadForm")
 	public String sImageUploadForm() {
 		return "shop/sImageUploadForm"; //논리적 이름(파일명)
@@ -31,6 +37,8 @@ public class ImageUploadController {
 		long size = file.getSize();
 		String contentType=file.getContentType();
 		String nextPage=null;
+		HashMap<String, String> map = new HashMap<>();
+		
 		
 		if(contentType.equals("image/png")) {
 			String fileName = sCode+"_sImage"+num+".png";
@@ -39,7 +47,7 @@ public class ImageUploadController {
 			System.out.println("contentType: "+contentType);
 			
 		//특정 경로에 저장
-			File dest = new File("c:\\upload",fileName);
+			File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\images",fileName);
 			try {
 				file.transferTo(dest);
 			} catch (IllegalStateException e) {
@@ -49,6 +57,20 @@ public class ImageUploadController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			map.put("sCode", sCode);
+			if(fileName.contains("sImage1.png")) {
+				map.put("sImage",fileName);
+				sservice.sImageAdd(map);
+			}else {
+				String sImage = sDTO.getsImage();
+				sImage = sImage+"/"+fileName;
+				System.out.println("sImage"+sImage);
+				map.put("sImage", sImage);
+				sservice.sImageAdd(map);
+			}
+			
+			
 			session.setAttribute("mesg", "업로드  완료");
 			nextPage="shop/sImageUploadForm";
 		}else {

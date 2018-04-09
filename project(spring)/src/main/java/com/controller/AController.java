@@ -204,6 +204,7 @@ public class AController {
 		else {
 			String soId = map.get("soId");
 			service.soApprove(soId);
+			session.setAttribute("success", soId+" -가입승인 완료");
 			nextPage="redirect:soList2";
 		}
 		return nextPage;

@@ -26,4 +26,12 @@ public class SService {
 		System.out.println("Service_sDelAll시작");
 		dao.sDelAll(sCode);
 	}
+	
+	public void sImageAdd(HashMap<String, String> map) {
+		dao.sImageAdd(map);
+	}
+	
+	public void sImageAdd2(HashMap<String, String> map) {
+		dao.sImageAdd2(map);
+	}
 }

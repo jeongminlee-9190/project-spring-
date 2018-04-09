@@ -12,13 +12,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_soList.css" rel="stylesheet" >
 </head>
 <body>
-<jsp:include page="includes/admin_top.jsp" flush="true"/>
-<jsp:include page="includes/soList.jsp" flush="true"/>
-<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+<c:if test="${!empty adminLogin}"> 
+	<jsp:include page="includes/admin_top.jsp" flush="true"/>
+	<jsp:include page="includes/soList.jsp" flush="true"/>
+	<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+</c:if>
 </body>
 </html>

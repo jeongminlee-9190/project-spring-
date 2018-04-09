@@ -24,6 +24,7 @@
     alert('${success}');
    </script>
 </c:if>
+<c:remove var="success" scope="session"/>
 
 <c:if test="${!empty adminLogout}">
 	<script type="text/javascript">
