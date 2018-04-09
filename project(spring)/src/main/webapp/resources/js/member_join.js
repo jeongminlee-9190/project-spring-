@@ -170,7 +170,7 @@ $(document).ready(function(){
 	});
 	
 	// 아이디 실시간 중복 체크
-    $("#mId").keyup(function(){
+    $("#mId").on("keyup",function(){
     	var mId = $(this).val();
     	if ( mId.length > 3) {
 		    $.ajax({
@@ -209,34 +209,29 @@ $(document).ready(function(){
 	});
 	
 	// 닉네임 실시간 중복 체크
-    /*$("#mName").keyup(function(){
+    $("#mName").on("keyup",function(){
     	var mName = $(this).val();
-    	if ( mName.length >= 0) {
-		    $.ajax({
-		        url:'/controller/mJoinForm',
-		        type:'post',
-		        data:{
-		        	mName : mName
-		        },
-		        success:function(Namedata){
-		            if($.trim(Namedata)==0){
-		                $("#result3").text("사용가능한 닉네임입니다.").css("color","blue");  
-		                $("#mName_wrap").css("width","650px");
-		            }  else {
-		                $("#result3").text("이미 사용중인 닉네임입니다.").css("color","red");  
-		                $("#mName_wrap").css("width","650px");
-		            }
-		        },
-		        error: function(xhr, option, error){
-		    		alert(xhr.status); //오류코드
-		    		alert(error); //오류내용
-		    	}
-		    }); //end ajax
-    	} else if (!mName){
+	    $.ajax({
+	        url:'/controller/mJoinForm',
+	        type:'post',
+	        data:{
+	        	mName : mName
+	        },
+	        success:function(data){
+	            if($.trim(data)==0){
+	                $("#result3").text("사용가능한 닉네임입니다.").css("color","blue");  
+	                $("#mName_wrap").css("width","650px");
+	            }  else {
+	                $("#result3").text("이미 사용중인 닉네임입니다.").css("color","red");  
+	                $("#mName_wrap").css("width","650px");
+	            }
+	        }
+	    }); //end ajax
+		if (!mName){
         	$("#result3").text("");
         }
     }); // end keyup
-*/	
+	
 	//휴대전화 클릭시 슬라이드
 	$("#mPhone1").on("click",function(){
 		$("#mPhone_number").slideToggle("fast");

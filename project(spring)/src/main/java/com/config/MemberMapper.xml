@@ -19,9 +19,9 @@
     	where mId = #{mId}
 	</select>
 	
-	<!-- <select id="mJoinNameCheck" parameterType="String" resultType="int">
+	<select id="mJoinNameCheck" parameterType="String" resultType="int">
     	select count(*) from member
     	where mName = #{mName}
-	</select> -->
+	</select>
 	
 </mapper>
