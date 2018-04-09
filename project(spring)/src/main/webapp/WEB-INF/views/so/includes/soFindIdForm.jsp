@@ -44,7 +44,7 @@
 				 		</tr>
 						<tr>
 							<td colspan="2" align="center"><input type="submit" class="btn btn-primary orange-bg" value="찾기">
-							<input type="button" class="btn btn-primary orange-border" value="로그인 페이지로 가기"></a></td>
+							<a href="index_shopowner"><input type="button" class="btn btn-primary orange-border" value="로그인 페이지로 가기"></a></td>
 						</tr>			
 					</table>
 				</form>

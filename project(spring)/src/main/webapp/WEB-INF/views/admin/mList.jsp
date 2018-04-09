@@ -39,8 +39,8 @@
 							<c:if test="${searchName=='memberName'}">
     							<select class="form-control" name="searchName">
         							<option value="memberId">아이디</option>
-		        					<option value="memberName">이름</option>
-		        					<option value="memberPhone selected="selected">핸드폰</option>
+		        					<option value="memberName" selected="selected">이름</option>
+		        					<option value="memberPhone">핸드폰</option>
      							</select>
      							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>  					
 							</c:if>
