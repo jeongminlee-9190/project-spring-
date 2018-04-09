@@ -169,46 +169,74 @@ $(document).ready(function(){
  
 	});
 	
-	// 아이디 중복 체크 실시간 
-	var checkAjaxSetTimeout;
+	// 아이디 실시간 중복 체크
     $("#mId").keyup(function(){
-        clearTimeout(checkAjaxSetTimeout);
-        checkAjaxSetTimeout = setTimeout(function(){
-	        if ( $("#mId").val().length > 6) {
-	            var mId = $(this).val();
-	            // ajax 실행
-	            $.ajax({
-	                type : 'POST',
-	                url : '/mJoinForm',
-	                data:
-	                {
-	                	"mId": mId
-	                },
-	                success : function(data){
-	                    console.log(data);
-	                    if ($.trim(data) == 0) {
-	                        $("#result1").text('').html("사용 가능한 아이디 입니다.");
-	                    } else {
-	                        $("#result1").text('').html("사용 불가능한 아이디 입니다.");
-	                    }
-	                }
-	            }); // end ajax
-	        } // if
-        },1000); //end setTimeout
+    	var mId = $(this).val();
+    	if ( mId.length > 3) {
+		    $.ajax({
+		        url:'/controller/mJoinForm',
+		        type:'post',
+		        data:{
+		        	mId : mId
+		        },
+		        success:function(data){
+		            if($.trim(data)==0){
+		                $("#result1").text("사용가능한 아이디입니다.").css("color","blue");  
+		                $("#mId_wrap").css("width","650px");
+		            }  else {
+		                $("#result1").text("이미 사용중인 아이디입니다.").css("color","red");  
+		                $("#mId_wrap").css("width","650px");
+		            }
+		        }
+		    }); //end ajax
+    	} else if (!mId){
+        	$("#result1").text("");
+        }
     }); // end keyup
 	
 	//비밀번호 재입력 일치 여부	
 	$(".mPasswd").on("keyup",function(e){
 		
 		if (mPasswd.val() != mPasswd2.val()) {
-			$("#result2").text('').html("비밀번호 불일치").css("color","red");
+			$("#result2").text("비밀번호 불일치").css("color","red");
 			return false;
+		} else if(!mPasswd.val()){
+			$("#result2").text("");
 		} else {
-			$("#result2").text('').html("비밀번호 일치").css("color","blue");
+			$("#result2").text("비밀번호 일치").css("color","blue");
 		}
 		
 	});
 	
+	// 닉네임 실시간 중복 체크
+    /*$("#mName").keyup(function(){
+    	var mName = $(this).val();
+    	if ( mName.length >= 0) {
+		    $.ajax({
+		        url:'/controller/mJoinForm',
+		        type:'post',
+		        data:{
+		        	mName : mName
+		        },
+		        success:function(Namedata){
+		            if($.trim(Namedata)==0){
+		                $("#result3").text("사용가능한 닉네임입니다.").css("color","blue");  
+		                $("#mName_wrap").css("width","650px");
+		            }  else {
+		                $("#result3").text("이미 사용중인 닉네임입니다.").css("color","red");  
+		                $("#mName_wrap").css("width","650px");
+		            }
+		        },
+		        error: function(xhr, option, error){
+		    		alert(xhr.status); //오류코드
+		    		alert(error); //오류내용
+		    	}
+		    }); //end ajax
+    	} else if (!mName){
+        	$("#result3").text("");
+        }
+    }); // end keyup
+*/	
 	//휴대전화 클릭시 슬라이드
 	$("#mPhone1").on("click",function(){
 		$("#mPhone_number").slideToggle("fast");
@@ -237,14 +265,16 @@ $(document).ready(function(){
 	//출생년도 나이 제한 두기 
 	$(mBirth).on("keyup",function(){
 		if(mBirth.val() >= 2000){
-			$("#result4").text('').html("카테고리 이용 불가한 나이 입니다.").css("color","red");
+			$("#result4").text("카테고리 이용 불가한 나이 입니다.").css("color","red");
+			$("#mBirth_wrap").css("width","680px");
 			return false;
 		} else if(!mBirth.val()){
-			$("#result4").text('').html("");
+			$("#result4").text("");
 		} else if(!/^([0-9]{4})$/.test(mBirth.val())){
-			$("#result4").text('').html("올바른 출생년도가 아닙니다.").css("color","red");
+			$("#result4").text("올바른 출생년도가 아닙니다.").css("color","red");
+			$("#mBirth_wrap").css("width","650px");
 		} else {
-			$("#result4").text('').html("사용가능 합니다.").css("color","blue");
+			$("#result4").text("사용가능 합니다.").css("color","blue");
 		}
 	});
 	

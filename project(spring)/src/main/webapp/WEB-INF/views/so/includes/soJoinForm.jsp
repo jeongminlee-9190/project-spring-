@@ -1,32 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
-<script src="resources/js/soJoinForm.js"></script>
-<style>
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
-	.row{
-		margin-top: 70px;
-		margin-bottom: 32px;
-	}
-	.orange-bg{
-		border: 1px solid orange;
-		background-color: orange;
-		width: 180px;
-		margin-top: 10px;
-	}
-	
-	.orange-border{
-		border: 1px solid orange;
-		background-color: white;
-		color: orange;
-		width: 180px;
-		margin-top: 10px;
-	}
-	
-</style>
-
 <div class="container-fluid">
 	<form action="SoJoin" method="POST" id="SoAddForm">
 		<div class="row">
@@ -38,7 +11,7 @@
 						<tr>
 							 <th>아이디</th>
 							 <td><input type="text" name="soId" id="soId" placeholder="(예)zzz@naver.com" maxlength="30"size="32px">
-							 <span id="result1"></span></td>
+							 <br><span id="result1"></span></td>
 						</tr>
 					
 						<tr>
@@ -75,14 +48,29 @@
 						</tr>
 					</tbody>
 				</table>
-				<table class="joincomplete">
-					<tr>
+				<table class="table joincomplete">
+					<tr align="center">
 						<td colspan="2">
-						<a><input type="button" value="약관 확인" class="btn-primary orange-bg"></a>
-						<input type="submit" value="약관 모두 동의하고 회원가입" class="btn-primary orange-bg">
-						<a href="index_shopowner"><input type="button" value="취소" class="btn-primary orange-bg"></a></td>
+						<a data-toggle="modal" data-target="#myModal"><input type="button" value="약관 확인" class="btn btn-primary orange-border-term"></a>
+						<input type="submit" value="약관 모두 동의하고 회원가입" class="btn btn-primary orange-bg">
+						<a href="index_shopowner"><input type="button" value="취소" class="btn btn-primary orange-border-cancel"></a></td>
 					</tr>
 				</table>
+				<!-- The Modal -->
+				<div class="modal fade" id="myModal">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">			      
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<span class="modal-title">약관 자세히 보기</span><button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>			        
+							<!-- Modal body -->
+							<div class="modal-body">
+								<jsp:include page="soTermForm.jsp" flush="true" />
+							</div><!--modal body  -->
+						</div>
+					</div>
+				</div>
 			</div><!-- col-sm-6 -->
 			<div class="col-sm-4"></div>
 		</div><!-- end of row -->

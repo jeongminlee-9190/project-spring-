@@ -32,4 +32,15 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  
+    <!-- ImageUploadServlet Mapping -->
+  <servlet>
+  	<servlet-name>FileDownServlet</servlet-name>
+  	<servlet-class>com.servlet.FileDownServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>FileDownServlet</servlet-name>
+    <url-pattern>/down</url-pattern>
+  </servlet-mapping>
 </web-app>

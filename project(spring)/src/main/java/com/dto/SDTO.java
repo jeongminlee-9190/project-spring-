@@ -5,6 +5,7 @@ import org.apache.ibatis.type.Alias;
 //shop 테이블에 대한 DTO
 @Alias("SDTO")
 public class SDTO {
+	private int rownum;
   	private String sCode;
 	private String sName;
 	private String soId;
@@ -67,6 +68,29 @@ public class SDTO {
 		this.sImage = sImage;
 		this.sSubway = sSubway;
 		this.sLike = sLike;
+	}
+
+
+
+
+	public SDTO(int rownum, String sCode, String sName, String soId, String sAddr, String sPhone, String sSubway) {
+		super();
+		this.rownum = rownum;
+		this.sCode = sCode;
+		this.sName = sName;
+		this.soId = soId;
+		this.sAddr = sAddr;
+		this.sPhone = sPhone;
+		this.sSubway = sSubway;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 
 

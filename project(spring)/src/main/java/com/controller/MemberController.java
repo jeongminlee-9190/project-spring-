@@ -7,9 +7,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.MemberDTO;
@@ -73,8 +76,26 @@ public class MemberController {
 		map.put("mPhone",mPhone);
 		memberService.memberAdd(map);
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
-		return "main";
+		return "member/mLoginForm";
 
 	}
+
+	@ResponseBody
+    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    public String mJoinIdCheck(HttpServletRequest request, Model model) {
+        String mId = request.getParameter("mId");
+        int result = memberService.mJoinIdCheck(mId);
+
+        return String.valueOf(result);
+    }
 	
+	/*@ResponseBody
+    @RequestMapping(value="/mJoinForm", method=RequestMethod.POST)
+    public String mJoinNameCheck(HttpServletRequest request, Model model) {
+        String mName = request.getParameter("mName");
+        int result = memberService.mJoinNameCheck(mName);
+
+        return String.valueOf(result);
+    }*/
+
 }

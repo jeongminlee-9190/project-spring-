@@ -51,19 +51,19 @@
   						<tr align="center">
    							<td colspan="5" align="center">
    								<c:if test="${empty searchName || searchName=='title'}">
-    							<select class="form-control" id="searchName" name="searchName">
-        							<option value="title" selected="selected">제목</option>
-        							<option value="content">내용</option>
-     							</select> 
-     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
+	    							<select class="form-control" id="searchName" name="searchName">
+	        							<option value="title" selected="selected">제목</option>
+	        							<option value="content">내용</option>
+	     							</select> 
+	     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
 								</c:if>
      							
      							<c:if test="${searchName=='content'}">
-    							<select class="form-control" id="searchName" name="searchName">
-        							<option value="title">제목</option>
-        							<option value="content" selected="selected">내용</option>
-     							</select>
-     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>
+	    							<select class="form-control" id="searchName" name="searchName">
+	        							<option value="title">제목</option>
+	        							<option value="content" selected="selected">내용</option>
+	     							</select>
+	     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>
      							</c:if>
      							<td><input type="submit" class="btn btn-primary sm-black-background" value="검색"></td>
  						</tr>

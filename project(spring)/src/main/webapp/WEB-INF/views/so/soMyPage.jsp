@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".btn_pw_submit").click(function(){
-			$(".phone_modify").html("<form action='soPhoneUpdateServlet' method='get'><input type='text' name='soPhone1' id='soPhone1' size='3'>-<input type='text' name='soPhone2' id='soPhone2' size='3'>-<input type='text' name='soPhone3' id='soPhone2' size='3'><input type='submit' value='변경완료'></form>")
+			$(".phone_modify").html("<form action='soPhoneUpdate' method='POST'><input type='text' name='soPhone1' id='soPhone1' size='3'>-<input type='text' name='soPhone2' id='soPhone2' size='3'>-<input type='text' name='soPhone3' id='soPhone2' size='3'><input type='submit' value='변경완료'></form>")
 		});
 	});
 </script>

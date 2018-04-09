@@ -10,7 +10,6 @@ $(document).ready(function(){
 			dataType:"text",
 			success:function(responseData,status,xhr){
 				$(".modal-body").html(responseData);
-				$()
 			},
 			error:function(){}
 		});

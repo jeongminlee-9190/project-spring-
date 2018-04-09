@@ -12,7 +12,7 @@
 	
 	
 	<!-- 2. member 리스트 -->
-	<select id="mList"  resultType="MemberDTO">
+	<select id="mList"  parameterType="hashmap" resultType="MemberDTO">
 		select rownum,mId,mPasswd,mName,mPhone,mLastLogin
 		from member
 		<if test="searchName=='memberId'">
@@ -24,7 +24,7 @@
 		<if test="searchName=='memberPhone'">
 			where mPhone like '%'||#{searchValue}||'%'
 		</if>
-		order by rownum desc
+		order by mId desc
 	</select>
 	
 	<select id="mListTotalCount" resultType="int">
@@ -46,7 +46,7 @@
 		</if>
     </select>
 
-	<!-- 2-2. member 리스트 -->
+	<!-- 2-2. member 휴면계정리스트 -->
 	<select id="mDormantList"  resultType="MemberDTO">
 		select rownum,mId,mPasswd,mName,mPhone,mLastLogin,floor(sysdate-mLastLogin) as mLastLogin2 
 		from member 
@@ -59,7 +59,7 @@
     </select>
 	
 	
-	<!-- 3. member 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
+	<!-- 2-3. member 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
 	<delete id="mDormantDel" parameterType="string">
 		delete 
 		from member
@@ -67,7 +67,7 @@
 	</delete>
 	
 	
-	<!-- 4. member 리스트 -->
+	<!--2-4. member 리스트 -->
 	<select id="m_updatelist" parameterType="int" resultType="MemberDTO">
 		select rownum,mId,mPasswd,mName,mPhone
 		from (select rownum as rnum, t.mId,t.mPasswd,t.mName, 
@@ -77,8 +77,8 @@
 	
 	
 	
-	<!-- 5. so 리스트 -->
-	<select id="soList"  resultType="SoDTO">
+	<!-- 3. so 리스트 -->
+	<select id="soList" parameterType="hashmap" resultType="SoDTO">
 		select rownum,soId,soName,soPhone,soLicense,soPost,soAddr,soLevel
    		from shopowner
    		<if test="searchName=='soId'">
@@ -112,7 +112,7 @@
 		</if>
     </select>
     
-	<!-- 5-2. so 리스트 -->
+	<!-- 3-2. so 리스트 -->
 	<select id="soDormantList"  resultType="SoDTO">
 		select rownum,soId,soPasswd,soName,soPhone,sLastLogin,floor(sysdate-sLastLogin) as sLastLogin2
 		from shopowner 
@@ -124,7 +124,7 @@
      where (sysdate-sLastLogin)>90
     </select>
 	
-	<!-- 6. shopowner 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
+	<!-- 3-3. shopowner 삭제 (휴면계정/마지막 로그인 시간 기록+현재 시간하고 비교하여 3달 이상 미접속 시 삭제처리)-->
 	<delete id="soDormantDel" parameterType="string">
 		delete 
 		from shopowner
@@ -137,21 +137,75 @@
 		where soId = #{soId}
 	</delete>
 	
-	<!-- 7. 회원 레벨이 0인  shopowner-->
+	<!-- 3-4. 회원 레벨이 0인  shopowner-->
 	<select id="soList2"  resultType="SoDTO">
 		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
    		where soLevel=0
+   		order by rownum asc
+	</select>
+	
+	<select id="soList2TotalCount"  resultType="int">
+		select count(*)
+   		from shopowner
+   		where soLevel=0
+   		order by rownum desc
 	</select>
    
-    <!-- 8. soLevel 부여 -->
+   <!-- 3-5. 가입승인 -->
+	<update id="soApprove" parameterType="string">
+		update shopowner
+		set soLevel='1'
+		where soId=#{soId}
+	</update>
+	
+    <!-- 3-6. soLevel 부여 -->
 	<update id="soLevelChange" parameterType="hashmap">
 		update shopowner
 		set soLevel=#{soLevel}
 		where soId=#{soId}
 	</update>
 	
+	  <!-- 4. 상점리스트 -->
+	  <select id="sList"  parameterType="hashmap" resultType="SDTO">
+		select rownum, sCode ,sName ,soId ,sAddr ,sPhone, sSubway 
+		from shop
+		<if test="searchName=='sName'">
+			where sName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='sAddr'">
+			where sAddr like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='sSubway'">
+			where sSubway like '%'||#{searchValue}||'%'
+		</if>
+		order by sCode desc
+	</select>
 	
+	<select id="sListTotalCount" resultType="int">
+	     select count(*)
+	     from shop
+    </select>
+    
+    <select id="sListTotalSearchCount" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from shop
+	    <if test="searchName=='sName'">
+			where sName like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='soId'">
+			where soId like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='sAddr'">
+			where sAddr like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='sSubway'">
+			where sSubway like '%'||#{searchValue}||'%'
+		</if>
+    </select>
 </mapper>
 
 

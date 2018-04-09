@@ -1,29 +1,36 @@
-/*idCheck*/
-//요청용
-	/* var xmlRequest;
-	function idCheck(id){
-		xmlRequest=new XMLHttpRequest();
-  		xmlRequest.onreadystatechange=x;	
-  		// MemberIdCheckServlet에 요청
-  		xmlRequest.open("get","SoIdCheckServlet?soId="+id, true);
-  		xmlRequest.send(null); // null은 get일때
-  	
-  		console.log(id.length);
-		if(id.length<5 || id.length>10){
-			document.querySelector("#result1").innerText="아이디는 4자 이상 10자 이하여야 합니다.";
-		}else{
-			document.querySelector("#result1").innerText="";
-		}
- 	 }//end req
-	// 응답용
-	function x(){
-  		if(xmlRequest.readyState==4 && xmlRequest.status == 200){
-  			var time = xmlRequest.responseText;
-  			document.querySelector("#result1").innerText=time;
-  		} //end if
-	}//end response() */
-/*end of idCheck*/
  	$(document).ready(function(){
+ 		var re_email=/^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{3,6})$/;
+ 		$("#soId").keyup(function(){
+			var soId = $("#soId").val();
+			var length = soId.length;
+			console.log(length);
+			if(length>5){
+				$.ajax({
+					url: "soIdCheck",
+					type: "GET",
+					data:{
+						soId:soId
+					},
+					dataType:"text",
+					success:function(responseData){
+						if(responseData==0){
+							if(re_email.test($("#soId").val())!= true){
+								$("#result1").text("아이디는 이메일 형식으로 입력해주세요.");
+				 			}else{
+				 				$("#result1").text("아이디 사용 가능");
+				 			}
+						}
+						else if(responseData==1){
+							$("#result1").text("아이디 중복");
+						}
+					},
+					error:function(error){
+						console.log("error"+error);
+					}
+				});
+			}
+		});
+ 		
  		$("#passwd").keyup(function(){
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg = "비밀번호 사용 가능";

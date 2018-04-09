@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-sm-4">
 			    <div class="pagebox">
-					<h3>관리자</h3>
+					<h3>관리자(완료)</h3>
 					<hr><br>
 					<p>관리자 접속페이지</p>
 					<a href="index_admin"><button type="button" class="btn btn-outline-primary">접속하기</button></a>

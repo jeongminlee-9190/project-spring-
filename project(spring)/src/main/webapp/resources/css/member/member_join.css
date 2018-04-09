@@ -23,9 +23,9 @@
 	position:relative;
 	left:-105px;
 	margin-left:50%;
-	font-family: gotham_Bold; 
-	font-style: normal; 
-	font-weight: normal;
+	font-family:gotham_Bold; 
+	font-style:normal; 
+	font-weight:normal;
 	font-size:50px;
 	color:#5e5e5e;
 }
@@ -95,7 +95,7 @@
 	height:78px;
 	overflow:scroll;
 	position:relative;
-	top:-1px;
+	top:-2px;
 	left:154px;
 	text-align:center;
 	border-left:1px solid #e0e0e0;
@@ -168,7 +168,7 @@ input[id="mSMS1"]:checked + label:after {
 	width:20px;
 	height:23px;
 	margin-top:-4px;
-	background:url('../images/check.gif') no-repeat;
+	background:url('../../images/check.gif') no-repeat;
 	background-size:100%;
 	background-position:0px 3px;
 	border:none;
@@ -194,7 +194,7 @@ input[id="mSMS2"]:checked + label:after {
 	width:20px;
 	height:23px;
 	margin-top:-4px;
-	background:url('../images/check.gif') no-repeat;
+	background:url('../../images/check.gif') no-repeat;
 	background-size:100%;
 	background-position:0px 3px;
 	border:none;
@@ -242,7 +242,7 @@ input[id="mAgree1"]:checked + label:after {
 	width:20px;
 	height:23px;
 	margin-top:-4px;
-	background:url('../images/check.gif') no-repeat;
+	background:url('../../images/check.gif') no-repeat;
 	background-size:100%;
 	background-position:0px 3px;
 	border:none;
@@ -267,7 +267,7 @@ input[id="mAgree2"]:checked + label:after {
 	width:20px;
 	height:23px;
 	margin-top:-4px;
-	background:url('../images/check.gif') no-repeat;
+	background:url('../../images/check.gif') no-repeat;
 	background-size:100%;
 	background-position:0px 3px;
 	border:none;
@@ -315,12 +315,13 @@ input[id="mAgreeAll"]:checked + label:after {
 	width:20px;
 	height:23px;
 	margin-top:-4px;
-	background:url('../images/check.gif') no-repeat;
+	background:url('../../images/check.gif') no-repeat;
 	background-size:100%;
 	background-position:0px 3px;
 	border:none;
 }
 
+/* 내용보기 */
 .mAgree_about {
 	display:none;
 	font-size:11px;

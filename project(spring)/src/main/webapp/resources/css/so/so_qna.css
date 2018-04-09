@@ -1,15 +1,36 @@
 @charset "UTF-8";
 	.row{
-		margin-top: 70px;
+		margin-top: 90px;
+		margin-bottom: 40px;
+	}
+	.red{
+		color: red;
+		font-size: 12px;
 	}
 	.orange-background{
 		border: 1px solid orange;
 		background-color: orange;
-		width: 280px;
+		width: 110px;
 	}
-	.orange-border{
+	.orange-background2{
+		border: 1px solid orange;
+		background-color: orange;
+		width: 70px;
+	}
+	
+	.btn_qnaModify,.btn_qnaDelete {
 		border: 1px solid orange;
 		background-color: white;
 		color: orange;
-		width: 280px;
+		margin-top: 10px;
+		width: 70px;
+	}
+
+	.buttons{
+		text-align: center;
+	}
+
+	.info{
+		font-size: 12px;
+		color: blue;
 	}
