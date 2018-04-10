@@ -12,7 +12,7 @@
 				<span></span>
 			</div>
 		</div>
-		<ul id="list01" class="list">
+		<ul id="list01" class="list clearfix">
 			<li><button type="button">목적A</button></li>
 		 	<li><button type="button">목적B</button></li>
 		 	<li><button type="button">목적C</button></li>
@@ -33,7 +33,7 @@
 				<span></span>
 			</div>
 		</div>
-		<ul id="list02" class="list">
+		<ul id="list02" class="list clearfix">
 			<li><button type="button">기분A</button></li>
 		 	<li><button type="button">기분B</button></li>
 		 	<li><button type="button">기분C</button></li>
@@ -54,7 +54,7 @@
 				<span></span>
 			</div>
 		</div>
-		<ul id="list03" class="list">
+		<ul id="list03" class="list clearfix">
 			<li><button type="button">종류A</button></li>
 		 	<li><button type="button">종류B</button></li>
 		 	<li><button type="button">종류C</button></li>
