@@ -12,6 +12,7 @@ public class SoQnaDTO {
 	private String qnaCategory;
 	private String qnaComplete;
 	private String qnaReplyContent;
+	private String qnaReplyStatement;
 	public SoQnaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -30,7 +31,7 @@ public class SoQnaDTO {
 	
 	
 	public SoQnaDTO(int qnaNum, String soId, String qnaTitle, String qnaContent, String qnaWritedate,
-			String qnaCategory, String qnaComplete, String qnaReplyContent) {
+			String qnaCategory, String qnaComplete, String qnaReplyContent, String qnaReplyStatement) {
 		super();
 		this.qnaNum = qnaNum;
 		this.soId = soId;
@@ -40,6 +41,7 @@ public class SoQnaDTO {
 		this.qnaCategory = qnaCategory;
 		this.qnaComplete = qnaComplete;
 		this.qnaReplyContent = qnaReplyContent;
+		this.qnaReplyStatement = qnaReplyStatement;
 	}
 	public int getQnaNum() {
 		return qnaNum;
@@ -88,5 +90,11 @@ public class SoQnaDTO {
 	}
 	public void setQnaReplyContent(String qnaReplyContent) {
 		this.qnaReplyContent = qnaReplyContent;
+	}
+	public String getQnaReplyStatement() {
+		return qnaReplyStatement;
+	}
+	public void setQnaReplyStatement(String qnaReplyStatement) {
+		this.qnaReplyStatement = qnaReplyStatement;
 	}
 }

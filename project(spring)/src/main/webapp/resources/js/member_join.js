@@ -257,8 +257,39 @@ $(document).ready(function(){
 		mPhone1 = $("#mPhone1").attr("value",n);
 		$("#mPhone1").css("border-bottom","1px solid #e0e0e0");
 		$("#mPhone_number").slideUp("fast");
-		console.log(mPhone1.attr());
-		
+		$("#mPhone").val(mPhone1);
+		//console.log(mPhone1.attr());
+	});
+	
+	$(".mPhone_number1").click(function(){
+		var mPhone1 = $(".mPhone_number1").text();
+		$("#mPhone").val(mPhone1);
+	});
+	
+	$(".mPhone_number2").click(function(){
+		var mPhone1 = $(".mPhone_number2").text();
+		$("#mPhone").val(mPhone1);
+		console.log($("#mPhone").val());
+	});
+	
+	$(".mPhone_number3").click(function(){
+		var mPhone1 = $(".mPhone_number3").text();
+		$("#mPhone").val(mPhone1);
+	});
+	
+	$(".mPhone_number4").click(function(){
+		var mPhone1 = $(".mPhone_number4").text();
+		$("#mPhone").val(mPhone1);
+	});
+	
+	$(".mPhone_number5").click(function(){
+		var mPhone1 = $(".mPhone_number5").text();
+		$("#mPhone").val(mPhone1);
+	});
+	
+	$(".mPhone_number6").click(function(){
+		var mPhone1 = $(".mPhone_number6").text();
+		$("#mPhone").val(mPhone1);
 	});
 	
 	//휴대전화 번호 hover시 컬러 변경

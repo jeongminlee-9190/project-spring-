@@ -104,7 +104,7 @@
 							<tr>
 								<td>${dto.qnaCategory}</td>
 								<td>	
-									<a data-toggle="collapse" data-parent="#accordion" class="qnaReplyContentCheck" href="#soQnaRetrieve${dto.qnaNum}">${dto.qnaTitle}</a>
+									<a data-toggle="collapse" data-parent="#accordion" class="qnaReplyContentCheck" href="#soQnaRetrieve${dto.qnaNum}" data-num="${dto.qnaNum}">${dto.qnaTitle}</a>
 									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
 										
 										<label for="qnaContent">내용:</label>
@@ -117,8 +117,9 @@
 										</c:if>
 										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='처리완료'}">
 											${dto.qnaContent}<br><br>
-											<label for="qnaContent">답변: </label> <span class="qnaReplyContent">${dto.qnaReplyContent}</span><br>
-											<input type="text" id="qnaCompleteNum" data-num="${dto.qnaNum}" value="${dto.qnaNum}">
+											<label for="qnaContent">답변: </label> 
+											<span class="qnaReplyContent" id="qnaReplyContent${dto.qnaNum}">${dto.qnaReplyContent}</span><br>
+											<input type="hidden" id="qnaReplyStatement${dto.qnaNum}" value="${dto.qnaReplyStatement}">
 											<br>
 											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
 										</c:if>

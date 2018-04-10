@@ -66,7 +66,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/memberAdd",  method=RequestMethod.POST)
 	public String memberAdd(@RequestParam HashMap<String, String> map, HttpServletRequest request) {
-		String mPhone1 = map.get("mPhone1");
+		System.out.println(map);
+		String mPhone1 = map.get("mPhone");
 		String mPhone2 = map.get("mPhone2");
 		String mPhone3 = map.get("mPhone3");
 		String mPhone = mPhone1+"-"+mPhone2+"-"+mPhone3;

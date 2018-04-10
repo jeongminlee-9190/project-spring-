@@ -14,6 +14,12 @@
 		where sCode = #{sCode}
 	</update>
 	
+	<update id="sImageModify" parameterType="hashmap" timeout="20" flushCache="true">
+		update shop 
+		set sImage = #{sImage}
+		where sCode = #{sCode}
+	</update>
+	
 	<select id="sInfo" parameterType="string" resultType="SDTO">
 		select sCode,sName,soId,sPost,sAddr,sPhone,sCategory,sBusinesshours,sParkinglot,sTerrace,sImage,sMenu1,sMenu2,sSubway,sLike
 		from shop

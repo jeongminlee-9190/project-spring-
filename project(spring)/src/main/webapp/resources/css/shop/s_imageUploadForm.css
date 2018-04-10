@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.upload{
+		margin-top: 90px;
+		margin-bottom: 40px;
+	}
+	.blue{
+		color: blue;
+		font-size: 12px;
+	}
+	.col-sm-2{
+		text-align: center;
+	}
+	.btn_submit{
+		background-color: orange;
+		border: 1px solid orange;
+		color: white;
+		width: 230px;
+	}
+	.sManagement{
+		text-align: center;
+	}
+	.btn-info{
+		background-color: white;
+		border: 1px solid white;	
+	}
+	
+	.btn-sManagement{
+		background-color: white;
+		border: 1px solid orange;
+		color: orange;
+	}

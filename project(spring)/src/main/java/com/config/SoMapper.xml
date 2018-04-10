@@ -9,6 +9,8 @@
 		where soId=#{soId}
 	</select>
 	
+	<!-- 사업자 번호 체크 -->
+	
 	<insert id="soJoin" parameterType="hashmap">
 		insert into shopowner(soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr)
 		values(#{soId},#{soPasswd},#{soName},#{soPhone},#{soLicense},#{soPost},#{soAddr})

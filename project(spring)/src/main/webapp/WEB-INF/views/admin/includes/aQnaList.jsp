@@ -22,7 +22,6 @@ $(document).ready(function(){
 				location.reload(); // 페이지 새로고침
 			},
 			error:function(){
-				console.log("tlfvo");
 			}
 		});
 	});
@@ -45,9 +44,8 @@ $(document).ready(function(){
 				location.reload(); // 페이지 새로고침
 			},
 			error:function(){
-				console.log("tlfvo");
 			}
-		});
+		}); 
 	});
 });
 
@@ -166,7 +164,7 @@ $(document).ready(function(){
 									</div>
 									<td>${dto.soId}</td>
 									<td>${dto.qnaWritedate}</td>
-									<td>${dto.qnaComplete}</td>
+									<td>${dto.qnaComplete}<input type="hidden" class="qnaReplyStatement" value="${dto.qnaReplyStatement}"></td>
 								</tr>
 							</c:forEach>
 							<!-- 페이지번호 -->

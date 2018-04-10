@@ -35,16 +35,17 @@
 		
 		<div id="mPhone_wrap">
 			<span class="join_title" ><strong>휴대전화</strong></span>
+			<input type="hidden" name="mPhone" id="mPhone">
 			<input type="button" name="mPhone1" id="mPhone1" value="010" >
 			- <input type="text" name="mPhone2" id="mPhone2" maxlength="4" >
 			- <input type="text" name="mPhone3" id="mPhone3" maxlength="4" >
 			<ul id="mPhone_number">
-				<li>010</li>
-				<li>011</li>
-				<li>016</li>
-				<li>017</li>
-				<li>018</li>
-				<li>019</li>
+				<li class="mPhone_number1">010</li>
+				<li class="mPhone_number2">011</li>
+				<li class="mPhone_number3">016</li>
+				<li class="mPhone_number4">017</li>
+				<li class="mPhone_number5">018</li>
+				<li class="mPhone_number6">019</li>
 			</ul>
 		
 		</div> <!-- End : mPhone_wrap -->

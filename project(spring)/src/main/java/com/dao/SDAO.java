@@ -30,4 +30,12 @@ public class SDAO {
 		template.delete("SMapper.sDel",sCode);
 		
 	}
+	
+	public void sImageAdd(HashMap<String, String> map) {
+		template.update("SMapper.sImageAdd",map);
+	}
+	
+	public void sImageAdd2(HashMap<String, String> map) {
+		template.update("SMapper.sImageAdd2",map);
+	}
 }
