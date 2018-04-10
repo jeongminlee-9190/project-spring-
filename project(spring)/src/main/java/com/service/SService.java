@@ -18,10 +18,18 @@ public class SService {
 		return dao.sInfo(soId);
 	}
 	
+	@Transactional
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);
+		dao.sScoreInsert(dto.getsCode());
 	}
-	@Transactional
+	
+/*	public void sScoreInsert(String sCode) {
+		System.out.println("sScoreInsert SService 접근"+sCode);
+		dao.sScoreInsert(sCode);
+	}*/
+	
+	
 	public void sDelAll(String sCode) {
 		System.out.println("Service_sDelAll시작");
 		dao.sDelAll(sCode);

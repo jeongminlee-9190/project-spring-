@@ -41,23 +41,15 @@
 		select * from dual
 	</insert>
 	
-	<insert id="sScoreInsert1" parameterType="string">
-		insert into score (category,sCode)	values ('식사',#{sCode})
+	<insert id="sScoreInsert" parameterType="string">
+		insert all
+			into score (sCategory,sCode) values ('식사',#{sCode})
+			into score (sCategory,sCode) values ('회식',#{sCode})
+			into score (sCategory,sCode) values ('데이트',#{sCode})
+			into score (sCategory,sCode) values ('파티',#{sCode})
+		select * from dual
 	</insert>
-	
-	<insert id="sScoreInsert2" parameterType="string">
-		insert into score (category,sCode)	values ('회식',#{sCode})
-	</insert>
-	
-	<insert id="sScoreInsert3" parameterType="string">
-		insert into score (category,sCode)	values ('데이트',#{sCode})
-	</insert>
-	
-	<insert id="sScoreInsert4" parameterType="string">
-		insert into score (category,sCode)	values ('파티',#{sCode})
-	</insert>
-	
-	
+		
 	<delete id="sDel" parameterType="string">
 		delete from shop
 		where sCode=#{sCode}

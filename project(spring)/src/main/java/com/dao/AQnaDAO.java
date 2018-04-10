@@ -62,6 +62,10 @@ public class AQnaDAO {
 	public int aQnaListTotalCount(){
 		return template.selectOne("AQnaMapper.aQnaListTotalCount");
 	}
+	
+	public int aQnaListTotalCount2(){
+		return template.selectOne("AQnaMapper.aQnaListTotalCount2");
+	}
 
 	public int aQnaListTotalSearchCount(HashMap<String, String> map){
 		return template.selectOne("AQnaMapper.aQnaListTotalSearchCount",map);

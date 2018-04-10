@@ -121,6 +121,13 @@
 		where soId = #{soId}
 	</delete>
 	
+	<!-- DB 정의서에 추가해야 함 -->
+	<delete id="sDormantDel" parameterType="string">
+		delete 
+		from shop
+		where soId = #{soId}
+	</delete>
+	
 	<!-- 3-4. 회원 레벨이 0인  shopowner-->
 	<select id="soList2"  resultType="SoDTO">
 		select rownum,soId,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate

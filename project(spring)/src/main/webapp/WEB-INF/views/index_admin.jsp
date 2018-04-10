@@ -19,7 +19,8 @@
 </style>
 </head>
 <body>
-<%-- <c:if test="${! empty success}">
+
+<c:if test="${! empty success}">
    <script type="text/javascript">
     alert('${success}');
    </script>
@@ -30,7 +31,6 @@
 	<script type="text/javascript">
     	alert('${adminLogout}');
     </script>
-    <c:remove var="adminLogout"/>
 </c:if>
 
 <c:if test="${!empty mesg}">
@@ -43,13 +43,8 @@
    <script type="text/javascript">
     alert('${fail}');
    </script>
-   <c:remove var="fail" />
-</c:if> --%>
-
-if('${!empty success}')alert('${success}');
-if('${!empty adminLogout}')alert('${adminLogout}');
-if('${!empty mesg}')alert('${mesg}');
-if('${!empty fail}')alert('${fail}');
+</c:if>
+<c:remove var="fail" scope="session"/>
 
 <div class="container-fluid">
   	<div class="row">
@@ -66,9 +61,6 @@ if('${!empty fail}')alert('${fail}');
 		</div>
 		<div class="col-sm-4"></div>
 	 </div>
-
  </div>
-
-
 </body>
 </html>

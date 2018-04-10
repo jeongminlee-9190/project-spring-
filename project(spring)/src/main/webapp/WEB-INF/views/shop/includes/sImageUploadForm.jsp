@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<c:set var="sdto" value="${sInfo}"></c:set>
-	<c:set var="sImage1" value="${fn: split(sdto.sImage,'/')[0]}"></c:set>
-	<c:set var="sImage2" value="${fn: split(sdto.sImage,'/')[1]}"></c:set>
-	<c:set var="sImage3" value="${fn: split(sdto.sImage,'/')[2]}"></c:set>
-	<c:set var="sImage4" value="${fn: split(sdto.sImage,'/')[3]}"></c:set>
-	<c:set var="sImage5" value="${fn: split(sdto.sImage,'/')[4]}"></c:set>
+	<c:set var="sImage" value="${sImage}"></c:set>
+	<c:set var="sImage1" value="${fn: split(sImage,'/')[0]}"></c:set>
+	<c:set var="sImage2" value="${fn: split(sImage,'/')[1]}"></c:set>
+	<c:set var="sImage3" value="${fn: split(sImage,'/')[2]}"></c:set>
+	<c:set var="sImage4" value="${fn: split(sImage,'/')[3]}"></c:set>
+	<c:set var="sImage5" value="${fn: split(sImage,'/')[4]}"></c:set>
 	<div class="container-fluid upload">
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -181,7 +181,7 @@
 		<div class="row">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4 sManagement">
-			<a href="#" data-toggle="tooltip" title="이미지 등록을 완료합니다!">
+			<a href="sManagement" data-toggle="tooltip" title="이미지 등록을 완료합니다!">
 			<input type="button" class="btn btn-primary btn-sManagement" value="상점관리 페이지로"></a>
 			</div>
 			<div class="col-sm-4"></div>
