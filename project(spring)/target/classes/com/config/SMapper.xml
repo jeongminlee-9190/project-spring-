@@ -14,7 +14,7 @@
 		where sCode = #{sCode}
 	</update>
 	
-	<update id="sImageAdd2" parameterType="hashmap" timeout="20" flushCache="true">
+	<update id="sImageModify" parameterType="hashmap" timeout="20" flushCache="true">
 		update shop 
 		set sImage = #{sImage}
 		where sCode = #{sCode}
