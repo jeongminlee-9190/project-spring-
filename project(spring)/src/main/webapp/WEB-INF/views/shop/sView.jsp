@@ -69,7 +69,7 @@
 								<!-- 네이버 지도 api -->
 								<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=ip9MzYUcGqHV9etI8TeJ&submodules=geocoder"></script>
 							   	 <input Type="hidden" value="${saddr}" id="sAddr">
-							   	 <div id="map" style="width:650px;height:230px;"></div>
+							   	 <div id="map" style="maxWidth:650px;height:230px;"></div>
 							   	 <script>
 							      var map = new naver.maps.Map('map');
 							      var myaddress = document.getElementById("sAddr").value;// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
