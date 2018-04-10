@@ -67,16 +67,6 @@
 	</delete>
 	
 	
-	<!--2-4. member 리스트 -->
-	<select id="m_updatelist" parameterType="int" resultType="MemberDTO">
-		select rownum,mId,mPasswd,mName,mPhone
-		from (select rownum as rnum, t.mId,t.mPasswd,t.mName, 
-		t.mPhone from member t) a where a.rnum=#{rownum}
-	</select>
-	
-	
-	
-	
 	<!-- 3. so 리스트 -->
 	<select id="soList" parameterType="hashmap" resultType="SoDTO">
 		select rownum,soId,soName,soPhone,soLicense,soPost,soAddr,soLevel
@@ -128,12 +118,6 @@
 	<delete id="soDormantDel" parameterType="string">
 		delete 
 		from shopowner
-		where soId = #{soId}
-	</delete>
-	
-	<delete id="sDormantDel" parameterType="string">
-		delete 
-		from shop
 		where soId = #{soId}
 	</delete>
 	
