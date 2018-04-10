@@ -20,6 +20,5 @@
     <hr>
   </header>
 	<jsp:include page="searchresultlist.jsp" flush="true"></jsp:include>
-
 </body>
 </html>

@@ -45,11 +45,12 @@
    </script>
    <c:remove var="fail" />
 </c:if> --%>
-
-if('${!empty success}')alert('${success}');
-if('${!empty adminLogout}')alert('${adminLogout}');
-if('${!empty mesg}')alert('${mesg}');
-if('${!empty fail}')alert('${fail}');
+<script>
+if(${!empty success})alert('${success}');
+if(${!empty adminLogout}')alert('${adminLogout}');
+if(${!empty mesg})alert('${mesg}');
+if(${!empty fail})alert('${fail}');
+</script>
 
 <div class="container-fluid">
   	<div class="row">

@@ -12,7 +12,7 @@
 <c:if test="${empty mLogin}">	
 	<div id="login_content_wrapper">
 	
-		<form action="mLogin" method="post" id="mLoginForm">
+		<form action="login" method="post" id="mLoginForm">
 		
 			<input type="text" name="mId" id="mId" placeholder="아이디 또는 이메일">
 			<input type="text" name="mPasswd" id="mPasswd" placeholder="비밀번호">
