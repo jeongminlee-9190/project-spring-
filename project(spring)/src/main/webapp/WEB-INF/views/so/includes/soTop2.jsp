@@ -1,29 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- 
-<style>	
-	a{
-		text-decoration: none;
-	}
-	span{
-		font-size: 20px;
-	}
- 	.main_menu{
- 		background-color: #99e6ff; 
- 		padding-top: 10px;
- 		height: 40px;
- 	
- 	}
-</style>
-
-<div class="main_menu">
-	<a href="SoFindsoIdServlet"><span>아이디 찾기</span></a>&nbsp;&nbsp;
-	<a href="SoFindsoPasswdServlet"><span>비밀번호 찾기</span></a>&nbsp;&nbsp;
-</div>
-
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				   <span class="icon-bar"></span>
+				   <span class="icon-bar"></span> 
+			</button>
+			<a class="navbar-brand" href="#">갬성갱단 상점 센터</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="soFindIdForm" >아이디 찾기</a></li>
+				<li class="active"><a href="soFindPwForm" >비밀번호 찾기</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
 

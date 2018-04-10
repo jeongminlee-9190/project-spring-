@@ -3,64 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상점 회원 목록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
-<script type="text/javascript">
-</script>
-<style>
-	.container{
-		margin-top: 100px;
-	}
-	.table-hover{
-		font-size: 13px;
-	}
-
-</style>
-<jsp:include page="includes/admin_top.jsp" flush="true"/>
-<div class="container">
-	<form action="memberList" method="get">
-		<table class="table table-hover">
-			<colgroup>
-				<col width="5%">
-				<col width="17%">
-				<col width="10%">
-				<col width="10%">
-				<col width="10%">
-				<col width="25%">
-				<col width="8%">
-				<col width="15%">
-			</colgroup>
-	    	<thead class="thead-light">
-				<tr>
-					<th>번호</th>
-					<th>아이디</th>
-					<th>이름</th>
-					<th>핸드폰</th>
-					<th>사업자번호</th>
-					<th>주소</th>
-					<th>회원레벨</th>
-					<th>가입일자</th>
-				</tr>
-			</thead>
-			<c:forEach var="dto" items="${soList}" varStatus="status">
-			<tbody>
-				<tr>
-					<td>${dto.rownum}</td>
-				    <td>${dto.soId}<input type="hidden" name="soId" value="${dto.soId}"></td>
-				    <td>${dto.soName}</td>
-				    <td>${dto.soPhone}</td>
-				    <td>${dto.soLicense}</td>
-				    <td>${dto.soAddr}</td>
-				    <td>${dto.soLevel}</td>
-				    <td>${dto.soJoindate}</td>
-				</tr>
-			</tbody>
-			</c:forEach>
-		</table>
-	</form>
-</div>
-<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+<link href="${pageContext.request.contextPath}/resources/css/admin/admin_soList.css" rel="stylesheet" >
+</head>
+<body>
+<c:if test="${!empty adminLogin}"> 
+	<jsp:include page="includes/admin_top.jsp" flush="true"/>
+	<jsp:include page="includes/soList.jsp" flush="true"/>
+	<jsp:include page="includes/admin_footer.jsp" flush="true"/>
+</c:if>
+</body>
+</html>

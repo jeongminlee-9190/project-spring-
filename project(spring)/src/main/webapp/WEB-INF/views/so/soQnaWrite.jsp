@@ -15,7 +15,12 @@
 <link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so/so_qna.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
-
+<style type="text/css">
+	.row{
+		margin-top: 90px;
+		margin-bottom: 40px;
+	}
+</style>
 </head>
 <body>
 <jsp:include page="includes/soTop.jsp" flush="true"/>

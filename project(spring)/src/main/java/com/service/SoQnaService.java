@@ -14,8 +14,8 @@ public class SoQnaService {
 	@Autowired
 	SoQnaDAO dao;
 	
-	public List<SoQnaDTO> soQna(String soId){
-		return dao.soQna(soId);
+	public List<SoQnaDTO> soQna(HashMap<String, String> map){
+		return dao.soQna(map);
 	}
 	
 	public void soQnaWrite(HashMap<String, String> map) {
@@ -24,5 +24,13 @@ public class SoQnaService {
 	
 	public void soQnaDelete(HashMap<String, Integer> map) {
 		dao.soQnaDelete(map);
+	}
+	
+	public void soQnaModify(HashMap<String, Object> map) {
+		dao.soQnaModify(map);
+	}
+	
+	public void soQnaRead(int qnaNum) {
+		dao.soQnaRead(qnaNum);
 	}
 }

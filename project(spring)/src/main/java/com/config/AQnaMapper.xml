@@ -4,13 +4,101 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="AQnaMapper">
     <!-- 1:1 문의 리스트 -->
-	<select id="qna" parameterType="string" resultType="AQnaDTO">
+	<select id="aQnaList" parameterType="hashmap" resultType="SoQnaDTO">
 		select qnaNum, soId, qnaTitle , qnaContent,
 		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
 		from soqna
-		order by qnaNum desc
+		order by qnaNum asc
+	</select>
+
+	<select id="aQnaSort1" parameterType="hashmap" resultType="SoQnaDTO"> 
+		select qnaNum, soId, qnaTitle , qnaContent,
+		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
+		from soqna
+		where qnaComplete=#{searchName}
+		order by qnaNum asc
 	</select>
 	
+	<select id="aQnaSort2" parameterType="hashmap" resultType="SoQnaDTO"> 
+		select qnaNum, soId, qnaTitle , qnaContent,
+		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
+		from soqna
+		<if test="searchName2=='1주일'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=30
+			]]>
+		</if>
+		order by qnaNum asc
+	</select>
+	
+	<select id="aQnaSort3" parameterType="hashmap" resultType="SoQnaDTO"> 
+		select qnaNum, soId, qnaTitle , qnaContent,
+		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
+		from soqna
+		<if test="searchName2=='1주일'">
+			<![CDATA[
+			where (sysdate-qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where (sysdate-qnaWritedate)<=30
+			]]>
+		</if>
+		order by qnaNum asc
+	</select>
+	
+	
+	
+	<select id="aQnaListTotalCount" resultType="int">
+	     select count(*)
+	     from soqna
+    </select>
+    
+    <select id="aQnaListTotalSearchCount" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from soqna
+		 where qnaComplete=#{searchName}
+    </select>
+    
+        
+    <select id="aQnaListTotalSearchCount3" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from soqna
+	     <if test="searchName2=='1주일'">
+			<![CDATA[
+			where (sysdate-qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where (sysdate-qnaWritedate)<=30
+			]]>
+		</if>
+    </select>
+    
+    
+    <select id="aQnaListTotalSearchCount2" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from soqna
+	     <if test="searchName2=='1주일'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=30
+			]]>
+		</if>
+    </select>
+
+    
 	<insert id="soQnaWrite" parameterType="hashmap">
 		insert into soqna (qnaNum, soId, qnaTitle , qnaContent,qnaWritedate,qnaComplete,qnaCategory)
 		values(SEQ_noticetoso_noticeNum.NEXTVAL, #{soId},#{qnaTitle},#{qnaContent},default,default,#{qnaCategory})
@@ -36,13 +124,38 @@
     <!-- 1:1 문의 자세히 보기 -->
     <select id="soQnaRetrieve" parameterType="int" resultType="SoQnaDTO">
 		select qnaNum, soId,qnaTitle, qnaContent,
-		to_char(qnaWritedate,'YYYY-MM-DD') as qnaWritedate,qnaComplete,qnaCategory
+		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
 		from soqna
 		where qnaNum=#{qnaNum}
 	</select>
-    
-    <delete id="soDelQna">
-    	delete from soqna
-    	where soId=#{soId}
-    </delete>
+	
+	<update id="soQnaRetrieve2" parameterType="int">
+		update soqna
+		set qnaComplete='처리중'
+		where qnaNum=#{qnaNum}
+	</update>
+	
+	<select id="soQnaReplyRetrieve" parameterType="int" resultType="QnaReplyDTO">
+		select qnaReplyNum,qnaNum,qnaReplyContent,qnaReplyStatement
+		from soqnareply
+		where qnaNum=#{qnaNum}
+	</select>
+	
+	<!-- 1:1 문의 답변하기 -->
+	<insert id="soQnaReply" parameterType="hashmap">
+		insert into soqnareply (qnaReplyNum,qnaNum,qnaReplyContent)
+		values(SEQ_soqnareply_qnaReplyNum.nextval,#{qnaNum},#{qnaReplyContent})
+	</insert>
+	<update id="soQnaReply2" parameterType="hashmap">
+		update soqna
+		set qnaComplete='처리완료'
+		where qnaNum=#{qnaNum}
+	</update>
+	
+	<!-- 1:1 문의 수정하기 -->
+	<update id="soQnaReplyModify" parameterType="hashmap">
+		update soqnareply
+		set qnaReplyContent=#{qnaReplyContent}
+		where qnaReplyNum=#{qnaReplyNum}
+	</update>
 </mapper>

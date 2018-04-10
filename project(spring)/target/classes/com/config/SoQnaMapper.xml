@@ -5,11 +5,49 @@
 <mapper namespace="SoQnaMapper">
     <!-- 1:1 문의 리스트 -->
 	<select id="soQna" parameterType="string" resultType="SoQnaDTO">
-		select qnaNum, soId, qnaTitle , qnaContent,
-		to_char(qnaWritedate,'YYYY-MM-DD') as qnaWritedate,qnaComplete,qnaCategory
-		from soqna
-		where soId=#{soId}
-		order by qnaNum desc
+		select a.qnaNum, a.soId, a.qnaTitle, a.qnaContent, a.qnaWritedate, a.qnaCategory, a.qnaComplete, b.qnaReplyContent,b.qnaReplyStatement
+		from soqna a,soqnareply b 
+		where a.qnaNum = b.qnaNum(+) and soId=#{soId}
+		order by a.qnaNum desc
+	</select>
+	
+	<select id="soQnaSort1" parameterType="hashmap" resultType="SoQnaDTO">
+		select a.qnaNum, a.soId, a.qnaTitle, a.qnaContent, a.qnaWritedate, a.qnaCategory, a.qnaComplete, b.qnaReplyContent ,b.qnaReplyStatement
+		from soqna a,soqnareply b 
+		where a.qnaNum = b.qnaNum(+) and soId=#{soId} and a.qnaComplete=#{searchName}
+		order by a.qnaNum desc
+	</select>
+	
+	<select id="soQnaSort2" parameterType="hashmap" resultType="SoQnaDTO"> 
+		select a.qnaNum, a.soId, a.qnaTitle, a.qnaContent, a.qnaWritedate, a.qnaCategory, a.qnaComplete, b.qnaReplyContent ,b.qnaReplyStatement
+		from soqna a,soqnareply b 
+		<if test="searchName2=='1주일'">
+			<![CDATA[
+			where a.qnaNum = b.qnaNum(+) and soId=#{soId} and a.qnaComplete=#{searchName} and (sysdate-a.qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where a.qnaNum = b.qnaNum(+) and soId=#{soId} and a.qnaComplete=#{searchName} and (sysdate-a.qnaWritedate)<=30
+			]]>
+		</if>
+		order by qnaNum asc
+	</select>
+	
+	<select id="soQnaSort3" parameterType="hashmap" resultType="SoQnaDTO"> 
+		select a.qnaNum, a.soId, a.qnaTitle, a.qnaContent, a.qnaWritedate, a.qnaCategory, a.qnaComplete, b.qnaReplyContent ,b.qnaReplyStatement
+		from soqna a,soqnareply b 
+		<if test="searchName2=='1주일'">
+			<![CDATA[
+			where a.qnaNum = b.qnaNum(+) and soId=#{soId} and (sysdate-a.qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where a.qnaNum = b.qnaNum(+) and soId=#{soId} and (sysdate-a.qnaWritedate)<=30
+			]]>
+		</if>
+		order by qnaNum asc
 	</select>
 	
 	<insert id="soQnaWrite" parameterType="hashmap">
@@ -19,7 +57,7 @@
 	
 	<update id="soQnaModify" parameterType="hashmap">
 		update soqna
-		set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}
+		set qnaContent=#{qnaContent}
 		where soId=#{soId} and qnaNum=#{qnaNum}
 	</update>
 
@@ -27,23 +65,24 @@
 		delete from soqna
 		where soId=#{soId} and qnaNum=#{qnaNum}
 	</delete>
-
-	<!--페이징 처리 
-	<select id="totalCnt" parameterType="hashmap" resultType="int">
-    	select count(*) from soqnaboard where oId=#{oId}
-    </select>
-    -->
     
     <!-- 1:1 문의 자세히 보기 -->
     <select id="soQnaRetrieve" parameterType="int" resultType="SoQnaDTO">
-		select qnaNum, soId,qnaTitle, qnaContent,
-		to_char(qnaWritedate,'YYYY-MM-DD') as qnaWritedate,qnaComplete,qnaCategory
-		from soqna
-		where qnaNum=#{qnaNum}
+    	select a.qnaNum, a.soId, a.qnaTitle, a.qnaContent, to_char(a.qnaWritedate,'YYYY-MM-DD') as a.qnaWritedate, a.qnaCategory, a.qnaComplete, b.qnaReplyContent 
+		from soqna a,soqnareply b 
+		where a.qnaNum = b.qnaNum and a.soId=#{soId};
 	</select>
-    
-    <delete id="soDelQna">
-    	delete from soqna
-    	where soId=#{soId}
-    </delete>
+	
+	<select id="soQnaReply" parameterType="int" resultType="String">
+		select qnaReplyContent
+		from soqnareply
+		where qnaNum =#{qnaNum}
+	</select>
+	
+	
+	<update id="soQnaRead" parameterType="int">
+		update soqnareply
+		set qnaReplyStatement ='확인'
+		where qnaNum =#{qnaNum}
+	</update>
 </mapper>

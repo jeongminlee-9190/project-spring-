@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dto.SoDTO;
+import com.service.SService;
 import com.service.SoService;
 
 
@@ -20,6 +21,7 @@ import com.service.SoService;
 public class SoController {
 	@Autowired
 	SoService service;
+	SService service2;
 	
 	@RequestMapping(value= "/main_shopowner", method=RequestMethod.GET)
 	public String main_shopowner() {
@@ -118,36 +120,93 @@ public class SoController {
 		return "index_shopowner";
 	}
 	
-	@RequestMapping(value= "/soMyPage", method=RequestMethod.GET)
-	public String soMyPage(HttpSession session) {
-		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
-		String soId = soDTO.getSoId();
-		soDTO = service.soMyPage(soId);
-		session.setAttribute("SoMyPage", soDTO);
-		return "so/soMyPage";
-	}
-	//@RequestMapping(value= "/soPasswdUpdate", method=RequestMethod.POST)
 	
-	/*
-	@RequestMapping("/SoFindPw")
-	public String SoFindPw(@RequestParam HashMap<String, String> map, HttpSession session) {
-		String soPhone1 = map.get("soPhone1");
-		String soPhone2 = map.get("soPhone2");
-		String soPhone3 = map.get("soPhone3");
-		String soPhone = soPhone1+"-"+soPhone2+"-"+soPhone3;
+	@RequestMapping(value="/soIdCheck", method=RequestMethod.GET)
+	@ResponseBody
+	public int soIdCheck(@RequestParam String soId) {
+		int soIdCheckCnt = service.soIdCheck(soId);
+		return soIdCheckCnt;
+	}
+	
+	
+	@RequestMapping(value= "/soMyPage", method=RequestMethod.GET)
+	public String soMyPage(HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
 		String nextPage=null;
-		map.remove("soPhone1");
-		map.remove("soPhone2");
-		map.remove("soPhone3");
-		map.put("soPhone",soPhone);
-		String soPasswd = service.findSoPasswd(map);
-		if(soPasswd!=null) {
-			session.setAttribute("findSoPasswdResult", soPasswd);
-			nextPage="so/soResult";
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
 		}else {
-			session.setAttribute("fail", "일치하는 정보가 없습니다.");
-			nextPage="so/soFindPwForm";
+			String soId = soDTO.getSoId();
+			soDTO = service.soMyPage(soId);
+			session.setAttribute("SoMyPage", soDTO);
+			nextPage = "so/soMyPage"; 
 		}
 		return nextPage;
-	}*/
+	}
+	
+	@RequestMapping(value= "/soPhoneUpdate", method=RequestMethod.POST)
+	public String soPhoneUpdate(@RequestParam HashMap<String, String> map, HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			String soPhone1 = map.get("soPhone1");
+			String soPhone2 = map.get("soPhone2");
+			String soPhone3 = map.get("soPhone3");
+			String soPhone = soPhone1+"-"+soPhone2+"-"+soPhone3;
+			HashMap<String, String> map2 = new HashMap<>();
+			map2.put("soId", soId);
+			map2.put("soPhone", soPhone);
+			service.soPhoneUpdate(map2);
+			nextPage ="redirect:soMyPage";
+		}
+		return nextPage;
+	}
+	
+	
+	@RequestMapping(value= "/soPwUpdateForm", method=RequestMethod.GET)
+	public String soPwUpdateForm(HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			nextPage ="so/soPwUpdateForm";
+		}
+		return nextPage;
+	}
+	
+	@RequestMapping(value="/soPwCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public int soPwCheck(@RequestParam String soPasswd,HttpSession session) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String soId = soDTO.getSoId();
+		HashMap<String, String> map = new HashMap<>();
+		map.put("soId", soId);
+		map.put("soPasswd", soPasswd);
+		int soPwCheckCnt = service.soPwCheck(map);
+		return soPwCheckCnt;
+	}
+	
+	@RequestMapping(value= "/soPwUpdate", method=RequestMethod.POST)
+	public String soPwUpdate(@RequestParam HashMap<String, String> map, HttpSession session, HttpServletRequest request) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			map.put("soId", soId);
+			service.soPwUpdate(map);
+			session.setAttribute("success", "비밀번호가 변경되었습니다.");
+			nextPage="redirect:main_shopowner";
+		}
+		return nextPage;
+	}
 }

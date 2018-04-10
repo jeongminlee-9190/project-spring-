@@ -19,7 +19,7 @@
     alert('${success}');
    </script>
 </c:if>
-<c:remove var="success"/>
+<c:remove var="success" scope="session"/>
 
 <c:if test="${!empty SoLogout}">
 	<script type="text/javascript">

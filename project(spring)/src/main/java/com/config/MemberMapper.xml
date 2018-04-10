@@ -9,4 +9,19 @@
 		where mId = #{mId} and mPasswd = #{mPasswd}
 	</select>
 	
+	<insert id="memberAdd" parameterType="MemberDTO">
+		insert into member (mId,mPasswd,mName,mPhone,mBirth)
+		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})
+	</insert>
+	
+	<select id="mJoinIdCheck" parameterType="String" resultType="int">
+    	select count(*) from member
+    	where mId = #{mId}
+	</select>
+	
+	<select id="mJoinNameCheck" parameterType="String" resultType="int">
+    	select count(*) from member
+    	where mName = #{mName}
+	</select>
+	
 </mapper>
