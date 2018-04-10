@@ -42,8 +42,8 @@ public class AController {
 		session.setAttribute("mDormantListTotalCount", mDormantListTotalCount);
 		int soDormantListTotalCount = service.soDormantListTotalCount();
 		session.setAttribute("soDormantListTotalCount", soDormantListTotalCount);
-		int aQnaListTotalCount = service2.aQnaListTotalCount();
-		session.setAttribute("aQnaListTotalCount", aQnaListTotalCount);
+		int aQnaListTotalCount2 = service2.aQnaListTotalCount2();
+		session.setAttribute("aQnaListTotalCount", aQnaListTotalCount2);
 		return "main_admin";
 	}
 	

@@ -22,6 +22,11 @@ public class SDAO {
 		template.insert("SMapper.sAdd",dto);
 	}
 	
+	public void sScoreInsert(String sCode) {
+		System.out.println("sScoreInsert SDAO 접근"+sCode);
+		template.insert("SMapper.sScoreInsert",sCode);
+	}
+	
 	public void sDelAll(String sCode) {
 		System.out.println("DAO_sDelAll시작");
 		//template.delete("SMapper.sDelScore",sCode);

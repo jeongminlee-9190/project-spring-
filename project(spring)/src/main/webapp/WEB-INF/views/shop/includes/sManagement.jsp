@@ -51,7 +51,7 @@
     					<h3>2단계</h3>
 						<span class="shopimageinfo">상점 사진정보</span><br><br>
 						<span>등록 완료</span><br><br>
-						<a href="SImageUpdateFormServlet"><input type="button" class="btn btn-primary btn_enroll"value="사진정보 수정"></a>
+						<a href="sImageUploadForm"><input type="button" class="btn btn-primary btn_enroll"value="사진정보 수정"></a>
  					</div>
  				</div>
 			</c:if>
@@ -87,7 +87,7 @@
 				<p class="shopwarn">삭제하면 복원되지 않습니다.<p>
 				<br>
 				<c:if test="${(!empty sInfo.sCode && !empty sInfo.sImage) ||(empty sInfo.sCode && !empty sInfo.sImage) ||(!empty sInfo.sCode && empty sInfo.sImage)}">
-					<a href="sImageUploadForm"><input type="button" class="btn btn-primary btn_enroll"value="상점 삭제"></a><br><br>
+					<a href="sScoreInsert"><input type="button" class="btn btn-primary btn_enroll"value="상점 삭제"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
 					<p class="shopwarn">삭제할 정보가 없습니다.</p>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.row1{
+	margin-top: 70px;
+}
+.row5{
+	margin-top: 20px;
+	margin-bottom: 80px;
+	text-align: center;
+}
+.menupan{
+	font-weight: bold;
+	font-size: 14px;
+}
+.red{
+	color: red;
+}
+.menupanwrapper{
+	margin-top: 20px;
+}
+.btn-cancel{
+	border: 1px solid orange;
+	background-color: white;
+	color: orange;
+}
+.btn_submit{
+	border: 1px solid orange;
+	background-color: orange;
+	color: white;
+}
