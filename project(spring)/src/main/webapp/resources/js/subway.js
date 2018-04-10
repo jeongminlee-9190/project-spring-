@@ -58,6 +58,8 @@ $(document).ready(function(){
 	//호선
 	$("#line_wrap ul li").on("click", function(idx){
 		
+		console.log("aaa");
+		
 		var color_change = $(this).css("background-color");
 		
 		var li = $(this);
