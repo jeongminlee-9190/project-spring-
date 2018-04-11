@@ -22,14 +22,11 @@ $(document).ready(function(){
 	//호선
 	$("#line_btn").on("click", function(){
 		$("#line").slideToggle("fast");
-		//$(".cate_wrap").toggleClass("cate_wrap_change", 700);
-		$("#cate_wrap").animate({"top":"342px"}, "fast");
 	});
 	
 	//역
 	$("#station_btn").on("click", function(){
 		$("#station_1").slideToggle("fast");
-		$("#cate_wrap").animate({"top":"342px"}, "fast");
 	});
 	
 	//지하철 리스트 hover시 background-color 변경
@@ -105,9 +102,7 @@ $(document).ready(function(){
 		var line_btn_color = $("#line_btn").css("background-color");
 		$("#station_btn").css({"background-color":line_btn_color,"color":"#fff"});
 		$("#station_wrap ul li").css({"border-color":line_btn_color,"color":line_btn_color});
-		
-		$("#cate_wrap").animate({"top":"90px"}, 700);
-		
+
 	});
 	
 	
@@ -125,9 +120,7 @@ $(document).ready(function(){
 										 "padding-top":"15px","font-family":"'Open Sans', sans-serif"});
 		
 		$("#station_wrap ul").slideUp("fast");
-		
-		$("#cate_wrap").animate({"top":"90px"}, 700);
-		
+	
 	});
 	
 	//호선 클릭시 역 클릭 가능
