@@ -24,11 +24,6 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	@RequestMapping("/main")
-	public String main() {
-		return "main";
-	}
-	
 	@RequestMapping("/mLoginForm")
 	public String mLogin() {
 		return "member/mLoginForm";
