@@ -13,14 +13,14 @@
 			</div>
 		</div>
 		<ul id="list01" class="list clearfix">
-			<li><button type="button">목적A</button></li>
-		 	<li><button type="button">목적B</button></li>
-		 	<li><button type="button">목적C</button></li>
-		 	<li><button type="button">목적D</button></li>
-		 	<li><button type="button">목적E</button></li>
-		 	<li><button type="button">목적F</button></li>
-		 	<li><button type="button">목적G</button></li>
-		 	<li><button type="button">목적H</button></li>
+			<li><button type="button" class='category'>식사</button></li>
+		 	<li><button type="button" class='category'>회식</button></li>
+		 	<li><button type="button" class='category'>데이트</button></li>
+		 	<li><button type="button" class='category'>파티</button></li>
+		 	<li><button type="button" class='category'>목적E</button></li>
+		 	<li><button type="button" class='category'>목적F</button></li>
+		 	<li><button type="button" class='category'>목적G</button></li>
+		 	<li><button type="button" class='category'>목적H</button></li>
 		</ul>
 	</div>
 	

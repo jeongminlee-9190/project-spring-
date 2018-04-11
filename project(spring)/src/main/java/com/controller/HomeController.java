@@ -29,8 +29,8 @@ public class HomeController {
 		return "index_admin";
 	}
 	
-	@RequestMapping(value = "/main0")
+	@RequestMapping(value = "/main")
 	public String main0() {
-		return "main0";
+		return "main";
 	}
 }

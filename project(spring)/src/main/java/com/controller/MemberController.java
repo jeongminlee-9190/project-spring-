@@ -24,11 +24,6 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	@RequestMapping("/main")
-	public String main() {
-		return "main";
-	}
-	
 	@RequestMapping("/mLoginForm")
 	public String mLogin() {
 		return "member/mLoginForm";
@@ -49,11 +44,11 @@ public class MemberController {
 			HttpSession session, ModelAndView mav) {
 		MemberDTO mDTO = memberService.login(map);
 		if(mDTO==null) {
-			mav.addObject("mesg", "로그인에 실패했네요");
-			mav.setViewName("/search/login");
+			mav.addObject("mesg", "아이디와 비밀번호가 일치하지 않습니다.");
+			mav.setViewName("/member/mLoginForm");
 		}else {
 		session.setAttribute("loginInfo", mDTO);
-		mav.setViewName("main0");
+		mav.setViewName("main");
 		}
 		return mav;
 	}
@@ -61,7 +56,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "main0";
+		return "main";
 	}
 	
 	@RequestMapping(value="/memberAdd",  method=RequestMethod.POST)

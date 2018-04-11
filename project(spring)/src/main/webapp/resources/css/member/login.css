@@ -2,24 +2,25 @@
 
 #login_wrap {
 	diaplay:block;
-	position:relative;
-}
-
-#login_wrap a {
-	display:block;
 	position:absolute;
 	top:13px;
 	right:18px;
+	width:140px;
+}
+
+#login_wrap #login {
+	display:block;
+	position:relative;
 	font-family: gotham_Medium; 
 	font-style: normal; 
 	font-weight: normal;
 }
 
-#login_wrap #login {
+#login_wrap #login_txt {
 	display:block;
 	float:left;
 	margin-top:9px;
-	padding-right:15px;
+	margin-left:38px;
 	font-size:16px;
 	color:#fff;
 }
@@ -27,3 +28,24 @@
 #lgoin_icon {
 	float:right;
 }
+
+#user_info_list {
+	display:none;
+	position:relative;
+	top:10px;
+	text-align:center;
+	color:#b2b2b2;
+	font-size:14px;
+	background-color: rgba(0,0,0,0.7);
+}
+
+#user_info_list li {
+	padding:10px 0;
+	margin:0 10px;
+	border-bottom:1px solid #242424;
+}
+
+#user_info_list li:last-child {
+	border:none;
+}
+
