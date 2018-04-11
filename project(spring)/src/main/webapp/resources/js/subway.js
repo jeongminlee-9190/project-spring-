@@ -16,11 +16,9 @@ $(document).ready(function(){
 		if(line_count == 0){
 			$(".emphasized").show();
 			line_count = 1;
-			console.log(line_count);
 		}else{
 			$(".emphasized").hide();
 			line_count = 0;
-			console.log(line_count);
 		}
 	});
 
@@ -36,11 +34,9 @@ $(document).ready(function(){
 		if(station_count == 0){
 			$(".emphasized").show();
 			station_count = 1;
-			console.log(station_count);
 		}else{
 			$(".emphasized").hide();
 			station_count = 0;
-			console.log(station_count);
 		}
 	});
 
@@ -168,7 +164,6 @@ $(document).ready(function(){
 		//search.jsp 안에 input(#station_info) value에 값 넣기 
 		var station = $('#station_btn').find('span').text();
 		$('#station_info').val(station);
-		console.log(station);
 
 	});
 

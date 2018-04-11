@@ -71,24 +71,29 @@ $(document).ready(function(){
 	//호선
 	$("#line_wrap ul li").on("click", function(idx){
 
+		//라인 클릭했을 때 라인 카운트 0으로 만들기
+		line_count=0;
+
+		$('#station_btn').html('<span>역을 선택하세요<span>');
+
 		var color_change = $(this).css("background-color");
-		
+
 		var li = $(this);
 		$("#line_btn").html(function(){
-		    return "<span>" + $(li).find("span").text() + "</span>";
+		    return "<span>" + li.find("span").text() + "</span>";
 		}) ;
-		
+
 		$("#line_btn").css({"background-color":color_change,"color":color_change});
 		$("#line_btn").find("span").css({"background-color":"#fff","display":"inline-block",
 										 "padding":"5px 10px","border-radius":"100px",
-										 "font-family":"gotham_Bold", 
+										 "font-family":"gotham_Bold",
 										 "font-style":"normal","font-weight":"normal","font-size":"21px"})
-		
+
 		//1호선 css 따로 수정
 		if( $(li).find("span").text() == 1 ){
 			$("#line_btn").find("span").css({"padding":"5px 13px"})
 		}
-		
+
 		//역 한글부분 수정
 		if( $(li).index() >= 9 ){
 			$("#line_btn").find("span").css({"padding":"4px 11px","border-radius":"25px",
@@ -96,30 +101,55 @@ $(document).ready(function(){
 											 "font-family":"'Open Sans', sans-serif"})
 		}
 
-		$("#line").slideUp("fast");
-		
-		//호선 클릭하면 역 button, 역 list의 border, font 컬러 변경되기 
+
+		//호선 클릭하면 역 button, 역 list의 border, font 컬러 변경되기
 		var line_btn_color = $("#line_btn").css("background-color");
 		$("#station_btn").css({"background-color":line_btn_color,"color":"#fff"});
-		$("#station_wrap ul li").css({"border-color":line_btn_color,"color":line_btn_color});
+		
+		var line = $(this).attr('value');
+		$.ajax({
+		  type: "get",
+		  url: "line",
+		  dataType: "json",
+		  success: function(data, status, xhr) {
+		    var stationInfo = data[line];
+		    $("#station_1").empty();
+		    if (line != "") {
+		      for (var station of stationInfo) {
+		        $("#station_1").append('<li class="station_list"><span>' + station + '</span></li>');
+		      }
+		    }
+		    $(".station_list").css({"border-color":line_btn_color,"color":line_btn_color});
+		  },
+		});
+
+		//지하철 호선 버튼 눌렀을때 배경 어둡게 - 숨기기
+		$("#line").slideUp("fast");
 
 	});
 	
 	
 	//역
-	$("#station_wrap ul li").on("click", function(idx){
+	$(document).on("click",'.station_list', function(idx){
 		
+		//지하철 클릭했을때 카운트 0으로 만들기
+		station_count = 0;
+
 		var line_btn_color = $("#line_btn").css("background-color");
-		
+
 		var li = $(this);
 		$("#station_btn").html(function(){
-		    return "<span>" + $(li).find("span").text() + "</span>";
+		    return "<span>" + li.find("span").text() + "</span>";
 		}) ;
-		
+
 		$("#station_btn").find("span").css({"font-size":"18px","font-weight":"900",
 										 "padding-top":"15px","font-family":"'Open Sans', sans-serif"});
-		
+
 		$("#station_wrap ul").slideUp("fast");
+		
+		//search.jsp 안에 input(#station_info) value에 값 넣기 
+		var station = $('#station_btn').find('span').text();
+		$('#station_info').val(station);
 	
 	});
 	
@@ -138,52 +168,4 @@ $(document).ready(function(){
 		
 	});
 	
-	//키워드 검색창으로 올리기
-	var keywords = [];
-	var keyword;
-	var keywordsIndex;
-	$(".category ul li button").on("click",function(){
-		
-		keyword = $(this).text();
-		keywordsIndex = keywords.indexOf(keyword);
-		console.log(keywordsIndex);
-		
-		if(keywords.length < 4 && keywordsIndex==-1){
-			keywords.push(keyword);
-			$("#search").val(keywords);
-			//카테고리 리트스 버튼 클릭 하면 컬러 바뀌기
-			$(this).css({"background-color":"#ffa827", "color":"#fff"});
-		}else if(keywordsIndex>=0){
-			keywords.splice(keywordsIndex,1);
-			$("#search").val(keywords);
-			//카테고리 리트스 버튼 클릭 하면 원래 컬러로 돌아오기
-			$(this).css({"background-color":"#fff", "color":"#ffa827"});
-		}
-	
-	});
-	  
-	//카테고리 리스트 감추기
-	$(".list").hide();
-	
-	//카테고리 버튼 누르면 보여지기
-	$("#cate_btn01").on("click", function(){
-		$("#category01 ul").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
-	});
-	$("#cate_btn02").on("click", function(){
-		$("#category02 ul").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
-	});
-	$("#cate_btn03").on("click", function(){
-		$("#category03 ul").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
-	});
-	
-	//카테고리 리스트 버튼 color 변경
-	$(".list li button").on("click", function(){
-		//$(".list").slideUp("slow");
-		//$(this).css({"background-color":"#ffa827", "color":"#fff"});
-	});
-
-
 });

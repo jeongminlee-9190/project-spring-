@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var mId = $('#loginInfo').attr('data-login_mId');
-    console.log(mId);
     if (mId != '') {
       $.each($(".interestUI"), function () {
         var UIsCode = $(this).attr("data-sCode");
