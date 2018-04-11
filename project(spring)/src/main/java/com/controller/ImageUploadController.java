@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,55 +29,63 @@ public class ImageUploadController {
 	}
 	
 	@RequestMapping(value = "/sImageUpload", method=RequestMethod.POST)
-	public String sImageUpload(@RequestParam int num,Upload upload,HttpSession session) {
+	public String sImageUpload(@RequestParam int num,Upload upload,HttpSession session,HttpServletRequest request) {
 		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
 		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
-		String sCode = sDTO.getsCode();
-		String theText = upload.getTheText();
-		CommonsMultipartFile file = upload.getTheFile();
-		long size = file.getSize();
-		String contentType=file.getContentType();
+		String soId = null;
 		String nextPage=null;
-		HashMap<String, String> map = new HashMap<>();
-		
-		
-		if(contentType.equals("image/png")) {
-			String fileName = sCode+"_sImage"+num+".png";
-			System.out.println("size: "+size);
-			System.out.println("fileName: "+fileName);
-			System.out.println("contentType: "+contentType);
-			
-		//특정 경로에 저장
-			File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\images",fileName);
-			try {
-				file.transferTo(dest);
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			map.put("sCode", sCode);
-			if(fileName.contains("sImage1.png")) {
-				map.put("sImage",fileName);
-				sservice.sImageAdd(map);
-			}else {
-				String sImage = sDTO.getsImage();
-				sImage = sImage+"/"+fileName;
-				System.out.println("sImage"+sImage);
-				map.put("sImage", sImage);
-				sservice.sImageAdd(map);
-			}
-			
-			
-			session.setAttribute("mesg", "업로드  완료");
-			nextPage="shop/sImageUploadForm";
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
 		}else {
-			session.setAttribute("mesg", "PNG만 업로드 가능");
-			nextPage="shop/sImageUploadForm";
+			soId = soDTO.getSoId();
+			String sCode = sDTO.getsCode();
+			String theText = upload.getTheText();
+			CommonsMultipartFile file = upload.getTheFile();
+			long size = file.getSize();
+			String contentType=file.getContentType();
+			HashMap<String, String> map = new HashMap<>();
+			
+			if(contentType.equals("image/png")) {
+				String fileName = sCode+"_sImage"+num+".png";
+				System.out.println("size: "+size);
+				System.out.println("fileName: "+fileName);
+				System.out.println("contentType: "+contentType);
+				
+			//특정 경로에 저장
+				File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\images",fileName);
+				try {
+					file.transferTo(dest);
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				map.put("sCode", sCode);
+				if(fileName.contains("sImage1.png")) {
+					map.put("sImage",fileName);
+					sservice.sImageAdd(map);
+					session.setAttribute("sImage", fileName);
+				}else {
+					String sImage = sDTO.getsImage();
+					sImage = sImage+"/"+fileName;
+					System.out.println("sImage"+sImage);
+					map.put("sImage", sImage);
+					sservice.sImageAdd(map);
+					session.setAttribute("sImage", sImage);
+				}
+				session.setAttribute("mesg", "업로드  완료");
+				nextPage="redirect:sImageUploadForm";
+			}else {
+				session.setAttribute("mesg", "PNG만 업로드 가능");
+				nextPage="shop/sImageUploadForm";
+			}
 		}
+		sDTO = sservice.sInfo(soId);
+		session.setAttribute("sInfo", sDTO);
 		return nextPage; //논리적 이름(파일명)
 	}
 }

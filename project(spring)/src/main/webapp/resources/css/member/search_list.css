@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* list 전체 감싸는 wrap */
+#searchList_wrapper {
+	display:block;
+	position:relative;
+	min-width:1200px;
+	padding-bottom:100px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* list */
+.searchList_wrap {
+	display:block;
+	position:relative;
+	top:100px;
+	left:-500px;
+	width:1000px;
+	margin-left:50%;
+	border-bottom:1px solid #faa72a;
+	margin-bottom:20px;
+}
+
+/* 마지막 list border 제거 */
+#searchList_wrapper > div:last-child {
+	border-bottom:none;
+}
+
+/* list 이미지 */
+.shop_main_img {
+	display:block;
+	float:left;
+	margin:0 30px 20px 0;
+}
+
+/* list 정보 */
+.shop_small_info {
+	display:block;
+	float:left;
+	width:570px;
+	margin-bottom:20px;
+}
+
+/* list 정보 : 가게 이름, 검색횟수 */
+.shop_leftInfo {
+	display:block;
+	float:left;
+	left:0;
+	color:#424242;
+	font-weight:900;
+}
+
+/* list 정보 : 주소, 전화번호, 좋아요 */
+.shop_rightInfo {
+	display:block;
+	float:right;
+	right:0;
+	width:285px;
+	color:#757575;
+	margin-top:10px;
+}
+
+/* shop title */
+.shop_leftInfo > a {
+	display:block;
+	font-size:35px;
+	margin-bottom:50px;
+}
+
+/* 검색 횟수 */
+.shop_score {
+	font-size:17px;
+	display:block;
+}
+
+.shop_score > span:first-child{
+	float:left;
+	margin-right:15px;
+}
+
+.shop_score > span:last-child{
+	float:left;
+	margin-top:-2px;
+}
+
+/* icon - 주소 */
+.shop_addr {
+	display:block;
+	font-size:15px;
+}
+
+.shop_addr > span:first-child{
+	float:left;
+	margin-right:20px;
+}
+
+.shop_addr > span:last-child{
+	float:left;
+	width:240px;
+	line-height:25px;
+	margin-top:-2px;
+}
+
+/* icon - 전화번호 */
+.shop_phone {
+	display:block;
+	margin:15px 0 60px 0;
+	font-size:16px;
+}
+
+.shop_phone > span:first-child{
+	float:left;
+	margin-right:20px;
+}
+
+.shop_phone > span:last-child{
+	float:left;
+	margin-top:-2px;
+}
+
+/* icon - 좋아요 */
+.shop_like {
+	display:block;
+	margin:15px 0 60px 0;
+	font-size:16px;
+}
+
+.shop_like > span:first-child{
+	float:left;
+	margin-right:20px;
+}
+
+.shop_like > button{
+	float:left;
+	margin-top:-2px;
+	border:none;
+	outline:none;
+	cursor:pointer;
+	background-color:#fff;
+	font-size:15px;
+	font-weight:800;
+	color:#757575;
+}
+
+
+
+

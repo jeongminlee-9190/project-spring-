@@ -8,18 +8,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="http://localhost:8090/controller/resources/js/jquery-3.3.1.js"></script>
-<title>Insert title here</title>
+<!-- css -->
+<!-- reset -->
+<link rel="stylesheet" type="text/css" href="resources/css/reset.css">
+<!-- font -->
+<link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
+
+<link rel="stylesheet" type="text/css" href="resources/css/member/search_header.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/search_new.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/search_list.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
+
+
+<!-- jquery -->
+<script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="resources/js/member_join.js"></script>
+<script type="text/javascript" src='resources/js/search_result.js'></script>
+<script type="text/javascript" src='resources/js/search_new.js'></script>
+
+<title>갬성갱단</title>
 </head>
 <body>
-  <header>
-  	<h1><a href="main0">GAEMSEONG GAENGDAN</a></h1>
-    <jsp:include page="search0.jsp" flush="true"></jsp:include>
-    <jsp:include page="subway0.jsp" flush="true"></jsp:include>
-    <jsp:include page="keyword0.jsp" flush="true"></jsp:include>
-    <jsp:include page="memberUI0.jsp" flush="true"></jsp:include>
-    <hr>
-  </header>
-	<jsp:include page="searchresultlist.jsp" flush="true"></jsp:include>
+<div class="emphasized"></div>
+<jsp:include page="search_header.jsp" flush="true" />
+
+<jsp:include page="search_new.jsp" flush="true" />
+
+<jsp:include page="searchresultlist.jsp" flush="true" />
+
+<jsp:include page="../footer/footer.jsp" flush="true" />
 
 </body>
 </html>
