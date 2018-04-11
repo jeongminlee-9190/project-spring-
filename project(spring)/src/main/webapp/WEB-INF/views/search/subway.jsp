@@ -22,30 +22,3 @@
 		<ul id="station_1"></ul>
 	</div>
 </div>
-
-<script type="text/javascript" >
-
-// $(".line").on("click",function(){
-//   var line = $(this).attr('value');
-//   $.ajax({
-//     type : "get",
-//     url : "line",
-//     dataType : "json",
-//     success : function(data,status,xhr){
-// 	    var stationInfo = data[line];
-// 	    $("#station_1").empty();
-// 	    if(line != ""){
-//         for(var station of stationInfo){
-//     	   $("#station_1").append('<li><span>' + station + '</span></li>');
-//         }
-// 	    }
-//     },
-//   });
-// });
-$("#station").on("change",function(){
-  station = $("#station").val();
-  $("#stationInfo").val(station);
-  console.log(station);
-});
-
-</script>
