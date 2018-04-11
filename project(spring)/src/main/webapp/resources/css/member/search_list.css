@@ -18,7 +18,7 @@
 	width:1000px;
 	margin-left:50%;
 	border-bottom:1px solid #faa72a;
-	margin-bottom:20px;
+	margin-bottom:30px;
 }
 
 /* 마지막 list border 제거 */
@@ -30,7 +30,7 @@
 .shop_main_img {
 	display:block;
 	float:left;
-	margin:0 30px 20px 0;
+	margin:0 30px 30px 0;
 }
 
 /* list 정보 */
@@ -38,7 +38,7 @@
 	display:block;
 	float:left;
 	width:570px;
-	margin-bottom:20px;
+	margin-bottom:30px;
 }
 
 /* list 정보 : 가게 이름, 검색횟수 */

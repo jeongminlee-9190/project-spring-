@@ -4,13 +4,15 @@
 #search_new_wrap {
 	display:none;
 	z-index:10;
-	overflow-y:scroll;
 	position:fixed;
 	top:100px;
 	left:-305px;
 	margin-left:50%;
 	height:600px;
+	overflow: scroll;
+    overflow-x: hidden;
 }
+
 
 /* ================================= subway ================================= */
 /* 지하철 wrap */
@@ -48,7 +50,17 @@
 #line_wrap ul {
 	display:none;
 	height:252px;
-	overflow-y:scroll;
+	overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  remove scrollbar space
+    background: transparent;  optional: just make scrollbar invisible
+}
+optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+    background: transparent;
 }
 
 #line_wrap ul li {
