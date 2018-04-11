@@ -13,5 +13,5 @@
 	${shop.scoresum }
 	<hr>
 </c:forEach>
-<span id='loginInfo' data-login='${loginInfo}' data-login_mId='${loginInfo.mId }'></span>
+<span id='loginInfo' data-login_mId='${loginInfo.mId }'></span>
 <script type="text/javascript" src='resources/js/search_result.js'></script>
