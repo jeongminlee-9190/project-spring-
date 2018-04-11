@@ -31,9 +31,3 @@
 	</div>
 </c:if>
 
-<c:if test="${!empty mLogin}">
-	<span class="state_login">${SoLogin.soId}&nbsp;</span>
-	<a href="sologout"><span class="state_login">로그아웃</span></a>
-	<a href="SoPwCheckUIServlet"><span class="state_login">MyPage</span></a>
-</c:if>
-

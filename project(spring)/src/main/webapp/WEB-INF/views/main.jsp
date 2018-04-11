@@ -23,6 +23,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
 <script src="resources/js/jquery-3.3.1.js"></script>
+<script src="resources/js/user_info_list.js"></script>
 <script src="resources/js/subway.js"></script>
 <script src="resources/js/keyword.js"></script>
 <script src="resources/js/main_bg_slider.js"></script>
