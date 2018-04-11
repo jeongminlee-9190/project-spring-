@@ -4,14 +4,42 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:forEach var="shop" items="${shopList }">
-	<a href="shopRetrieve?sCode=${shop.sCode }" >${shop.sName }</a>  <br>
-	address : ${shop.sAddr }<br>
-	tel : ${shop.sPhone }<br>
-	<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}">☆</span>
-	<button id="interestBTN${shop.sCode}" class="interestBTN" data-sCode="${shop.sCode}">관심</button><br>
-	${shop.scoresum }
-	<hr>
-</c:forEach>
+<div id="searchList_wrapper">
+	<c:forEach var="shop" items="${shopList}">
+	<div class="searchList_wrap clearfix" >
+	
+		<div class="shop_main_img">
+			<img src="resources/images/shop_img.jpg" title="자판기">
+		</div>
+		
+		<div class="shop_small_info clearfix">
+			<div class="shop_leftInfo">
+				<a href="shopRetrieve?sCode=${shop.sCode}" class="shop_title" >${shop.sName}</a>
+				<div class="shop_score clearfix">
+					<span><img src="resources/images/icon_search.png" title="검색횟수"></span>
+					<span>${shop.scoresum}</span>
+				</div>
+			</div>
+			
+			<div class="shop_rightInfo">
+				<div class="shop_addr clearfix">
+					<span><img src="resources/images/icon_loc.png" title="주소"></span>
+					<span>${shop.sAddr}</span>
+				</div>
+				<div class="shop_phone clearfix">
+					<span><img src="resources/images/icon_phone.png" title="전화번호"></span>
+					<span>${shop.sPhone}</span>
+				</div>
+				<div class="shop_like clearfix">
+					<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}"></span>
+					<button id="interestBTN${shop.sCode}" class="interestBTN" data-sCode="${shop.sCode}">
+						좋아요
+					</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</c:forEach>
+</div>
 <span id='loginInfo' data-login_mId='${loginInfo.mId }'></span>
-<script type="text/javascript" src='resources/js/search_result.js'></script>

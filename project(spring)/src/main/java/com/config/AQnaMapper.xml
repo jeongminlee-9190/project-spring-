@@ -60,13 +60,34 @@
 	     from soqna
     </select>
     
+    <select id="aQnaListTotalCount2" resultType="int">
+	     select count(*)
+	     from soqna
+	     where qnaComplete ='확인중'
+    </select>
+    
+    
     <select id="aQnaListTotalSearchCount" resultType="int" parameterType="hashmap">
 	     select count(*)
 	     from soqna
 		 where qnaComplete=#{searchName}
     </select>
     
-        
+    <select id="aQnaListTotalSearchCount2" resultType="int" parameterType="hashmap">
+	     select count(*)
+	     from soqna
+	     <if test="searchName2=='1주일'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=30
+			]]>
+		</if>
+    </select>
+    
     <select id="aQnaListTotalSearchCount3" resultType="int" parameterType="hashmap">
 	     select count(*)
 	     from soqna
@@ -83,43 +104,7 @@
     </select>
     
     
-    <select id="aQnaListTotalSearchCount2" resultType="int" parameterType="hashmap">
-	     select count(*)
-	     from soqna
-	     <if test="searchName2=='1주일'">
-			<![CDATA[
-			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=7
-			]]>
-		</if>
-		<if test="searchName2=='1개월'">
-			<![CDATA[
-			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=30
-			]]>
-		</if>
-    </select>
-
     
-	<insert id="soQnaWrite" parameterType="hashmap">
-		insert into soqna (qnaNum, soId, qnaTitle , qnaContent,qnaWritedate,qnaComplete,qnaCategory)
-		values(SEQ_noticetoso_noticeNum.NEXTVAL, #{soId},#{qnaTitle},#{qnaContent},default,default,#{qnaCategory})
-	</insert>
-	
-	<update id="soQnaModify" parameterType="hashmap">
-		update soqna
-		set qnaTitle=#{qnaTitle}, qnaContent=#{qnaContent}
-		where soId=#{soId} and qnaNum=#{qnaNum}
-	</update>
-
-	<delete id="soQnaDelete" parameterType="hashmap">
-		delete from soqna
-		where soId=#{soId} and qnaNum=#{qnaNum}
-	</delete>
-
-	<!--페이징 처리 
-	<select id="totalCnt" parameterType="hashmap" resultType="int">
-    	select count(*) from soqnaboard where oId=#{oId}
-    </select>
-    -->
     
     <!-- 1:1 문의 자세히 보기 -->
     <select id="soQnaRetrieve" parameterType="int" resultType="SoQnaDTO">
@@ -152,7 +137,7 @@
 		where qnaNum=#{qnaNum}
 	</update>
 	
-	<!-- 1:1 문의 수정하기 -->
+	<!-- 1:1 문의 답변 수정하기 -->
 	<update id="soQnaReplyModify" parameterType="hashmap">
 		update soqnareply
 		set qnaReplyContent=#{qnaReplyContent}

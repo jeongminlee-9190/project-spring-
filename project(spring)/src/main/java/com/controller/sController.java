@@ -84,10 +84,30 @@ public class sController {
 		
 		service.SInfoEnroll(dto);
 		session.setAttribute("sInfo", dto);
+		
 	    session.setAttribute("success", "상점 기본정보 등록 완료");
 	    return "redirect:sManagement";
 	}
 	
+	/*@RequestMapping("/sScoreInsert")
+	public String sScoreInsert(HttpSession session,String sCode) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		sCode = sDTO.getsCode();
+		System.out.println(sCode);
+		if(soDTO==null) {
+			session.setAttribute("fail", "로그인을 해주세요");
+			nextPage ="shop/sManagement";
+		}else{
+			service.sScoreInsert(sCode);
+			session.setAttribute("success", "score 등록 성공");
+			nextPage ="redirect:sManagement";
+		}
+		return nextPage;
+	}
+	*/
 	
 	@RequestMapping("/sManagement")
 	public String sManagement(HttpSession session) {

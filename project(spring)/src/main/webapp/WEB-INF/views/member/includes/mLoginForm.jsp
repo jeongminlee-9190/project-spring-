@@ -15,7 +15,7 @@
 		<form action="login" method="post" id="mLoginForm">
 		
 			<input type="text" name="mId" id="mId" placeholder="아이디 또는 이메일">
-			<input type="text" name="mPasswd" id="mPasswd" placeholder="비밀번호">
+			<input type="password" name="mPasswd" id="mPasswd" placeholder="비밀번호">
 			<input type="submit" value="LOGIN" id="mLogin">
 			<a href="mJoinForm" title="회원가입">
 				<input type="button" value="회원가입">
@@ -32,8 +32,8 @@
 </c:if>
 
 <c:if test="${!empty mLogin}">
-	<%-- <span class="state_login">${SoLogin.soId}&nbsp;</span>
+	<span class="state_login">${SoLogin.soId}&nbsp;</span>
 	<a href="sologout"><span class="state_login">로그아웃</span></a>
-	<a href="SoPwCheckUIServlet"><span class="state_login">MyPage</span></a> --%>
+	<a href="SoPwCheckUIServlet"><span class="state_login">MyPage</span></a>
 </c:if>
 

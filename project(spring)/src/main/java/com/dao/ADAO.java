@@ -152,14 +152,11 @@ public class ADAO {
 		System.out.println("soId: "+soId);
 		template.delete("AdminMapper.sDormantDel",soId);
 		template.delete("AdminMapper.soDormantDel",soId);
-		
-		
 	}
+	
 	public void changeSoLevel(HashMap<String, String> map) {
 		template.update("AdminMapper.soLevelChange",map);
 	}
-	
-	
 	//////////////////////////////////////////////////////////////////////////////////////
 	public SPageDTO sList(HashMap<String, String> map,int curPage) {
 		SPageDTO spageDTO = new SPageDTO();
