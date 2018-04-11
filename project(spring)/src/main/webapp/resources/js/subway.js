@@ -186,6 +186,12 @@ $(document).ready(function(){
 		}
 
 	});
-
+	
+	//검색창 클릭 했을 때 배경 어둡게 - 숨기기  / body 스크롤 가능
+	$(".emphasized").on("click",function(){
+		$(".emphasized").hide();
+		$("#line_wrap ul").slideUp("fast");
+		$("#station_wrap ul").slideUp("fast");
+	});
 
 });
