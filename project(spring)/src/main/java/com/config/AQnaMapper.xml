@@ -60,6 +60,13 @@
 	     from soqna
     </select>
     
+    <select id="aQnaListTotalCount2" resultType="int">
+	     select count(*)
+	     from soqna
+	     where qnaComplete ='확인중'
+    </select>
+    
+    
     <select id="aQnaListTotalSearchCount" resultType="int" parameterType="hashmap">
 	     select count(*)
 	     from soqna

@@ -26,6 +26,10 @@ public class AQnaService {
 	public int aQnaListTotalCount(){
 		return dao.aQnaListTotalCount();
 	}
+	
+	public int aQnaListTotalCount2(){
+		return dao.aQnaListTotalCount2();
+	}
 
 	public int aQnaListTotalSearchCount(HashMap<String, String> map){
 		return dao.aQnaListTotalSearchCount(map);

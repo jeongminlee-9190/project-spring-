@@ -10,11 +10,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>갬성갱단 상점 관리 센터</title>
-<%-- <link href="${pageContext.request.contextPath}/resources/css/index_admin.css" rel="stylesheet" > --%>
 <link href="resources/css/index_so.css" rel="stylesheet" >
 </head>
 <body>
-<%-- <c:if test="${! empty success}">
+<c:if test="${! empty success}">
    <script type="text/javascript">
     alert('${success}');
    </script>
@@ -26,10 +25,9 @@
     	alert('${SoLogout}');
     </script>
 </c:if>
-<c:remove var="SoLogout"/>
 
 <c:if test="${!empty mesg}">
-	<script type="text/javascript">
+	<script type="text/javascript">W
     	alert('${mesg}');
     </script>
 </c:if>
@@ -39,13 +37,7 @@
     alert('${fail}');
    </script>
 </c:if>
-<c:remove var="fail"/> --%>
-
-if('${!empty success}')alert('${success}');
-if('${!empty adminLogout}')alert('${adminLogout}');
-if('${!empty mesg}')alert('${mesg}');
-if('${!empty fail}')alert('${fail}');
-
+<c:remove var="fail"/>
 <div class="container-fluid">
 	<c:if test="${empty SoLogin}">
 		<form action="sologin" method="get" class="loginForm">

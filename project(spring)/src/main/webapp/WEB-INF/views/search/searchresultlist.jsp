@@ -15,22 +15,22 @@
 		<div class="shop_small_info clearfix">
 			<div class="shop_leftInfo">
 				<a href="shopRetrieve?sCode=${shop.sCode}" class="shop_title" >${shop.sName}</a>
-				<div class="shop_score">
+				<div class="shop_score clearfix">
 					<span><img src="resources/images/icon_search.png" title="검색횟수"></span>
-					${shop.scoresum }
+					<span>${shop.scoresum}</span>
 				</div>
 			</div>
 			
 			<div class="shop_rightInfo">
-				<div class="shop_addr">
+				<div class="shop_addr clearfix">
 					<span><img src="resources/images/icon_loc.png" title="주소"></span>
-					address : ${shop.sAddr}
+					<span>${shop.sAddr}</span>
 				</div>
-				<div class="shop_phone">
+				<div class="shop_phone clearfix">
 					<span><img src="resources/images/icon_phone.png" title="전화번호"></span>
-					${shop.sPhone}
+					<span>${shop.sPhone}</span>
 				</div>
-				<div class="shop_like">
+				<div class="shop_like clearfix">
 					<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}"></span>
 					<button id="interestBTN${shop.sCode}" class="interestBTN" data-sCode="${shop.sCode}">
 						좋아요
