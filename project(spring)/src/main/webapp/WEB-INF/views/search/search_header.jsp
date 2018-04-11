@@ -5,6 +5,6 @@
 	<div id="search_logo"><a href="main" >
 		<img src="resources/images/logo_search.png" title="home">
 	</a></div>
-	<jsp:include page="search0.jsp" flush="true" />
+	<jsp:include page="search.jsp" flush="true" />
 	<jsp:include page="memberUI0.jsp" flush="true" />
 </div>
