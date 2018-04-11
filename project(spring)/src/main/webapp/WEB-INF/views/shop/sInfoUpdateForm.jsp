@@ -10,13 +10,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-<link href="${pageContext.request.contextPath}/resources/css/shop/s_view2.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
+<link href="resources/css/shop/s_infoUpdateForm.css" rel="stylesheet" >
+<link href="resources/css/so/so_footer.css" rel="stylesheet" >
 <title>상점 관리</title>
 </head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
 <body>
 <c:if test="${!empty SoLogin}"> 
 <jsp:include page="../so/includes/soTop.jsp" flush="true"/>

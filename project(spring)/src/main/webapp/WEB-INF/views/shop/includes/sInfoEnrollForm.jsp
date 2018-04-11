@@ -12,43 +12,7 @@
 	<input Type="hidden" name="soLicense" id="soLicense" value="${soLicense}">
 	
 	<style>
-		a{
-			text-decoration: none;
-		}
-		.col-sm-6{
-			border: 1px solid grey;
-		}
-		.col-sm-6{
-			border: 1px solid blue;
-		}
-		.col-sm-8{
-			border: 1px solid blue;
-		}
-		.row2{
-			margin-left: 5%;
-			margin-right: 5%;
-		}
-		.row3{
-			margin-left: 6%;
-			margin-right: 6%;
-			margin-bottom: 70px;
-			text-align: center;		
-		}
 		
-		.panel{
-			border: 1px solid orange;
-		}
-		.panel-body{
-			color: black;
-		}
-		.panel-title{
-    		font-weight: bold;
-    		color: orange;
-    	}
-    	.span_Info1{
-    		font-size: 16px;
-    		font-weight: bold;
-    	}
 	</style>
 	<div class="container-fluid sInfo">
 		<div class="row row1">

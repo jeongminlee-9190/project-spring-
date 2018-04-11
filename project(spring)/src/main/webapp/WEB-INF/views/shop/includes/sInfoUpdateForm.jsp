@@ -1,227 +1,177 @@
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
-<c:if test="${!empty SoLogin}">
-<form class="form-inline" action="sInfoUpdate" method="post">
-	<div class="container-fluid sbasicInfo">
-		<c:set var="sdto" value="${sInfo}"></c:set>
-		<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<form class="form-inline" action="SInfoEnroll" method="get" onsubmit="formCheck(event)">
+	<c:set var="sdto" value="${sInfo}"></c:set>
+	<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
+	
+	<style>
+		.row1{
+			margin-top: 70px;
+		}	
+	</style>
+	<div class="container-fluid sInfo">
 		<div class="row row1">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-4"><h3>상점  기본 정보 수정</h3></div>
+			<div class="col-sm-4"><h3>상점 기본 정보 수정</h3></div>
 		</div>
-	</div>
-	<div class="container-fluid sInfo">
 		<div class="row row2">
-			<div class="panel panel-default Info1">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#info1"><h3 class="panel-title">상점 기본 정보</h3><a></div>
-				<div id="info1" class="panel-collapse collapse in">
-					<div class="panel-body">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<span class="span_Info1">상점명</span> 
-								<input type="text" class="form-control"  name="sName" id="sName" size="31" maxlength="20" value="${sdto.sName}">
-							</div>
-							<br><br>
-							<span class="span_Info1">주소 </span>${sdto.sAddr}<br>
-							<span class="span_Info1">지하철역 </span>${sdto.sSubway}<br><br>
-							<div class="form-group">
-								<span class="span_Info1">전화 </span>
-								<input type="text" class="form-control" name="sPhone1" value="${fn: split(sdto.sPhone,'-')[0]}" size="3" maxlength="4"> - 
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" name="sPhone1" value="${fn: split(sdto.sPhone,'-')[1]}" size="3" maxlength="4"> - 
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" name="sPhone1" value="${fn: split(sdto.sPhone,'-')[2]}" size="3" maxlength="4">
-							</div>
-							<br><br>
-							<div class="form-group">
-								<span class="span_Info1">카테고리</span>
-								<c:if test="${sdto.sCategory=='Wine'}">
+			<div class="col-sm-6">
+				<div class="panel panel-default Info1">
+					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#info1"><h3 class="panel-title">상점 기본 정보</h3><a></div>
+					<div id="info1" class="panel-collapse collapse in">
+						<div class="panel-body">
+								<div class="form-group">
+									<span class="span_Info1">상점명</span>
+									&emsp;<input type="text" class="form-control"  name="sName" id="sName" size="28" maxlength="20" value="${sdto.sName}">
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">상점 전화 </span> 
+									&emsp;<input type="text" class="form-control" name="sPhone1" id="sPhone1" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[0]}">-
+									<input type="text" class="form-control" name="sPhone2" id="sPhone2" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[1]}">-
+									<input type="text" class="form-control" name="sPhone3" id="sPhone3" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[2]}">
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">상점 주소 </span>&emsp;
+									${sdto.sAddr}
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">지하철역 </span>&emsp;
+									${sdto.sSubway}
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">카테고리 </span>&emsp;
+									<c:if test="${sdto.sCategory=='Wine'}">
 									<select class="form-control"  id="sCategory" name="sCategory">
 										<option value="c">카페</option>
 										<option value="d">디저트</option>
 										<option value="w" selected="selected">와인</option>
 									</select>
-								</c:if>
-								<c:if test="${sdto.sCategory=='Cafe'}">
-									<select class="form-control"  id="sCategory" name="sCategory">
-										<option value="c" selected="selected">카페</option>
-										<option value="d">디저트</option>
-										<option value="w">와인</option>
-									</select>
-								</c:if>
-								<c:if test="${sdto.sCategory=='Dessert'}">
-									<select class="form-control"  id="sCategory" name="sCategory">
-										<option value="c">카페</option>
-										<option value="d" selected="selected">디저트</option>
-										<option value="w">와인</option>
-									</select>
-								</c:if>
+									</c:if>
+									<c:if test="${sdto.sCategory=='Cafe'}">
+										<select class="form-control"  id="sCategory" name="sCategory">
+											<option value="c" selected="selected">카페</option>
+											<option value="d">디저트</option>
+											<option value="w">와인</option>
+										</select>
+									</c:if>
+									<c:if test="${sdto.sCategory=='Dessert'}">
+										<select class="form-control"  id="sCategory" name="sCategory">
+											<option value="c">카페</option>
+											<option value="d" selected="selected">디저트</option>
+											<option value="w">와인</option>
+										</select>
+									</c:if>
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">주차 </span>&emsp;
+									<c:if test="${sdto.sParkinglot=='Y'}">
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
+									</c:if>
+									<c:if test="${sdto.sParkinglot=='N'}">
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y">예
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="N" checked="checked">아니오
+									</c:if>
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">테라스 </span>&emsp;
+									<c:if test="${sdto.sTerrace=='Y'}">
+										<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
+										<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
+									</c:if>
+									<c:if test="${sdto.sTerrace=='N'}">
+										<input type="radio" name="sTerrace" id="sTerrace" value="Y">예
+										<input type="radio" name="sTerrace" id="sTerrace" value="N" checked="checked">아니오
+									</c:if>
+								</div>
+								<br><br>
+								<div class="form-group">
+									<span class="span_Info1">영업시간 </span>(00:00~24:00)<br>
+									&emsp;&emsp;&emsp;평일: <input type="text" class="form-control"  name="sWeekday" id="sWeekday" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[0]}"><br>
+									&emsp;&emsp;&emsp;주말: <input type="text" class="form-control"  name="sWeekend" id="sWeekend" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[1]}"><br>
+									&emsp;&emsp;&emsp;휴무: <input type="text" class="form-control"  name="sDayOff" id="sDayOff" size="20" maxlength="20" placeholder="(예)둘째주 월요일 " value="${fn: split(sdto.sBusinesshours,'/')[2]}"><br>
+								</div>
+								<br><br>
+							</div>
+						</div>
+					</div><!-- collapse -->
+				</div><!-- pannel -->
+			<div class="col-sm-6">
+				<div class="panel panel-default menu">
+					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
+					<div id="menu" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="form-group">
+								<span class="span_Info1">메뉴 카테고리1
+								<input type="text" class="form-control"  name="sMenuCategory1" id="sMenuCategory1" size="15" maxlength="10" placeholder="(예) 음료, 와인 ">
+								</span><hr>
+								메뉴1)<br>
+								이름: <input type="text" class="form-control"  name="sC1Menu1" id="sC1Menu1" size="40" maxlength="30"><br> 
+								설명: <input type="text" class="form-control"  name="sC1Menu1_info" id="sC1Menu1_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control"  name="sC1Price1" id="sC1Price1" size="4" maxlength="6" placeholder="10,000">원 
 							</div>
 							<br><br>
-							
 							<div class="form-group">
-								<span class="span_Info1">영업시간 </span>
+								메뉴2)<br>
+								이름: <input type="text" class="form-control"  name="sC1Menu2" id="sC1Menu2" size="40" maxlength="30"><br> 
+								설명: <input type="text" class="form-control"  name="sC1Menu2_info" id="sC1Menu2_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control"  name="sC1Price2" id="sC1Price2" size="4" maxlength="6" placeholder="10,000">원   
 							</div>
-							<br>
+							<br><br>
 							<div class="form-group">
-								평일)  <input type="text" class="form-control" name="sWeekday" value="${fn: split(sdto.sBusinesshours,'/')[0]}">
+								메뉴3)<br>
+								이름: <input type="text" class="form-control"  name="sC1Menu3" id="sC1Menu3" size="40" maxlength="30"><br> 
+								설명: <input type="text" class="form-control"  name="sC1Menu3_info" id="sC1Menu3_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control"  name="sC1Price3" id="sC1Price3" size="4" maxlength="6" placeholder="10,000">원
 							</div>
-							<br>
+	
+							<br><br><br>
 							<div class="form-group">
-								주말)  <input type="text" class="form-control" name="sWeekend" value="${fn: split(sdto.sBusinesshours,'/')[1]}">
+								<span class="span_Info1">메뉴 카테고리2
+								<input type="text" class="form-control"  name="sMenuCategory2" id="sMenuCategory2" size="15" maxlength="10" placeholder="(예) 디저트,사이드">
+								</span><hr>
+								메뉴1)<br>
+								이름: <input type="text" class="form-control"  name="sC2Menu1" id="sC2Menu1" size="40" maxlength="30"><br> 
+								설명: <input type="text" class="form-control"  name="sC2Menu1_info" id="sC2Menu1_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control"  name="sC2Price1" id="sC2Price1" size="4" maxlength="6" placeholder="10,000">원 
 							</div>
-							<br>
+							<br><br>
 							<div class="form-group">
-								휴무)  <input type="text" class="form-control" name="sDayOff" value="${fn: split(sdto.sBusinesshours,'/')[2]}">
+								메뉴2)<br>
+								이름: <input type="text" class="form-control"  name="sC2Menu2" id="sC2Menu2" size="40" maxlength="30"><br>
+								설명: <input type="text" class="form-control"  name="sC2Menu2_info" id="sC2Menu2_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control"  name="sC2Price2" id="sC2Price2" size="4" maxlength="6" placeholder="10,000">원
 							</div>
-							<br>
-							
-		  					<span class="span_warn">상점 사정에 따라 예기치 못한 휴무가 발생할 수 있으며,</span><br>
-		  					<span class="span_warn">재료 소진 시 영업시간이 마감될 수 있습니다.</span><br><br>
-							<span class="span_Info1">테라스 </span>
-							<c:if test="${sdto.sTerrace=='Y'}">
-								<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
-								<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
-							</c:if>
-							<c:if test="${sdto.sTerrace=='N'}">
-								<input type="radio" name="sTerrace" id="sTerrace" value="Y">예
-								<input type="radio" name="sTerrace" id="sTerrace" value="N" checked="checked">아니오
-							</c:if>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<span class="span_Info1">주차 </span>
-							<c:if test="${sdto.sParkinglot=='Y'}">
-								<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
-								<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
-							</c:if>
-							<c:if test="${sdto.sParkinglot=='N'}">
-								<input type="radio" name="sParkinglot" id="sParkinglot" value="Y">예
-								<input type="radio" name="sParkinglot" id="sParkinglot" value="N" checked="checked">아니오
-							</c:if>
-							<br>
+							<br><br>
+							<div class="form-group">
+								메뉴3)<br>
+								이름: <input type="text" class="form-control"  name="sC2Menu3" id="sC2Menu3" size="40" maxlength="30"><br>
+								설명: <input type="text" class="form-control"  name="sC2Menu3_info" id="sC2Menu3_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
+								가격: <input type="text" class="form-control" name="sC2Price3" id="sC2Price3" size="4" maxlength="6" placeholder="10,000">원
+							</div>
 						</div>
-						<div class="col-sm-6">
-						<!-- 네이버 지도 api -->
-							<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=ip9MzYUcGqHV9etI8TeJ&submodules=geocoder"></script>
-							<input Type="hidden" value="${saddr}" id="sAddr">
-							<div id="map" style="maxWidth:650px;height:230px;"></div>
-							<script>
-							      var map = new naver.maps.Map('map');
-							      var myaddress = document.getElementById("sAddr").value;// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
-							      console.log(myaddress);
-							      naver.maps.Service.geocode({address: myaddress}, function(status, response) {
-							          if (status !== naver.maps.Service.Status.OK) {
-							              return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
-							          }
-							          var result = response.result;
-							          // 검색 결과 갯수: result.total
-							          // 첫번째 결과 결과 주소: result.items[0].address
-							          // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
-							          var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
-							          map.setCenter(myaddr); // 검색된 좌표로 지도 이동
-							          // 마커 표시
-							          var marker = new naver.maps.Marker({
-							            position: myaddr,
-							            map: map
-							          });
-							          // 마커 클릭 이벤트 처리
-							          naver.maps.Event.addListener(marker, "click", function(e) {
-							            if (infowindow.getMap()) {
-							                infowindow.close();
-							            } else {
-							                infowindow.open(map, marker);
-							            }
-							          });
-							      });
-							 </script>	
-						</div>
-					</div>
-				</div><!-- collapse -->
-			</div><!-- pannel -->
+					</div><!-- collapse -->
+				</div><!-- pannel -->
+			</div>
 		</div><!-- end of row -->
-	</div>
-	<div class="row row3">
-		<div class="panel panel-default menu">
-			<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
-			<div id="menu" class="panel-collapse collapse in">
-				<div class="panel-body">
-					<div class="col-sm-6">
-						<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
-						<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
-						<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
-						<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
-								
-						<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
-						<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
-						<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
-						<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
-							
-							
-						<div class="row">
-							<div class="col-sm-6">
-								<h4>-${sMenuCategory1}-</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-4">
-								<p>메뉴명</p>
-								${fn: split(sC1Menu1,':')[0]}<br>
-								${fn: split(sC1Menu2,':')[0]}<br>
-								${fn: split(sC1Menu3,':')[0]}<br>
-							</div>
-							<div class="col-sm-5">
-								<p>메뉴 설명</p>
-								${fn: split(sC1Menu1,':')[1]}<br>
-								${fn: split(sC1Menu2,':')[1]}<br>
-								${fn: split(sC1Menu3,':')[1]}<br>
-							</div>
-							<div class="col-sm-2">
-								<p>가격</p>
-								<fmt:formatNumber value="${fn: split(sC1Menu1,':')[2]}" type="currency" /><br>
-								<fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /><br>
-								<fmt:formatNumber value="${fn: split(sC1Menu3,':')[2]}" type="currency" /><br> 
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="row">
-							<div class="col-sm-6">
-								<h4>-${sMenuCategory2}-</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-4">
-								<p>메뉴명</p>
-								${fn: split(sC2Menu1,':')[0]}<br>
-								${fn: split(sC2Menu2,':')[0]}<br>
-								${fn: split(sC2Menu3,':')[0]}
-							</div>
-							<div class="col-sm-5">
-								<p>메뉴 설명</p>
-								${fn: split(sC2Menu1,':')[1]}<br>
-								${fn: split(sC2Menu2,':')[1]}<br>
-								${fn: split(sC2Menu3,':')[1]}<br>
-							</div>
-							<div class="col-sm-2">
-								<p>가격</p>
-								<fmt:formatNumber value="${fn: split(sC2Menu1,':')[2]}" type="currency" /><br>
-								<fmt:formatNumber value="${fn: split(sC2Menu2,':')[2]}" type="currency" /><br>
-								<fmt:formatNumber value="${fn: split(sC2Menu3,':')[2]}" type="currency" /><br> 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- collapse -->
-		</div><!-- pannel -->
-	</div>
-	<div class="row row4">
-		<div class="col-sm-12">
-			<input type="submit" value="수정">
+		<div class="row row3">
+			<div class="col-sm-12">
+				<input type="submit" name="submit" class="btn btn-primary btn-cancel btn_submit" value="수정">
+				<a href="sManagement"><input type="button" name="cancel" class="btn btn-primary btn-cancel" value="취소"></a>
+			</div>
 		</div>
 	</div>
 </form>
-</c:if>
+
+
+
