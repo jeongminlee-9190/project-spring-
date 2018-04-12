@@ -24,6 +24,11 @@ public class SService {
 		dao.sScoreInsert(dto.getsCode());
 	}
 	
+	
+	public void sInfoUpdate(SDTO dto) {
+		dao.sInfoUpdate(dto);
+	}
+	
 /*	public void sScoreInsert(String sCode) {
 		System.out.println("sScoreInsert SService 접근"+sCode);
 		dao.sScoreInsert(sCode);

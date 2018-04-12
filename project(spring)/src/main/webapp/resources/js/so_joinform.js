@@ -3,7 +3,6 @@
  		$("#soId").keyup(function(){
 			var soId = $("#soId").val();
 			var length = soId.length;
-			console.log(length);
 			if(length>5){
 				$.ajax({
 					url: "soIdCheck",
@@ -57,9 +56,15 @@
  			var mesg=null;
  			if(re_email.test($("#soId").val()) != true){
  				alert("아이디는 이메일 형식으로 입력해주세요.");
+ 				console.log($("#result1").text());
  				$("#soId").focus();
  				e.preventDefault();
- 			}else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
+ 			}else if($("#result1").text()!="아이디 사용 가능"){
+ 				alert("아이디가 중복되어 사용 불가합니다.");
+ 				$("#soId").focus();
+ 				e.preventDefault();
+ 			}
+ 			else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
  				alert("유효한 비밀번호를 입력해주세요.");
  				$("#passwd").focus();
  				e.preventDefault();

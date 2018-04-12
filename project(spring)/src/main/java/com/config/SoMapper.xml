@@ -65,6 +65,6 @@
   	
   	<insert id="payment" parameterType="SvDTO">
   		insert into payment(soId,payNum,payDate,period,price)
-		values(#{soId},#{payNum},default,#{period},#{price})
+		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price})
   	</insert>
 </mapper>
