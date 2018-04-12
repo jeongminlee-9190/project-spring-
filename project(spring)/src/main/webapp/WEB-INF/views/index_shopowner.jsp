@@ -11,6 +11,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>갬성갱단 상점 관리 센터</title>
 <link href="resources/css/index_so.css" rel="stylesheet" >
+<style>
+	body { 
+		background-color: black;
+	}
+	.loginForm{
+		padding-top: 2%;
+		margin-left: 38%;
+		text-align:center;
+		background-color: black;
+		height: 450px;
+		width: 340px;
+	}
+</style>
 </head>
 <body>
 <c:if test="${! empty success}">
@@ -27,7 +40,7 @@
 </c:if>
 
 <c:if test="${!empty mesg}">
-	<script type="text/javascript">W
+	<script type="text/javascript">
     	alert('${mesg}');
     </script>
 </c:if>

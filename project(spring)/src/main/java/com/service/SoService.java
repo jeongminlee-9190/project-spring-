@@ -30,6 +30,11 @@ public class SoService {
 	public int soIdCheck(String soId) {
 		return dao.soIdCheck(soId);
 	}
+	
+	public int soLicenseCheck(String soLicense) {
+		return dao.soLicenseCheck(soLicense);
+	}
+	
 	public SoDTO soMyPage(String soId) {
 		return dao.soMyPage(soId);
 	}

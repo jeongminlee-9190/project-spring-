@@ -22,6 +22,10 @@ public class SDAO {
 		template.insert("SMapper.sAdd",dto);
 	}
 	
+	public void sInfoUpdate(SDTO dto) {
+		template.update("SMapper.sInfoUpdate",dto);
+	}
+	
 	public void sScoreInsert(String sCode) {
 		System.out.println("sScoreInsert SDAO 접근"+sCode);
 		template.insert("SMapper.sScoreInsert",sCode);

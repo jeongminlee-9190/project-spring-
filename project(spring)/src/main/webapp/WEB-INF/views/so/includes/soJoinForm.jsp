@@ -36,7 +36,8 @@
 							
 						<tr>
 							<th>사업자번호</th>
-							<td><input type="text" name="soLicense" id="soLicense" placeholder="- 하이픈 없이 숫자 10자리만 기재" maxlength="10" size="30"></td>
+							<td><input type="text" name="soLicense" id="soLicense" placeholder="- 하이픈 없이 숫자 10자리만 기재" maxlength="10" size="30">
+							<br><span id="result3"></span></td>
 						</tr>
 					
 						<tr>

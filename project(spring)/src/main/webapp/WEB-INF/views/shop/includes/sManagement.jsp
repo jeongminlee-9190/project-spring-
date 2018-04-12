@@ -29,7 +29,7 @@
     					<h3>1단계</h3>
 						<span class="shopbasicinfo">상점 기본정보</span><br><br>
 						<span>등록 완료</span><br><br>
-						<a href="SInfoUpdateServlet"><input type="button" class="btn btn-primary btn_enroll"value="기본정보 수정"></a>
+						<a href="sInfoUpdateForm"><input type="button" class="btn btn-primary btn_enroll"value="기본정보 수정"></a>
  					</div>	
  					<div class="card2">
     					<h3>2단계</h3>
@@ -45,7 +45,7 @@
     					<h3>1단계</h3>
 						<span class="shopbasicinfo">상점 기본정보</span><br><br>
 						<span>등록 완료</span><br><br>
-						<a href="SInfoUpdateServlet"><input type="button" class="btn btn-primary btn_enroll"value="기본정보 수정"></a>
+						<a href="sInfoUpdateForm"><input type="button" class="btn btn-primary btn_enroll"value="기본정보 수정"></a>
  					</div>	
  					<div class="card2">
     					<h3>2단계</h3>

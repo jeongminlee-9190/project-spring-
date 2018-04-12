@@ -74,7 +74,17 @@
 #line_wrap ul {
 	display:none;
 	height:252px;
-	overflow-y:scroll;
+	overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  remove scrollbar space
+    background: transparent;  optional: just make scrollbar invisible
+}
+optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+    background: transparent;
 }
 
 #line_wrap ul li {
@@ -90,6 +100,7 @@
 	font-weight: normal;
 	background-color:#fff;
 }
+
 
 #line_wrap ul .line_korean {
 	font-size:18px; 
@@ -173,7 +184,17 @@
 #station_wrap ul {
 	display:none;
 	height:252px;
-	overflow-y:scroll;
+	overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  remove scrollbar space
+    background: transparent;  optional: just make scrollbar invisible
+}
+optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+    background: transparent;
 }
 
 #station_1 li {

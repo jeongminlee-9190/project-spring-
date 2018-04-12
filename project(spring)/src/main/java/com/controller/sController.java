@@ -89,26 +89,6 @@ public class sController {
 	    return "redirect:sManagement";
 	}
 	
-	/*@RequestMapping("/sScoreInsert")
-	public String sScoreInsert(HttpSession session,String sCode) {
-		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
-		String nextPage=null;
-		
-		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
-		sCode = sDTO.getsCode();
-		System.out.println(sCode);
-		if(soDTO==null) {
-			session.setAttribute("fail", "로그인을 해주세요");
-			nextPage ="shop/sManagement";
-		}else{
-			service.sScoreInsert(sCode);
-			session.setAttribute("success", "score 등록 성공");
-			nextPage ="redirect:sManagement";
-		}
-		return nextPage;
-	}
-	*/
-	
 	@RequestMapping("/sManagement")
 	public String sManagement(HttpSession session) {
 		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
@@ -146,6 +126,78 @@ public class sController {
 	}
 	
 
+	@RequestMapping("/sInfoUpdateForm")
+	public String sInfoUpdateForm(HttpSession session) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String nextPage=null;
+		if(soDTO==null) {
+			session.setAttribute("fail", "로그인을 해주세요");
+			nextPage ="shop/sManagement";
+		}else {
+			if(sDTO==null) {
+				session.setAttribute("fail", "상점 정보 먼저 등록해주세요.");
+				nextPage ="shop/sManagement";
+			}else
+			{
+				nextPage ="shop/sInfoUpdateForm";
+			}
+		}
+		return nextPage;
+	}
+	
+	@RequestMapping("/sInfoUpdate")
+	public String sInfoUpdate(HttpSession session,HttpServletRequest request) {
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String sCode = sDTO.getsCode();
+		String sName = sDTO.getsName();
+		String soId = sDTO.getSoId();
+		String sPost = sDTO.getsPost();
+		String sAddr = sDTO.getsAddr();
+		String sCategory = sDTO.getsCategory();
+		
+		String sPhone1 = request.getParameter("sPhone1");
+		String sPhone2 = request.getParameter("sPhone2");
+		String sPhone3 = request.getParameter("sPhone3");
+		String sWeekday = request.getParameter("sWeekday");
+		String sWeekend= request.getParameter("sWeekend");
+		String sDayOff= request.getParameter("sDayOff");
+		String sParkinglot= request.getParameter("sParkinglot");
+		String sTerrace= request.getParameter("sTerrace");
+		//메뉴판 카테고리1
+		String sMenuCategory1= request.getParameter("sMenuCategory1");
+		String sC1Menu1= request.getParameter("sC1Menu1");
+		String sC1Menu1_info= request.getParameter("sC1Menu1_info");
+		String sC1Price1= request.getParameter("sC1Price1");
+		String sC1Menu2= request.getParameter("sC1Menu2");
+		String sC1Menu2_info= request.getParameter("sC1Menu2_info");
+		String sC1Price2= request.getParameter("sC1Price2");
+		String sC1Menu3= request.getParameter("sC1Menu3");
+		String sC1Menu3_info= request.getParameter("sC1Menu3_info");
+		String sC1Price3= request.getParameter("sC1Price3");
+		//메뉴판 카테고리2
+		String sMenuCategory2= request.getParameter("sMenuCategory2");
+		String sC2Menu1= request.getParameter("sC2Menu1");
+		String sC2Menu1_info= request.getParameter("sC2Menu1_info");
+		String sC2Price1= request.getParameter("sC2Price1");
+		String sC2Menu2= request.getParameter("sC2Menu2");
+		String sC2Menu2_info= request.getParameter("sC2Menu2_info");
+		String sC2Price2= request.getParameter("sC2Price2");
+		String sC2Menu3= request.getParameter("sC2Menu3");
+		String sC2Menu3_info= request.getParameter("sC2Menu3_info");
+		String sC2Price3= request.getParameter("sC2Price3");
+		String sSubway=request.getParameter("sSubway2");
+		////////////DTO에 맞게 재정의/////////////
+		String sPhone = sPhone1+"-"+sPhone2+"-"+sPhone3;
+		String sMenu1= sMenuCategory1+"/"+sC1Menu1+":"+sC1Menu1_info+":"+sC1Price1+"/"+sC1Menu2+":"+sC1Menu2_info+":"+sC1Price2+"/"+sC1Menu3+":"+sC1Menu3_info+":"+sC1Price3;
+		String sMenu2= sMenuCategory2+"/"+sC2Menu1+":"+sC2Menu1_info+":"+sC2Price1+"/"+sC2Menu2+":"+sC2Menu2_info+":"+sC2Price2+"/"+sC2Menu3+":"+sC2Menu3_info+":"+sC2Price3;	
+		String sBusinesshours = sWeekday+"/"+sWeekend+"/"+sDayOff;
+		SDTO dto = new SDTO(sCode, sName, soId, sPost, sAddr, sPhone, sCategory, sBusinesshours, sParkinglot, sTerrace, sMenu1, sMenu2,sSubway);
+		service.sInfoUpdate(dto);
+		return "redirect:sInfoUpdate";
+	}
+	
+	
 	@RequestMapping("/SDeletion")
 	public String SDeletion(HttpSession session,String sCode) {
 		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");

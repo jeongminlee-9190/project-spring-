@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,13 +12,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 <script src="resources/js/so_joinform.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so/so_join.css" rel="stylesheet" >
 </head>
 <body>
-<jsp:include page="includes/soTop_join.jsp" flush="true"/>
-<jsp:include page="includes/soJoinForm.jsp" flush="true"/>
-<jsp:include page="includes/soFooter.jsp" flush="true"/>
+<c:if test="${empty SoLogin}">
+	<jsp:include page="includes/soTop_join.jsp" flush="true"/>
+	<jsp:include page="includes/soJoinForm.jsp" flush="true"/>
+	<jsp:include page="includes/soFooter.jsp" flush="true"/>
+</c:if>
 </body>
 </html>

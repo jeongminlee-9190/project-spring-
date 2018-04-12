@@ -5,19 +5,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <form class="form-inline" action="SInfoEnroll" method="get" onsubmit="formCheck(event)">
-	<c:set var="dto" value="${SoLogin}"></c:set>
-	<c:set var="soLicense1" value="${dto.soLicense}"></c:set>
-	<c:set var="soLicense" value="${fn:substring(soLicense1,3,10)}"></c:set>
-	<input Type="hidden" name="soId" id="soId" value="${dto.soId}">
-	<input Type="hidden" name="soLicense" id="soLicense" value="${soLicense}">
+	<c:set var="sdto" value="${sInfo}"></c:set>
+	<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
 	
 	<style>
-		
+		.row1{
+			margin-top: 70px;
+		}	
 	</style>
 	<div class="container-fluid sInfo">
 		<div class="row row1">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-4"><h3>상점 기본 정보 등록</h3></div>
+			<div class="col-sm-4"><h3>상점 기본 정보 수정</h3></div>
 		</div>
 		<div class="row row2">
 			<div class="col-sm-6">
@@ -27,61 +26,80 @@
 						<div class="panel-body">
 								<div class="form-group">
 									<span class="span_Info1">상점명</span>
-									<input type="text" class="form-control"  name="sName" id="sName" size="28" maxlength="20">
+									&emsp;<input type="text" class="form-control"  name="sName" id="sName" size="28" maxlength="20" value="${sdto.sName}">
 								</div>
 								<br><br>
 								<div class="form-group">
 									<span class="span_Info1">상점 전화 </span> 
-									<input type="text" class="form-control" name="sPhone1" id="sPhone1" size="1" maxlength="4"> -
-									<input type="text" class="form-control" name="sPhone2" id="sPhone2" size="1" maxlength="4"> -
-									<input type="text" class="form-control" name="sPhone3" id="sPhone3" size="1" maxlength="4">
+									&emsp;<input type="text" class="form-control" name="sPhone1" id="sPhone1" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[0]}">-
+									<input type="text" class="form-control" name="sPhone2" id="sPhone2" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[1]}">-
+									<input type="text" class="form-control" name="sPhone3" id="sPhone3" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[2]}">
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">상점 주소 </span> 
-									<input type="text" class="form-control"  name="post" id="sample6_postcode" size="5" placeholder="우편번호">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
-									&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" class="form-control"  name="sAddr1" id="sample6_address" placeholder="주소" size="31"><br>
-									&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" class="form-control"  name="sAddr2" id="sample6_address2" placeholder="(예) 1층 갬성갱단" size="31">
+									<span class="span_Info1">상점 주소 </span>&emsp;
+									${sdto.sAddr}
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">지하철역 </span>
-									<select class="form-control" id="sSubway1" name="sSubway1">
-										
-									</select>
-									
-									<select class="form-control" id="sSubway2" name="sSubway2">
-									
-									</select>
+									<span class="span_Info1">지하철역 </span>&emsp;
+									${sdto.sSubway}
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">카테고리 </span>
+									<span class="span_Info1">카테고리 </span>&emsp;
+									<c:if test="${sdto.sCategory=='Wine'}">
 									<select class="form-control"  id="sCategory" name="sCategory">
-										<option value="c" selected="selected">카페</option>
+										<option value="c">카페</option>
 										<option value="d">디저트</option>
-										<option value="w">와인</option>
+										<option value="w" selected="selected">와인</option>
 									</select>
+									</c:if>
+									<c:if test="${sdto.sCategory=='Cafe'}">
+										<select class="form-control"  id="sCategory" name="sCategory">
+											<option value="c" selected="selected">카페</option>
+											<option value="d">디저트</option>
+											<option value="w">와인</option>
+										</select>
+									</c:if>
+									<c:if test="${sdto.sCategory=='Dessert'}">
+										<select class="form-control"  id="sCategory" name="sCategory">
+											<option value="c">카페</option>
+											<option value="d" selected="selected">디저트</option>
+											<option value="w">와인</option>
+										</select>
+									</c:if>
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">주차 </span>
-									<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
-									<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
+									<span class="span_Info1">주차 </span>&emsp;
+									<c:if test="${sdto.sParkinglot=='Y'}">
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
+									</c:if>
+									<c:if test="${sdto.sParkinglot=='N'}">
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y">예
+										<input type="radio" name="sParkinglot" id="sParkinglot" value="N" checked="checked">아니오
+									</c:if>
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">테라스 </span>
-									<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
-									<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
+									<span class="span_Info1">테라스 </span>&emsp;
+									<c:if test="${sdto.sTerrace=='Y'}">
+										<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
+										<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
+									</c:if>
+									<c:if test="${sdto.sTerrace=='N'}">
+										<input type="radio" name="sTerrace" id="sTerrace" value="Y">예
+										<input type="radio" name="sTerrace" id="sTerrace" value="N" checked="checked">아니오
+									</c:if>
 								</div>
 								<br><br>
 								<div class="form-group">
 									<span class="span_Info1">영업시간 </span>(00:00~24:00)<br>
-									&emsp;&emsp;&emsp;평일: <input type="text" class="form-control"  name="sWeekday" id="sWeekday" size="20" maxlength="20" placeholder="(예)08:00~23:00"><br>
-									&emsp;&emsp;&emsp;주말: <input type="text" class="form-control"  name="sWeekend" id="sWeekend" size="20" maxlength="20" placeholder="(예)08:00~23:00"><br>
-									&emsp;&emsp;&emsp;휴무: <input type="text" class="form-control"  name="sDayOff" id="sDayOff" size="20" maxlength="20" placeholder="(예)둘째주 월요일  "><br>
+									&emsp;&emsp;&emsp;평일: <input type="text" class="form-control"  name="sWeekday" id="sWeekday" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[0]}"><br>
+									&emsp;&emsp;&emsp;주말: <input type="text" class="form-control"  name="sWeekend" id="sWeekend" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[1]}"><br>
+									&emsp;&emsp;&emsp;휴무: <input type="text" class="form-control"  name="sDayOff" id="sDayOff" size="20" maxlength="20" placeholder="(예)둘째주 월요일 " value="${fn: split(sdto.sBusinesshours,'/')[2]}"><br>
 								</div>
 								<br><br>
 							</div>
@@ -148,7 +166,7 @@
 		</div><!-- end of row -->
 		<div class="row row3">
 			<div class="col-sm-12">
-				<input type="submit" name="submit" class="btn btn-primary btn-cancel btn_submit" value="등록">
+				<input type="submit" name="submit" class="btn btn-primary btn-cancel btn_submit" value="수정">
 				<a href="sManagement"><input type="button" name="cancel" class="btn btn-primary btn-cancel" value="취소"></a>
 			</div>
 		</div>
