@@ -54,17 +54,17 @@
  			var re_email=/^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg=null;
+ 			
  			if(re_email.test($("#soId").val()) != true){
  				alert("아이디는 이메일 형식으로 입력해주세요.");
+ 				$("#soId").focus();
+ 				e.preventDefault();
+ 			}else if($("#result1").text()=="아이디 중복"){
+ 				alert("아이디가 중복되어 사용 불가합니다.");
  				console.log($("#result1").text());
  				$("#soId").focus();
  				e.preventDefault();
- 			}else if($("#result1").text()!="아이디 사용 가능"){
- 				alert("아이디가 중복되어 사용 불가합니다.");
- 				$("#soId").focus();
- 				e.preventDefault();
- 			}
- 			else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
+ 			}else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
  				alert("유효한 비밀번호를 입력해주세요.");
  				$("#passwd").focus();
  				e.preventDefault();

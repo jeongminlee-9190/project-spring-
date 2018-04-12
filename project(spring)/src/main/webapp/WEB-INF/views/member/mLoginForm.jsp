@@ -28,9 +28,6 @@
 
 <jsp:include page="includes/memberHeader.jsp" flush="true"/>
 <c:if test="${empty login}">
-	<script>
-		alert('${mesg}');
-	</script>
 	<jsp:include page="includes/mLoginForm.jsp" flush="true"/>
 </c:if>
 

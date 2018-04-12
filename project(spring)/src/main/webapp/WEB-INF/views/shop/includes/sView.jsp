@@ -93,19 +93,19 @@
 				<div id="image" class="panel-collapse collapse">
 					<div class="panel-body">
 						<c:if test="${!empty fn: split(sdto.sImage,'/')[0]}"> 
-							<a href="resources/images/${fn: split(sdto.sImage,'/')[0]}"><img class="img-rounded image1" src="resources/images/${fn: split(sdto.sImage,'/')[0]}"></a>
+							<a href="resources/upload/${fn: split(sdto.sImage,'/')[0]}"><img class="img-rounded image1" src="resources/upload/${fn: split(sdto.sImage,'/')[0]}"></a>
 						</c:if>
 						<c:if test="${!empty fn: split(sdto.sImage,'/')[1]}">
-							<a href="resources/images/${fn: split(sdto.sImage,'/')[1]}"><img class="img-rounded image2" src="resources/images/${fn: split(sdto.sImage,'/')[1]}"></a>
+							<a href="resources/upload/${fn: split(sdto.sImage,'/')[1]}"><img class="img-rounded image2" src="resources/upload/${fn: split(sdto.sImage,'/')[1]}"></a>
 						</c:if>
 						<c:if test="${!empty fn: split(sdto.sImage,'/')[2]}">
-							<img class="img-rounded image3" src="resources/images/${fn: split(sdto.sImage,'/')[2]}">
+							<img class="img-rounded image3" src="resources/upload/${fn: split(sdto.sImage,'/')[2]}">
 						</c:if>
 						<c:if test="${!empty fn: split(sdto.sImage,'/')[3]}">
-							<img class="img-rounded image4" src="resources/images/${fn: split(sdto.sImage,'/')[3]}">
+							<img class="img-rounded image4" src="resources/upload/${fn: split(sdto.sImage,'/')[3]}">
 						</c:if>
 						<c:if test="${!empty fn: split(sdto.sImage,'/')[4]}">
-							<img class="img-rounded image5" src="resources/images/${fn: split(sdto.sImage,'/')[4]}">
+							<img class="img-rounded image5" src="resources/upload/${fn: split(sdto.sImage,'/')[4]}">
 						</c:if>
 					</div>
 				</div><!-- collapse -->

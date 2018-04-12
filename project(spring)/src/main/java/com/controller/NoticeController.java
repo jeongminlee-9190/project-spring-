@@ -39,7 +39,7 @@ public class NoticeController {
 	
 	@RequestMapping(value="/mNotice2" , method=RequestMethod.GET)
 	public ModelAndView mNotice2(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage) {
-		PageDTO pageDTO = nService.mNoticeList(map, curPage);
+		PageDTO pageDTO = nService.mNoticeList2(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
 		mav.setViewName("member/mNotice");
@@ -57,6 +57,15 @@ public class NoticeController {
 	public ModelAndView mNoticeRetrieve(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
 		NoticeDTO dto = nService.mNoticeRetrieve(num);
+		mav.addObject("mNoticeRetrieve",dto);
+		mav.setViewName("admin/mNoticeRetrieve");
+		return mav;
+	}
+	
+	@RequestMapping(value="/mNoticeRetrieve2", method=RequestMethod.GET)
+	public ModelAndView mNoticeRetrieve2(@RequestParam int num) {
+		ModelAndView mav = new ModelAndView();
+		NoticeDTO dto = nService.mNoticeRetrieve2(num);
 		mav.addObject("mNoticeRetrieve",dto);
 		mav.setViewName("admin/mNoticeRetrieve");
 		return mav;
@@ -95,7 +104,7 @@ public class NoticeController {
 	@RequestMapping(value="/soNotice2", method=RequestMethod.GET)
 	public ModelAndView soNotice2(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpServletRequest request) {
-		PageDTO pageDTO = nService.soNoticeList(map, curPage);
+		PageDTO pageDTO = nService.soNoticeList2(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
 		mav.setViewName("so/soNotice");
@@ -125,7 +134,7 @@ public class NoticeController {
 	@RequestMapping(value="/soNoticeRetrieve2", method=RequestMethod.GET)
 	public ModelAndView soNoticeRetrieve2(@RequestParam int num) {
 		ModelAndView mav = new ModelAndView();
-		NoticeDTO dto = nService.soNoticeRetrieve(num);
+		NoticeDTO dto = nService.soNoticeRetrieve2(num);
 		mav.addObject("soNoticeRetrieve",dto);
 		mav.setViewName("so/soNoticeRetrieve2");
 		return mav;
