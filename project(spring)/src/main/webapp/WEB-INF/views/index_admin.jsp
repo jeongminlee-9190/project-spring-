@@ -12,6 +12,9 @@
 <title></title>
 <link href="resources/css/admin/index_admin.css" rel="stylesheet" >
 <link href="resources/css/fonts.css" rel="stylesheet" >
+<style type="text/css">
+
+</style>
 </head>
 <body>
 
@@ -46,7 +49,7 @@
   		<div class="col-sm-4"></div>
   		<div class="col-sm-4">
   			<form action="adminLogin" method="post" class="adminLoginForm">
-			  	<img src="resources/images/logo.png" class="logo"></td>
+			  	<img src="resources/images/logo.png" class="logo">
 			  	<h3>관리자 센터</h3>
 			  	<input type="text" name="adminId" class="input_adminId" placeholder="아이디" maxlength="30"><br>
 				<input type="password" name="adminPasswd" class="input_adminPasswd" placeholder="비밀번호" maxlength="10"><br>
