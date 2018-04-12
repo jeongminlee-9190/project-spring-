@@ -35,6 +35,14 @@
  			   <li><a class="dropdown-item" href="sList">상점 목록</a></li>
 	        </ul>
 	    </li>
+	    <li class="nav-item active dropdown">
+        	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">쿠폰 관리<span class="caret"></span></a>
+ 			<ul class="dropdown-menu">
+	           <li><a class="dropdown-item" href="#">상점 회원-쿠폰 발급 현황</a></li>
+	           <li><a class="dropdown-item" href="#">개인 회원-쿠폰 발급 현황</a></li>
+	           <li><a class="dropdown-item" href="#">쿠폰 사용 현황</a></li>
+	        </ul>
+	    </li>
         <li class="nav-item active dropdown">
         	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">공지사항<span class="caret"></span></a>
  			<ul class="dropdown-menu">

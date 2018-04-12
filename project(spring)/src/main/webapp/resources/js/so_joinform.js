@@ -1,5 +1,6 @@
  	$(document).ready(function(){
  		var re_email=/^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{3,6})$/;
+ 		var re_license=/^[0-9]{10,10}$/;
  		$("#soId").keyup(function(){
 			var soId = $("#soId").val();
 			var length = soId.length;
@@ -30,6 +31,37 @@
 			}
 		});
  		
+ 		$("#soLicense").keyup(function(){
+			var soLicense = $("#soLicense").val();
+			var length = soLicense.length;
+			if(length>9){
+				$.ajax({
+					url: "soLicenseCheck",
+					type: "GET",
+					data:{
+						soLicense:soLicense
+					},
+					dataType:"text",
+					success:function(responseData){
+						if(responseData==0){
+							if(re_license.test($("#soLicense").val())!= true){
+								$("#result3").text("사업자번호는 하이픈을 제외하고 입력해주세요.");
+				 			}else{
+				 				$("#result3").text("사업자번호 사용 가능");
+				 			}
+						}
+						else if(responseData==1){
+							$("#result3").text("사업자번호 중복");
+						}
+					},
+					error:function(error){
+						console.log("error"+error);
+					}
+				});
+			}
+		});
+ 		
+ 		
  		$("#passwd").keyup(function(){
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg = "비밀번호 사용 가능";
@@ -51,20 +83,22 @@
  			var re_phone2=/^[0-9]{4,4}$/;
  			var re_phone3=/^[0-9]{4,4}$/;
  			var re_license=/^[0-9]{10,10}$/;
- 			var re_email=/^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
+ 			
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg=null;
- 			if(re_email.test($("#soId").val()) != true){
+ 			if($("#result1").text()=="아이디 중복"){
+ 				alert("중복된 아이디, 사용 불가합니다.");
+ 				$("#soId").focus();
+ 				e.preventDefault();
+ 			}else if(re_email.test($("#soId").val()) != true){
  				alert("아이디는 이메일 형식으로 입력해주세요.");
- 				console.log($("#result1").text());
  				$("#soId").focus();
  				e.preventDefault();
  			}else if($("#result1").text()!="아이디 사용 가능"){
  				alert("아이디가 중복되어 사용 불가합니다.");
  				$("#soId").focus();
  				e.preventDefault();
- 			}
- 			else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
+ 			}else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
  				alert("유효한 비밀번호를 입력해주세요.");
  				$("#passwd").focus();
  				e.preventDefault();
@@ -90,6 +124,10 @@
 				e.preventDefault();
 			}else if(re_license.test($("#soLicense").val())!= true){
 				alert('유효한 사업자 번호를 입력하세요. 10자리&하이픈제거');
+				$("#soLicense").focus();
+				e.preventDefault();
+			}else if($("#result3").text()=="사업자번호 중복"){
+				alert('이미 가입된 사업자번호 입니다.');
 				$("#soLicense").focus();
 				e.preventDefault();
 			}else if($("#sample6_address").val().length==0){

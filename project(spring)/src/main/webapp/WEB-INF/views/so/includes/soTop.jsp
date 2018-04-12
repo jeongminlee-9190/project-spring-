@@ -28,7 +28,7 @@
 				    <li class="active"><a href="#" >서비스 소개</a></li>
 				    <li class="active"><a href="sManagement" >상점 관리</a></li>
 				    <li class="active"><a href="payMentUI">서비스 결제</a></li>
-					<li class="active"><a href="#">예약관리</a></li>
+					<li class="active"><a href="#">쿠폰관리</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				    <li><a href="#">계정: ${SoLogin.soId}</a></li>
