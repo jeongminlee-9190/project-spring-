@@ -1,8 +1,10 @@
 @charset "UTF-8";
+	body{
+		background-color: black;
+	}
 	.container-fluid{
 		margin-top: 10%;
 		height: 450px;
-		background-color: black;
 		text-align: center;
 	}
 	
@@ -18,7 +20,7 @@
 	}
 	
 	.logo{
-		width:300px;
+		max-width:300px;
 	}
 	h3{
 		font-weight: bold;

@@ -6,12 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script> 
 <title></title>
-<link href="resources/css/admin/index_admin.css" rel="stylesheet" >
+<link href="resources/css/admin/admin_index.css" rel="stylesheet" >
 <link href="resources/css/fonts.css" rel="stylesheet" >
+<style type="text/css">
+	body{
+		background-color: black;
+	}
+</style>
 </head>
 <body>
 
@@ -46,7 +52,7 @@
   		<div class="col-sm-4"></div>
   		<div class="col-sm-4">
   			<form action="adminLogin" method="post" class="adminLoginForm">
-			  	<img src="resources/images/logo.png" class="logo"></td>
+			  	<img src="resources/images/logo.png" class="img-fluid" width="300">
 			  	<h3>관리자 센터</h3>
 			  	<input type="text" name="adminId" class="input_adminId" placeholder="아이디" maxlength="30"><br>
 				<input type="password" name="adminPasswd" class="input_adminPasswd" placeholder="비밀번호" maxlength="10"><br>
