@@ -24,7 +24,7 @@
 		<if test="searchName=='memberPhone'">
 			where mPhone like '%'||#{searchValue}||'%'
 		</if>
-		order by mId desc
+		order by rownum desc
 	</select>
 	
 	<select id="mListTotalCount" resultType="int">

@@ -10,6 +10,11 @@
 	</select>
 	
 	<!-- 사업자 번호 체크 -->
+	<select id="soLicenseCheck" parameterType="string" resultType="int">
+		select count(*) 
+		from shopowner
+		where soLicense=#{soLicense}
+	</select>
 	
 	<insert id="soJoin" parameterType="hashmap">
 		insert into shopowner(soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr)

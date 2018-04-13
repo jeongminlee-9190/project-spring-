@@ -128,6 +128,15 @@ public class SoController {
 		return soIdCheckCnt;
 	}
 	
+	@RequestMapping(value="/soLicenseCheck", method=RequestMethod.GET)
+	@ResponseBody
+	public int soLicenseCheck(@RequestParam String soLicense) {
+		System.out.println("soLicenseCheck" + soLicense);
+		int soLicenseCheckCnt = service.soLicenseCheck(soLicense);
+		System.out.println("soLicenseCheckCnt" + soLicenseCheckCnt);
+		return soLicenseCheckCnt;
+	}
+	
 	
 	@RequestMapping(value= "/soMyPage", method=RequestMethod.GET)
 	public String soMyPage(HttpSession session,HttpServletRequest request) {

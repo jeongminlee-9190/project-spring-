@@ -37,6 +37,10 @@ public class SoDAO {
 		return template.selectOne("SoMapper.soIdCheck",soId);
 	}
 	
+	public int soLicenseCheck(String soLicense) {
+		return template.selectOne("SoMapper.soLicenseCheck",soLicense);
+	}
+	
 	public SoDTO soMyPage(String soId) {
 		SoDTO sDTO = template.selectOne("SoMapper.soMyPage",soId);
 		return sDTO;
