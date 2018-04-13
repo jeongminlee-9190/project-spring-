@@ -86,34 +86,15 @@
  			
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg=null;
-<<<<<<< HEAD
- 			
- 			if(re_email.test($("#soId").val()) != true){
-=======
+
  			if($("#result1").text()=="아이디 중복"){
  				alert("중복된 아이디, 사용 불가합니다.");
  				$("#soId").focus();
  				e.preventDefault();
  			}else if(re_email.test($("#soId").val()) != true){
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
  				alert("아이디는 이메일 형식으로 입력해주세요.");
-<<<<<<< HEAD
  				$("#soId").focus();
  				e.preventDefault();
- 			}else if($("#result1").text()=="아이디 중복"){
- 				alert("아이디가 중복되어 사용 불가합니다.");
- 				console.log($("#result1").text());
-=======
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
- 				$("#soId").focus();
- 				e.preventDefault();
-<<<<<<< HEAD
-=======
- 			}else if($("#result1").text()!="아이디 사용 가능"){
- 				alert("아이디가 중복되어 사용 불가합니다.");
- 				$("#soId").focus();
- 				e.preventDefault();
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
  			}else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
  				alert("유효한 비밀번호를 입력해주세요.");
  				$("#passwd").focus();
@@ -154,6 +135,19 @@
 				alert('상세 주소를 입력하세요');
 				$("#sample6_address2").focus();
 				e.preventDefault();
+			}else if(termRead==0){
+				alert('약관을 확인해주세요.');
+				$("#termRead").focus();
+				e.preventDefault();
 			}
  		});
+ 		
+ 		
+ 		var termRead =0;
+ 		$("#termRead").click(function(){
+ 			termRead=1;
+ 			console.log("termRead"+termRead);
+ 		});
+ 		
+ 
  	});
