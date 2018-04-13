@@ -218,4 +218,8 @@ public class SoController {
 		}
 		return nextPage;
 	}
-}
+	
+/*	@RequestMapping
+	//soLeaveForm
+*/
+	}

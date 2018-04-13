@@ -60,7 +60,7 @@
 			<tr>
 				<td colspan="2" align="center">
 				<a href="main_shopowner"><button type="button" class="btn btn-primary orange-border-main">메인으로</button></a>
-				<a href="soLeave"><button type="button" class="btn btn-primary orange-border-leave">회원탈퇴</button></a></td>
+				<!-- <a href="soLeave"><button type="button" class="btn btn-primary orange-border-leave">회원탈퇴</button></a> --></td>
 			</tr>
 		</table>    
     </div>
