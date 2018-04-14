@@ -36,8 +36,9 @@
 				    <li class="dropdown active">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
 				 		<ul class="dropdown-menu">
-					        <li><a href="soMyPage">기본정보</a></li>
+					        <li><a href="soMyPage">기본 정보</a></li>
 					        <li><a href="soPwUpdateForm">비밀번호 변경</a></li>
+					        <li><a href="soLeaveForm">회원 탈퇴</a></li>
 					        <li><a href="#">서비스 결제 내역</a></li>
 					    </ul>
 					</li>

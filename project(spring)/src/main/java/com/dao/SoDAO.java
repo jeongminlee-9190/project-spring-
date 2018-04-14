@@ -56,4 +56,38 @@ public class SoDAO {
 	public int soPwCheck(HashMap<String, String> map) {
 		return template.selectOne("SoMapper.soPwCheck",map);
 	}
+	
+	
+	public int soShopCnt(String soId) {
+		return template.selectOne("SoMapper.soShopCnt",soId);
+	}
+	public int soReviewCnt(String sCode) {
+		return template.selectOne("SoMapper.soReviewCnt",sCode);
+	}
+	public int soInterestCnt(String sCode) {
+		return template.selectOne("SoMapper.soInterestCnt",sCode);
+	}
+	public int soScore(String sCode) {
+		return template.selectOne("SoMapper.soScore",sCode);
+	}
+	public String soCouponCnt(String sCode) {
+		String soCouponCnt = template.selectOne("SoMapper.soCouponCnt",sCode);
+		if(soCouponCnt==null) {
+			soCouponCnt="0";
+		}
+		return soCouponCnt;
+	}
+	public String soExpireDate(String soId) {
+		return template.selectOne("SoMapper.soExpireDate",soId);
+	}
+	
+	public void soLeave(HashMap<String, String> map) {
+		template.delete("SoMapper.soShopDel",map);
+		template.delete("SoMapper.soReviewDel",map);
+		template.delete("SoMapper.soInterestDel",map);
+		template.delete("SoMapper.soScoreDel",map);
+		template.delete("SoMapper.soCouponDel",map);
+		template.delete("SoMapper.soPaymentDel",map);
+		template.delete("SoMapper.soLeave",map);
+	}
 }

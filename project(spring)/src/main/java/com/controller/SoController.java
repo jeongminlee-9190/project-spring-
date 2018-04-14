@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dto.SDTO;
 import com.dto.SoDTO;
+import com.dto.SoLeaveDTO;
 import com.service.SService;
 import com.service.SoService;
 
@@ -21,7 +23,14 @@ import com.service.SoService;
 public class SoController {
 	@Autowired
 	SoService service;
+	
+	@Autowired
 	SService service2;
+	
+	@RequestMapping(value= "/index_shopowner", method=RequestMethod.GET)
+	public String index_shopowner() {
+		return "index_shopowner";
+	}
 	
 	@RequestMapping(value= "/main_shopowner", method=RequestMethod.GET)
 	public String main_shopowner() {
@@ -215,6 +224,53 @@ public class SoController {
 			service.soPwUpdate(map);
 			session.setAttribute("success", "비밀번호가 변경되었습니다.");
 			nextPage="redirect:main_shopowner";
+		}
+		return nextPage;
+	}
+	
+	@RequestMapping("/soLeaveForm")
+	public String soLeaveForm(HttpSession session, HttpServletRequest request){
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			SDTO sDTO = service2.sInfo(soId);
+			String sCode = sDTO.getsCode();
+			int soShopCnt = service.soShopCnt(soId);
+			int soReviewCnt =service.soReviewCnt(sCode);
+			int soInterestCnt = service.soInterestCnt(sCode);
+			int soScore = service.soScore(sCode);
+			String soCouponCnt = service.soCouponCnt(sCode);
+			String soExpireDate = service.soExpireDate(soId);
+			SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
+			session.setAttribute("soleaveDTO", soleaveDTO);
+			nextPage="so/soLeaveForm";
+		}
+		return nextPage;
+	}
+	
+	
+	@RequestMapping("/soLeave")
+	public String soLeave(HttpSession session, HttpServletRequest request) {
+		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			SDTO sDTO = service2.sInfo(soId);
+			String sCode = sDTO.getsCode();
+			HashMap<String, String> map = new HashMap<>();
+			map.put("soId", soId);
+			map.put("sCode", sCode);
+			service.soLeave(map);
+			session.invalidate();
+			request.setAttribute("success", "회원탈퇴가 완료되었습니다.");
+			nextPage = "redirect:index_shopowner";
 		}
 		return nextPage;
 	}

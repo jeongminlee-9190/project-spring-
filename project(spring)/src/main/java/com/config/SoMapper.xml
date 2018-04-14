@@ -62,14 +62,73 @@
 		set soPhone=#{soPhone}
 		where soId=#{soId}
 	</update>
-	
-	<delete id="soLeave" parameterType="string">
-		delete from shopowner
-		where soId=#{soId}
-	</delete>
-  	
+
   	<insert id="payment" parameterType="SvDTO">
   		insert into payment(soId,payNum,payDate,period,price)
 		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price})
   	</insert>
+  	
+  	
+  	<!-- 회원탈퇴를 위한 정보 조회 -->
+  	<select id="soShopCnt" parameterType="string" resultType="int">
+  		select count(*) 
+		from shop
+		where soId = #{soId}
+  	</select>
+  	<select id="soReviewCnt" parameterType="string" resultType="int">
+  		select count(*) 
+		from review
+		where sCode = #{sCode}
+  	</select>
+  	<select id="soInterestCnt" parameterType="string" resultType="int">
+  		select count(*)
+		from interest
+		where sCode = #{sCode}
+  	</select>
+  	<select id="soScore" parameterType="string" resultType="int">
+  		select sum(good)-sum(bad) from score
+		where sCode=#{sCode}
+  	</select>
+  	<select id="soCouponCnt" parameterType="string" resultType="string">
+  		select sum(couponPrice)
+		from coupon
+		where sCode=#{sCode}
+  	</select>
+  	<select id="soExpireDate" parameterType="string" resultType="string">
+  		select (payDate+period) as expireDate 
+  		from payment
+		where soId = #{soId}
+  	</select>
+  	
+  	
+  	
+  	<!-- 회원탈퇴 -->
+  	<delete id="soShopDel" parameterType="hashmap">
+		delete from shop
+		where soId=#{soId}
+	</delete>
+	<delete id="soReviewDel" parameterType="hashmap">
+		delete from review
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soInterestDel" parameterType="hashmap">
+		delete from interest
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soScoreDel" parameterType="hashmap">
+		delete from score
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soCouponDel" parameterType="hashmap">
+		delete from coupon
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soPaymentDel" parameterType="hashmap">
+		delete from payment
+		where soId = #{soId}
+	</delete>
+  	<delete id="soLeave" parameterType="hashmap">
+		delete from shopowner
+		where soId=#{soId}
+	</delete>
 </mapper>

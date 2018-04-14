@@ -33,6 +33,7 @@
    </script>
 </c:if>
 <c:remove var="success" scope="session"/>
+<c:remove var="success" scope="request"/>
 
 <c:if test="${!empty SoLogout}">
 	<script type="text/javascript">

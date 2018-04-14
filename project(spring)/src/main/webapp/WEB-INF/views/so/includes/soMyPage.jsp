@@ -24,7 +24,7 @@
 				<th>사업주 전화번호</th>
 				<td><span id="soPhone">${dto.soPhone}</span>
 					<form class='form-inline' action='soPhoneUpdate' id='soPhoneUpdateForm' method='POST'>
-						<div class="phone_modify"><input type="button" name="soPhone" class="btn btn-primary" id="btn_pw_submit" value="변경"></div>
+						<div class="phone_modify"><input type="button" name="soPhone" class="btn btn-primary btn-submit" id="btn_pw_submit" value="변경"></div>
 					</form>
 				</td>
 			</tr>
@@ -60,7 +60,7 @@
 			<tr>
 				<td colspan="2" align="center">
 				<a href="main_shopowner"><button type="button" class="btn btn-primary orange-border-main">메인으로</button></a>
-				<a href="soLeave"><button type="button" class="btn btn-primary orange-border-leave">회원탈퇴</button></a></td>
+				<!-- <a href="soLeave"><button type="button" class="btn btn-primary orange-border-leave">회원탈퇴</button></a> --></td>
 			</tr>
 		</table>    
     </div>
