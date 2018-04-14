@@ -37,10 +37,15 @@ $(document).ready(function(){
 				    	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="가입 승인 후 이용 가능합니다.">서비스 결제</a></li>
 						<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="가입 승인 후 이용 가능합니다.">쿠폰관리</a></li>
 				    </c:if>
-				    <c:if test="${SoLevel!='0'}"> 
+				    <c:if test="${SoLevel=='1' || SoLevel=='2'}"> 
 				    	<li class="active"><a href="sManagement" >상점 관리</a></li>
 				    	<li class="active"><a href="payMentUI">서비스 결제</a></li>
 						<li class="active"><a href="#">쿠폰관리</a></li>
+				    </c:if>
+				    <c:if test="${SoLevel=='3' || SoLevel=='4'}"> 
+				    	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="서비스 결제 후 이용 가능합니다">상점 관리</a></li>
+				    	<li class="active"><a href="payMentUI">서비스 결제</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="서비스 결제 후 이용 가능합니다">쿠폰관리</a></li>
 				    </c:if>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

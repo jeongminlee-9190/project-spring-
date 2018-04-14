@@ -68,7 +68,29 @@
 		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price})
   	</insert>
   	
-  	
+  	 <select id="soLevel" parameterType="string" resultType="string">
+		select soLevel
+		from shopowner
+		where soId=#{soId}
+	</select>
+	
+  	<update id="soLevelChange" parameterType="string">
+		update shopowner
+		set soLevel='2'
+		where soId=#{soId}
+	</update>
+	<update id="soLevelChange2" parameterType="hashmap">
+		update shopowner
+		set soLevel='3'
+		where soId=#{soId}
+	</update>
+	<update id="soLevelChange3" parameterType="hashmap">
+		update shopowner
+		set soLevel='4'
+		where soId=#{soId}
+	</update>
+	
+	
   	<!-- 회원탈퇴를 위한 정보 조회 -->
   	<select id="soShopCnt" parameterType="string" resultType="int">
   		select count(*) 
@@ -97,16 +119,15 @@
   	<select id="soExpireDate" parameterType="string" resultType="string">
   		select (payDate+period) as expireDate 
   		from payment
-		where soId = #{soId}
+		where soId = #{soId} and ((payDate+period)-sysdate)>0
   	</select>
   	<select id="soFreetrialDate" parameterType="string" resultType="string">
   		select to_char((soJoindate+90),'YYYY-MM-DD') as FreetrialDate 
   		from shopowner
-		where soId = #{soId}
+		where soId = #{soId} and ((soJoindate+90)-sysdate)>0
   	</select>
   	
 
-  	
   	<!-- 회원탈퇴 -->
   	<delete id="soShopDel" parameterType="hashmap">
 		delete from shop

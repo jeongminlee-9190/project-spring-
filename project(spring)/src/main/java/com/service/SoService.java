@@ -72,6 +72,19 @@ public class SoService {
 		return dao.soFreetrialDate(soId);
 	}
 	
+	public String soLevel(String soId) {
+		return dao.soLevel(soId);
+	}
+	
+	public void soLevelChange(String soId) {
+		dao.soLevelChange(soId);
+	}
+	public void soLevelChange2(HashMap<String, String> map) {
+		dao.soLevelChange2(map);
+	}
+	public void soLevelChange3(HashMap<String, String> map) {
+		dao.soLevelChange3(map);
+	}
 	
 	@Transactional
 	public void soLeave(HashMap<String, String> map) {

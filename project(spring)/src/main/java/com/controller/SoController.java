@@ -33,10 +33,61 @@ public class SoController {
 	}
 	
 	@RequestMapping(value= "/main_shopowner", method=RequestMethod.GET)
-	public String main_shopowner() {
-		return "main_shopowner";
+	public String main_shopowner(HttpSession session) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			session.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			String soLevel = service.soLevel(soId);
+			session.setAttribute("SoLevel", soLevel);
+			HashMap<String, String> map2 = new HashMap<>();
+			map2.put("soId", soId);
+			map2.put("soLevel", soLevel);
+			if(soLevel.equals("0")) {
+				session.setAttribute("SoFreetrialDate", "미승인, 가입 승인이 필요합니다.");
+			}
+			else if(soLevel.equals("1")) {
+				String soFreetrialDate =service.soFreetrialDate(soId);
+				if(soFreetrialDate==null) {
+					service.soLevelChange2(map2);
+					session.setAttribute("SoFreetrialDate","만료, 서비스 결제가 필요합니다.");
+				}else {
+					session.setAttribute("SoFreetrialDate",soFreetrialDate);
+				}
+			}else if(soLevel.equals("2")) {
+				String soExpireDate =service.soExpireDate(soId);
+				if(soExpireDate==null) {
+					service.soLevelChange3(map2);
+					session.setAttribute("SoExpireDate","만료, 서비스 결제가 필요합니다.");
+				}else {
+					session.setAttribute("SoExpireDate",soExpireDate);
+				}
+			}
+			else if(soLevel.equals("3")) {
+				String soFreetrialDate =service.soFreetrialDate(soId);
+				if(soFreetrialDate==null) {
+					session.setAttribute("SoFreetrialDate","만료, 서비스 결제가 필요합니다.");
+				}else {
+					session.setAttribute("SoFreetrialDate",soFreetrialDate);
+				}
+			}
+			else if(soLevel.equals("4")) {
+				String soExpireDate =service.soExpireDate(soId);
+				if(soExpireDate==null) {
+					session.setAttribute("SoExpireDate","만료, 서비스 결제가 필요합니다.");
+				}else {
+					session.setAttribute("SoExpireDate",soExpireDate);
+				}
+			}
+			nextPage = "main_shopowner";
+		}
+		return nextPage;
 	}
 
+	
 	@RequestMapping(value = "/sologin", method = RequestMethod.GET)
 	public String login(@RequestParam(required=false, defaultValue="1") HashMap<String, String> map,HttpSession session) {
 		SoDTO soDTO = service.login(map);
@@ -46,16 +97,7 @@ public class SoController {
 			nextPage = "index_shopowner";
 		}else {
 			session.setAttribute("SoLogin",soDTO);
-			String soId = soDTO.getSoId();
-			String soLevel = soDTO.getSoLevel();
-			String soExpireDate =service.soExpireDate(soId);
-			session.setAttribute("SoLevel", soLevel);
-			if(soExpireDate==null) {
-				String soFreetrialDate =service.soFreetrialDate(soId);
-				session.setAttribute("SoFreetrialDate", soFreetrialDate);
-			}
-			session.setAttribute("SoExpireDate", soExpireDate);
-			nextPage = "main_shopowner";
+			nextPage="redirect:main_shopowner";
 		}
 		return nextPage;
 	}

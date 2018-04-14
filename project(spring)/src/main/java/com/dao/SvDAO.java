@@ -17,6 +17,7 @@ public class SvDAO {
 	
 	public void payment(SvDTO dto) {
 		template.insert("SoMapper.payment",dto);
+		template.update("SoMapper.soLevelChange",dto.getSoId());
 	}
 	
 }

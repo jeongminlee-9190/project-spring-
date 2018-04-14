@@ -7,9 +7,6 @@
 .row{
 		margin-top: 70px;
 	}
-	/* .col-sm-4{
-		
-	} */
 	
 	.btn-submit{
 		border: 1px solid orange;

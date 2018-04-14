@@ -32,6 +32,12 @@
 	  			<c:if test="${SoLevel=='2'}"> 
 	  			&emsp;유료 회원
 	  			</c:if>
+	  			<c:if test="${SoLevel=='3'}"> 
+	  			&emsp;체험 만료 회원
+	  			</c:if>
+	  			<c:if test="${SoLevel=='4'}"> 
+	  			&emsp;유료 만료 회원
+	  			</c:if>
 	  		</span>
 	  	</div>
 	  	<div class="col-sm-3">
@@ -40,14 +46,13 @@
 		  		<span class="SoFreetrialDate">미승인</span>
 		  	</c:if>
 	  		<c:if test="${SoLevel=='1'}"> 
-		  		<span class="bold">체험 기간 </span> &emsp;
-		  		<span class="SoFreetrialDate">${SoFreetrialDate} 까지</span>
+		  		<span class="bold">체험 종료 날짜 </span> &emsp;
+				<span class="SoFreetrialDate">${SoFreetrialDate}</span>
 		  	</c:if>
 		  	<c:if test="${SoLevel=='2'}"> 
-		  		<span class="bold">서비스 이용 기간 </span> &emsp;
-		  		<span class="soExpireDateText">${SoExpireDate} 까지</span>
+		  		<span class="bold">서비스 만료 날짜</span> &emsp;
+					<span class="soExpireDateText">${SoExpireDate}</span>
 		  	</c:if>
-	  		
 	  	</div>	
 	  	<div class="col-sm-3"></div> 	
 	</div>

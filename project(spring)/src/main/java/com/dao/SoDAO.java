@@ -85,6 +85,20 @@ public class SoDAO {
 		return template.selectOne("SoMapper.soFreetrialDate",soId);
 	}
 	
+	public String soLevel(String soId) {
+		return template.selectOne("SoMapper.soLevel",soId);
+	}
+	
+	public void soLevelChange(String soId) {
+		template.insert("SoMapper.soLevelChange",soId);
+	}
+	
+	public void soLevelChange2(HashMap<String, String> map) {
+		template.insert("SoMapper.soLevelChange2",map);
+	}
+	public void soLevelChange3(HashMap<String, String> map) {
+		template.insert("SoMapper.soLevelChange3",map);
+	}
 
 	public void soLeave(HashMap<String, String> map) {
 		template.delete("SoMapper.soShopDel",map);
