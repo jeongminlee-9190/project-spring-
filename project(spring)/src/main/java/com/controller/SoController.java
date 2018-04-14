@@ -45,8 +45,17 @@ public class SoController {
 			session.setAttribute("fail", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			nextPage = "index_shopowner";
 		}else {
-			nextPage = "main_shopowner";
 			session.setAttribute("SoLogin",soDTO);
+			String soId = soDTO.getSoId();
+			String soLevel = soDTO.getSoLevel();
+			String soExpireDate =service.soExpireDate(soId);
+			session.setAttribute("SoLevel", soLevel);
+			if(soExpireDate==null) {
+				String soFreetrialDate =service.soFreetrialDate(soId);
+				session.setAttribute("SoFreetrialDate", soFreetrialDate);
+			}
+			session.setAttribute("SoExpireDate", soExpireDate);
+			nextPage = "main_shopowner";
 		}
 		return nextPage;
 	}
@@ -238,16 +247,28 @@ public class SoController {
 		}else {
 			String soId = soDTO.getSoId();
 			SDTO sDTO = service2.sInfo(soId);
-			String sCode = sDTO.getsCode();
-			int soShopCnt = service.soShopCnt(soId);
-			int soReviewCnt =service.soReviewCnt(sCode);
-			int soInterestCnt = service.soInterestCnt(sCode);
-			int soScore = service.soScore(sCode);
-			String soCouponCnt = service.soCouponCnt(sCode);
-			String soExpireDate = service.soExpireDate(soId);
-			SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
-			session.setAttribute("soleaveDTO", soleaveDTO);
-			nextPage="so/soLeaveForm";
+			if(sDTO==null) {
+				int soShopCnt = 0;
+				int soReviewCnt =0;
+				int soInterestCnt = 0;
+				int soScore = 0;
+				String soCouponCnt = "0";
+				String soExpireDate = service.soExpireDate(soId);
+				SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
+				session.setAttribute("soleaveDTO", soleaveDTO);
+				nextPage="so/soLeaveForm";
+			}else {
+				String sCode = sDTO.getsCode();
+				int soShopCnt = service.soShopCnt(soId);
+				int soReviewCnt =service.soReviewCnt(sCode);
+				int soInterestCnt = service.soInterestCnt(sCode);
+				int soScore = service.soScore(sCode);
+				String soCouponCnt = service.soCouponCnt(sCode);
+				String soExpireDate = service.soExpireDate(soId);
+				SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
+				session.setAttribute("soleaveDTO", soleaveDTO);
+				nextPage="so/soLeaveForm";
+			}			
 		}
 		return nextPage;
 	}

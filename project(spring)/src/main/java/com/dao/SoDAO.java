@@ -81,6 +81,11 @@ public class SoDAO {
 		return template.selectOne("SoMapper.soExpireDate",soId);
 	}
 	
+	public String soFreetrialDate(String soId) {
+		return template.selectOne("SoMapper.soFreetrialDate",soId);
+	}
+	
+
 	public void soLeave(HashMap<String, String> map) {
 		template.delete("SoMapper.soShopDel",map);
 		template.delete("SoMapper.soReviewDel",map);

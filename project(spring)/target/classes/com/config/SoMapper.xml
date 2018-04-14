@@ -99,8 +99,13 @@
   		from payment
 		where soId = #{soId}
   	</select>
+  	<select id="soFreetrialDate" parameterType="string" resultType="string">
+  		select to_char((soJoindate+90),'YYYY-MM-DD') as FreetrialDate 
+  		from shopowner
+		where soId = #{soId}
+  	</select>
   	
-  	
+
   	
   	<!-- 회원탈퇴 -->
   	<delete id="soShopDel" parameterType="hashmap">

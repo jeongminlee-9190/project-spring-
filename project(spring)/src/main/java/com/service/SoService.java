@@ -68,6 +68,9 @@ public class SoService {
 	public String soExpireDate(String soId) {
 		return dao.soExpireDate(soId);
 	}
+	public String soFreetrialDate(String soId) {
+		return dao.soFreetrialDate(soId);
+	}
 	
 	
 	@Transactional
