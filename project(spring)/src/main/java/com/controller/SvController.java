@@ -26,13 +26,13 @@ public class SvController {
 	@RequestMapping("/payMentUI")
 	public String payMentUI(HttpSession session) {
 		SoDTO sDTO = (SoDTO)session.getAttribute("SoLogin");
-		String soid = sDTO.getSoId();
 		String nextPage=null;
 		if(sDTO == null) {
 			nextPage="index_shopowner";
 		}else {
-		session.setAttribute("SoId", soid);
-			nextPage="so/includes/payment";
+			String soId = sDTO.getSoId();
+			session.setAttribute("SoId", soId);
+			nextPage="so/payment";
 		}
 		return nextPage;
 	}

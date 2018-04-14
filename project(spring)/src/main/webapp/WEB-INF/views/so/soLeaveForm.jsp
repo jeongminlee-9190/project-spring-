@@ -13,6 +13,11 @@
 <link href="${pageContext.request.contextPath}/resources/css/so/so_leave.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
+<c:if test="${! empty success}">
+   <script type="text/javascript">
+    alert('${success}');
+   </script>
+</c:if>
 <c:if test="${!empty SoLogin}">
 	<jsp:include page="includes/soTop.jsp" flush="true"/>
 	<jsp:include page="includes/soLeaveForm.jsp" flush="true"/>

@@ -41,7 +41,7 @@
 	 				<td scope="col">${soNoticeRetrieve.noticeReadcnt}</td>
 	 			</tr>
 	 			<tr>
-	 				<td colspan="6" align="left" class="noticeContent">${soNoticeRetrieve.noticeContent}</td>	
+	 				<td colspan="6"><textarea class="form-control" rows="9" id="noticeContent" name="noticeContent" maxlength="1000" disabled>${soNoticeRetrieve.noticeContent}</textarea></td>	
 	 			</tr>
 			</tbody>
 		</table>

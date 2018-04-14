@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/so/so_pwupdate.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/so_footer.css" rel="stylesheet" >
 <script src="resources/js/so_pwupdateform.js"></script>
 

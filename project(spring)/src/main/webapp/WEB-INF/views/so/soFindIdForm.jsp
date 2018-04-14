@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so/so_find.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
+<link href="resources/css/fonts.css" rel="stylesheet" >
+<link href="resources/css/so/so_find.css" rel="stylesheet" >
+<link href="resources/css/so/so_footer.css" rel="stylesheet" >
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script> 
 <script src="resources/js/so_FindIdForm.js"></script> 
 <title>아이디/비밀번호 찾기</title>

@@ -3,18 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/s_payment.css" rel="stylesheet" >
-<c:if test="${!empty SoLogin}"> 
-	<jsp:include page="soTop.jsp" flush="true"/>
-</c:if>
-<script>
-
-</script>
 <form action="payMent" method="post" class="payMentForm">
 	<div class="container">
 		<h3>서비스 결제</h3>
@@ -93,8 +81,7 @@
 	    <input type="radio" name="selectPay" value="120"> 120일 상품 [ 52000원 ]<br>
 		<input type="submit" value="결제하기"> -->
 	
-</div>
-<div class="col-sm-2" ></div>
+	</div>
+	<div class="col-sm-2" ></div>
 </form>
-
 

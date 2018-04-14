@@ -61,24 +61,4 @@
 			into score (category,sCode) values ('파티',#{sCode})
 		select * from dual
 	</insert>
-		
-	<delete id="sDel" parameterType="string">
-		delete from shop
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelScore" parameterType="string">
-		delete from score
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelInterest" parameterType="string">
-		delete from interest
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelReview" parameterType="string">
-		delete from review
-		where sCode=#{sCode}
-	</delete>
 </mapper>
