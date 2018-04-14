@@ -14,4 +14,18 @@ $(document).ready(function(){
 			error:function(){}
 		});
 	});
+	
+	$("#mNoticeWrite").submit(function(e){
+		var noticeTitle = $("#noticeTitle").val();
+		var noticeContent = $("#noticeContent").val();
+		if(noticeTitle.length<10){
+			alert('제목을 입력해주세요.(10자 이상)');
+			$("#noticeTitle").focus();
+			e.preventDefault();
+		}else if(noticeContent.length<30){
+			alert('내용을 입력해주세요.(30자 이상)');
+			$("#noticeContent").focus();
+			e.preventDefault();
+		}
+	});
 });
