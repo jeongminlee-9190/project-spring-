@@ -5,7 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <form action="payMent" method="post" class="payMentForm">
 	<div class="container">
-		
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
@@ -81,8 +80,14 @@
   			<div class="col-sm-3"></div>
   		</div>
   		<div class="paymentTry">
-  			<input type="submit" class="btn btn-primary orange-background" value="위의 내용에 동의하고 결제"> 
-  			<a href="main_shopowner"><input type="button" class="btn btn-primary orange-border" value="취소"></a>
+  			<c:if test="${empty SoExpireDate}">
+  				<input type="submit" class="btn btn-primary orange-background" value="위의 내용에 동의하고 결제"> 
+  				<a href="main_shopowner"><input type="button" class="btn btn-primary orange-border" value="취소"></a>
+  			</c:if>
+  			<c:if test="${!empty SoExpireDate}">
+  				<span class="red">서비스 만료 날짜인 ${SoExpireDate} 이후에 결제해주세요!</span>
+  			</c:if>
+  			
   		</div>
 	<!-- 
 		<input type="radio" name="selectPay" > <br>
