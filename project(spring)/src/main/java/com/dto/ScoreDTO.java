@@ -5,17 +5,18 @@ import org.apache.ibatis.type.Alias;
 @Alias("ScoreDTO")
 public class ScoreDTO {
 	
-	private String sCategory;
+	private String category;
 	private String sCode;
 	private int good;
 	private int bad;
 	private int scoreSum;
 
-	public String getsCategory() {
-		return sCategory;
+	
+	public String getCategory() {
+		return category;
 	}
-	public void setsCategory(String sCategory) {
-		this.sCategory = sCategory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getsCode() {
 		return sCode;

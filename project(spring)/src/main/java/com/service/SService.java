@@ -18,6 +18,11 @@ public class SService {
 		return dao.sInfo(soId);
 	}
 	
+	public SDTO sInfo2(String sCode) {
+		return dao.sInfo2(sCode);
+	}
+	
+	
 	@Transactional
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);

@@ -9,7 +9,7 @@
 	<div class="searchList_wrap clearfix" >
 	
 		<div class="shop_main_img">
-			<img src="resources/images/shop_img.jpg" title="자판기">
+			<img src="resources/upload/${fn: split(shop.sImage,'/')[4]}"  width="400px" height="250px" title="자판기">
 		</div>
 		
 		<div class="shop_small_info clearfix">

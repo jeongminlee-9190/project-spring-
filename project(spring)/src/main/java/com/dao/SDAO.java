@@ -18,6 +18,10 @@ public class SDAO {
 		return template.selectOne("SMapper.sInfo",soId);
 	}
 	
+	public SDTO sInfo2(String sCode) {
+		return template.selectOne("SMapper.sInfo2",sCode);
+	}
+	
 	public void SInfoEnroll(SDTO dto) {
 		template.insert("SMapper.sAdd",dto);
 	}
