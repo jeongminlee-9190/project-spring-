@@ -8,7 +8,7 @@
 		<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
 		<c:set var="simage" value="${sInfo.sImage}"></c:set>
 		<!-- 상점명, 좋아요 개수, 후기 개수, 메뉴 보기 버튼, 상점정보 보기 버튼 -->
-		<div class="row">
+		<div class="row row1">
 			<span class="sName">${sdto.sName}</span>
 			<table class="sbasicInfo_tbl1">
 				<colgroup>
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	<div class="container-fluid sInfo">
-		<div class="row row1">
+		<div class="row row2">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<div class="panel panel-default Info1">
@@ -91,7 +91,7 @@
 			</div>
 			<div class="col-sm-1"></div>
 		</div><!-- end of row -->
-		<div class="row">
+		<div class="row row3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<div class="panel panel-default menu">
@@ -120,100 +120,97 @@
 			<div class="col-sm-1"></div>
 		</div><!-- end of row -->
 		
-		<div class="row">
-			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
-				<div id="menu" class="panel-collapse collapse">
-					<div class="panel-body">
-						<div class="col-sm-6">
-							<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
-							<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
-							<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
-							<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+		<div class="row row4">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="panel panel-default menu">
+					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
+					<div id="menu" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="col-sm-6">
+								<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
+								<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
+								<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
+								<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+									
+								<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
+								<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
+								<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
+								<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
 								
-							<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
-							<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
-							<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
-							<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
-							
-							
-							<div class="row">
-								<div class="col-sm-6">
-									<h4>-${sMenuCategory1}-</h4>
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>-${sMenuCategory1}-</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<p>메뉴명</p>
+										${fn: split(sC1Menu1,':')[0]}<br>
+										${fn: split(sC1Menu2,':')[0]}<br>
+										${fn: split(sC1Menu3,':')[0]}<br>
+									</div>
+									<div class="col-sm-5">
+										<p>메뉴 설명</p>
+										${fn: split(sC1Menu1,':')[1]}<br>
+										${fn: split(sC1Menu2,':')[1]}<br>
+										${fn: split(sC1Menu3,':')[1]}<br>
+									</div>
+									<div class="col-sm-2">
+										<p>가격</p>
+										<fmt:formatNumber value="${fn: split(sC1Menu1,':')[2]}" type="currency" /><br>
+										<fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /><br>
+										<fmt:formatNumber value="${fn: split(sC1Menu3,':')[2]}" type="currency" /><br> 
+									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-sm-4">
-									<p>메뉴명</p>
-									${fn: split(sC1Menu1,':')[0]}<br>
-									${fn: split(sC1Menu2,':')[0]}<br>
-									${fn: split(sC1Menu3,':')[0]}<br>
+							<div class="col-sm-6">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>-${sMenuCategory2}-</h4>
+									</div>
 								</div>
-								<div class="col-sm-5">
-									<p>메뉴 설명</p>
-									${fn: split(sC1Menu1,':')[1]}<br>
-									${fn: split(sC1Menu2,':')[1]}<br>
-									${fn: split(sC1Menu3,':')[1]}<br>
-								</div>
-								<div class="col-sm-2">
-									<p>가격</p>
-									<fmt:formatNumber value="${fn: split(sC1Menu1,':')[2]}" type="currency" /><br>
-									<fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /><br>
-									<fmt:formatNumber value="${fn: split(sC1Menu3,':')[2]}" type="currency" /><br> 
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="row">
-								<div class="col-sm-6">
-									<h4>-${sMenuCategory2}-</h4>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-4">
-									<p>메뉴명</p>
-									${fn: split(sC2Menu1,':')[0]}<br>
-									${fn: split(sC2Menu2,':')[0]}<br>
-									${fn: split(sC2Menu3,':')[0]}
-								</div>
-								<div class="col-sm-5">
-									<p>메뉴 설명</p>
-									${fn: split(sC2Menu1,':')[1]}<br>
-									${fn: split(sC2Menu2,':')[1]}<br>
-									${fn: split(sC2Menu3,':')[1]}<br>
-								</div>
-								<div class="col-sm-2">
-									<p>가격</p>
-									<fmt:formatNumber value="${fn: split(sC2Menu1,':')[2]}" type="currency" /><br>
-									<fmt:formatNumber value="${fn: split(sC2Menu2,':')[2]}" type="currency" /><br>
-									<fmt:formatNumber value="${fn: split(sC2Menu3,':')[2]}" type="currency" /><br> 
+								<div class="row">
+									<div class="col-sm-4">
+										<p>메뉴명</p>
+										${fn: split(sC2Menu1,':')[0]}<br>
+										${fn: split(sC2Menu2,':')[0]}<br>
+										${fn: split(sC2Menu3,':')[0]}
+									</div>
+									<div class="col-sm-5">
+										<p>메뉴 설명</p>
+										${fn: split(sC2Menu1,':')[1]}<br>
+										${fn: split(sC2Menu2,':')[1]}<br>
+										${fn: split(sC2Menu3,':')[1]}<br>
+									</div>
+									<div class="col-sm-2">
+										<p>가격</p>
+										<fmt:formatNumber value="${fn: split(sC2Menu1,':')[2]}" type="currency" /><br>
+										<fmt:formatNumber value="${fn: split(sC2Menu2,':')[2]}" type="currency" /><br>
+										<fmt:formatNumber value="${fn: split(sC2Menu3,':')[2]}" type="currency" /><br> 
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div><!-- collapse -->
-			</div><!-- pannel -->
+					</div><!-- collapse -->
+				</div><!-- pannel -->
+			</div>
+			<div class="col-sm-1"></div>
 		</div>
 		
-		<div class="row">
-			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#reservation"><h3 class="panel-title">예약</h3><a></div>
-				<div id="reservation" class="panel-collapse collapse">
-					<div class="panel-body">
-					예약.....
-					</div>
-				</div><!-- collapse -->
-			</div><!-- pannel -->
-		</div><!-- end of row -->
-		
-		<div class="row">
-			<div class="panel panel-default menu">
-				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#review"><h3 class="panel-title">후기</h3><a></div>
-				<div id="review" class="panel-collapse collapse">
-					<div class="panel-body">
-					후기.....
-					</div>
-				</div><!-- collapse -->
-			</div><!-- pannel -->
+		<div class="row row5">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="panel panel-default menu">
+					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#review"><h3 class="panel-title">후기</h3><a></div>
+					<div id="review" class="panel-collapse collapse">
+						<div class="panel-body">
+						후기.....
+						</div>
+					</div><!-- collapse -->
+				</div><!-- pannel -->
+			</div>
+			<div class="col-sm-1"></div>
 		</div>
 	</div>
