@@ -63,9 +63,9 @@
 		where soId=#{soId}
 	</update>
 
-  	<insert id="payment" parameterType="SvDTO">
-  		insert into payment(soId,payNum,payDate,period,price)
-		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price})
+  	<insert id="payment" parameterType="hashmap">
+  		insert into payment(soId,payNum,payDate,period,price,cardNum,validThru,secCode)
+		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price},#{cardNum},#{validThru},#{secCode})
   	</insert>
   	
   	 <select id="soLevel" parameterType="string" resultType="string">

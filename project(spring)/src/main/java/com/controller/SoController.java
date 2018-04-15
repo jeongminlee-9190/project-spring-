@@ -53,7 +53,8 @@ public class SoController {
 				String soFreetrialDate =service.soFreetrialDate(soId);
 				if(soFreetrialDate==null) {
 					service.soLevelChange2(map2);
-					session.setAttribute("SoFreetrialDate","만료, 서비스 결제가 필요합니다.");
+					soLevel = service.soLevel(soId);
+					session.setAttribute("SoLevel", soLevel);
 				}else {
 					session.setAttribute("SoFreetrialDate",soFreetrialDate);
 				}
@@ -61,7 +62,8 @@ public class SoController {
 				String soExpireDate =service.soExpireDate(soId);
 				if(soExpireDate==null) {
 					service.soLevelChange3(map2);
-					session.setAttribute("SoExpireDate","만료, 서비스 결제가 필요합니다.");
+					soLevel = service.soLevel(soId);
+					session.setAttribute("SoLevel", soLevel);
 				}else {
 					session.setAttribute("SoExpireDate",soExpireDate);
 				}
@@ -69,7 +71,7 @@ public class SoController {
 			else if(soLevel.equals("3")) {
 				String soFreetrialDate =service.soFreetrialDate(soId);
 				if(soFreetrialDate==null) {
-					session.setAttribute("SoFreetrialDate","만료, 서비스 결제가 필요합니다.");
+
 				}else {
 					session.setAttribute("SoFreetrialDate",soFreetrialDate);
 				}
@@ -77,7 +79,7 @@ public class SoController {
 			else if(soLevel.equals("4")) {
 				String soExpireDate =service.soExpireDate(soId);
 				if(soExpireDate==null) {
-					session.setAttribute("SoExpireDate","만료, 서비스 결제가 필요합니다.");
+
 				}else {
 					session.setAttribute("SoExpireDate",soExpireDate);
 				}

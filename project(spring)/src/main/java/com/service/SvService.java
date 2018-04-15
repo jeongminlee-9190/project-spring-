@@ -16,7 +16,7 @@ public class SvService {
 	SvDAO dao;
 	
 	@Transactional
-	public void payment(SvDTO dto) {
-		dao.payment(dto);
+	public void payment(HashMap<String, Object> map) {
+		dao.payment(map);
 	}
 }

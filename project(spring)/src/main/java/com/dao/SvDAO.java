@@ -15,9 +15,10 @@ public class SvDAO {
 	@Autowired
 	SqlSessionTemplate template;
 	
-	public void payment(SvDTO dto) {
-		template.insert("SoMapper.payment",dto);
-		template.update("SoMapper.soLevelChange",dto.getSoId());
+	public void payment(HashMap<String, Object> map) {
+		String soId = (String)map.get("soId");
+		template.insert("SoMapper.payment",map);
+		template.update("SoMapper.soLevelChange",soId);
 	}
 	
 }

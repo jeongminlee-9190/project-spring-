@@ -3,9 +3,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<form action="payMent" method="post" class="payMentForm">
+<!-- <style>
+	h4{
+		text-align: left;
+	}
+	.card{
+		text-align: center;
+		/* border: 1px solid grey; */
+	}
+	.orange-background{
+		border: 1px solid orange;
+		background-color: orange;
+		width: 260px;
+	}
+	.orange-border{
+		border: 1px solid orange;
+		background-color: white;
+		color: orange;
+		width: 260px;
+	}
+	.row.row1{
+		margin-top: 70px;
+	}
+	.row.row3{
+		margin-bottom: 70px;
+		text-align: center;
+	}
+	.red{
+		color: red;
+	}
+</style> -->
+<form action="payMent" class="form-inline" method="post" class="payMentForm">
 	<div class="container">
-		<div class="row">
+		<div class="row row1">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
 				<h3>서비스 결제</h3>
@@ -68,7 +98,7 @@
 			</div>
 		</div>
 		<br><br>
-		<div class="row">
+		<div class="row row2">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
 				<div class="alert alert-warning">
@@ -79,23 +109,23 @@
   			</div>
   			<div class="col-sm-3"></div>
   		</div>
-  		<div class="paymentTry">
-  			<c:if test="${empty SoExpireDate}">
-  				<input type="submit" class="btn btn-primary orange-background" value="위의 내용에 동의하고 결제"> 
-  				<a href="main_shopowner"><input type="button" class="btn btn-primary orange-border" value="취소"></a>
-  			</c:if>
-  			<c:if test="${!empty SoExpireDate}">
-  				<span class="red">서비스 만료 날짜인 ${SoExpireDate} 이후에 결제해주세요!</span>
-  			</c:if>
-  			
+  		<div class="row row3">
+  			<div class="col-sm-3"></div>
+  			<div class="col-sm-6">
+	  			<c:if test="${empty SoExpireDate}">
+	  				<h4>결제정보 입력</h4>
+	  				카드 번호 <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="숫자만 입력" size="16" maxlength="16">
+	  				유효 기간 <input type="text" class="form-control" name="validThru" id="validThru" placeholder="MMYY" size="4" maxlength="4">
+	  				보안코드<input type="text" class="form-control" name="secCode" id="validThru" placeholder="1234" size="4" maxlength="4"><br><br>
+	  				<input type="submit" class="btn btn-primary orange-background" value="주의사항에 동의하고 결제"> 
+	  				<a href="main_shopowner"><input type="button" class="btn btn-primary orange-border" value="취소"></a>
+	  			</c:if>
+	  			<c:if test="${!empty SoExpireDate}">
+	  				<span class="red">서비스 만료 날짜인 ${SoExpireDate} 이후에 결제해주세요!</span>
+	  			</c:if>
+  			</div>
+  			<div class="col-sm-3"></div>
   		</div>
-	<!-- 
-		<input type="radio" name="selectPay" > <br>
-		<input type="radio" name="selectPay" value="60"> 60일 상품 [ 28000원 ]<br>
-	    <input type="radio" name="selectPay" value="90"> 90일 상품 [ 40000원 ]<br>
-	    <input type="radio" name="selectPay" value="120"> 120일 상품 [ 52000원 ]<br>
-		<input type="submit" value="결제하기"> -->
-	
 	</div>
 	<div class="col-sm-3" ></div>
 </form>

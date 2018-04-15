@@ -39,9 +39,11 @@ public class SvController {
 		return nextPage;
 	}
 	
+	
 	@RequestMapping(value="/payMent", method=RequestMethod.POST)
-	public String payMent(@RequestParam String period ,HttpSession session,HttpServletRequest request) {
+	public String payMent(@RequestParam HashMap<String, Object> map,HttpSession session,HttpServletRequest request) {
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
+		System.out.println("map"+map);
 		String nextPage=null;
 		if(soDTO==null) {
 			request.setAttribute("fail", "로그인을 해주세요.");
@@ -49,18 +51,19 @@ public class SvController {
 		}else {
 			String soId = (String)session.getAttribute("SoId");
 			int price = 0;
-			if(period.equals("30")) {
+			String period2 =  (String)map.get("period");
+			int period = Integer.parseInt(period2);
+			if(period2.equals("30")) {
 				price=16800;
-			}else if(period.equals("60")) {
+			}else if(period2.equals("60")) {
 				price=26800;
 			}else {
 				price=36800;
 			}
-			SvDTO svDTO= new SvDTO();
-			svDTO.setSoId(soId);
-			svDTO.setPrice(price);
-			svDTO.setPeriod(Integer.parseInt(period));
-			service.payment(svDTO);
+			map.put("soId", soId);
+			map.put("period", period);
+			map.put("price", price);
+			service.payment(map);
 			String soExpireDate = soService.soExpireDate(soId);
 			String soLevel = soService.soLevel(soId);
 			session.setAttribute("SoLevel",soLevel);
