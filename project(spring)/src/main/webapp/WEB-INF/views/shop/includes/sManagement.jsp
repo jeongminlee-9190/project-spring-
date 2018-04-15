@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <input type="hidden" value="${sInfo}">
-<!-- 레벨이 0인 경우 메뉴를 클릭하면 다른페이지로 -->
 <br>
 <div class="container">
 	<div class="row">

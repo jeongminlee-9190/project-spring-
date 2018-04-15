@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dto.SDTO;
 import com.dto.SoDTO;
@@ -25,7 +26,6 @@ public class sController {
 	
 	@RequestMapping("/SInfoEnroll")
 	public String SInfoEnroll(HttpSession session,HttpServletRequest request) {
-		
 		String soId = request.getParameter("soId");
 		String soLicense =request.getParameter("soLicense");
 		String sName = request.getParameter("sName");
@@ -144,23 +144,42 @@ public class sController {
 	}
 	
 	@RequestMapping("/sInfoUpdate")
-	public String sInfoUpdate(HttpSession session,HttpServletRequest request) {
+	public String sInfoUpdate(@RequestParam HashMap<String, String> map, HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
 		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
-		String sCode = sDTO.getsCode();
-		String sName = sDTO.getsName();
-		String soId = sDTO.getSoId();
-		String sPost = sDTO.getsPost();
-		String sAddr = sDTO.getsAddr();
-		String sCategory = sDTO.getsCategory();
+		System.out.println("map"+map);
+		String nextPage=null;
+		if(soDTO==null) {
+			session.setAttribute("fail", "로그인을 해주세요");
+			nextPage ="index_shopowner";
+		}else {
+			session.setAttribute("success", "상점 기본 정보 수정이 완료되었습니다.");
+			nextPage="redirect:sManagement";
+		}
 		
-		String sPhone1 = request.getParameter("sPhone1");
-		String sPhone2 = request.getParameter("sPhone2");
-		String sPhone3 = request.getParameter("sPhone3");
-		String sWeekday = request.getParameter("sWeekday");
-		String sWeekend= request.getParameter("sWeekend");
-		String sDayOff= request.getParameter("sDayOff");
-		String sParkinglot= request.getParameter("sParkinglot");
-		String sTerrace= request.getParameter("sTerrace");
+		/*set sPhone = #{sPhone}, sBusinesshours = #{sBusinesshours}, sParkinglot = #{sParkinglot}, sTerrace = #{sTerrace}, sMenu1=#{sMenu1}, sMenu2=#{sMenu2}
+		where sCode = #{sCode}*/
+		String soId = sDTO.getSoId();
+		String sPhone1 = map.get("sPhone1");
+		String sPhone2 = map.get("sPhone2");
+		String sPhone3 = map.get("sPhone3");
+		String sWeekday = map.get("sWeekday");
+		String sWeekend= map.get("sWeekend");
+		String sDayOff= map.get("sDayOff");
+		
+		String sPhone = sPhone1+"-"+sPhone2+"-"+sPhone3;
+		String sBusinesshours = sWeekday+"/"+sWeekend+"/"+sDayOff;
+		
+		HashMap<String, String> map2 = new HashMap<>();
+		map.put("sPhone", sPhone);
+		map.put("sBusinesshours", sBusinesshours);
+		
+		String sCode = sCategory2+soLicense;
+		/*
+		
+		
+		
+	
 		//메뉴판 카테고리1
 		String sMenuCategory1= request.getParameter("sMenuCategory1");
 		String sC1Menu1= request.getParameter("sC1Menu1");
@@ -185,13 +204,13 @@ public class sController {
 		String sC2Price3= request.getParameter("sC2Price3");
 		String sSubway=request.getParameter("sSubway2");
 		////////////DTO에 맞게 재정의/////////////
-		String sPhone = sPhone1+"-"+sPhone2+"-"+sPhone3;
+		
 		String sMenu1= sMenuCategory1+"/"+sC1Menu1+":"+sC1Menu1_info+":"+sC1Price1+"/"+sC1Menu2+":"+sC1Menu2_info+":"+sC1Price2+"/"+sC1Menu3+":"+sC1Menu3_info+":"+sC1Price3;
 		String sMenu2= sMenuCategory2+"/"+sC2Menu1+":"+sC2Menu1_info+":"+sC2Price1+"/"+sC2Menu2+":"+sC2Menu2_info+":"+sC2Price2+"/"+sC2Menu3+":"+sC2Menu3_info+":"+sC2Price3;	
 		String sBusinesshours = sWeekday+"/"+sWeekend+"/"+sDayOff;
 		SDTO dto = new SDTO(sCode, sName, soId, sPost, sAddr, sPhone, sCategory, sBusinesshours, sParkinglot, sTerrace, sMenu1, sMenu2,sSubway);
-		service.sInfoUpdate(dto);
-		return "redirect:sInfoUpdate";
+		service.sInfoUpdate(dto);*/
+		return nextPage;
 	}
 	
 	
