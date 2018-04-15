@@ -3,37 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!-- <style>
-	h4{
-		text-align: left;
-	}
-	.card{
-		text-align: center;
-		/* border: 1px solid grey; */
-	}
-	.orange-background{
-		border: 1px solid orange;
-		background-color: orange;
-		width: 260px;
-	}
-	.orange-border{
-		border: 1px solid orange;
-		background-color: white;
-		color: orange;
-		width: 260px;
-	}
-	.row.row1{
-		margin-top: 70px;
-	}
-	.row.row3{
-		margin-bottom: 70px;
-		text-align: center;
-	}
-	.red{
-		color: red;
-	}
-</style> -->
-<form action="payMent" class="form-inline" method="post" class="payMentForm">
+<form action="soPayMent" class="form-inline" method="post" class="payMentForm">
 	<div class="container">
 		<div class="row row1">
 			<div class="col-sm-3"></div>
@@ -42,7 +12,6 @@
 				<p>갬성갱단 가입 시 체험 회원으로  상점관리 서비스를 이용하실 수 있습니다.</p>
 				<p>단, 체험 기간(90일) 만료 후 갬성갱단의 상점관리 서비스를 이용하시려면 </p>
 				<p>아래와 같은  서비스를 결제하셔야 합니다.</p>
-				<br><br>
 				<div class="col-sm-3" >
 					<br>
 			  		<div class="card">
