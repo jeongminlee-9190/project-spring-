@@ -27,8 +27,8 @@ public class SDAO {
 		template.insert("SMapper.sScoreInsert",dto.getsCode());
 	}
 	
-	public void sInfoUpdate(SDTO dto) {
-		template.update("SMapper.sInfoUpdate",dto);
+	public void sInfoUpdate(HashMap<String, String> map) {
+		template.update("SMapper.sInfoUpdate",map);
 	}
 	
 	/*public void sScoreInsert(String sCode) {
@@ -49,7 +49,5 @@ public class SDAO {
 		template.delete("SoMapper.soReviewDel",map);
 		template.delete("SoMapper.soInterestDel",map);
 		template.delete("SoMapper.soScoreDel",map);
-		template.delete("SoMapper.soCouponDel",map);
-		template.delete("SoMapper.soPaymentDel",map);
 	}
 }

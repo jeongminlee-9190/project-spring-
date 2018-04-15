@@ -4,18 +4,21 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <style>
-h3,h4,p{
+h3,h4{
 	text-align: left;
 }
-
+.sInfoupdateText{
+	font-size: 22px;
+}
 a{
 	text-decoration: none;
 }
-h3{
-	text-align: left;
+.btngroup{
+	text-align: right;
 }
 .row1{
 	margin-top: 70px;
+	text-align: right;
 }	
 .row2{
 	margin-left: 5%;
@@ -46,25 +49,29 @@ h3{
 .btn-cancel{
 	border: 1px solid orange;
 	background-color: white;
-	width: 300px;
+	width: 100px;
 	color: orange;
 }
 .btn-submit{
 	border: 1px solid orange;
 	background-color: orange;
-	width: 300px;
+	width: 100px;
 	color: white;
 }
 </style>
 <form class="form-inline" action="sInfoUpdate" method="post">
+	<c:set var="sdto" value="${sInfo}"></c:set>
+	<input Type="hidden" name="sCode" id="sCode" value="${sdto.sCode}">
 	<div class="container-fluid sbasicInfo">
-		<c:set var="sdto" value="${sInfo}"></c:set>
-		<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
 		<div class="row row1">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-4"><h3>상점  기본 정보 수정</h3></div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-3"><span class="sInfoupdateText">상점  기본 정보 수정</span></div>
+			<div class="col-sm-6 btngroup">
+			<input type="submit" class="btn btn-primary btn-submit" value="수정">
+			<input type="reset" class="btn btn-primary btn-cancel" value="취소"></div>
 		</div>
 	</div>
+	<br>
 	<div class="container-fluid sInfo">
 		<div class="row row2">
 			<div class="col-sm-1"></div>
@@ -93,8 +100,8 @@ h3{
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">카테고리</span>
-									<c:if test="${sdto.sCategory=='Wine'}">
+									<span class="span_Info1">카테고리</span> ${sdto.sCategory}
+									<%-- <c:if test="${sdto.sCategory=='Wine'}">
 										<select class="form-control"  id="sCategory" name="sCategory">
 											<option value="c">카페</option>
 											<option value="d">디저트</option>
@@ -114,7 +121,7 @@ h3{
 											<option value="d" selected="selected">디저트</option>
 											<option value="w">와인</option>
 										</select>
-									</c:if>
+									</c:if> --%>
 								</div>
 								
 							</div>
@@ -220,10 +227,10 @@ h3{
 		</div>
 		<div class="col-sm-1"></div>
 	</div>
-	<div class="row row4">
+	<!-- <div class="row row4">
 		<div class="col-sm-12">
 			<input type="submit" class="btn btn-primary btn-submit" value="수정">
 			<input type="reset" class="btn btn-primary btn-cancel" value="취소">
 		</div>
-	</div>
+	</div> -->
 </form>
