@@ -61,18 +61,16 @@ $(document).ready(function(){
 	});
 
 	//역
-	$("#station_wrap ul li").mouseover(function(){
+	$(document).on("mouseover",'.station_list', function(){
 
 		var line_btn_color = $("#line_btn").css("background-color");
-
 		$(this).css({"background-color":line_btn_color,"color":"#ffffff"});
 
 	});
-
-	$("#station_wrap ul li").mouseout(function(){
+	
+	$(document).on("mouseout",'.station_list', function(){
 
 		var line_btn_color = $("#line_btn").css("background-color");
-
 		$(this).css({"background-color":"#ffffff","color":line_btn_color});
 
 	});
@@ -152,7 +150,7 @@ $(document).ready(function(){
 		$("#station_btn").html(function(){
 		    return "<span>" + li.find("span").text() + "</span>";
 		}) ;
-
+		
 		$("#station_btn").find("span").css({"font-size":"18px","font-weight":"900",
 										 "padding-top":"15px","font-family":"'Open Sans', sans-serif"});
 

@@ -26,12 +26,11 @@
 <script type="text/javascript" src='resources/js/interest.js'></script>
 <script type="text/javascript" src='resources/js/search_new.js'></script>
 <script type="text/javascript" src="resources/js/keyword.js"></script>
-<script type="text/javascript" src='resources/js/keyword.js'></script>
-
 
 <title>갬성갱단</title>
 </head>
 <body>
+<div id="AllContentWrap">
 <div class="emphasized"></div>
 <jsp:include page="search_header.jsp" flush="true" />
 
@@ -39,7 +38,9 @@
 
 <jsp:include page="searchresultlist.jsp" flush="true" />
 
-<jsp:include page="../footer/footer.jsp" flush="true" />
+<jsp:include page="../member/includes/shop_top_btn.jsp" flush="true" />
 
+<jsp:include page="../footer/footer.jsp" flush="true" />
+</div>
 </body>
 </html>

@@ -32,38 +32,40 @@
 
 </head>
 <body>
+<div id="AllContentWrap">
 
-<!-- 로그아웃 처리-->
-<c:if test="${!empty memberlogout}">
-	<script type="text/javascript">
-    	alert('${memberlogout}');
-    </script>
-</c:if>
-<div class="emphasized"></div>
-<div id="header">
-	<div class="slide_wrap">
-		<ul id="main_bg_slider" class="slide">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+	<!-- 로그아웃 처리-->
+	<c:if test="${!empty memberlogout}">
+		<script type="text/javascript">
+	    	alert('${memberlogout}');
+	    </script>
+	</c:if>
+	<div class="emphasized"></div>
+	<div id="header">
+		<div class="slide_wrap">
+			<ul id="main_bg_slider" class="slide">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<jsp:include page="member/mLogin.jsp" flush="true"/>
+		<%-- <jsp:include page="member/mNoticeUI.jsp" flush="true"/> --%>
+		<div id="logo">
+			<img src="resources/images/logo.png" title="logo">
+		</div>
+		<jsp:include page="search/search.jsp" flush="true"/>
 	</div>
-	<jsp:include page="member/mLogin.jsp" flush="true"/>
-	<%-- <jsp:include page="member/mNoticeUI.jsp" flush="true"/> --%>
-	<div id="logo">
-		<img src="resources/images/logo.png" title="logo">
+	
+	<div id="content_wrapper">
+		<jsp:include page="search/subway.jsp" flush="true" />
+		<jsp:include page="search/keyword.jsp" flush="true" />
 	</div>
-	<jsp:include page="search/search.jsp" flush="true"/>
+	
+	<jsp:include page="footer/footer.jsp" flush="true" />
+
 </div>
-
-<div id="content_wrapper">
-	<jsp:include page="search/subway.jsp" flush="true" />
-	<jsp:include page="search/keyword.jsp" flush="true" />
-</div>
-
-<jsp:include page="footer/footer.jsp" flush="true" />
-
 </body>
 </html>

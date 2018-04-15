@@ -25,13 +25,13 @@
 <title>로그인</title>
 </head>
 <body>
-
-<jsp:include page="includes/memberHeader.jsp" flush="true"/>
-<c:if test="${empty login}">
-	<jsp:include page="includes/mLoginForm.jsp" flush="true"/>
-</c:if>
-
-<jsp:include page="../footer/footer.jsp" flush="true" />
-
+<div id="AllContentWrap">
+	<jsp:include page="includes/memberHeader.jsp" flush="true"/>
+	<c:if test="${empty login}">
+		<jsp:include page="includes/mLoginForm.jsp" flush="true"/>
+	</c:if>
+	
+	<jsp:include page="../footer/footer.jsp" flush="true" />
+</div>
 </body>
 </html>
