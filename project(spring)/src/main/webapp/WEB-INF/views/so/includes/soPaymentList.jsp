@@ -6,88 +6,91 @@
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<div class="pagebox">
-				<h3>상점회원 공지사항</h3>
-				<span class="info">검색값을 입력하지 않고 검색을 클릭하면 전체 조회</span>
-				<form action="soNotice2" method="GET" role="form" id="search">
-					<table class="table">
-						<colgroup>
-							<col width="15%">
-							<col width="70%">
-							<col width="15%">
-						</colgroup>
-  						<tr align="center">
-   							<td colspan="5" align="center">
-    							<c:if test="${empty searchName || searchName=='title'}">
-    							<select class="form-control" id="searchName" name="searchName">
-        							<option value="title" selected="selected">제목</option>
-        							<option value="content">내용</option>
-     							</select> 
-     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>    					
-								</c:if>
-     							
-     							<c:if test="${searchName=='content'}">
-    							<select class="form-control" id="searchName" name="searchName">
-        							<option value="title">제목</option>
-        							<option value="content" selected="selected">내용</option>
-     							</select>
-     							<td><input type="text" class="form-control" id="searchValue" name="searchValue" value="${searchValue}"></td>
-     							</c:if>
-     						</td>
-     						<td><input type="submit" class="btn btn-primary orange-background" value="검색"></td>
- 						</tr>
-  					</table>
-  				</form>
-				<table class="table table-hover">
-					<colgroup>
-						<col width="15%">
-						<col width="65%">
-						<col width="20%">
-
-					</colgroup>
-				 			
-					<thead>
-						<tr>
-					  		<th scope="col">번호</th>
-					  		<th scope="col">제목</th>
-					  		<th scope="col">작성일</th>
-				 		</tr>
-					</thead>
-					<c:forEach var="dto" items="${pageDTO.list}" varStatus="status">
-						<tbody>
-					 		<tr>
-					  			<td>${dto.noticeNum}</td>
-					  			<td>
-					  				<c:set var="noticeTitle" value="${dto.noticeTitle}"/>
-					  				<a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" data-num="${dto.noticeNum}">${fn:substring(noticeTitle, 0, 16)}</a></td>
-					  			<td>${dto.noticeWritedate}</td>
-					  			<!-- The Modal -->
-								<div class="modal fade" id="myModal">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											      
-											<!-- Modal Header -->
-											<div class="modal-header">
-												<span class="modal-title">공지사항 자세히 보기</span>
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-											</div>
-												        
-											<!-- Modal body -->
-											<div class="modal-body">
-											</div>
-										 </div>
-									</div>
+			<h3>마이페이지-서비스 결제 내역</h3>
+			<span class="info">검색값을 입력하지 않고 검색을 클릭하면 전체 조회</span>
+			<table class="table table-hover">
+				<colgroup>
+					<col width="15%">
+					<col width="40%">
+					<col width="10%">
+					<col width="10%">
+				</colgroup>
+				<thead class="thead-light">
+					<tr>
+						<td colspan="4" align="center">
+							<form class="form-inline" action="soPaymentList" method="GET">
+								<div class="form-group">
+									<label for="inputPassword">기간</label>
+									<c:if test="${empty searchName2}">
+										<select class="form-control" name="searchName2">
+											<option selected="selected"></option>
+											<option>1주일</option>
+											<option>1개월</option>
+										</select>
+									</c:if>
+									<c:if test="${searchName2=='1주일'}">
+										<select class="form-control" name="searchName2">
+											<option></option>
+											<option selected="selected">1주일</option>
+											<option>1개월</option>
+										</select>
+									</c:if>
+									<c:if test="${searchName2=='1개월'}">
+										<select class="form-control" name="searchName2">
+											<option></option>
+											<option>1주일</option>
+											<option selected="selected">1개월</option>
+										</select>
+									</c:if>
 								</div>
-					 		</tr>
-				 		</tbody>
-					</c:forEach>
-				    <!-- 페이지번호 -->
-				  	<tr>
-				   		<td colspan="5" align="center">&nbsp;<jsp:include page="noticePaging.jsp" flush="true" /></td>
-				  	</tr>
-				  </table>
+								<div class="form-group">
+								   	<input type="submit" class="btn btn-primary orange-background2" value="검색">
+								</div>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">결제날짜</th>
+						<th scope="col">서비스</th>
+						<th scope="col">결제상태</th>
+			 		</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="dto" items="${soQna}" varStatus="status">
+							<input type="hidden" name="soId" id="soId" value="${dto.soId}">
+							<tr>
+								<td>${dto.qnaCategory}</td>
+								<td>	
+									<a data-toggle="collapse" data-parent="#accordion" class="qnaReplyContentCheck" href="#soQnaRetrieve${dto.qnaNum}" data-num="${dto.qnaNum}">${dto.qnaTitle}</a>
+									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
+										
+										<label for="qnaContent">내용:</label>
+										<c:if test="${dto.qnaComplete=='확인중'}">
+  											<textarea class="form-control" rows="5" id="qnaContent">${dto.qnaContent}</textarea>
+											<div class="buttons">
+												<input type="button" class="btn btn-primary btn_qnaModify" data-num="${dto.qnaNum}" value="수정">
+												<input type="button" class="btn btn-primary btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
+											</div>
+										</c:if>
+										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='처리완료'}">
+											${dto.qnaContent}<br><br>
+											<label for="qnaContent">답변: </label> 
+											<span class="qnaReplyContent" id="qnaReplyContent${dto.qnaNum}">${dto.qnaReplyContent}</span><br>
+											<input type="hidden" id="qnaReplyStatement${dto.qnaNum}" value="${dto.qnaReplyStatement}">
+											<br>
+											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
+										</c:if>
+									</div><!-- collapse -->
+								</td>
+								<td>${dto.qnaWritedate}</td>
+								<td>${dto.qnaComplete}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
 			</div>
-		</div>
-		<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+		</div><!-- end of row -->
 	</div>
-</div>

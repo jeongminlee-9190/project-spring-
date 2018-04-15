@@ -318,7 +318,7 @@ public class SoController {
 	}
 	
 	
-	@RequestMapping("/soLeave")
+	@RequestMapping(value="/soLeave", method=RequestMethod.GET)
 	public String soLeave(HttpSession session, HttpServletRequest request) {
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
 		String nextPage=null;

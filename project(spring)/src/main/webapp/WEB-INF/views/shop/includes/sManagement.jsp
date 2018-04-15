@@ -61,8 +61,6 @@
 			<div class="shopView">
 				<h3>상점 확인</h3><hr><br>
 				<p>등록한 기본정보와 사진을 </p>
-				<p>확인할 수 있으며,</p>
-				<p>개인회원에게 보여지는 화면을</p>
 				<p>확인할 수 있습니다.</p>
 				<br>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">

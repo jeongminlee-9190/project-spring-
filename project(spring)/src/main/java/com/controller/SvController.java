@@ -25,8 +25,8 @@ public class SvController {
 	SoService soService;
 
 	
-	@RequestMapping("/payMentUI")
-	public String payMentUI(HttpSession session) {
+	@RequestMapping("/soPayMentForm")
+	public String soPayMentForm(HttpSession session) {
 		SoDTO sDTO = (SoDTO)session.getAttribute("SoLogin");
 		String nextPage=null;
 		if(sDTO == null) {
@@ -34,16 +34,16 @@ public class SvController {
 		}else {
 			String soId = sDTO.getSoId();
 			session.setAttribute("SoId", soId);
-			nextPage="so/payment";
+			nextPage="so/soPayMentForm";
 		}
 		return nextPage;
 	}
 	
 	
-	@RequestMapping(value="/payMent", method=RequestMethod.POST)
-	public String payMent(@RequestParam HashMap<String, Object> map,HttpSession session,HttpServletRequest request) {
+	@RequestMapping(value="/soPayMent", method=RequestMethod.POST)
+	public String soPayMent(@RequestParam HashMap<String, Object> map,HttpSession session,HttpServletRequest request) {
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
-		System.out.println("map"+map);
+		//period cardNum validThru secCode
 		String nextPage=null;
 		if(soDTO==null) {
 			request.setAttribute("fail", "로그인을 해주세요.");

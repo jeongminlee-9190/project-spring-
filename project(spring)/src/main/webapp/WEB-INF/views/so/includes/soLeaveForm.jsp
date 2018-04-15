@@ -35,7 +35,7 @@
   <div class="row">
     <div class="col-sm-4" ></div>
     <div class="col-sm-4">
-    	<form>
+    	<form action="soLeave" method="GET">
 	    	<h3>마이페이지-회원 탈퇴</h3><br>
 			<table class="table table-hover">
 				<colgroup>
