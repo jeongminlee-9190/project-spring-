@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,7 +66,7 @@ public class SoService {
 	public String soCouponCnt(String sCode) {
 		return dao.soCouponCnt(sCode);
 	}
-	public String soExpireDate(String soId) {
+	public List<String> soExpireDate(String soId) {
 		return dao.soExpireDate(soId);
 	}
 	public String soFreetrialDate(String soId) {
