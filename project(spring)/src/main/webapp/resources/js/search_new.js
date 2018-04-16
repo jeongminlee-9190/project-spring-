@@ -9,7 +9,10 @@ $(document).ready(function(){
 				 .bind('touchmove', function(e){
 					 e.preventDefault()
 				 });
-	});
+		/*$("::-webkit-scrollbar").css({
+					"width":"0px; remove scrollbar space",
+					"background":"transparent","optional":"just make scrollbar invisible"
+		});*/
 	
 	//검색창 클릭 했을 때 배경 어둡게 - 숨기기  / body 스크롤 가능
 	$(".emphasized").on("click",function(){
@@ -165,4 +168,6 @@ $(document).ready(function(){
 		
 	});
 
+});
+	
 });
