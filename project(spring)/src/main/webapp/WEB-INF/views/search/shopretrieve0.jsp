@@ -8,9 +8,9 @@
 <c:set var="login" value="${loginInfo }" scope="session"></c:set>
 <c:set var="shop" value="${shopInfo }" scope="request"></c:set>
   <jsp:include page="memberUI0.jsp" flush="true" />
-  <jsp:include page="search0.jsp" flush="true"/>
-  <jsp:include page="subway0.jsp" flush="true"></jsp:include>
-  <jsp:include page="keyword0.jsp" flush="true"></jsp:include><br>
+  <jsp:include page="search.jsp" flush="true"/>
+  <jsp:include page="subway.jsp" flush="true"></jsp:include>
+  <jsp:include page="keyword.jsp" flush="true"></jsp:include><br>
 <h1>${shop.sName }</h1>
 <hr>
 <jsp:include page="shopimage0.jsp" flush="true"></jsp:include>

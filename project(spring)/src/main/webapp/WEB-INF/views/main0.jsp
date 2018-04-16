@@ -21,9 +21,9 @@
     <h1 id="title">GAEMSEONG<br>GAENDAN</h1>
   </header>
   <jsp:include page="search/memberUI0.jsp" flush="true" />
-  <jsp:include page="search/search0.jsp" flush="true"/>
+  <jsp:include page="search/search.jsp" flush="true"/>
   <br><br>
-  <jsp:include page="search/subway0.jsp" flush="true"></jsp:include>
-  <jsp:include page="search/keyword0.jsp" flush="true"></jsp:include>
+  <jsp:include page="search/subway.jsp" flush="true"></jsp:include>
+  <jsp:include page="search/keyword.jsp" flush="true"></jsp:include>
 </body>
 </html>
