@@ -31,7 +31,6 @@ public class SDAO {
 		template.update("SMapper.sInfoUpdate",map);
 	}
 	
-<<<<<<< HEAD
 	public void sDelAll(String sCode) {
 		System.out.println("DAO_sDelAll시작");
 		//template.delete("SMapper.sDelScore",sCode);
@@ -39,12 +38,12 @@ public class SDAO {
 		//template.delete("SMapper.sDelReview",sCode);
 		template.delete("SMapper.sDel",sCode);
 	}
-=======
+
 	/*public void sScoreInsert(String sCode) {
 		System.out.println("sScoreInsert SDAO 접근"+sCode);
 		template.insert("SMapper.sScoreInsert",sCode);
 	}*/
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
+
 	
 	public void sImageAdd(HashMap<String, String> map) {
 		template.update("SMapper.sImageAdd",map);
