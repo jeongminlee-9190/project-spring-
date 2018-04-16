@@ -281,6 +281,7 @@ public class SoController {
 		return nextPage;
 	}
 	
+
 	@RequestMapping("/soLeaveForm")
 	public String soLeaveForm(HttpSession session, HttpServletRequest request){
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
@@ -340,3 +341,4 @@ public class SoController {
 		return nextPage;
 	}
 }
+

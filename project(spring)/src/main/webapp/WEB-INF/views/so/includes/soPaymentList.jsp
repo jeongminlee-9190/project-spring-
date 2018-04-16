@@ -2,8 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<style>
+	.row1{
+		margin-top: 90px;
+		margin-bottom: 40px;
+	}
+	
+	#soPaymentList{
+		text-align: right;
+	}
+	.orange-background{
+		background-color: orange;
+		border: 1px solid orange;
+		color: white;
+	}
+</style>
+
 <div class="container-fluid">
-	<div class="row">
+	<div class="row row1">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<h3>마이페이지-서비스 결제 내역</h3>
@@ -12,31 +28,31 @@
 				<colgroup>
 					<col width="15%">
 					<col width="40%">
-					<col width="10%">
-					<col width="10%">
+					<col width="30%">
+					<col width="15%">
 				</colgroup>
 				<thead class="thead-light">
 					<tr>
 						<td colspan="4" align="center">
-							<form class="form-inline" action="soPaymentList" method="GET">
+							<form class="form-inline" action="soPaymentList" method="GET" id="soPaymentList">
 								<div class="form-group">
 									<label for="inputPassword">기간</label>
-									<c:if test="${empty searchName2}">
-										<select class="form-control" name="searchName2">
+									<c:if test="${empty searchName}">
+										<select class="form-control" name="searchName">
 											<option selected="selected"></option>
 											<option>1주일</option>
 											<option>1개월</option>
 										</select>
 									</c:if>
-									<c:if test="${searchName2=='1주일'}">
-										<select class="form-control" name="searchName2">
+									<c:if test="${searchName=='1주일'}">
+										<select class="form-control" name="searchName">
 											<option></option>
 											<option selected="selected">1주일</option>
 											<option>1개월</option>
 										</select>
 									</c:if>
-									<c:if test="${searchName2=='1개월'}">
-										<select class="form-control" name="searchName2">
+									<c:if test="${searchName=='1개월'}">
+										<select class="form-control" name="searchName">
 											<option></option>
 											<option>1주일</option>
 											<option selected="selected">1개월</option>
@@ -44,49 +60,32 @@
 									</c:if>
 								</div>
 								<div class="form-group">
-								   	<input type="submit" class="btn btn-primary orange-background2" value="검색">
+								   	<input type="submit" class="btn btn-primary orange-background" value="검색">
 								</div>
 							</form>
 						</td>
 					</tr>
 					<tr>
 						<th scope="col">번호</th>
-						<th scope="col">결제날짜</th>
 						<th scope="col">서비스</th>
+						<th scope="col">결제날짜</th>
 						<th scope="col">결제상태</th>
 			 		</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="dto" items="${soQna}" varStatus="status">
+						<c:forEach var="dto" items="${soPaymentList.list}" varStatus="status">
 							<input type="hidden" name="soId" id="soId" value="${dto.soId}">
 							<tr>
-								<td>${dto.qnaCategory}</td>
-								<td>	
-									<a data-toggle="collapse" data-parent="#accordion" class="qnaReplyContentCheck" href="#soQnaRetrieve${dto.qnaNum}" data-num="${dto.qnaNum}">${dto.qnaTitle}</a>
-									<div id="soQnaRetrieve${dto.qnaNum}" class="panel-collapse collapse">
-										
-										<label for="qnaContent">내용:</label>
-										<c:if test="${dto.qnaComplete=='확인중'}">
-  											<textarea class="form-control" rows="5" id="qnaContent">${dto.qnaContent}</textarea>
-											<div class="buttons">
-												<input type="button" class="btn btn-primary btn_qnaModify" data-num="${dto.qnaNum}" value="수정">
-												<input type="button" class="btn btn-primary btn_qnaDelete" data-num="${dto.qnaNum}" value="삭제">
-											</div>
-										</c:if>
-										<c:if test="${dto.qnaComplete=='처리중' || dto.qnaComplete=='처리완료'}">
-											${dto.qnaContent}<br><br>
-											<label for="qnaContent">답변: </label> 
-											<span class="qnaReplyContent" id="qnaReplyContent${dto.qnaNum}">${dto.qnaReplyContent}</span><br>
-											<input type="hidden" id="qnaReplyStatement${dto.qnaNum}" value="${dto.qnaReplyStatement}">
-											<br>
-											<span class="red">처리중이나 답변완료일 경우에는 수정, 삭제가 불가합니다.</span>
-										</c:if>
-									</div><!-- collapse -->
-								</td>
-								<td>${dto.qnaWritedate}</td>
-								<td>${dto.qnaComplete}</td>
+								<td>${dto.payNum}</td>
+								<td>${dto.period}일 이용</td>
+								<td>${dto.payDate}</td>
+								<td>완료</td>
 							</tr>
 						</c:forEach>
+						<!-- 페이지번호 -->
+					  	<tr>
+					   		<td colspan="4" align="center">&nbsp;<jsp:include page="soPaymentListPaging.jsp" flush="true" /></td>
+					  	</tr>
 					</tbody>
 				</table>
 				

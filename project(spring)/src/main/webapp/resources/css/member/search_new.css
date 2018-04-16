@@ -9,7 +9,7 @@
 	left:-305px;
 	margin-left:50%;
 	height:600px;
-	overflow-y:auto; 
+	overflow-y:visible; 
 	overflow-x:hidden;
 }
 

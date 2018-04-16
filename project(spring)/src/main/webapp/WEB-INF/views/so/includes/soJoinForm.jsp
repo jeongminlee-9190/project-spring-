@@ -18,6 +18,7 @@
 							<th>비밀번호</th>
 							<td><input type="password" class ="form-control" name="soPasswd" id="passwd" placeholder="영어+숫자  8~10자리" maxlength="10" size="17">
 						   	 <input type="password" class ="form-control" id="passwd2" placeholder="비밀번호 재입력" maxlength="10" size="17">
+						   	 <br><span id="result2"></span>
 						</tr>
 				
 						<tr>
