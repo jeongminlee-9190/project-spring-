@@ -282,10 +282,6 @@ public class SoController {
 	}
 	
 
-/*	@RequestMapping
-	//soLeaveForm
-*/
-
 	@RequestMapping("/soLeaveForm")
 	public String soLeaveForm(HttpSession session, HttpServletRequest request){
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");

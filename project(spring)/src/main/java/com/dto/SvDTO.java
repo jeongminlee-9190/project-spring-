@@ -40,6 +40,7 @@ public class SvDTO {
 		this.validThru = validThru;
 		this.secCode = secCode;
 	}
+	
 	public String getSoId() {
 		return soId;
 	}
@@ -89,6 +90,7 @@ public class SvDTO {
 	public void setSecCode(String secCode) {
 		this.secCode = secCode;
 	}
+	
 	@Override
 	public String toString() {
 		return "svDTO [soId=" + soId + ", payNum=" + payNum + ", payDate=" + payDate + ", period=" + period + ", price="

@@ -39,12 +39,6 @@ public class SDAO {
 		template.delete("SMapper.sDel",sCode);
 	}
 
-	/*public void sScoreInsert(String sCode) {
-		System.out.println("sScoreInsert SDAO 접근"+sCode);
-		template.insert("SMapper.sScoreInsert",sCode);
-	}*/
-
-	
 	public void sImageAdd(HashMap<String, String> map) {
 		template.update("SMapper.sImageAdd",map);
 	}

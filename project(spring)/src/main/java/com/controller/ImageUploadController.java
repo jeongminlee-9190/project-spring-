@@ -39,6 +39,7 @@ public class ImageUploadController {
 			nextPage = "index_shopowner";
 		}else {
 			soId = soDTO.getSoId();
+			System.out.println("soId"+soId);
 			String sCode = sDTO.getsCode();
 			String theText = upload.getTheText();
 			CommonsMultipartFile file = upload.getTheFile();
@@ -46,8 +47,8 @@ public class ImageUploadController {
 			String contentType=file.getContentType();
 			HashMap<String, String> map = new HashMap<>();
 			
-			if(contentType.equals("image/png")) {
-				String fileName = sCode+"_sImage"+num+".png";
+			if(contentType.equals("image/jpeg")) {
+				String fileName = sCode+"_sImage"+num+".jpg";
 				System.out.println("size: "+size);
 				System.out.println("fileName: "+fileName);
 				System.out.println("contentType: "+contentType);
@@ -66,7 +67,7 @@ public class ImageUploadController {
 				}
 				
 				map.put("sCode", sCode);
-				if(fileName.contains("sImage1.png")) {
+				if(fileName.contains("sImage1.jpg")) {
 					map.put("sImage",fileName);
 					sservice.sImageAdd(map);
 					session.setAttribute("sImage", fileName);
@@ -81,8 +82,8 @@ public class ImageUploadController {
 				session.setAttribute("mesg", "업로드  완료");
 				nextPage="redirect:sImageUploadForm";
 			}else {
-				session.setAttribute("mesg", "PNG만 업로드 가능");
-				nextPage="shop/sImageUploadForm";
+				session.setAttribute("mesg", "jpg만 업로드 가능");
+				nextPage="redirect:sImageUploadForm";
 			}
 		}
 		sDTO = sservice.sInfo(soId);
