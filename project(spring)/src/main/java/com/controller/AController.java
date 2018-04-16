@@ -194,7 +194,7 @@ public class AController {
 	
 	
 	@RequestMapping(value="/soApprove", method=RequestMethod.GET)
-	public String changeSoLevel(@RequestParam HashMap<String, String> map, HttpSession session) {
+	public String soApprove(@RequestParam String soId, HttpSession session) {
 		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
 		String nextPage=null;
 		if(adto==null) {
@@ -202,7 +202,6 @@ public class AController {
 			nextPage="index_admin";
 		}
 		else {
-			String soId = map.get("soId");
 			service.soApprove(soId);
 			session.setAttribute("success", soId+" -가입승인 완료");
 			nextPage="redirect:soList2";

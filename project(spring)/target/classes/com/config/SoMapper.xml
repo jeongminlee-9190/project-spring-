@@ -62,14 +62,99 @@
 		set soPhone=#{soPhone}
 		where soId=#{soId}
 	</update>
+
+  	<insert id="payment" parameterType="hashmap">
+  		insert into payment(soId,payNum,payDate,period,price,cardNum,validThru,secCode)
+		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price},#{cardNum},#{validThru},#{secCode})
+  	</insert>
+  	
+  	 <select id="soLevel" parameterType="string" resultType="string">
+		select soLevel
+		from shopowner
+		where soId=#{soId}
+	</select>
 	
-	<delete id="soLeave" parameterType="string">
+  	<update id="soLevelChange" parameterType="string">
+		update shopowner
+		set soLevel='2'
+		where soId=#{soId}
+	</update>
+	<update id="soLevelChange2" parameterType="hashmap">
+		update shopowner
+		set soLevel='3'
+		where soId=#{soId}
+	</update>
+	<update id="soLevelChange3" parameterType="hashmap">
+		update shopowner
+		set soLevel='4'
+		where soId=#{soId}
+	</update>
+	
+	
+  	<!-- 회원탈퇴를 위한 정보 조회 -->
+  	<select id="soShopCnt" parameterType="string" resultType="int">
+  		select count(*) 
+		from shop
+		where soId = #{soId}
+  	</select>
+  	<select id="soReviewCnt" parameterType="string" resultType="int">
+  		select count(*) 
+		from review
+		where sCode = #{sCode}
+  	</select>
+  	<select id="soInterestCnt" parameterType="string" resultType="int">
+  		select count(*)
+		from interest
+		where sCode = #{sCode}
+  	</select>
+  	<select id="soScore" parameterType="string" resultType="int">
+  		select sum(good)-sum(bad) from score
+		where sCode=#{sCode}
+  	</select>
+  	<select id="soCouponCnt" parameterType="string" resultType="string">
+  		select sum(couponPrice)
+		from coupon
+		where sCode=#{sCode}
+  	</select>
+  	<select id="soExpireDate" parameterType="string" resultType="string">
+  		select (payDate+period) as expireDate 
+  		from payment
+		where soId = #{soId} and ((payDate+period)-sysdate)>0
+  	</select>
+  	<select id="soFreetrialDate" parameterType="string" resultType="string">
+  		select to_char((soJoindate+90),'YYYY-MM-DD') as FreetrialDate 
+  		from shopowner
+		where soId = #{soId} and ((soJoindate+90)-sysdate)>0
+  	</select>
+  	
+
+  	<!-- 회원탈퇴 -->
+  	<delete id="soShopDel" parameterType="hashmap">
+		delete from shop
+		where soId=#{soId}
+	</delete>
+	<delete id="soReviewDel" parameterType="hashmap">
+		delete from review
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soInterestDel" parameterType="hashmap">
+		delete from interest
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soScoreDel" parameterType="hashmap">
+		delete from score
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soCouponDel" parameterType="hashmap">
+		delete from coupon
+		where sCode=#{sCode}
+	</delete>
+	<delete id="soPaymentDel" parameterType="hashmap">
+		delete from payment
+		where soId = #{soId}
+	</delete>
+  	<delete id="soLeave" parameterType="hashmap">
 		delete from shopowner
 		where soId=#{soId}
 	</delete>
-  	
-  	<insert id="payment" parameterType="SvDTO">
-  		insert into payment(soId,payNum,payDate,period,price)
-		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price})
-  	</insert>
 </mapper>

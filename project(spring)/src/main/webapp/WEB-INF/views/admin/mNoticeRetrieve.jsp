@@ -42,7 +42,7 @@
 		 			<td scope="col">${mNoticeRetrieve.noticeReadcnt}</td>
 		 		</tr>
 		 		<tr>
-		 			<td colspan="6" align="left" class="noticeContent">${mNoticeRetrieve.noticeContent}</td>	
+		 			<td colspan="6"><textarea class="form-control" rows="9" id="comment" name="noticeContent" maxlength="1000" disabled>${mNoticeRetrieve.noticeContent}</textarea></td>	
 		 		</tr>
 		 		<tr>
 		 			<td>

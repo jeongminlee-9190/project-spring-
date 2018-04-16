@@ -94,7 +94,7 @@ public class SearchController {
 		System.out.println("sInfo"+sdto2);
 //		request.setAttribute("shopImages", shopImages);
 //		request.setAttribute("reviewList", list);
-		return "search/sView";
+		return "member/sView";
 	}
 	
 	

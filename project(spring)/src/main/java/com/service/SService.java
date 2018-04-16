@@ -25,10 +25,19 @@ public class SService {
 	@Transactional
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);
+<<<<<<< HEAD
+=======
+		//dao.sScoreInsert(dto.getsCode());
+>>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	}
 	
+<<<<<<< HEAD
 	public void sInfoUpdate(SDTO dto) {
 		dao.sInfoUpdate(dto);
+=======
+	public void sInfoUpdate(HashMap<String, String> map) {
+		dao.sInfoUpdate(map);
+>>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	}
 	
 /*	public void sScoreInsert(String sCode) {
@@ -36,16 +45,24 @@ public class SService {
 		dao.sScoreInsert(sCode);
 	}*/
 	
+<<<<<<< HEAD
 	public void sDelAll(String sCode) {
 		System.out.println("Service_sDelAll시작");
 		dao.sDelAll(sCode);
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	public void sImageAdd(HashMap<String, String> map) {
 		dao.sImageAdd(map);
 	}
 	
 	public void sImageAdd2(HashMap<String, String> map) {
 		dao.sImageAdd2(map);
+	}
+	
+	@Transactional
+	public void sDelAll(HashMap<String, String> map) {
+		dao.sDelAll(map);
 	}
 }

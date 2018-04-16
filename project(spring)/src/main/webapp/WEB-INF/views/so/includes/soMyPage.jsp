@@ -3,14 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<style>
+	.row{
+		margin-top: 70px;
+	}
+</style>
+
 
 <c:set var="dto" value="${SoMyPage}"></c:set>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3" ></div>
-    <div class="col-sm-6">
+    <div class="col-sm-4" ></div>
+    <div class="col-sm-4">
     	<h3>마이페이지-기본정보</h3>
 		<table class="table table-hover">
+			<colgroup>
+				<col width="30%">
+				<col width="70%">
+			</colgroup>
 			<tr>
 				<th>아이디</th>
 				<td>${dto.soId}</td>
@@ -24,7 +34,7 @@
 				<th>사업주 전화번호</th>
 				<td><span id="soPhone">${dto.soPhone}</span>
 					<form class='form-inline' action='soPhoneUpdate' id='soPhoneUpdateForm' method='POST'>
-						<div class="phone_modify"><input type="button" name="soPhone" class="btn btn-primary" id="btn_pw_submit" value="변경"></div>
+						<div class="phone_modify"><input type="button" name="soPhone" class="btn btn-primary btn-submit" id="btn_pw_submit" value="변경"></div>
 					</form>
 				</td>
 			</tr>
@@ -64,6 +74,6 @@
 			</tr>
 		</table>    
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-4"></div>
   </div>
 </div>

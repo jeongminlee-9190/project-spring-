@@ -12,9 +12,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/font.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so/so_qna.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/so/so_footer.css" rel="stylesheet" >
+<link href="resources/css/fonts.css" rel="stylesheet" >
+<link href="resources/css/so/so_qna.css" rel="stylesheet" >
+<link href="resources/css/so/so_footer.css" rel="stylesheet" >
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#soQnaWriteForm").submit(function(e){
+		var qnaTitle = $("#qnaTitle").val();
+		var qnaContent = $("#qnaContent").val();
+		if(qnaTitle.length<5){
+			alert('제목을 입력해주세요.(5자 이상)');
+			$("#qnaTitle").focus();
+			e.preventDefault();
+		}else if(qnaContent.length<10){
+			alert('내용을 입력해주세요.(10자 이상)');
+			$("#qnaContent").focus();
+			e.preventDefault();
+		}
+	});
+});
+</script>
 <style type="text/css">
 	.row{
 		margin-top: 90px;
@@ -29,7 +46,7 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<h3>1:1 문의 접수</h3>
-				<form action="soQnaWrite">
+				<form action="soQnaWrite" id="soQnaWriteForm">
 					<input type="hidden" name="soQnaWrite" value="soQnaWriteForm">
 					<table class="table">
 						<tr>
@@ -55,7 +72,7 @@
 							<td>
 								<div class="form-group">
 								  	<label for="qnaContent">내용:</label>
-								  	<textarea class="form-control" rows="13" id="qnaContent" name="qnaContent"></textarea>
+								  	<textarea class="form-control" rows="10" id="qnaContent" name="qnaContent"></textarea>
 								</div>
 							</td>
 						</tr>

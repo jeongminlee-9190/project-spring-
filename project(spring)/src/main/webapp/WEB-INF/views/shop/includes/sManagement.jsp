@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <input type="hidden" value="${sInfo}">
-<!-- 레벨이 0인 경우 메뉴를 클릭하면 다른페이지로 -->
 <br>
 <div class="container">
 	<div class="row">
@@ -61,8 +60,6 @@
 			<div class="shopView">
 				<h3>상점 확인</h3><hr><br>
 				<p>등록한 기본정보와 사진을 </p>
-				<p>확인할 수 있으며,</p>
-				<p>개인회원에게 보여지는 화면을</p>
 				<p>확인할 수 있습니다.</p>
 				<br>
 				<c:if test="${!empty sInfo.sCode && !empty sInfo.sImage}">
@@ -87,7 +84,7 @@
 				<p class="shopwarn">삭제하면 복원되지 않습니다.<p>
 				<br>
 				<c:if test="${(!empty sInfo.sCode && !empty sInfo.sImage) ||(empty sInfo.sCode && !empty sInfo.sImage) ||(!empty sInfo.sCode && empty sInfo.sImage)}">
-					<a href="sScoreInsert"><input type="button" class="btn btn-primary btn_enroll"value="상점 삭제"></a><br><br>
+					<a href="sDelete"><input type="button" class="btn btn-primary btn_enroll"value="상점 삭제"></a><br><br>
 				</c:if>
 				<c:if test="${empty sInfo.sCode && empty sInfo.sImage}">
 					<p class="shopwarn">삭제할 정보가 없습니다.</p>

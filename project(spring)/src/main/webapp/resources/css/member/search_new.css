@@ -9,10 +9,18 @@
 	left:-305px;
 	margin-left:50%;
 	height:600px;
-	overflow: scroll;
-    overflow-x: hidden;
+	overflow-y:auto; 
+	overflow-x:hidden;
 }
 
+/* ::-webkit-scrollbar {
+    width: 0px;  remove scrollbar space
+    background: transparent;  optional: just make scrollbar invisible
+}
+optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+    background: transparent;
+} */
 
 /* ================================= subway ================================= */
 /* 지하철 wrap */
@@ -50,17 +58,8 @@
 #line_wrap ul {
 	display:none;
 	height:252px;
-	overflow: scroll;
-    overflow-x: hidden;
-}
-
-::-webkit-scrollbar {
-    width: 0px;  remove scrollbar space
-    background: transparent;  optional: just make scrollbar invisible
-}
-optional: show position indicator in red
-::-webkit-scrollbar-thumb {
-    background: transparent;
+	overflow-y:auto; 
+	overflow-x:hidden;
 }
 
 #line_wrap ul li {
@@ -159,7 +158,8 @@ optional: show position indicator in red
 #station_wrap ul {
 	display:none;
 	height:252px;
-	overflow-y:scroll;
+	overflow-y:auto; 
+	overflow-x:hidden;
 }
 
 #station_1 li {
@@ -207,7 +207,7 @@ overflow-x: hidden;
 	text-align:center;
 }
 
-.category {
+.k_category {
 	display:block;
 	width:610px;
 	margin-top:30px;

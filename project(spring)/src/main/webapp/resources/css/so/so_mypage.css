@@ -3,13 +3,13 @@
 		width: 400px;
 	}
 	.row{
-		/* border: 1px solid grey; */
-	}
-	.col-sm-6{
 		margin-top: 70px;
 	}
+	.col-sm-4{
+		
+	}
 	
-	.btn_pw_submit{
+	.btn-submit{
 		border: 1px solid orange;
 		background-color: orange;
 		color: white;

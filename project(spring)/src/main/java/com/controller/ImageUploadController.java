@@ -53,7 +53,8 @@ public class ImageUploadController {
 				System.out.println("contentType: "+contentType);
 				
 			//특정 경로에 저장
-				File dest = new File("C:\\project-spring-\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\images",fileName);
+				File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\upload",fileName);
+				/*File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\upload",fileName);*/
 				try {
 					file.transferTo(dest);
 				} catch (IllegalStateException e) {
