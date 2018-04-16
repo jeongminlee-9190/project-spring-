@@ -13,6 +13,12 @@
 	width:100px;
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+
+</script>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -26,9 +32,21 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 				    <li class="active"><a href="#" >서비스 소개</a></li>
-				    <li class="active"><a href="sManagement" >상점 관리</a></li>
-				    <li class="active"><a href="payMentUI">서비스 결제</a></li>
-					<li class="active"><a href="#">예약관리</a></li>
+				    <c:if test="${SoLevel=='0'}"> 
+				    	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="가입 승인 후 이용 가능합니다.">상점 관리</a></li>
+				    	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="가입 승인 후 이용 가능합니다.">서비스 결제</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="가입 승인 후 이용 가능합니다.">쿠폰관리</a></li>
+				    </c:if>
+				    <c:if test="${SoLevel=='1' || SoLevel=='2'}"> 
+				    	<li class="active"><a href="sManagement" >상점 관리</a></li>
+				    	<li class="active"><a href="soPayMentForm">서비스 결제</a></li>
+						<li class="active"><a href="#">쿠폰관리</a></li>
+				    </c:if>
+				    <c:if test="${SoLevel=='3' || SoLevel=='4'}"> 
+				    	<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="서비스 결제 후 이용 가능합니다">상점 관리</a></li>
+				    	<li class="active"><a href="soPayMentForm">서비스 결제</a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="서비스 결제 후 이용 가능합니다">쿠폰관리</a></li>
+				    </c:if>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				    <li><a href="#">계정: ${SoLogin.soId}</a></li>
@@ -36,8 +54,9 @@
 				    <li class="dropdown active">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">마이페이지<span class="caret"></span></a>
 				 		<ul class="dropdown-menu">
-					        <li><a href="soMyPage">기본정보</a></li>
+					        <li><a href="soMyPage">기본 정보</a></li>
 					        <li><a href="soPwUpdateForm">비밀번호 변경</a></li>
+					        <li><a href="soLeaveForm">회원 탈퇴</a></li>
 					        <li><a href="#">서비스 결제 내역</a></li>
 					    </ul>
 					</li>

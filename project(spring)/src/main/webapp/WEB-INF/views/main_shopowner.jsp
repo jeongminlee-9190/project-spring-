@@ -32,8 +32,10 @@
 	<c:if test="${!empty SoLogin}"> 
 		<jsp:include page="so/includes/soTop.jsp" flush="true"/>
 		<jsp:include page="so/includes/soMainCarousel.jsp" flush="true"/>
+		<jsp:include page="so/includes/soLevel.jsp" flush="true"/>
 		<jsp:include page="so/includes/soAlert.jsp" flush="true"/>
 		<jsp:include page="so/includes/soRanking.jsp" flush="true"/>
+		
 		<jsp:include page="so/includes/soFooter.jsp" flush="true"/>
 	</c:if>
 </div>

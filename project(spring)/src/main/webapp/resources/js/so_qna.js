@@ -2,7 +2,6 @@ $(document).ready(function(){
 		$(".btn_qnaDelete").click(function(){
 			var qnaNum =  $(this).attr("data-num");
 			var soId = $("#soId").val();
-			console.log(qnaNum+"\t"+soId);
 			$.ajax({
 				url: "soQnaDelete",
 				type:"get",
@@ -46,11 +45,8 @@ $(document).ready(function(){
 		
 		$(".qnaReplyContentCheck").click(function(){
 			var qnaNum = $(this).attr("data-num");
-			console.log(qnaNum);
 			var qnaReplyContent= $("#qnaReplyContent"+qnaNum).text();
 			var qnaReplyStatement= $("#qnaReplyStatement"+qnaNum).val();
-			console.log(qnaReplyContent.length);
-			console.log(qnaReplyStatement);
 			if(qnaReplyContent.length>0 && qnaReplyStatement=="미확인"){
 				$.ajax({
 					url: "soQnaRead",

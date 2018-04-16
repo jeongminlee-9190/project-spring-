@@ -3,7 +3,7 @@
 
 <div id="cate_wrap">
 
-	<div id="category01" class="category">
+	<div id="category01" class="k_category">
 		<div id="cate_btn01" class="cate_btn">
 			<p>목적</p>
 			<div class="cate_icon">
@@ -24,7 +24,7 @@
 		</ul>
 	</div>
 	
-	<div id="category02" class="category">
+	<div id="category02" class="k_category">
 		<div id="cate_btn02" class="cate_btn">
 			<p>기분</p>
 			<div class="cate_icon">
@@ -45,7 +45,7 @@
 		</ul>
 	</div>
 	
-	<div id="category03" class="category">
+	<div id="category03" class="k_category">
 		<div id="cate_btn03" class="cate_btn">
 			<p>종류</p>
 			<div class="cate_icon">

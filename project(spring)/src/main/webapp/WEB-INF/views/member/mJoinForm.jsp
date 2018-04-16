@@ -26,14 +26,14 @@
 
 </head>
 <body>
-
-<jsp:include page="includes/memberHeader.jsp" flush="true"/>
-
-<c:if test="${empty memberjoin}">
-	<jsp:include page="includes/mJoinForm.jsp" flush="true"/>
-</c:if>
-
-<jsp:include page="../footer/footer.jsp" flush="true" />
-
+<div id="AllContentWrap">
+	<jsp:include page="includes/memberHeader.jsp" flush="true"/>
+	
+	<c:if test="${empty memberjoin}">
+		<jsp:include page="includes/mJoinForm.jsp" flush="true"/>
+	</c:if>
+	
+	<jsp:include page="../footer/footer.jsp" flush="true" />
+</div>
 </body>
 </html>

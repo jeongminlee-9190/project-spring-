@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-	body { font-family:"Nanum Gothic"; }
+	body { 
+		background-color: black;
+	}
 	.logo{
 		width:300px;
 		font-size: 40px;
@@ -15,7 +16,7 @@
 	}
 	.loginForm{
 		padding-top: 3%;
-		margin-left: 39%;
+		margin-left: 38%;
 		text-align:center;
 		background-color: black;
 		height: 450px;

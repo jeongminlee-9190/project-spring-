@@ -1,0 +1,69 @@
+@charset "UTF-8";
+#shop_member_view_wrap{
+	position:relative;
+	width:100%;
+	min-width:1200px;
+	overflow:hidden;
+}
+
+/* 슬라이드 */
+#slider_wrap {
+	display:block;
+	position:relative;
+	width:100%;
+	height:300px;
+	margin:0 auto;
+}
+    
+#slider_wrap .item {
+	display:block;
+	position:absolute;
+	width:2000px;
+	height:300px;
+	top:0;
+	left:50%;
+	margin-left:-1000px;
+}
+
+#slider_wrap .content-slider li{
+	width:400px;
+	height:300px;
+	background:#000;
+	text-align:center;
+	z-index:1;
+}
+
+#slider_wrap .content-slider li img {
+	display:block;
+	width:100%;
+}
+
+#slider_wrap .slide_arrow {
+	display:block;
+	position:absolute;
+	width:30px;
+	height:58px;
+	top:251px;
+	z-index:10;
+}
+
+#slider_wrap #slide_arrow1 {
+	left:50%;
+	margin-left:-424px;
+	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow1.png") no-repeat;
+	background-size:100%;
+	background-position:center;
+}
+
+#slider_wrap #slide_arrow2 {
+	left:50%;
+	margin-left:394px;
+	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow2.png") no-repeat;
+	background-size:100%;
+	background-position:center;
+}
+
+
+
+
+

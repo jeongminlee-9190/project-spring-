@@ -8,7 +8,7 @@
 		select qnaNum, soId, qnaTitle , qnaContent,
 		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
 		from soqna
-		order by qnaNum asc
+		order by qnaNum desc
 	</select>
 
 	<select id="aQnaSort1" parameterType="hashmap" resultType="SoQnaDTO"> 
@@ -16,7 +16,7 @@
 		to_char(qnaWritedate,'YYYY-MM-DD HH:MI:SS') as qnaWritedate,qnaComplete,qnaCategory
 		from soqna
 		where qnaComplete=#{searchName}
-		order by qnaNum asc
+		order by qnaNum desc
 	</select>
 	
 	<select id="aQnaSort2" parameterType="hashmap" resultType="SoQnaDTO"> 
@@ -33,7 +33,7 @@
 			where qnaComplete=#{searchName} and (sysdate-qnaWritedate)<=30
 			]]>
 		</if>
-		order by qnaNum asc
+		order by qnaNum desc
 	</select>
 	
 	<select id="aQnaSort3" parameterType="hashmap" resultType="SoQnaDTO"> 
@@ -50,7 +50,7 @@
 			where (sysdate-qnaWritedate)<=30
 			]]>
 		</if>
-		order by qnaNum asc
+		order by qnaNum desc
 	</select>
 	
 	

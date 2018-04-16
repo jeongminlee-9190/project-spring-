@@ -78,11 +78,6 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-	.reservation{
-		margin-left: 5%;
-		margin-right: 5%;
-	}
-	
 	.sMenu_tbl{
 		position: absolute;
 		top: 40%;
@@ -98,4 +93,7 @@
 	.image1,.image2,.image3,.image4,.image5{
 		width:130px;
 		height:130px;
+	}
+	.row5{
+		margin-bottom: 70px;
 	}

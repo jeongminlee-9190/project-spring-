@@ -31,7 +31,7 @@
 			  	</c:if>
 			  	<c:if test="${!empty sImage1}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal">
-			  		<img src="resources/images/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
 			  		이미지1
 					<!-- Modal -->
 					<div id="myModal" class="modal fade" role="dialog">
@@ -43,7 +43,7 @@
 					        <h4 class="modal-title">이미지1</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/images/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
@@ -62,7 +62,7 @@
 				</c:if>
 				<c:if test="${!empty sImage2}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal2">
-			  		<img src="resources/images/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
 			  		이미지2
 					<!-- Modal -->
 					<div id="myModal2" class="modal fade" role="dialog">
@@ -74,7 +74,7 @@
 					        <h4 class="modal-title">이미지2</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/images/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
@@ -93,7 +93,7 @@
 				</c:if>
 				<c:if test="${!empty sImage3}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal3">
-			  		<img src="resources/images/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
 			  		이미지3
 					<!-- Modal -->
 					<div id="myModal3" class="modal fade" role="dialog">
@@ -105,7 +105,7 @@
 					        <h4 class="modal-title">이미지3</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/images/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
@@ -124,7 +124,7 @@
 				</c:if>
 				<c:if test="${!empty sImage4}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal4">
-			  		<img src="resources/images/${sImage4}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage4}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
 			  		이미지4
 					<!-- Modal -->
 					<div id="myModal4" class="modal fade" role="dialog">
@@ -136,7 +136,7 @@
 					        <h4 class="modal-title">이미지4</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/images/${sImage4}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage4}" style="width: 100%; max-width: 760px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
@@ -155,7 +155,7 @@
 				</c:if>
 				<c:if test="${!empty sImage5}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal5">
-			  		<img src="resources/images/${sImage5}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage5}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
 			  		이미지5
 					<!-- Modal -->
 					<div id="myModal5" class="modal fade" role="dialog">
@@ -167,7 +167,7 @@
 					        <h4 class="modal-title">이미지5</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/images/${sImage5}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage5}" style="width: 100%; max-width: 760px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>

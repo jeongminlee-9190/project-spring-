@@ -18,23 +18,23 @@ public class SDAO {
 		return template.selectOne("SMapper.sInfo",soId);
 	}
 	
+	public SDTO sInfo2(String sCode) {
+		return template.selectOne("SMapper.sInfo2",sCode);
+	}
+	
 	public void SInfoEnroll(SDTO dto) {
 		template.insert("SMapper.sAdd",dto);
+		template.insert("SMapper.sScoreInsert",dto.getsCode());
 	}
 	
-	public void sScoreInsert(String sCode) {
+	public void sInfoUpdate(HashMap<String, String> map) {
+		template.update("SMapper.sInfoUpdate",map);
+	}
+	
+	/*public void sScoreInsert(String sCode) {
 		System.out.println("sScoreInsert SDAO 접근"+sCode);
 		template.insert("SMapper.sScoreInsert",sCode);
-	}
-	
-	public void sDelAll(String sCode) {
-		System.out.println("DAO_sDelAll시작");
-		//template.delete("SMapper.sDelScore",sCode);
-		//template.delete("SMapper.sDelInterest",sCode);
-		//template.delete("SMapper.sDelReview",sCode);
-		template.delete("SMapper.sDel",sCode);
-		
-	}
+	}*/
 	
 	public void sImageAdd(HashMap<String, String> map) {
 		template.update("SMapper.sImageAdd",map);
@@ -42,5 +42,12 @@ public class SDAO {
 	
 	public void sImageAdd2(HashMap<String, String> map) {
 		template.update("SMapper.sImageAdd2",map);
+	}
+	
+	public void sDelAll(HashMap<String, String> map) {
+		template.delete("SoMapper.soShopDel",map);
+		template.delete("SoMapper.soReviewDel",map);
+		template.delete("SoMapper.soInterestDel",map);
+		template.delete("SoMapper.soScoreDel",map);
 	}
 }

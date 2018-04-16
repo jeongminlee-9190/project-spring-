@@ -1,12 +1,12 @@
 @charset "UTF-8";
-	.container-fluid{
-		margin-top: 10%;
-		height: 450px;
+	body{
 		background-color: black;
+	}
+	.container-fluid{
 		text-align: center;
 	}
 	
-	.col-sm-4{
+	/* .col-sm-4{
 		margin-top: 3%;
 		margin-left: 2%;
 	}
@@ -42,4 +42,4 @@
 		background-color: black;
 		width: 280px;
 		margin-top: 10px;
-	}
+	} */

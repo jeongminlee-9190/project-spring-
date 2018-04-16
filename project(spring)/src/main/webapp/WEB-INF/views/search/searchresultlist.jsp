@@ -9,7 +9,7 @@
 	<div class="searchList_wrap clearfix" >
 	
 		<div class="shop_main_img">
-			<img src="resources/images/shop_img.jpg" title="자판기">
+			<img src="resources/upload/${fn:split(shop.sImage,'/')[4]}" title="${shop.sName}">
 		</div>
 		
 		<div class="shop_small_info clearfix">
@@ -32,6 +32,7 @@
 				</div>
 				<div class="shop_like clearfix">
 					<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}"></span>
+					<img src="resources/images/icon_Ht.png" title="종아요">
 					<button id="interestBTN${shop.sCode}" class="interestBTN" data-sCode="${shop.sCode}">
 						좋아요
 					</button>
