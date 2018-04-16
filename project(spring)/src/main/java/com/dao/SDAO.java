@@ -22,7 +22,6 @@ public class SDAO {
 		return template.selectOne("SMapper.sInfo2",sCode);
 	}
 	
-	
 	public void SInfoEnroll(SDTO dto) {
 		template.insert("SMapper.sAdd",dto);
 		template.insert("SMapper.sScoreInsert",dto.getsCode());
