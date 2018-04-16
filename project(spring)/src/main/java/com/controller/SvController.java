@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -88,7 +89,8 @@ public class SvController {
 			map.put("period", period);
 			map.put("price", price);
 			service.payment(map);
-			String soExpireDate = soService.soExpireDate(soId);
+			List<String> soExpireDatelist = soService.soExpireDate(soId);
+			String soExpireDate = soExpireDatelist.get(0);
 			String soLevel = soService.soLevel(soId);
 			session.setAttribute("SoLevel",soLevel);
 			session.setAttribute("SoExpireDate",soExpireDate);

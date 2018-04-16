@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,12 +60,14 @@ public class SoController {
 					session.setAttribute("SoFreetrialDate",soFreetrialDate);
 				}
 			}else if(soLevel.equals("2")) {
-				String soExpireDate =service.soExpireDate(soId);
-				if(soExpireDate==null) {
+				List<String> soExpireDatelist = service.soExpireDate(soId);
+				/*String soExpireDate =service.soExpireDate(soId);*/
+				if(soExpireDatelist==null) {
 					service.soLevelChange3(map2);
 					soLevel = service.soLevel(soId);
 					session.setAttribute("SoLevel", soLevel);
 				}else {
+					String soExpireDate = soExpireDatelist.get(0);
 					session.setAttribute("SoExpireDate",soExpireDate);
 				}
 			}
@@ -77,10 +80,12 @@ public class SoController {
 				}
 			}
 			else if(soLevel.equals("4")) {
-				String soExpireDate =service.soExpireDate(soId);
-				if(soExpireDate==null) {
+				List<String> soExpireDatelist = service.soExpireDate(soId);
+				if(soExpireDatelist==null) {
 
 				}else {
+					String soExpireDate = soExpireDatelist.get(0);
+					System.out.println("soExpireDate"+soExpireDate);
 					session.setAttribute("SoExpireDate",soExpireDate);
 				}
 			}
@@ -298,7 +303,9 @@ public class SoController {
 				int soInterestCnt = 0;
 				int soScore = 0;
 				String soCouponCnt = "0";
-				String soExpireDate = service.soExpireDate(soId);
+				List<String> soExpireDatelist = service.soExpireDate(soId);
+				String soExpireDate = soExpireDatelist.get(0);
+				session.setAttribute("SoExpireDate",soExpireDate);
 				SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
 				session.setAttribute("soleaveDTO", soleaveDTO);
 				nextPage="so/soLeaveForm";
@@ -309,7 +316,9 @@ public class SoController {
 				int soInterestCnt = service.soInterestCnt(sCode);
 				int soScore = service.soScore(sCode);
 				String soCouponCnt = service.soCouponCnt(sCode);
-				String soExpireDate = service.soExpireDate(soId);
+				List<String> soExpireDatelist = service.soExpireDate(soId);
+				String soExpireDate = soExpireDatelist.get(0);
+				session.setAttribute("SoExpireDate",soExpireDate);
 				SoLeaveDTO soleaveDTO = new SoLeaveDTO(soShopCnt, soReviewCnt, soInterestCnt, soScore, soCouponCnt, soExpireDate);
 				session.setAttribute("soleaveDTO", soleaveDTO);
 				nextPage="so/soLeaveForm";

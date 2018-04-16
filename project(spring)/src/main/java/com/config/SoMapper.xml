@@ -163,6 +163,7 @@
   		select (payDate+period) as expireDate 
   		from payment
 		where soId = #{soId} and ((payDate+period)-sysdate)>0
+		order by payNum desc
   	</select>
   	<select id="soFreetrialDate" parameterType="string" resultType="string">
   		select to_char((soJoindate+90),'YYYY-MM-DD') as FreetrialDate 
