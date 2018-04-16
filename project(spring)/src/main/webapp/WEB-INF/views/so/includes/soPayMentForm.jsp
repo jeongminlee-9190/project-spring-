@@ -3,7 +3,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<form action="soPayMent" class="form-inline" method="post" class="payMentForm">
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#soPayMentForm").submit(function(e){
+ 			var re_cardNum=/^[0-9]{15,16}$/;
+ 			var re_validThru=/^[0-9]{4,4}$/;
+ 			var re_secCode=/^[0-9]{4,4}$/;
+
+			if(re_cardNum.test($("#cardNum").val()) != true){
+ 				alert("카드번호는 숫자만 입력 가능하며, 15~16자리 입니다.");
+ 				$("#cardNum").focus();
+ 				e.preventDefault();
+ 			}else if(re_validThru.test($("#validThru").val()) != true){
+ 				alert("유효기간은 숫자만 입력 가능하며, 4자리 입니다.");
+ 				$("#validThru").focus();
+ 				e.preventDefault();
+ 			}else if(re_secCode.test($("#secCode").val()) != true){
+ 				alert("보안 코드는 카드 앞면의 4자리이며, 숫자만 입력 가능합니다.");
+ 				$("#secCode").focus();
+ 				e.preventDefault();
+ 			}
+ 		});
+	});
+</script>
+
+<form action="soPayMent" id="soPayMentForm" class="form-inline" method="post">
 	<div class="container">
 		<div class="row row1">
 			<div class="col-sm-3"></div>
@@ -32,7 +56,7 @@
 				      		<h4 class="card-title">60일</h4><hr>
 				     		<p class="card-text">
 				     		<div class="radio">
-			  					<label><input type="radio" name="period" value="30">28000원 </label>
+			  					<label><input type="radio" name="period" value="60">28000원 </label>
 							</div>
 				     		</p>
 				    	</div>
@@ -45,7 +69,7 @@
 				      		<h4 class="card-title">90일</h4><hr>
 				     		<p class="card-text">
 				     		<div class="radio">
-			  					<label><input type="radio" name="period" value="30">40000원 </label>
+			  					<label><input type="radio" name="period" value="90">40000원 </label>
 							</div>
 				     		</p>
 				    	</div>
@@ -58,7 +82,7 @@
 				      		<h4 class="card-title">120일</h4><hr>
 				     		<p class="card-text">
 					     		<div class="radio">
-				  					<label><input type="radio" name="period" value="30">52000원 </label>
+				  					<label><input type="radio" name="period" value="120">52000원 </label>
 								</div>
 				     		</p>
 				    	</div>
@@ -85,7 +109,7 @@
 	  				<h4>결제정보 입력</h4>
 	  				카드 번호 <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="숫자만 입력" size="16" maxlength="16">
 	  				유효 기간 <input type="text" class="form-control" name="validThru" id="validThru" placeholder="MMYY" size="4" maxlength="4">
-	  				보안코드<input type="text" class="form-control" name="secCode" id="validThru" placeholder="1234" size="4" maxlength="4"><br><br>
+	  				보안코드<input type="text" class="form-control" name="secCode" id="secCode" placeholder="1234" size="4" maxlength="4"><br><br>
 	  				<input type="submit" class="btn btn-primary orange-background" value="주의사항에 동의하고 결제"> 
 	  				<a href="main_shopowner"><input type="button" class="btn btn-primary orange-border" value="취소"></a>
 	  			</c:if>

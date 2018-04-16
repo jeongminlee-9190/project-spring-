@@ -63,10 +63,53 @@
 		where soId=#{soId}
 	</update>
 
+
+
   	<insert id="payment" parameterType="hashmap">
   		insert into payment(soId,payNum,payDate,period,price,cardNum,validThru,secCode)
 		values(#{soId},SEQ_payment_soId.nextval,default,#{period},#{price},#{cardNum},#{validThru},#{secCode})
   	</insert>
+  	
+  	<select id="soPaymentList" parameterType="hashmap" resultType="SvDTO">
+		select payNum,payDate,period,price,cardNum,validThru,secCode
+		from payment
+		where soId=#{soId}
+		<if test="searchName2=='1주일'">
+			<![CDATA[
+			 and (sysdate-a.qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			 and (sysdate-a.qnaWritedate)<=30
+			]]>
+		</if>
+		order by payNum desc
+	</select>
+
+
+	<select id="soPaymentListTotalCount" parameterType="hashmap" resultType="int">
+     	select count(*)
+     	from payment
+     	where soId=#{soId}
+    </select>
+    
+    <select id="soPaymentListTotalSearchCount" parameterType="hashmap" resultType="int" >
+     select count(*)
+     from payment
+     where soId=#{soId} 
+    	<if test="searchName2=='1주일'">
+			<![CDATA[
+			and (sysdate-a.qnaWritedate)<=7
+			]]>
+		</if>
+		<if test="searchName2=='1개월'">
+			<![CDATA[
+			and (sysdate-a.qnaWritedate)<=30
+			]]>
+		</if>
+    </select>
+  	
   	
   	 <select id="soLevel" parameterType="string" resultType="string">
 		select soLevel

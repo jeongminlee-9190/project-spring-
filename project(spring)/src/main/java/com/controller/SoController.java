@@ -281,12 +281,7 @@ public class SoController {
 		return nextPage;
 	}
 	
-<<<<<<< HEAD
-/*	@RequestMapping
-	//soLeaveForm
-*/
-	}
-=======
+
 	@RequestMapping("/soLeaveForm")
 	public String soLeaveForm(HttpSession session, HttpServletRequest request){
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
@@ -346,4 +341,3 @@ public class SoController {
 		return nextPage;
 	}
 }
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
