@@ -25,17 +25,17 @@ public class SService {
 	@Transactional
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);
-		//dao.sScoreInsert(dto.getsCode());
 	}
-	
+
 	public void sInfoUpdate(HashMap<String, String> map) {
 		dao.sInfoUpdate(map);
 	}
 	
-/*	public void sScoreInsert(String sCode) {
-		System.out.println("sScoreInsert SService 접근"+sCode);
-		dao.sScoreInsert(sCode);
-	}*/
+
+	public void sDelAll(String sCode) {
+		System.out.println("Service_sDelAll시작");
+		dao.sDelAll(sCode);
+	}
 	
 	public void sImageAdd(HashMap<String, String> map) {
 		dao.sImageAdd(map);

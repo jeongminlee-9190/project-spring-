@@ -61,7 +61,6 @@
 			}
 		});
  		
- 		
  		$("#passwd").keyup(function(){
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg = "비밀번호 사용 가능";
@@ -70,6 +69,7 @@
  			}
  			$("#result2").text(mesg); 
  		});
+ 		
  		$("#passwd2").keyup(function(){
  			var mesg = "비밀번호 일치";
  			if($("#passwd").val()!=$("#passwd2").val()){

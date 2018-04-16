@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dto.PageDTO;
 import com.dto.SoDTO;
 import com.dto.SvDTO;
+import com.dto.SvPageDTO;
 import com.service.SoService;
 import com.service.SvService;
 
@@ -24,6 +26,29 @@ public class SvController {
 	@Autowired
 	SoService soService;
 
+	
+	
+	@RequestMapping("/soPaymentList")
+	public ModelAndView soPaymentList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
+			HttpServletRequest request, HttpSession session) {
+		System.out.println("map: "+map);
+		SoDTO sDTO = (SoDTO)session.getAttribute("SoLogin");
+		ModelAndView mav = new ModelAndView();
+		if(sDTO == null) {
+			mav.setViewName("index_shopowner");
+		}else {
+			String soId = sDTO.getSoId();
+			map.put("soId", soId);
+			System.out.println("map2: "+map);
+			SvPageDTO svpageDTO = service.soPaymentList(map, curPage);
+			mav.addObject("soPaymentList",svpageDTO);
+			mav.setViewName("so/soPaymentList");
+			String searchName = map.get("searchName");
+			request.setAttribute("searchName", searchName);
+			return mav;
+		}
+		return mav;
+	}
 	
 	@RequestMapping("/soPayMentForm")
 	public String soPayMentForm(HttpSession session) {
@@ -38,8 +63,7 @@ public class SvController {
 		}
 		return nextPage;
 	}
-	
-	
+		
 	@RequestMapping(value="/soPayMent", method=RequestMethod.POST)
 	public String soPayMent(@RequestParam HashMap<String, Object> map,HttpSession session,HttpServletRequest request) {
 		SoDTO soDTO= (SoDTO)session.getAttribute("SoLogin");
