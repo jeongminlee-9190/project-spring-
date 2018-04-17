@@ -47,23 +47,22 @@ public class SoController {
 			HashMap<String, String> map2 = new HashMap<>();
 			map2.put("soId", soId);
 			map2.put("soLevel", soLevel);
-			if(soLevel.equals("0")) {
-				session.setAttribute("SoFreetrialDate", "미승인, 가입 승인이 필요합니다.");
+			if(soLevel.equals("0")) { //미승인
+				session.setAttribute("SoFreetrialDate", "미승인");
 			}
-			else if(soLevel.equals("1")) {
+			else if(soLevel.equals("1")) {//체험회원
 				String soFreetrialDate =service.soFreetrialDate(soId);
 				if(soFreetrialDate==null) {
-					service.soLevelChange2(map2);
+					service.soLevelChange2(map2); //체험만료회원으로 변경
 					soLevel = service.soLevel(soId);
 					session.setAttribute("SoLevel", soLevel);
 				}else {
 					session.setAttribute("SoFreetrialDate",soFreetrialDate);
 				}
-			}else if(soLevel.equals("2")) {
+			}else if(soLevel.equals("2")) {//유료회원
 				List<String> soExpireDatelist = service.soExpireDate(soId);
-				/*String soExpireDate =service.soExpireDate(soId);*/
 				if(soExpireDatelist==null) {
-					service.soLevelChange3(map2);
+					service.soLevelChange3(map2);//유효만료회원으로 변경
 					soLevel = service.soLevel(soId);
 					session.setAttribute("SoLevel", soLevel);
 				}else {
