@@ -28,6 +28,23 @@ public class ImageUploadController {
 		return "shop/sImageUploadForm"; //논리적 이름(파일명)
 	}
 	
+	@RequestMapping(value = "/sImageUpdateForm")
+	public String sImageUpdateForm(HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String soId = soDTO.getSoId();
+			SDTO sDTO = sservice.sInfo(soId);
+			String sImage = sDTO.getsImage();
+			session.setAttribute("sImage", sImage);
+			nextPage = "shop/sImageUpdateForm";
+		}
+		return nextPage; //논리적 이름(파일명)
+	}
+	
 	@RequestMapping(value = "/sImageUpload", method=RequestMethod.POST)
 	public String sImageUpload(@RequestParam int num,Upload upload,HttpSession session,HttpServletRequest request) {
 		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
@@ -90,4 +107,68 @@ public class ImageUploadController {
 		session.setAttribute("sInfo", sDTO);
 		return nextPage; //논리적 이름(파일명)
 	}
+	
+	@RequestMapping(value = "/sImageUpdate", method=RequestMethod.POST)
+	public String sImageUpdate(@RequestParam int num,Upload upload,HttpSession session,HttpServletRequest request) {
+		SoDTO soDTO = (SoDTO)session.getAttribute("SoLogin");
+		SDTO sDTO = (SDTO)session.getAttribute("sInfo");
+		String soId = null;
+		String nextPage=null;
+		if(soDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			soId = soDTO.getSoId();
+			System.out.println("soId"+soId);
+			String sCode = sDTO.getsCode();
+			String theText = upload.getTheText();
+			CommonsMultipartFile file = upload.getTheFile();
+			long size = file.getSize();
+			String contentType=file.getContentType();
+			HashMap<String, String> map = new HashMap<>();
+			
+			if(contentType.equals("image/jpeg")) {
+				String fileName = sCode+"_sImage"+num+".jpg";
+				System.out.println("size: "+size);
+				System.out.println("fileName: "+fileName);
+				System.out.println("contentType: "+contentType);
+				
+			//특정 경로에 저장
+				File dest = new File("C:\\project-spring-\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\upload",fileName);
+				/*File dest = new File("C:\\Users\\riley\\git\\project-spring-\\project(spring)\\src\\main\\webapp\\resources\\upload",fileName);*/
+				try {
+					file.transferTo(dest);
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				map.put("sCode", sCode);
+				if(fileName.contains("sImage1.jpg")) {
+					map.put("sImage",fileName);
+					sservice.sImageAdd(map);
+					session.setAttribute("sImage", fileName);
+				}else {
+					String sImage = sDTO.getsImage();
+					sImage = sImage+"/"+fileName;
+					System.out.println("sImage"+sImage);
+					map.put("sImage", sImage);
+					sservice.sImageAdd(map);
+					session.setAttribute("sImage", sImage);
+				}
+				session.setAttribute("mesg", "업로드  완료");
+				nextPage="redirect:sImageUploadForm";
+			}else {
+				session.setAttribute("mesg", "jpg만 업로드 가능");
+				nextPage="redirect:sImageUploadForm";
+			}
+		}
+		sDTO = sservice.sInfo(soId);
+		session.setAttribute("sInfo", sDTO);
+		return nextPage; //논리적 이름(파일명)
+	}
+	
 }

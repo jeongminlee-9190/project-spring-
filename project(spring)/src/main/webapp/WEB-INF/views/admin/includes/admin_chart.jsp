@@ -130,9 +130,7 @@
 					document.getElementById("sSubway5").value,
 					document.getElementById("sSubway6").value,
 					document.getElementById("sSubway7").value,
-					document.getElementById("sSubway8").value,
-					document.getElementById("sSubway9").value,
-					document.getElementById("sSubway10").value
+					document.getElementById("sSubway8").value
 					],
 			datasets : [{
 							fillColor : "rgba(220,220,220,0.5)",
@@ -147,9 +145,7 @@
 									document.getElementById("sSubwayCnt5").value,
 									document.getElementById("sSubwayCnt6").value,
 									document.getElementById("sSubwayCnt7").value,
-									document.getElementById("sSubwayCnt8").value,
-									document.getElementById("sSubwayCnt9").value,
-									document.getElementById("sSubwayCnt10").value
+									document.getElementById("sSubwayCnt8").value
 							]
 						}]
 		};
