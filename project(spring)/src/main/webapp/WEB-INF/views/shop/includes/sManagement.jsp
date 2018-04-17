@@ -50,7 +50,7 @@
     					<h3>2단계</h3>
 						<span class="shopimageinfo">상점 사진정보</span><br><br>
 						<span>등록 완료</span><br><br>
-						<a href="sImageUploadForm"><input type="button" class="btn btn-primary btn_enroll"value="사진정보 수정"></a>
+						<a href="sImageUpdateForm"><input type="button" class="btn btn-primary btn_enroll"value="사진정보 수정"></a>
  					</div>
  				</div>
 			</c:if>

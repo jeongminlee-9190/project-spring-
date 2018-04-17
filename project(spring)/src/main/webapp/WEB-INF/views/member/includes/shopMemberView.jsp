@@ -153,6 +153,7 @@
 					</li>
 				</ul>
 			</li>
+			<li id="shop_menu_line"></li>
 			<li>
 				<ul id="shop_menu_list02">
 					<li>
@@ -179,12 +180,15 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<!-- <li>
 				<button id="shop_menu_up" type="button">
 					<img src="resources/images/shopInfo_menu_up.png" title="menu_up">
 				</button>
-			</li>
+			</li> -->
 		</ul>
+		<button id="shop_menu_up" type="button">
+			<img src="resources/images/shopInfo_menu_up.png" title="menu_up">
+		</button>
 	</div> <!-- End : shop_menu_wrap -->
 
 	<div id="shop_map_wrap">
@@ -242,17 +246,39 @@
 					<li>
 						<button type="button" class='category'>식사</button>
 						<div>
-							<button>
-								<img class="review_BtnGood" src="resources/images/shopInfo_review_LBtn_good.png" title="good">
-							</button>
-							<button>
-								<img class="review_BtnBad" src="resources/images/shopInfo_review_RBtn_bad.png" title="bad">
-							</button>
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal">
+							<label for="favorKeywords" class="reviewKeyword_good"></label>
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal">
+							<label for="favorKeywords" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
-				 	<li><button type="button" class='category'>회식</button></li>
-				 	<li><button type="button" class='category'>데이트</button></li>
-				 	<li><button type="button" class='category'>파티</button></li>
+				 	<li>
+						<button type="button" class='category'>회식</button>
+						<div>
+							<input type="checkbox" name="favorKeywords" value="good,회식" class="together">
+							<label for="favorKeywords" class="reviewKeyword_good"></label>
+							<input type="checkbox" name="favorKeywords" value="bad,회식" class="together">
+							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
+					<li>
+						<button type="button" class='category'>데이트</button>
+						<div>
+							<input type="checkbox" name="favorKeywords" value="good,데이트" class="date">
+							<label for="favorKeywords" class="reviewKeyword_good"></label>
+							<input type="checkbox" name="favorKeywords" value="bad,데이트" class="date">
+							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
+					<li>
+						<button type="button" class='category'>파티</button>
+						<div>
+							<input type="checkbox" name="favorKeywords" value="good,파티" class="party">
+							<label for="favorKeywords" class="reviewKeyword_good"></label>
+							<input type="checkbox" name="favorKeywords" value="bad,파티" class="party">
+							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
 				 	<li><button type="button" class='category'>목적E</button></li>
 				 	<li><button type="button" class='category'>목적F</button></li>
 				 	<li><button type="button" class='category'>목적G</button></li>

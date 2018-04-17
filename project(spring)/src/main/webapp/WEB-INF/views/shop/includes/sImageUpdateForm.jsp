@@ -13,7 +13,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<h3>상점 이미지 등록</h3>
+				<h3>상점 이미지 수정(구현중)</h3>
 				<span class="blue">상점 이미지는 최대 5개까지 등록 가능하며, JPG 파일만 가능합니다.</span>
 			</div>
 			<div class="col-sm-1"></div>
@@ -25,13 +25,13 @@
 		  	<form action="sImageUpload" method="POST" encType="multipart/form-data">
 			  	<input type="hidden" name="num" value="1">
 			  	<c:if test="${empty sImage1}">
-			  		<img src="resources/images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle">
+			  		<img src="resources/images/default.png" style="width: 100%; max-width: 700px; vertical-align: middle">
 			  		이미지1<input type="file" name="theFile"><br>
 					<input type="submit" class="btn btn-primary btn_submit" value="업로드">
 			  	</c:if>
 			  	<c:if test="${!empty sImage1}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal">
-			  		<img src="resources/upload/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage1}" style="width: 100%; max-width: 700px; vertical-align: middle"></a><br>
 			  		이미지1
 					<!-- Modal -->
 					<div id="myModal" class="modal fade" role="dialog">
@@ -43,11 +43,13 @@
 					        <h4 class="modal-title">이미지1</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/upload/${sImage1}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage1}" style="width: 100%; max-width: 700px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
 					</div><!--end of Modal -->
+					<input type="submit" class="btn btn-primary btn_submit" value="수정">
+					<input type="button" class="btn btn-primary btn_delete" value="삭제">
 			  	</c:if>
 			</form>
 		  </div>
@@ -56,13 +58,13 @@
 		  	<form action="sImageUpload" method="POST" encType="multipart/form-data">
 				<input type="hidden" name="num" value="2">
 				<c:if test="${empty sImage2}">
-					<img src="resources/images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle"><br>
+					<img src="resources/images/default.png" style="width: 100%; max-width: 700px; vertical-align: middle"><br>
 					이미지2<input type="file" name="theFile"><br>
 					<input type="submit" class="btn btn-primary btn_submit" value="업로드">
 				</c:if>
 				<c:if test="${!empty sImage2}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal2">
-			  		<img src="resources/upload/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage2}" style="width: 100%; max-width: 700px; vertical-align: middle"></a><br>
 			  		이미지2
 					<!-- Modal -->
 					<div id="myModal2" class="modal fade" role="dialog">
@@ -74,11 +76,13 @@
 					        <h4 class="modal-title">이미지2</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/upload/${sImage2}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage2}" style="width: 100%; max-width: 700px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
 					</div><!--end of Modal -->
+					<input type="submit" class="btn btn-primary btn_submit" value="수정">
+					<input type="button" class="btn btn-primary btn_delete" value="삭제">
 		  		</c:if>
 			</form>
 		  </div>
@@ -87,13 +91,13 @@
 		  	<form action="sImageUpload" method="POST" encType="multipart/form-data">
 				<input type="hidden" name="num" value="3">
 				<c:if test="${empty sImage3}">
-					<img src="resources/images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle"><br>
+					<img src="resources/images/default.png" style="width: 100%; max-width: 700px; vertical-align: middle"><br>
 					이미지3<input type="file" name="theFile"><br>
 					<input type="submit" class="btn btn-primary btn_submit" value="업로드">
 				</c:if>
 				<c:if test="${!empty sImage3}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal3">
-			  		<img src="resources/upload/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage3}" style="width: 100%; max-width: 700px; vertical-align: middle"></a><br>
 			  		이미지3
 					<!-- Modal -->
 					<div id="myModal3" class="modal fade" role="dialog">
@@ -105,11 +109,13 @@
 					        <h4 class="modal-title">이미지3</h4>
 					      </div>
 					      <div class="modal-body">
-					        <img src="resources/upload/${sImage3}" style="width: 100%; max-width: 760px; vertical-align: middle">
+					        <img src="resources/upload/${sImage3}" style="width: 100%; max-width: 700px; vertical-align: middle">
 					      </div>
 					    </div>
 					  </div>
 					</div><!--end of Modal -->
+					<input type="submit" class="btn btn-primary btn_submit" value="수정">
+					<input type="button" class="btn btn-primary btn_delete" value="삭제">
 		  		</c:if>
 			</form>
 		  </div>
@@ -118,13 +124,13 @@
 		  	<form action="sImageUpload" method="POST" encType="multipart/form-data">
 		  		<input type="hidden" name="num" value="4">
 				<c:if test="${empty sImage4}">
-					<img src="resources/images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle"><br>
+					<img src="resources/images/default.png" style="width: 100%; max-width: 700px; vertical-align: middle"><br>
 					이미지4<input type="file" name="theFile"><br>
 					<input type="submit" class="btn btn-primary btn_submit" value="업로드">
 				</c:if>
 				<c:if test="${!empty sImage4}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal4">
-			  		<img src="resources/upload/${sImage4}" style="width: 100%; max-width: 760px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage4}" style="width: 100%; max-width: 700px; vertical-align: middle"></a><br>
 			  		이미지4
 					<!-- Modal -->
 					<div id="myModal4" class="modal fade" role="dialog">
@@ -141,6 +147,8 @@
 					    </div>
 					  </div>
 					</div><!--end of Modal -->
+					<input type="submit" class="btn btn-primary btn_submit" value="수정">
+					<input type="button" class="btn btn-primary btn_delete" value="삭제">
 		  		</c:if>
 			</form>
 		  </div>
@@ -172,6 +180,8 @@
 					    </div>
 					  </div>
 					</div><!--end of Modal -->
+					<input type="submit" class="btn btn-primary btn_submit" value="수정">
+					<input type="button" class="btn btn-primary btn_delete" value="삭제">
 		  		</c:if>
 			</form>
 		  </div>
