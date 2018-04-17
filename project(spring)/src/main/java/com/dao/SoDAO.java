@@ -17,8 +17,13 @@ public class SoDAO {
 	
 	public SoDTO login(HashMap<String, String> map) {
 		SoDTO sDTO = template.selectOne("SoMapper.login",map);
+		template.update("SoMapper.soLastLogin",map);
 		return sDTO;
 	}
+	
+	/*public void soLastLogin(String soId) {
+		template.update("SoMapper.soLastLogin",soId);
+	}*/
 	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = template.selectOne("SoMapper.findSoId",map);

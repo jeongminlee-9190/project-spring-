@@ -9,6 +9,12 @@
 		where mId = #{mId} and mPasswd = #{mPasswd}
 	</select>
 	
+	<update id="mLastLogin" parameterType="hashmap">
+  		update member
+  		set mLastLogin = sysdate
+  		where mId = #{mId}
+  	</update>
+  	
 	<insert id="memberAdd" parameterType="MemberDTO">
 		insert into member (mId,mPasswd,mName,mPhone,mBirth)
 		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})

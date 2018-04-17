@@ -15,6 +15,7 @@ public class MemberDAO {
 	SqlSessionTemplate template;
 	
 	public MemberDTO login(HashMap<String, String> map) {
+		template.update("MemberMapper.mLastLogin",map);
 		return template.selectOne("MemberMapper.login",map);
 	}
 	

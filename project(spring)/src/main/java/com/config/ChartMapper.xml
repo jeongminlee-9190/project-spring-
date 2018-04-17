@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChartMapper">
+	<select id="sJanuary" resultType="int">
+    	select count(*) from shopowner
+		where soJoindate like '18/01%'
+    </select>
+    
+    <select id="sFebruary" resultType="int">
+    	select count(*) from shopowner
+		where soJoindate like '18/02%'
+    </select>
+    
+    <select id="sMarch" resultType="int">
+    	select count(*) from shopowner
+		where soJoindate like '18/03%'
+    </select>
+    
+    <select id="sApril" resultType="int">
+    	select count(*) from shopowner
+		where soJoindate like '18/04%'
+    </select>
+    
+    
+    <select id="sSubwayCnt" resultType="sSubwayDTO">
+	    select sSubway,count(*) as sSubwayCnt from shop
+		where sAddr like '서울%'
+		group by sSubway
+    </select>
+    
+</mapper>
