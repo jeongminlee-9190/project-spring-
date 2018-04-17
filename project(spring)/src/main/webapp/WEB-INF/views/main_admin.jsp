@@ -11,6 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script> 
+<script type="text/javascript" src="resources/js/Chart.min.js"></script> 
 <link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/resources/css/admin/admin_main.css" rel="stylesheet">
@@ -25,6 +26,7 @@
 <c:if test="${!empty adminLogin}"> 
 	<jsp:include page="admin/includes/admin_top.jsp" flush="true"/>
 	<jsp:include page="admin/includes/admin_mainAlert.jsp" flush="true"/>
+	<jsp:include page="admin/includes/admin_chart.jsp" flush="true"/>
 	<jsp:include page="admin/includes/admin_footer.jsp" flush="true"/>
 </c:if>
 </body>

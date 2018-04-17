@@ -115,7 +115,7 @@
 				 			<td>
 						 		<div class="form-group">
 									<label for="comment">답변:</label>
-									<textarea class="form-control" rows="10" id="qnaReplyContent " name="qnaReplyContent"></textarea>
+									<textarea class="form-control" rows="7" id="qnaReplyContent " name="qnaReplyContent"></textarea>
 								</div> 
 							</td>
 				 		</tr>
@@ -139,7 +139,7 @@
 				 			<td>
 						 		<div class="form-group">
 									<label for="comment">답변:</label>
-									<textarea class="form-control" rows="10" id="qnaReplyContent">${soQnaReplyRetrieve.qnaReplyContent}</textarea>
+									<textarea class="form-control" rows="7" id="qnaReplyContent">${soQnaReplyRetrieve.qnaReplyContent}</textarea>
 								</div> 
 							</td>
 				 		</tr>
