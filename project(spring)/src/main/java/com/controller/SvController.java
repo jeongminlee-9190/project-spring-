@@ -32,7 +32,6 @@ public class SvController {
 	@RequestMapping("/soPaymentList")
 	public ModelAndView soPaymentList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpServletRequest request, HttpSession session) {
-		System.out.println("map: "+map);
 		SoDTO sDTO = (SoDTO)session.getAttribute("SoLogin");
 		ModelAndView mav = new ModelAndView();
 		if(sDTO == null) {
@@ -40,7 +39,6 @@ public class SvController {
 		}else {
 			String soId = sDTO.getSoId();
 			map.put("soId", soId);
-			System.out.println("map2: "+map);
 			SvPageDTO svpageDTO = service.soPaymentList(map, curPage);
 			mav.addObject("soPaymentList",svpageDTO);
 			mav.setViewName("so/soPaymentList");
