@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,13 @@ public class SoDAO {
 	
 	public SoDTO login(HashMap<String, String> map) {
 		SoDTO sDTO = template.selectOne("SoMapper.login",map);
+		template.update("SoMapper.soLastLogin",map);
 		return sDTO;
 	}
+	
+	/*public void soLastLogin(String soId) {
+		template.update("SoMapper.soLastLogin",soId);
+	}*/
 	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = template.selectOne("SoMapper.findSoId",map);
@@ -77,8 +83,8 @@ public class SoDAO {
 		}
 		return soCouponCnt;
 	}
-	public String soExpireDate(String soId) {
-		return template.selectOne("SoMapper.soExpireDate",soId);
+	public List<String> soExpireDate(String soId) {
+		return template.selectList("SoMapper.soExpireDate",soId);
 	}
 	
 	public String soFreetrialDate(String soId) {

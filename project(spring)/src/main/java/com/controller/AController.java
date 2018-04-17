@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.AdminDTO;
+import com.dto.ChartDTO;
 import com.dto.MPageDTO;
 import com.dto.SPageDTO;
 import com.dto.SoPageDTO;
 import com.service.AQnaService;
 import com.service.AService;
+import com.service.ChartService;
 import com.service.NoticeService;
 
 @Controller
@@ -28,23 +31,43 @@ public class AController {
 	@Autowired
 	AQnaService service2;
 	
+	@Autowired
+	ChartService service3;
+	
 	@RequestMapping(value= "/main_admin", method=RequestMethod.GET)
 	public String main_admin(HttpSession session) {
-		int soList2TotalCount = service.soList2TotalCount();
-		session.setAttribute("soList2TotalCount", soList2TotalCount);
-		int mListTotalCount = service.mListTotalCount();
-		session.setAttribute("mListTotalCount", mListTotalCount);
-		int soListTotalCount = service.soListTotalCount();
-		session.setAttribute("soListTotalCount", soListTotalCount);
-		int sListTotalCount = service.sListTotalCount();
-		session.setAttribute("sListTotalCount", sListTotalCount);
-		int mDormantListTotalCount = service.mDormantListTotalCount();
-		session.setAttribute("mDormantListTotalCount", mDormantListTotalCount);
-		int soDormantListTotalCount = service.soDormantListTotalCount();
-		session.setAttribute("soDormantListTotalCount", soDormantListTotalCount);
-		int aQnaListTotalCount2 = service2.aQnaListTotalCount2();
-		session.setAttribute("aQnaListTotalCount", aQnaListTotalCount2);
-		return "main_admin";
+		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
+		String nextPage=null;
+		if(adto==null) {
+			session.setAttribute("fail", "로그인을 해주세요.");
+			nextPage ="index_admin";
+		}
+		else {
+			int soList2TotalCount = service.soList2TotalCount();
+			session.setAttribute("soList2TotalCount", soList2TotalCount);
+			int mListTotalCount = service.mListTotalCount();
+			session.setAttribute("mListTotalCount", mListTotalCount);
+			int soListTotalCount = service.soListTotalCount();
+			session.setAttribute("soListTotalCount", soListTotalCount);
+			int sListTotalCount = service.sListTotalCount();
+			session.setAttribute("sListTotalCount", sListTotalCount);
+			int mDormantListTotalCount = service.mDormantListTotalCount();
+			session.setAttribute("mDormantListTotalCount", mDormantListTotalCount);
+			int soDormantListTotalCount = service.soDormantListTotalCount();
+			session.setAttribute("soDormantListTotalCount", soDormantListTotalCount);
+			int aQnaListTotalCount2 = service2.aQnaListTotalCount2();
+			session.setAttribute("aQnaListTotalCount", aQnaListTotalCount2);
+			int sJanuaryCnt = service3.sJanuaryCnt();
+			int sFebruaryCnt = service3.sFebruaryCnt();
+			int sMarchCnt = service3.sMarchCnt();
+			int sAprilCnt = service3.sAprilCnt();
+			ChartDTO chartDTO = new ChartDTO(sJanuaryCnt, sFebruaryCnt, sMarchCnt, sAprilCnt);
+			session.setAttribute("ChartDTO", chartDTO);
+			List<Object> list = service3.sSubwayCnt();
+			session.setAttribute("sSubwayDTO", list);
+			nextPage= "main_admin";
+		}
+		return nextPage;
 	}
 	
 	@RequestMapping(value= "/adminLogin", method=RequestMethod.POST)
@@ -126,7 +149,6 @@ public class AController {
 	@RequestMapping("/soList")
 	public ModelAndView soList(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 			HttpSession session, HttpServletRequest request) {
-		
 		AdminDTO adto = (AdminDTO)session.getAttribute("adminLogin");
 		ModelAndView mav = new ModelAndView();
 		if(adto==null) {

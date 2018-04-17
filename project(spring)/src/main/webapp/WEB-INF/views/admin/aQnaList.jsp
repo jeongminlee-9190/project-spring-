@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
-<link href="${pageContext.request.contextPath}/resources/css/fonts.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/admin/admin_qnaList.css" rel="stylesheet" >
-<link href="${pageContext.request.contextPath}/resources/css/admin/admin_footer.css" rel="stylesheet" >
+<link href="resources/css/fonts.css" rel="stylesheet" >
+<link href="resources/css/admin/admin_qnaList.css" rel="stylesheet" >
+<link href="resources/css/admin/admin_footer.css" rel="stylesheet" >
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script> 
 <script src="resources/js/admin_qnaList.js"></script> 
 </head>

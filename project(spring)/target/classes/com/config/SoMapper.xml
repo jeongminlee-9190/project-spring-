@@ -27,6 +27,12 @@
    		where soId = #{soId} and soPasswd=#{soPasswd}
   	</select>	
   	
+  	<update id="soLastLogin" parameterType="hashmap">
+  		update shopowner
+  		set sLastLogin = sysdate
+  		where soId = #{soId}
+  	</update>
+  	
   	<select id="soMyPage" parameterType="string" resultType="SoDTO">
     	select soId,soPasswd,soName,soPhone,soLicense,soPost,soAddr,soLevel,to_char(soJoindate,'YYYY-MM-DD') as soJoindate
    		from shopowner
@@ -163,6 +169,7 @@
   		select (payDate+period) as expireDate 
   		from payment
 		where soId = #{soId} and ((payDate+period)-sysdate)>0
+		order by payNum desc
   	</select>
   	<select id="soFreetrialDate" parameterType="string" resultType="string">
   		select to_char((soJoindate+90),'YYYY-MM-DD') as FreetrialDate 

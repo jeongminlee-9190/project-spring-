@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,12 @@ public class SoService {
 	@Autowired
 	SoDAO dao;
 	
+	@Transactional
 	public SoDTO login(HashMap<String, String> map) {
 		SoDTO sDTO = dao.login(map);
 		return sDTO;
 	}
+	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = dao.findSoId(map);
 		return soId;
@@ -65,7 +68,7 @@ public class SoService {
 	public String soCouponCnt(String sCode) {
 		return dao.soCouponCnt(sCode);
 	}
-	public String soExpireDate(String soId) {
+	public List<String> soExpireDate(String soId) {
 		return dao.soExpireDate(soId);
 	}
 	public String soFreetrialDate(String soId) {

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.MemberDAO;
 import com.dto.MemberDTO;
@@ -14,6 +15,7 @@ public class MemberService {
 	@Autowired
 	MemberDAO memberDAO;
 	
+	@Transactional
 	public MemberDTO login(HashMap<String, String> map) {
 		return memberDAO.login(map);
 	}
