@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>갬성갱단 상점 관리 센터</title>
+<link href="resources/css/fonts.css" rel="stylesheet" >
 <link href="resources/css/index_so.css" rel="stylesheet" >
 <style>
 	body { 
@@ -32,6 +33,7 @@
    </script>
 </c:if>
 <c:remove var="success" scope="session"/>
+<c:remove var="success" scope="request"/>
 
 <c:if test="${!empty SoLogout}">
 	<script type="text/javascript">

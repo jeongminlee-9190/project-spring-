@@ -1,0 +1,281 @@
+@charset "UTF-8";
+#shop_member_view_wrap{
+	position:relative;
+	width:100%;
+	min-width:1200px;
+	overflow:hidden;
+}
+
+#shop_member_view_wrap button {
+	outline:none;
+	cursor:pointer;
+	border:none;
+	background:none;
+}
+
+/* top 슬라이드 */
+#shop_slider_wrap {
+	display:block;
+	position:relative;
+	width:100%;
+	height:300px;
+	margin:0 auto;
+}
+    
+#shop_slider_wrap .item {
+	display:block;
+	position:absolute;
+	width:2000px;
+	height:300px;
+	top:0;
+	left:50%;
+	margin-left:-1000px;
+}
+
+#shop_slider_wrap .content-slider li{
+	width:400px;
+	height:300px;
+	background:#000;
+	text-align:center;
+	z-index:1;
+}
+
+#shop_slider_wrap .content-slider li img {
+	display:block;
+	width:100%;
+}
+
+#shop_slider_wrap .slide_arrow {
+	display:block;
+	position:absolute;
+	width:30px;
+	height:58px;
+	top:251px;
+	z-index:10;
+}
+
+#shop_slider_wrap #slide_arrow1 {
+	left:50%;
+	margin-left:-424px;
+	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow1.png") no-repeat;
+	background-size:100%;
+	background-position:center;
+}
+
+#shop_slider_wrap #slide_arrow2 {
+	left:50%;
+	margin-left:394px;
+	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow2.png") no-repeat;
+	background-size:100%;
+	background-position:center;
+}
+
+/* shop title */
+#shop_title_wrap {
+	display:block;
+	position:relative;
+	width:100%;
+	min-width:1200px;
+	background-color:#ffa827;
+	color:#fff;
+	padding:40px 0;
+}
+
+#shop_title_demo {
+	display:block;
+	position:relative;
+	left:50%;
+	margin-left:-500px;
+	width:1000px;
+	height:122px;
+}
+
+#shop_title {
+	display:block;
+	position:absolute;
+	top:-10px;
+	left:7px;
+	font-size:40px;
+	font-weight:900;
+}
+
+#shop_title p {
+	display:inline-block;
+}
+
+#shop_title > p:last-child {
+	font-family: gotham_Book; 
+	font-style: normal; 
+	font-weight: normal;
+	font-size:25px;
+	text-transform: capitalize;
+	margin-left:20px;
+}
+
+#shop_title_like {
+	display:block;
+	position:absolute;
+	top:15px;
+	right:9px;
+}
+
+#shop_title_like > button {
+	display:block;
+	margin:-20px 0 0 35px ;
+	color:#fff;
+	font-size:15px;
+}
+
+#shop_title_line {
+	display:block;
+	position:absolute;
+	top:77px;
+	width:100%;
+	height:1px;
+	background-color:#fff;
+}
+
+#shop_title_scoreResult {
+	position:relative;
+	top:102px;
+	left:10px;
+}
+
+.shop_title_Ntxt {
+	margin-right:5px;
+	color:#ffe9c7;
+}
+
+.shop_title_num {
+	margin-right:45px;
+	font-size:20px;
+	font-family: gotham_Medium; 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+/* shop info */
+#shop_small_info_wrap {
+	display:block;
+	position:relative;
+	top:0;
+	left:50%;
+	margin-left:-500px;
+	width:1000px;
+}
+
+#shop_small_info {
+	display:block;
+	width:100%;
+	padding:50px 0;
+	font-size:15px;
+	color:#757575;
+}
+
+#shop_small_info > li:first-child {
+	float:left;
+	width:550px;
+}
+
+#shop_small_info > li:first-child ul li {
+	margin-bottom:20px;
+}
+
+#shop_small_info > li:first-child ul li:last-child {
+	margin-bottom:0;
+}
+
+#shop_small_info > li:first-child ul li p{
+	margin:-20px 0 0 42px;
+}
+
+#shop_small_info > li:last-child {
+	float:right;
+	width:350px;
+}
+
+#shop_small_info > li:last-child ul li:first-child {
+	margin-bottom:30px;
+}
+
+#shop_small_info > li:last-child ul li:first-child > div {
+	margin:-22px 0 0 42px;
+}
+
+#shop_small_info > li:last-child ul li:first-child > div div {
+	margin-bottom:20px;
+}
+
+#shop_small_info > li:last-child ul li:first-child > div div span:first-child {
+	margin-right:20px;
+}
+
+#shop_small_info > li:last-child ul li:last-child {
+	font-size:12px;
+	color:#ff2020;
+}
+
+/* shop menu */
+#shop_menu_wrap {
+	display:block;
+	position:relative;
+	top:0;
+	left:50%;
+	margin-left:-500px;
+	width:1000px;
+}
+
+#shop_menu_wrap > button {
+	display:block;
+	position:relative;
+	width:100%;
+	height:95px;
+	background-color:#ffa827;
+	border-radius:10px;
+	color:#fff;
+	font-family: gotham_Bold; 
+	font-style: normal; 
+	font-weight: normal;
+	font-size:30px;
+}
+
+#shop_menu_wrap > button > p {
+	display:block;
+	position:absolute;
+	top:20px;
+	left:50%;
+	margin-left:-54px;
+	width:106px;
+	margin-top:-5px;
+}
+
+#shop_menu_wrap > button > img {
+	display:block;
+	position:absolute;
+	top:61px;
+	left:50%;
+	margin-left:-8px;
+}
+
+#shop_menu_list_wrap {
+	display:none;
+	width:100%;
+	position:relative;
+	top:-20px;
+	padding:10px 0 20px 0;
+	background-color:#ffa827;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+}
+
+#shop_map_wrap {
+	display:block;
+	position:relative;
+	top:0;
+	left:50%;
+	margin-left:-500px;
+	width:1000px;
+	padding:100px 0;
+}
+
+

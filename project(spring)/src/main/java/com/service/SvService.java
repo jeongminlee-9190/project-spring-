@@ -4,17 +4,22 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.dao.SoDAO;
 import com.dao.SvDAO;
-import com.dto.SoDTO;
-import com.dto.SvDTO;
+import com.dto.SvPageDTO;
 @Service
 public class SvService {
 	@Autowired
 	SvDAO dao;
 	
-	public void payment(SvDTO dto) {
-		dao.payment(dto);
+	@Transactional
+	public void payment(HashMap<String, Object> map) {
+		dao.payment(map);
+	}
+	
+	
+	public SvPageDTO soPaymentList(HashMap<String, String> map, int curPage){
+		return dao.soPaymentList(map,curPage);
 	}
 }

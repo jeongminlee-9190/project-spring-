@@ -13,15 +13,6 @@
 <title></title>
 <link href="resources/css/admin/admin_index.css" rel="stylesheet" >
 <link href="resources/css/fonts.css" rel="stylesheet" >
-<style type="text/css">
-<<<<<<< HEAD
-
-=======
-	body{
-		background-color: black;
-	}
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
-</style>
 </head>
 <body>
 
@@ -56,11 +47,7 @@
   		<div class="col-sm-4"></div>
   		<div class="col-sm-4">
   			<form action="adminLogin" method="post" class="adminLoginForm">
-<<<<<<< HEAD
-			  	<img src="resources/images/logo.png" class="logo">
-=======
 			  	<img src="resources/images/logo.png" class="img-fluid" width="300">
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 			  	<h3>관리자 센터</h3>
 			  	<input type="text" name="adminId" class="input_adminId" placeholder="아이디" maxlength="30"><br>
 				<input type="password" name="adminPasswd" class="input_adminPasswd" placeholder="비밀번호" maxlength="10"><br>

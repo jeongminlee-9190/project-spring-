@@ -1,59 +1,112 @@
-<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<form class="form-inline" action="SInfoEnroll" method="get" onsubmit="formCheck(event)">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<style>
+h3,h4{
+	text-align: left;
+}
+.sInfoupdateText{
+	font-size: 22px;
+}
+a{
+	text-decoration: none;
+}
+.btngroup{
+	text-align: right;
+}
+.row1{
+	margin-top: 70px;
+	text-align: right;
+}	
+.row2{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.row3{
+	margin-left: 6%;
+	margin-right: 6%;	
+}
+.row4{
+	text-align: center;
+	margin-bottom: 70px;	
+}
+.panel{
+	border: 1px solid orange;
+}
+.panel-body{
+	color: black;
+}
+.panel-title{
+    font-weight: bold;
+    color: orange;
+}
+.span_Info1{
+   	font-size: 16px;
+    font-weight: bold;
+}
+.btn-cancel{
+	border: 1px solid orange;
+	background-color: white;
+	width: 100px;
+	color: orange;
+}
+.btn-submit{
+	border: 1px solid orange;
+	background-color: orange;
+	width: 100px;
+	color: white;
+}
+</style>
+<form class="form-inline" action="sInfoUpdate" method="post">
 	<c:set var="sdto" value="${sInfo}"></c:set>
-	<c:set var="saddr" value="${sInfo.sAddr}"></c:set>
-	
-	<style>
-		.row1{
-			margin-top: 70px;
-		}	
-	</style>
-	<div class="container-fluid sInfo">
+	<input Type="hidden" name="sCode" id="sCode" value="${sdto.sCode}">
+	<div class="container-fluid sbasicInfo">
 		<div class="row row1">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-4"><h3>상점 기본 정보 수정</h3></div>
+			<div class="col-sm-3"><span class="sInfoupdateText">상점  기본 정보 수정</span></div>
+			<div class="col-sm-6 btngroup">
+			<input type="submit" class="btn btn-primary btn-submit" value="수정">
+			<input type="reset" class="btn btn-primary btn-cancel" value="취소"></div>
 		</div>
+	</div>
+	<br>
+	<div class="container-fluid sInfo">
 		<div class="row row2">
-			<div class="col-sm-6">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
 				<div class="panel panel-default Info1">
 					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#info1"><h3 class="panel-title">상점 기본 정보</h3><a></div>
 					<div id="info1" class="panel-collapse collapse in">
 						<div class="panel-body">
+							<div class="col-sm-6">
 								<div class="form-group">
-									<span class="span_Info1">상점명</span>
-									&emsp;<input type="text" class="form-control"  name="sName" id="sName" size="28" maxlength="20" value="${sdto.sName}">
+									<span class="span_Info1">상점명</span> 
+									<input type="text" class="form-control"  name="sName" id="sName" size="31" maxlength="20" value="${sdto.sName}">
+								</div>
+								<br><br>
+								<span class="span_Info1">주소 </span>${sdto.sAddr}<br>
+								<span class="span_Info1">지하철역 </span>${sdto.sSubway}<br><br>
+								<div class="form-group">
+									<span class="span_Info1">전화 </span>
+									<input type="text" class="form-control" name="sPhone1" value="${fn: split(sdto.sPhone,'-')[0]}" size="3" maxlength="4"> - 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="sPhone2" value="${fn: split(sdto.sPhone,'-')[1]}" size="3" maxlength="4"> - 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="sPhone3" value="${fn: split(sdto.sPhone,'-')[2]}" size="3" maxlength="4">
 								</div>
 								<br><br>
 								<div class="form-group">
-									<span class="span_Info1">상점 전화 </span> 
-									&emsp;<input type="text" class="form-control" name="sPhone1" id="sPhone1" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[0]}">-
-									<input type="text" class="form-control" name="sPhone2" id="sPhone2" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[1]}">-
-									<input type="text" class="form-control" name="sPhone3" id="sPhone3" size="1" maxlength="4" value="${fn: split(sdto.sPhone,'-')[2]}">
-								</div>
-								<br><br>
-								<div class="form-group">
-									<span class="span_Info1">상점 주소 </span>&emsp;
-									${sdto.sAddr}
-								</div>
-								<br><br>
-								<div class="form-group">
-									<span class="span_Info1">지하철역 </span>&emsp;
-									${sdto.sSubway}
-								</div>
-								<br><br>
-								<div class="form-group">
-									<span class="span_Info1">카테고리 </span>&emsp;
-									<c:if test="${sdto.sCategory=='Wine'}">
-									<select class="form-control"  id="sCategory" name="sCategory">
-										<option value="c">카페</option>
-										<option value="d">디저트</option>
-										<option value="w" selected="selected">와인</option>
-									</select>
+									<span class="span_Info1">카테고리</span> ${sdto.sCategory}
+									<%-- <c:if test="${sdto.sCategory=='Wine'}">
+										<select class="form-control"  id="sCategory" name="sCategory">
+											<option value="c">카페</option>
+											<option value="d">디저트</option>
+											<option value="w" selected="selected">와인</option>
+										</select>
 									</c:if>
 									<c:if test="${sdto.sCategory=='Cafe'}">
 										<select class="form-control"  id="sCategory" name="sCategory">
@@ -68,110 +121,116 @@
 											<option value="d" selected="selected">디저트</option>
 											<option value="w">와인</option>
 										</select>
-									</c:if>
+									</c:if> --%>
 								</div>
-								<br><br>
+								
+							</div>
+							<div class="col-sm-6">
+				
 								<div class="form-group">
-									<span class="span_Info1">주차 </span>&emsp;
-									<c:if test="${sdto.sParkinglot=='Y'}">
-										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
-										<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
-									</c:if>
-									<c:if test="${sdto.sParkinglot=='N'}">
-										<input type="radio" name="sParkinglot" id="sParkinglot" value="Y">예
-										<input type="radio" name="sParkinglot" id="sParkinglot" value="N" checked="checked">아니오
-									</c:if>
+									<span class="span_Info1">영업시간 </span>
 								</div>
-								<br><br>
+								<br>
 								<div class="form-group">
-									<span class="span_Info1">테라스 </span>&emsp;
-									<c:if test="${sdto.sTerrace=='Y'}">
-										<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
-										<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
-									</c:if>
-									<c:if test="${sdto.sTerrace=='N'}">
-										<input type="radio" name="sTerrace" id="sTerrace" value="Y">예
-										<input type="radio" name="sTerrace" id="sTerrace" value="N" checked="checked">아니오
-									</c:if>
+									평일)  <input type="text" class="form-control" name="sWeekday" value="${fn: split(sdto.sBusinesshours,'/')[0]}">
 								</div>
-								<br><br>
+								<br>
 								<div class="form-group">
-									<span class="span_Info1">영업시간 </span>(00:00~24:00)<br>
-									&emsp;&emsp;&emsp;평일: <input type="text" class="form-control"  name="sWeekday" id="sWeekday" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[0]}"><br>
-									&emsp;&emsp;&emsp;주말: <input type="text" class="form-control"  name="sWeekend" id="sWeekend" size="20" maxlength="20" placeholder="(예)08:00~23:00" value="${fn: split(sdto.sBusinesshours,'/')[1]}"><br>
-									&emsp;&emsp;&emsp;휴무: <input type="text" class="form-control"  name="sDayOff" id="sDayOff" size="20" maxlength="20" placeholder="(예)둘째주 월요일 " value="${fn: split(sdto.sBusinesshours,'/')[2]}"><br>
+									주말)  <input type="text" class="form-control" name="sWeekend" value="${fn: split(sdto.sBusinesshours,'/')[1]}">
+								</div>
+								<br>
+								<div class="form-group">
+									휴무)  <input type="text" class="form-control" name="sDayOff" value="${fn: split(sdto.sBusinesshours,'/')[2]}">
 								</div>
 								<br><br>
-							</div>
-						</div>
-					</div><!-- collapse -->
-				</div><!-- pannel -->
-			<div class="col-sm-6">
-				<div class="panel panel-default menu">
-					<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
-					<div id="menu" class="panel-collapse collapse in">
-						<div class="panel-body">
-							<div class="form-group">
-								<span class="span_Info1">메뉴 카테고리1
-								<input type="text" class="form-control"  name="sMenuCategory1" id="sMenuCategory1" size="15" maxlength="10" placeholder="(예) 음료, 와인 ">
-								</span><hr>
-								메뉴1)<br>
-								이름: <input type="text" class="form-control"  name="sC1Menu1" id="sC1Menu1" size="40" maxlength="30"><br> 
-								설명: <input type="text" class="form-control"  name="sC1Menu1_info" id="sC1Menu1_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control"  name="sC1Price1" id="sC1Price1" size="4" maxlength="6" placeholder="10,000">원 
-							</div>
-							<br><br>
-							<div class="form-group">
-								메뉴2)<br>
-								이름: <input type="text" class="form-control"  name="sC1Menu2" id="sC1Menu2" size="40" maxlength="30"><br> 
-								설명: <input type="text" class="form-control"  name="sC1Menu2_info" id="sC1Menu2_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control"  name="sC1Price2" id="sC1Price2" size="4" maxlength="6" placeholder="10,000">원   
-							</div>
-							<br><br>
-							<div class="form-group">
-								메뉴3)<br>
-								이름: <input type="text" class="form-control"  name="sC1Menu3" id="sC1Menu3" size="40" maxlength="30"><br> 
-								설명: <input type="text" class="form-control"  name="sC1Menu3_info" id="sC1Menu3_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control"  name="sC1Price3" id="sC1Price3" size="4" maxlength="6" placeholder="10,000">원
-							</div>
-	
-							<br><br><br>
-							<div class="form-group">
-								<span class="span_Info1">메뉴 카테고리2
-								<input type="text" class="form-control"  name="sMenuCategory2" id="sMenuCategory2" size="15" maxlength="10" placeholder="(예) 디저트,사이드">
-								</span><hr>
-								메뉴1)<br>
-								이름: <input type="text" class="form-control"  name="sC2Menu1" id="sC2Menu1" size="40" maxlength="30"><br> 
-								설명: <input type="text" class="form-control"  name="sC2Menu1_info" id="sC2Menu1_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control"  name="sC2Price1" id="sC2Price1" size="4" maxlength="6" placeholder="10,000">원 
-							</div>
-							<br><br>
-							<div class="form-group">
-								메뉴2)<br>
-								이름: <input type="text" class="form-control"  name="sC2Menu2" id="sC2Menu2" size="40" maxlength="30"><br>
-								설명: <input type="text" class="form-control"  name="sC2Menu2_info" id="sC2Menu2_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control"  name="sC2Price2" id="sC2Price2" size="4" maxlength="6" placeholder="10,000">원
-							</div>
-							<br><br>
-							<div class="form-group">
-								메뉴3)<br>
-								이름: <input type="text" class="form-control"  name="sC2Menu3" id="sC2Menu3" size="40" maxlength="30"><br>
-								설명: <input type="text" class="form-control"  name="sC2Menu3_info" id="sC2Menu3_info" size="40" maxlength="20" placeholder="20자 내 간단한 설명"><br>
-								가격: <input type="text" class="form-control" name="sC2Price3" id="sC2Price3" size="4" maxlength="6" placeholder="10,000">원
+								<span class="span_Info1">테라스 </span>
+								<c:if test="${sdto.sTerrace=='Y'}">
+									<input type="radio" name="sTerrace" id="sTerrace" value="Y" checked="checked">예
+									<input type="radio" name="sTerrace" id="sTerrace" value="N">아니오
+								</c:if>
+								<c:if test="${sdto.sTerrace=='N'}">
+									<input type="radio" name="sTerrace" id="sTerrace" value="Y">예
+									<input type="radio" name="sTerrace" id="sTerrace" value="N" checked="checked">아니오
+								</c:if>
+								<br><br>
+								<span class="span_Info1">주차 </span>
+								<c:if test="${sdto.sParkinglot=='Y'}">
+									<input type="radio" name="sParkinglot" id="sParkinglot" value="Y" checked="checked">예
+									<input type="radio" name="sParkinglot" id="sParkinglot" value="N">아니오
+								</c:if>
+								<c:if test="${sdto.sParkinglot=='N'}">
+									<input type="radio" name="sParkinglot" id="sParkinglot" value="Y">예
+									<input type="radio" name="sParkinglot" id="sParkinglot" value="N" checked="checked">아니오
+								</c:if>
 							</div>
 						</div>
 					</div><!-- collapse -->
 				</div><!-- pannel -->
 			</div>
+			<div class="col-sm-1"></div>
 		</div><!-- end of row -->
-		<div class="row row3">
-			<div class="col-sm-12">
-				<input type="submit" name="submit" class="btn btn-primary btn-cancel btn_submit" value="수정">
-				<a href="sManagement"><input type="button" name="cancel" class="btn btn-primary btn-cancel" value="취소"></a>
-			</div>
-		</div>
 	</div>
+	<div class="row row3">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10">
+			<div class="panel panel-default menu">
+				<div class="panel-body"><a data-toggle="collapse" data-parent="#accordion" href="#menu"><h3 class="panel-title">메뉴</h3><a></div>
+				<div id="menu" class="panel-collapse collapse in">
+					<div class="panel-body">
+							<c:set var="sMenuCategory1" value="${fn: split(sdto.sMenu1,'/')[0]}"></c:set>
+							<c:set var="sC1Menu1" value="${fn: split(sdto.sMenu1,'/')[1]}"></c:set>
+							<c:set var="sC1Menu2" value="${fn: split(sdto.sMenu1,'/')[2]}"></c:set>
+							<c:set var="sC1Menu3" value="${fn: split(sdto.sMenu1,'/')[3]}"></c:set>
+							<c:set var="sMenuCategory2" value="${fn: split(sdto.sMenu2,'/')[0]}"></c:set>
+							<c:set var="sC2Menu1" value="${fn: split(sdto.sMenu2,'/')[1]}"></c:set>
+							<c:set var="sC2Menu2" value="${fn: split(sdto.sMenu2,'/')[2]}"></c:set>
+							<c:set var="sC2Menu3" value="${fn: split(sdto.sMenu2,'/')[3]}"></c:set>
+							<div class="col-sm-6">
+								<h4><input type="text" class="form-control"  name="sMenuCategory1" id="sMenuCategory1" size="15" maxlength="10" value="${sMenuCategory1}"></h4>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC1Menu1" id="sC1Menu1" size="13" maxlength="30" value="${fn: split(sC1Menu1,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC1Menu1_info" id="sC1Menu1_info" size="20" maxlength="30" value="${fn: split(sC1Menu1,':')[1]}">
+									<input type="text" class="form-control"  name="sC1Price1" id="sC1Price1" size="2" maxlength="6" value="${fn: split(sC1Menu1,':')[2]}">원 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC1Menu2" id="sC1Menu2" size="13" maxlength="30" value="${fn: split(sC1Menu2,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC1Menu2_info" id="sC1Menu2_info" size="20" maxlength="30" value="${fn: split(sC1Menu2,':')[1]}">
+									<input type="text" class="form-control"  name="sC1Price2" id="sC1Price2" size="2" maxlength="6" value="${fn: split(sC1Menu2,':')[2]}">원 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC1Menu3" id="sC1Menu3" size="13" maxlength="30" value="${fn: split(sC1Menu3,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC1Menu3_info" id="sC1Menu3_info" size="20" maxlength="30" value="${fn: split(sC1Menu3,':')[1]}">
+									<input type="text" class="form-control"  name="sC1Price3" id="sC1Price3" size="2" maxlength="6" value="${fn: split(sC1Menu3,':')[2]}">원 
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<h4><input type="text" class="form-control"  name="sMenuCategory2" id="sMenuCategory2" size="15" maxlength="10" value="${sMenuCategory2}"></h4>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC2Menu1" id="sC2Menu1" size="13" maxlength="30" value="${fn: split(sC2Menu1,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC2Menu1_info" id="sC2Menu1_info" size="20" maxlength="30" value="${fn: split(sC2Menu1,':')[1]}">
+									<input type="text" class="form-control"  name="sC2Price1" id="sC2Price1" size="2" maxlength="6" value="${fn: split(sC2Menu1,':')[2]}">원 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC2Menu2" id="sC2Menu2" size="13" maxlength="30" value="${fn: split(sC2Menu2,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC2Menu2_info" id="sC2Menu2_info" size="20" maxlength="30" value="${fn: split(sC2Menu2,':')[1]}">
+									<input type="text" class="form-control"  name="sC2Price2" id="sC2Price2" size="2" maxlength="6" value="${fn: split(sC2Menu2,':')[2]}">원 
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control"  name="sC2Menu3" id="sC2Menu3" size="13" maxlength="30" value="${fn: split(sC2Menu3,':')[0]}"> 
+									<input type="text" class="form-control"  name="sC2Menu3_info" id="sC2Menu3_info" size="20" maxlength="30" value="${fn: split(sC2Menu3,':')[1]}">
+									<input type="text" class="form-control"  name="sC2Price3" id="sC2Price3" size="2" maxlength="6" value="${fn: split(sC2Menu3,':')[2]}">원 
+								</div>
+							</div>
+					</div>
+				</div><!-- collapse -->
+			</div><!-- pannel -->
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<!-- <div class="row row4">
+		<div class="col-sm-12">
+			<input type="submit" class="btn btn-primary btn-submit" value="수정">
+			<input type="reset" class="btn btn-primary btn-cancel" value="취소">
+		</div>
+	</div> -->
 </form>
-
-
-

@@ -18,23 +18,20 @@ public class SService {
 		return dao.sInfo(soId);
 	}
 	
+	public SDTO sInfo2(String sCode) {
+		return dao.sInfo2(sCode);
+	}
+	
 	@Transactional
 	public void SInfoEnroll(SDTO dto) {
 		dao.SInfoEnroll(dto);
-		dao.sScoreInsert(dto.getsCode());
+	}
+
+	public void sInfoUpdate(HashMap<String, String> map) {
+		dao.sInfoUpdate(map);
 	}
 	
-	
-	public void sInfoUpdate(SDTO dto) {
-		dao.sInfoUpdate(dto);
-	}
-	
-/*	public void sScoreInsert(String sCode) {
-		System.out.println("sScoreInsert SService 접근"+sCode);
-		dao.sScoreInsert(sCode);
-	}*/
-	
-	
+
 	public void sDelAll(String sCode) {
 		System.out.println("Service_sDelAll시작");
 		dao.sDelAll(sCode);
@@ -46,5 +43,10 @@ public class SService {
 	
 	public void sImageAdd2(HashMap<String, String> map) {
 		dao.sImageAdd2(map);
+	}
+	
+	@Transactional
+	public void sDelAll(HashMap<String, String> map) {
+		dao.sDelAll(map);
 	}
 }

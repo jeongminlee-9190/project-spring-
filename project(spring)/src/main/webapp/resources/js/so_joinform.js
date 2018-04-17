@@ -61,7 +61,6 @@
 			}
 		});
  		
- 		
  		$("#passwd").keyup(function(){
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg = "비밀번호 사용 가능";
@@ -70,6 +69,7 @@
  			}
  			$("#result2").text(mesg); 
  		});
+ 		
  		$("#passwd2").keyup(function(){
  			var mesg = "비밀번호 일치";
  			if($("#passwd").val()!=$("#passwd2").val()){
@@ -86,16 +86,13 @@
  			
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg=null;
+
  			if($("#result1").text()=="아이디 중복"){
  				alert("중복된 아이디, 사용 불가합니다.");
  				$("#soId").focus();
  				e.preventDefault();
  			}else if(re_email.test($("#soId").val()) != true){
  				alert("아이디는 이메일 형식으로 입력해주세요.");
- 				$("#soId").focus();
- 				e.preventDefault();
- 			}else if($("#result1").text()!="아이디 사용 가능"){
- 				alert("아이디가 중복되어 사용 불가합니다.");
  				$("#soId").focus();
  				e.preventDefault();
  			}else if(re_pw.test($("#passwd").val()) != true){/* 비밀번호 체크  */
@@ -138,6 +135,19 @@
 				alert('상세 주소를 입력하세요');
 				$("#sample6_address2").focus();
 				e.preventDefault();
+			}else if(termRead==0){
+				alert('약관을 확인해주세요.');
+				$("#termRead").focus();
+				e.preventDefault();
 			}
  		});
+ 		
+ 		
+ 		var termRead =0;
+ 		$("#termRead").click(function(){
+ 			termRead=1;
+ 			console.log("termRead"+termRead);
+ 		});
+ 		
+ 
  	});

@@ -10,6 +10,37 @@ public class SvDTO {
 	private String payDate;//결제한날자
 	private int period; //결제일수
 	private int price; //결제금액
+	private String cardNum;
+	private String validThru;
+	private String secCode;	  
+	  
+	
+	public SvDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public SvDTO(String soId, int payNum, String payDate, int period, int price, String cardNum, String validThru,
+			String secCode) {
+		super();
+		this.soId = soId;
+		this.payNum = payNum;
+		this.payDate = payDate;
+		this.period = period;
+		this.price = price;
+		this.cardNum = cardNum;
+		this.validThru = validThru;
+		this.secCode = secCode;
+	}
+	
+	
+	public SvDTO(int period, String cardNum, String validThru, String secCode) {
+		super();
+		this.period = period;
+		this.cardNum = cardNum;
+		this.validThru = validThru;
+		this.secCode = secCode;
+	}
+	
 	public String getSoId() {
 		return soId;
 	}
@@ -40,23 +71,29 @@ public class SvDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public String getCardNum() {
+		return cardNum;
+	}
+	public void setCardNum(String cardNum) {
+		this.cardNum = cardNum;
+	}
+	public String getValidThru() {
+		return validThru;
+	}
+	public void setValidThru(String validThru) {
+		this.validThru = validThru;
+	}
+	public String getSecCode() {
+		return secCode;
+	}
+	public void setSecCode(String secCode) {
+		this.secCode = secCode;
+	}
+	
 	@Override
 	public String toString() {
 		return "svDTO [soId=" + soId + ", payNum=" + payNum + ", payDate=" + payDate + ", period=" + period + ", price="
 				+ price + "]";
-	}
-	public SvDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public SvDTO(String soId, int payNum, String payDate, int period, int price) {
-		super();
-		this.soId = soId;
-		this.payNum = payNum;
-		this.payDate = payDate;
-		this.period = period;
-		this.price = price;
-	}
-	
-	
+	}	
 }

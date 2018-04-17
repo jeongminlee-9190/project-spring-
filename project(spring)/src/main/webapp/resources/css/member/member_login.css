@@ -4,7 +4,6 @@
 	position:relative;
 	display:block;
 	min-width:1200px;
-	padding-bottom:90px;
 }
 
 *html #login_content_wrapper { height:100%;}

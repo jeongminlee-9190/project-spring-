@@ -1,0 +1,28 @@
+@charset "UTF-8";
+	.row{
+		margin-top: 70px;
+	}
+	/* .col-sm-4{
+		
+	} */
+	
+	.btn-submit{
+		border: 1px solid orange;
+		background-color: orange;
+		color: white;
+	}
+	
+	.btn-primary.orange-border-leave{
+		border: 1px solid orange;
+		background-color: orange;
+		width: 180px;
+		margin-top: 10px;
+	}
+	
+	.btn-primary.orange-border-main{
+		border: 1px solid orange;
+		background-color: white;
+		color: orange;
+		width: 180px;
+		margin-top: 10px;
+	}

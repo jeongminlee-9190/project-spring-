@@ -78,15 +78,6 @@
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;  remove scrollbar space
-    background: transparent;  optional: just make scrollbar invisible
-}
-optional: show position indicator in red
-::-webkit-scrollbar-thumb {
-    background: transparent;
-}
-
 #line_wrap ul li {
 	width:296px; /* border : 2px 2px */
 	max-width:300px;
@@ -184,7 +175,7 @@ optional: show position indicator in red
 #station_wrap ul {
 	display:none;
 	height:252px;
-	overflow: scroll;
+	overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -228,8 +219,6 @@ background-color: rgba(0,0,0,0.5);
 overflow-x: hidden;
 }
 
-
-
 /* ================================= keyword ================================= */
 
 /* 카테고리 3개 감싸고 있는 id */
@@ -240,9 +229,10 @@ overflow-x: hidden;
 	left:-305px;
 	margin-left:50%;
 	text-align:center;
+	padding-bottom:50px;
 }
 
-.category {
+.k_category {
 	display:block;
 	width:610px;
 	margin-top:30px;

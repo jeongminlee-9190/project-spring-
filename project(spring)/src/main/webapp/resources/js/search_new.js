@@ -9,7 +9,10 @@ $(document).ready(function(){
 				 .bind('touchmove', function(e){
 					 e.preventDefault()
 				 });
-	});
+		/*$("::-webkit-scrollbar").css({
+					"width":"0px; remove scrollbar space",
+					"background":"transparent","optional":"just make scrollbar invisible"
+		});*/
 	
 	//검색창 클릭 했을 때 배경 어둡게 - 숨기기  / body 스크롤 가능
 	$(".emphasized").on("click",function(){
@@ -53,22 +56,19 @@ $(document).ready(function(){
 	});
 	
 	//역
-	$("#station_wrap ul li").mouseover(function(){
-		
+	$(document).on("mouseover",'.station_list', function(){
+
 		var line_btn_color = $("#line_btn").css("background-color");
-	
 		$(this).css({"background-color":line_btn_color,"color":"#ffffff"});
 
 	});
 	
-	$("#station_wrap ul li").mouseout(function(){
-	
+	$(document).on("mouseout",'.station_list', function(){
+
 		var line_btn_color = $("#line_btn").css("background-color");
-	
 		$(this).css({"background-color":"#ffffff","color":line_btn_color});
 
-	});
-	
+	});	
 	
 	//지하펄 리스트중 하나 클릭 후 상단(button)으로 선택되기
 	//호선
@@ -171,4 +171,6 @@ $(document).ready(function(){
 		
 	});
 
+});
+	
 });

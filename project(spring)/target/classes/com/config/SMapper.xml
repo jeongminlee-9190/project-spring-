@@ -8,7 +8,7 @@
 		values(#{sCode},#{sName},#{soId},#{sPost},#{sAddr},#{sPhone},#{sCategory},#{sBusinesshours},#{sParkinglot},#{sTerrace},#{sMenu1},#{sMenu2},#{sSubway})
 	</insert>
 	
-	<update id="sInfoUpdate" parameterType="SDTO">
+	<update id="sInfoUpdate" parameterType="hashmap">
 		update shop
 		set sPhone = #{sPhone}, sBusinesshours = #{sBusinesshours}, sParkinglot = #{sParkinglot}, sTerrace = #{sTerrace}, sMenu1=#{sMenu1}, sMenu2=#{sMenu2}
 		where sCode = #{sCode}
@@ -32,6 +32,12 @@
 		where soId=#{soId}
 	</select>
 	
+	<select id="sInfo2" parameterType="string" resultType="SDTO">
+		select sCode,sName,soId,sPost,sAddr,sPhone,sCategory,sBusinesshours,sParkinglot,sTerrace,sImage,sMenu1,sMenu2,sSubway,sLike
+		from shop
+		where sCode=#{sCode}
+	</select>
+	
 	<select id="sCodeInfo" parameterType="string" resultType="string">
 		select sCode
 		from shop
@@ -49,30 +55,10 @@
 	
 	<insert id="sScoreInsert" parameterType="string">
 		insert all
-			into score (sCategory,sCode) values ('식사',#{sCode})
-			into score (sCategory,sCode) values ('회식',#{sCode})
-			into score (sCategory,sCode) values ('데이트',#{sCode})
-			into score (sCategory,sCode) values ('파티',#{sCode})
+			into score (category,sCode) values ('식사',#{sCode})
+			into score (category,sCode) values ('회식',#{sCode})
+			into score (category,sCode) values ('데이트',#{sCode})
+			into score (category,sCode) values ('파티',#{sCode})
 		select * from dual
 	</insert>
-		
-	<delete id="sDel" parameterType="string">
-		delete from shop
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelScore" parameterType="string">
-		delete from score
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelInterest" parameterType="string">
-		delete from interest
-		where sCode=#{sCode}
-	</delete>
-	
-	<delete id="sDelReview" parameterType="string">
-		delete from review
-		where sCode=#{sCode}
-	</delete>
 </mapper>

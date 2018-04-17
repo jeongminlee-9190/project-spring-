@@ -3,6 +3,40 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+	$(".mNoticeRetrieve").on("click",function(){
+	var num =  $(this).attr("data-num");
+		$.ajax({
+			url:"mNoticeRetrieve",
+			type:"get",
+			data:{
+				num:num
+			},
+			dataType:"text",
+			success:function(responseData,status,xhr){
+				$(".modal-body").html(responseData);
+			},
+			error:function(){}
+		});
+	});
+	
+	$("#mNoticeWrite").submit(function(e){
+		var noticeTitle = $("#noticeTitle").val();
+		var noticeContent = $("#noticeContent").val();
+		if(noticeTitle.length<10){
+			alert('제목을 입력해주세요.(10자 이상)');
+			$("#noticeTitle").focus();
+			e.preventDefault();
+		}else if(noticeContent.length<30){
+			alert('내용을 입력해주세요.(30자 이상)');
+			$("#noticeContent").focus();
+			e.preventDefault();
+		}
+	});
+	
+});
+</script> -->
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-1"></div>
@@ -92,7 +126,7 @@
 		<div class="col-md-6">
 			<div class="pagebox">
 				<h3></h3>
-				<form action="mNoticeWrite" method="POST">
+				<form action="mNoticeWrite" method="POST" id="mNoticeWrite">
 					<table class="NoticeWrite_tbl">
 						 <tr>
 							<td>
@@ -106,7 +140,7 @@
 						 	<td colspan="2">
 							 	  <div class="form-group">
 								  	<label for="noticeContent">내용:</label>
-								  	<textarea class="form-control" rows="12" id="comment" name="noticeContent" maxlength="1000"></textarea>
+								  	<textarea class="form-control" rows="12" id="noticeContent" name="noticeContent" maxlength="1000"></textarea>
 								  </div>
 							  </td>
 						</tr>
