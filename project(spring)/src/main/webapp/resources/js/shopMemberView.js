@@ -44,17 +44,46 @@ $(document).ready(function(){
 	  }
 	});
 	
+	//카테고리 리스트 감추기
+	$(".shop_list").hide();
+	
+	//카테고리 버튼 누르면 보여지기
+	$(".shop_cate_btn").on("click", function(){
+		$(this).next("ul").slideToggle(300);
+		$(this).find("span").fadeToggle(300);
+	});
+	
+	//버튼 클릭시 좋아요/싫어요 보이기
+	$(".shop_list li > button").on("click",function(){
+		$(this).nextAll("div").fadeToggle(300);
+	});
+	
+	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기
 	$("#shop_review_cate_wrap input:checkbox").on("click",function(){
+		var check = $(this).index(":checked");
 		//console.log($(this).index("input:checked"));
-		var check = $(this).index("input:checked");
-		//var userChecked = check.is(":checked");
-		var labelbg = $($(this) + "label");
-		if(check==0){
-			$(labelbg).css("opacity","1");
-			console.log("check");
-		} else if (check==-1) {
-			$(labelbg).css("opacity","0.5");
-			console.log("Uncheck");
+		
+		var labelKey = $(this).prop("checked",true).next("label");
+		console.log(labelKey);
+		
+		if(check==0 && $(this).prop("checked",true)){
+			
+			$(labelKey).css("opacity","1");
+			console.log(check);
+			
+			$(this).parent("div").siblings("div").children("input")
+				   .prop("checked",false).next("label").css("opacity","0.4");
+			$(this).prop("checked",true);
+			
+		} else if (check==-1 && $(this).prop("checked",false)){
+			
+			$(labelKey).css("opacity","0.4");
+			console.log(check);
+			
+			$(this).parent("div").siblings("div").children("input")
+				   .prop("checked",true).next("label").css("opacity","1");
+			$(this).prop("checked",false);
+			
 		}
 	});
 	

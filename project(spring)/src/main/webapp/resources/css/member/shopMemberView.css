@@ -335,7 +335,7 @@
 .shop_menuInfo {
 	font-size:14px;
 	color:#ffe9c7;
-	width:170px;
+	width:140px;
 	overflow: hidden; 
   	text-overflow: ellipsis;
   	white-space: nowrap; 
@@ -386,7 +386,7 @@
 .shop_category {
 	display:block;
 	width:100%;
-	margin-top:20px;
+	margin-top:30px;
 }
 
 #shop_review_cate_wrap > div:first-child {
@@ -480,12 +480,30 @@
 }
 
 /* 버튼 클릭후 좋아용 싫어요 버튼 클릭하기 */
+.shop_list li div {
+	display:none;
+	margin-top:-50px;
+}
+
 .keyword_good_bg{
+	display:block;
+	position:relative;
 	width:123px;
 	height:50px;
-	background:url('../../images/shopInfo_review_LBtn_bg.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
+	background-color:rgba(6, 113, 120, 0.8);
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+
+.keyword_bad_bg{
+	display:block;
+	position:relative;
+	left:123px;
+	width:123px;
+	height:50px;
+	background-color:rgba(222, 31, 85, 0.8);
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
 }
 
 input[id="keyword_good_user01"] {
@@ -494,16 +512,350 @@ input[id="keyword_good_user01"] {
 
 input[id="keyword_good_user01"] + label {
 	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
 	width:23px;
 	height:20px;
 	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
 	background-size:100%;
 	background-position:center center;
-	opacity:.3;
+	opacity:.4;
 	cursor: pointer;
 }
 
+input[id="keyword_bad_user01"] {
+	display:none;
+}
 
+input[id="keyword_bad_user01"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user02"] {
+	display:none;
+}
+
+input[id="keyword_good_user02"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user02"] {
+	display:none;
+}
+
+input[id="keyword_bad_user02"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user03"] {
+	display:none;
+}
+
+input[id="keyword_good_user03"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user03"] {
+	display:none;
+}
+
+input[id="keyword_bad_user03"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user04"] {
+	display:none;
+}
+
+input[id="keyword_good_user04"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user04"] {
+	display:none;
+}
+
+input[id="keyword_bad_user04"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user05"] {
+	display:none;
+}
+
+input[id="keyword_good_user05"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user05"] {
+	display:none;
+}
+
+input[id="keyword_bad_user05"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user06"] {
+	display:none;
+}
+
+input[id="keyword_good_user06"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user06"] {
+	display:none;
+}
+
+input[id="keyword_bad_user06"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user07"] {
+	display:none;
+}
+
+input[id="keyword_good_user07"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user07"] {
+	display:none;
+}
+
+input[id="keyword_bad_user07"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_good_user08"] {
+	display:none;
+}
+
+input[id="keyword_good_user08"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+input[id="keyword_bad_user08"] {
+	display:none;
+}
+
+input[id="keyword_bad_user08"] + label {
+	display:block;
+	position:absolute;
+	top:15px;
+	left:50px;
+	width:23px;
+	height:20px;
+	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
+	background-size:100%;
+	background-position:center center;
+	opacity:.4;
+	cursor: pointer;
+}
+
+/* 키워드 좋아요/싫어요 결과 */
+#shop_review_result_keyword {
+	margin-top:80px;
+}
+
+#shop_review_result_keyword div {
+	float:left;
+	font-size:21px;
+	font-weight:800;
+	color:#4a4a4a;
+}
+
+#shop_review_result_keyword > div {
+	margin-right:50px;
+}
+
+#shop_review_result_keyword div p {
+	float:left;
+	margin-right:10px;
+}
+
+#shop_review_result_keyword div > div {
+	margin-top:6px;
+}
+
+/* 사용자 댓글 쓰기 */
+#shop_review_user_write {
+	width:100%;
+	background-color:#fffbd5;
+	border-radius:10px;
+	margin-top:30px;
+	padding:20px;
+}
+
+#shop_review_user_write > img {
+	float:left;
+}
+
+#shop_review_user_write > p {
+	float:left;
+	margin:8px 20px 0 10px;
+	width:100px;
+}
+
+#shop_review_user_write > input {
+	float:left;
+	width:717px;
+	height:40px;
+	padding-left:10px;
+	outline:none;
+	border:1px solid #f0eed8;
+}
+
+#shop_review_user_write > button {
+	float:left;
+	border:none;
+	padding:10px 16px 11px 16px;
+	background-color:#ffa827;
+	color:#fff;
+	font-size:16px;
+	font-weight:700;
+}
 
 
 
