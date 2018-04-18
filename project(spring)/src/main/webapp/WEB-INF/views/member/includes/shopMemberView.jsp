@@ -238,7 +238,7 @@
 					</div>
 				</div>
 				<ul id="shop_list01" class="shop_list clearfix">
-					<li>
+					<li class="clearfix">
 						<button type="button" class='category'>식사</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user01">
@@ -249,37 +249,84 @@
 							<label for="keyword_bad_user01" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
-				 	<li>
+				 	<li class="clearfix">
 						<button type="button" class='category'>회식</button>
-						<div>
-							<input type="checkbox" name="favorKeywords" value="good,회식" class="together">
-							<label for="favorKeywords" class="reviewKeyword_good"></label>
-							<input type="checkbox" name="favorKeywords" value="bad,회식" class="together">
-							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user02">
+							<label for="keyword_good_user02" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user02">
+							<label for="keyword_bad_user02" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
 					<li>
 						<button type="button" class='category'>데이트</button>
-						<div>
-							<input type="checkbox" name="favorKeywords" value="good,데이트" class="date">
-							<label for="favorKeywords" class="reviewKeyword_good"></label>
-							<input type="checkbox" name="favorKeywords" value="bad,데이트" class="date">
-							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user03">
+							<label for="keyword_good_user03" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user03">
+							<label for="keyword_bad_user03" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
 					<li>
 						<button type="button" class='category'>파티</button>
-						<div>
-							<input type="checkbox" name="favorKeywords" value="good,파티" class="party">
-							<label for="favorKeywords" class="reviewKeyword_good"></label>
-							<input type="checkbox" name="favorKeywords" value="bad,파티" class="party">
-							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user04">
+							<label for="keyword_good_user04" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user04">
+							<label for="keyword_bad_user04" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
-				 	<li><button type="button" class='category'>목적E</button></li>
-				 	<li><button type="button" class='category'>목적F</button></li>
-				 	<li><button type="button" class='category'>목적G</button></li>
-				 	<li><button type="button" class='category'>목적H</button></li>
+				 	
+				 	<li class="clearfix">
+						<button type="button" class='category'>식사</button>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user05">
+							<label for="keyword_good_user05" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user05">
+							<label for="keyword_bad_user05" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
+				 	<li class="clearfix">
+						<button type="button" class='category'>회식</button>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user06">
+							<label for="keyword_good_user06" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user06">
+							<label for="keyword_bad_user06" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
+					<li>
+						<button type="button" class='category'>데이트</button>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user07">
+							<label for="keyword_good_user07" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user07">
+							<label for="keyword_bad_user07" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
+					<li>
+						<button type="button" class='category'>파티</button>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user08">
+							<label for="keyword_good_user08" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user08">
+							<label for="keyword_bad_user08" class="reviewKeyword_bad"></label>
+						</div>
+					</li>
 				</ul>
 			</div>
 			
@@ -328,7 +375,7 @@
 		</div> <!-- End : shop_cate_wrap -->
 		
 		<!-- 키워드 결과 -->
-		<div id="shop_review_result_keyword">
+		<div id="shop_review_result_keyword" class="clearfix">
 			<div>
 				<p id="review_keyword01_txt">파티</p>
 				<div id="review_keyword01_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
@@ -344,9 +391,9 @@
 		</div> <!-- End : shop_review_result_keyword -->
 		
 		<!-- 댓글 쓰기 -->
-		<div id="shop_review_user_write">
+		<div id="shop_review_user_write" class="clearfix">
 			<img src="resources/images/shopInfo_userImg.png" title="userIcon">
-			<span id="shop_review_userId"></span>
+			<p id="shop_review_userId">${loginInfo.mName}</p>
 			<input type="text" name="userWrite" value="">
 			<button type="button">확인</button>
 		</div> <!-- End : shop_review_user_write -->
