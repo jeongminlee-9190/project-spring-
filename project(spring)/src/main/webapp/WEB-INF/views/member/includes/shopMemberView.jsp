@@ -131,25 +131,25 @@
 				<ul id="shop_menu_list01">
 					<li>
 						<img src="resources/images/shopInfo_menu_title.png" title="menu_title">
-						<p>${sMenuCategory1}</p>
+						<p class="shop_menuTitle">${sMenuCategory1}</p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC1Menu1,':')[0]}</span>
-						<span>${fn: split(sC1Menu1,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC1Menu1,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC1Menu1,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC1Menu1,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC1Menu1,':')[2]}" type="currency" /></p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC1Menu2,':')[0]}</span>
-						<span>${fn: split(sC1Menu2,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC1Menu2,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC1Menu2,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /></p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC1Menu3,':')[0]}</span>
-						<span>${fn: split(sC1Menu3,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC1Menu3,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC1Menu3,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC1Menu3,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC1Menu3,':')[2]}" type="currency" /></p>
 					</li>
 				</ul>
 			</li>
@@ -158,33 +158,28 @@
 				<ul id="shop_menu_list02">
 					<li>
 						<img src="resources/images/shopInfo_menu_title.png" title="menu_title">
-						<p>${sMenuCategory2}</p>
+						<p class="shop_menuTitle">${sMenuCategory2}</p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC2Menu1,':')[0]}</span>
-						<span>${fn: split(sC2Menu1,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC2Menu1,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC2Menu1,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC1Menu2,':')[2]}" type="currency" /></p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC2Menu2,':')[0]}</span>
-						<span>${fn: split(sC2Menu2,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC2Menu2,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC2Menu2,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC2Menu2,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC2Menu2,':')[2]}" type="currency" /></p>
 					</li>
-					<li>
+					<li class="shop_menu_wrap clearfix">
 						<img src="resources/images/shopInfo_menu_list.png" title="${fn: split(sC1Menu1,':')[0]}">
-						<span>${fn: split(sC2Menu3,':')[0]}</span>
-						<span>${fn: split(sC2Menu3,':')[1]}</span>
-						<span><fmt:formatNumber value="${fn: split(sC2Menu3,':')[2]}" type="currency" /></span>
+						<p class="shop_menuName">${fn: split(sC2Menu3,':')[0]}</p>
+						<p class="shop_menuInfo">${fn: split(sC2Menu3,':')[1]}</p>
+						<p class="shop_menuPrice"><fmt:formatNumber value="${fn: split(sC2Menu3,':')[2]}" type="currency" /></p>
 					</li>
 				</ul>
 			</li>
-			<!-- <li>
-				<button id="shop_menu_up" type="button">
-					<img src="resources/images/shopInfo_menu_up.png" title="menu_up">
-				</button>
-			</li> -->
 		</ul>
 		<button id="shop_menu_up" type="button">
 			<img src="resources/images/shopInfo_menu_up.png" title="menu_up">
@@ -228,7 +223,7 @@
 
 	<div id="shop_review_wrap">
 	
-		<div id="shop_review_title">REVIEW</div>
+		<p id="shop_review_title">REVIEW</p>
 		
 		<!-- 댓글 키워드 클릭하기 -->
 		<div id="shop_review_cate_wrap">
@@ -245,11 +240,13 @@
 				<ul id="shop_list01" class="shop_list clearfix">
 					<li>
 						<button type="button" class='category'>식사</button>
-						<div>
-							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal">
-							<label for="favorKeywords" class="reviewKeyword_good"></label>
-							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal">
-							<label for="favorKeywords" class="reviewKeyword_bad"></label>
+						<div class="keyword_good_bg">
+							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user01">
+							<label for="keyword_good_user01" class="reviewKeyword_good"></label>
+						</div>
+						<div class="keyword_bad_bg">
+							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user01">
+							<label for="keyword_bad_user01" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
 				 	<li>

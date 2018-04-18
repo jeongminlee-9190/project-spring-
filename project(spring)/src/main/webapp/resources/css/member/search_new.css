@@ -39,7 +39,7 @@ optional: show position indicator in red
 	width:300px;
 	height:1px;
 	max-width:300px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #line_btn {
@@ -52,7 +52,7 @@ optional: show position indicator in red
 	outline:0;
 	cursor:pointer;
 	font-size:15px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #line_wrap ul {
@@ -79,7 +79,7 @@ optional: show position indicator in red
 #line_wrap ul .line_korean {
 	font-size:18px; 
 	font-weight:900;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #line_wrap ul li span {
@@ -140,7 +140,7 @@ optional: show position indicator in red
 	width:300px;
 	height:1px;
 	max-width:300px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #station_btn{
