@@ -20,6 +20,37 @@
 		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})
 	</insert>
 	
+	<insert id="pointAdd" parameterType="hashmap">
+		insert into pointTb (pNum,mId,pDate,point,pTotal)
+		values(SEQ_pointTb_pNum.NEXTVAL,#{mId},sysdate,1000,1000)
+	</insert>
+	
+	<select id="mMyPage" parameterType="string" resultType="MemberDTO">
+    	select mId,mPasswd,mName,mPhone,mBirth
+   		from member
+   		where mId = #{mId}
+	</select>
+	
+	<update id="mPwUpdate" parameterType="hashmap">
+		update member
+		set mPasswd=#{mPasswd}
+		where mId=#{mId}
+	</update>
+	
+	<select id="mPwCheck" parameterType="hashmap" resultType="int">
+		select count(*) 
+		from member
+		where mId=#{mId} and mPasswd=#{mPasswd}
+	</select>
+	
+	
+	<update id="mPhoneUpdate" parameterType="hashmap">
+		update member
+		set mPhone=#{mPhone}
+		where mId=#{mId}
+	</update>
+	
+	
 	<select id="mJoinIdCheck" parameterType="String" resultType="int">
     	select count(*) from member
     	where mId = #{mId}

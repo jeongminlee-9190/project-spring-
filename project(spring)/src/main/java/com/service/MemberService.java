@@ -20,8 +20,25 @@ public class MemberService {
 		return memberDAO.login(map);
 	}
 	
+	@Transactional
 	public void memberAdd(HashMap<String, String> map) {
 		memberDAO.memberAdd(map);
+	} 
+	
+	public MemberDTO mMyPage(String mId) {
+		return memberDAO.mMyPage(mId);
+	}
+	
+	public void mPwUpdate(HashMap<String, String> map) {
+		memberDAO.mPwUpdate(map);
+	}
+	
+	public int mPwCheck(HashMap<String, String> map) {
+		return memberDAO.mPwCheck(map);
+	}
+	
+	public void mPhoneUpdate(HashMap<String, String> map) {
+		memberDAO.mPhoneUpdate(map);
 	}
 	
 	public int mJoinIdCheck(String mIdChk) {
