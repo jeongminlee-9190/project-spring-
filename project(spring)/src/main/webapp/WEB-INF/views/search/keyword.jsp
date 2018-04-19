@@ -17,10 +17,10 @@
 		 	<li><button type="button" class='category'>회식</button></li>
 		 	<li><button type="button" class='category'>데이트</button></li>
 		 	<li><button type="button" class='category'>파티</button></li>
-		 	<li><button type="button" class='category'>목적E</button></li>
-		 	<li><button type="button" class='category'>목적F</button></li>
-		 	<li><button type="button" class='category'>목적G</button></li>
-		 	<li><button type="button" class='category'>목적H</button></li>
+		 	<li><button type="button" class='category'>혼밥</button></li>
+		 	<li><button type="button" class='category'>혼술</button></li>
+		 	<li><button type="button" class='category'>소개팅</button></li>
+		 	<li><button type="button" class='category'>가족</button></li>
 		</ul>
 	</div>
 	

@@ -25,11 +25,14 @@ $(document).ready(function(){
 	//호선
 	$("#line_btn").on("click", function(){
 		$("#line").slideToggle("fast");
+		$("#station_1").slideUp("fast");
+		
 	});
 	
 	//역
 	$("#station_btn").on("click", function(){
 		$("#station_1").slideToggle("fast");
+		$("#line").slideUp("fast");
 	});
 	
 	//지하철 리스트 hover시 background-color 변경

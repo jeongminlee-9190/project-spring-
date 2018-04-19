@@ -5,18 +5,18 @@ import org.apache.ibatis.type.Alias;
 @Alias("ScoreDTO")
 public class ScoreDTO {
 	
-	private String category;
+	private String keyword;
 	private String sCode;
 	private int good;
 	private int bad;
-	private int scoreSum;
+	private String mName;
 
 	
-	public String getCategory() {
-		return category;
+	public String getKeyword() {
+		return keyword;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	public String getsCode() {
 		return sCode;
@@ -36,11 +36,11 @@ public class ScoreDTO {
 	public void setBad(int bad) {
 		this.bad = bad;
 	}
-	public int getScoreSum() {
-		return scoreSum;
+	public String getmName() {
+		return mName;
 	}
-	public void setScoreSum(int scoreSum) {
-		this.scoreSum = scoreSum;
+	public void setmName(String mName) {
+		this.mName = mName;
 	}
 
 }

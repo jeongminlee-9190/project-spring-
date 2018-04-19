@@ -34,7 +34,7 @@
 		AND SH.SSUBWAY =#{station} 
 		</if>
 		<if test="keyword != null">
-		AND S.category IN
+		AND S.keyword IN
 		<foreach collection="keyword" item="item" separator="," open="(" close=")">
 			#{item}
 		</foreach>

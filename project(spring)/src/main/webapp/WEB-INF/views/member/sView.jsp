@@ -35,4 +35,6 @@
 <jsp:include page="includes/shopMemberView.jsp" flush="true" />
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
+
+<jsp:include page="../search/review0.jsp" flush="true" />
 </body>
