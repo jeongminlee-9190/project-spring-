@@ -14,7 +14,7 @@
 		
 		<div class="shop_small_info clearfix">
 			<div class="shop_leftInfo">
-				<a href="shopRetrieve?sCode=${shop.sCode}" class="shop_title" >${shop.sName}</a>
+				<a href="shopRetrieve?sCode=${shop.sCode}&mName=${loginInfo.mName}" class="shop_title" >${shop.sName}</a>
 				<div class="shop_score clearfix">
 					<span><img src="resources/images/icon_search.png" title="검색횟수"></span>
 					<span>${shop.scoresum}</span>
@@ -31,8 +31,10 @@
 					<span>${shop.sPhone}</span>
 				</div>
 				<div class="shop_like clearfix">
-					<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}"></span>
+					<span id="interestUI${shop.sCode}" class="interestUI" data-sCode="${shop.sCode}">
 					<img src="resources/images/icon_Ht.png" title="종아요">
+					</span>
+					
 					<button id="interestBTN${shop.sCode}" class="interestBTN" data-sCode="${shop.sCode}">
 						좋아요
 					</button>

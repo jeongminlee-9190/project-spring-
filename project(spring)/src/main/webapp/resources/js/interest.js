@@ -13,13 +13,9 @@ $(document).ready(function () {
           },
           success: function (data, status, xhr) {
             if (data == "1") {
-              $("#interestUI" + UIsCode).replaceWith("<span id='interestUI" + UIsCode + "'>" +
-              		"<img src='resources/images/icon_clickHt.png'>" +
-              		"</span>");
+              $("#interestUI" + UIsCode).replaceWith("<span id='interestUI" + UIsCode + "'><img src='resources/images/icon_clickHt.png'></span>");
             } else if (data == "0") {
-              $("#interestUI" + UIsCode).replaceWith("<span id='interestUI" + UIsCode + "'>" +
-              		"<img src='resources/images/icon_Ht.png'>" +
-              		"</span>");
+            	$("#interestUI" + UIsCode).replaceWith("<span id='interestUI" + UIsCode + "'><img src='resources/images/icon_Ht.png'></span>");
             }
           }
         });
@@ -39,13 +35,9 @@ $(document).ready(function () {
           },
           success: function (data, status, xhr) {
             if (data == "1") {
-              $("#interestUI" + BTNsCode).replaceWith("<span id='interestUI" + BTNsCode + "'>" +
-              		"<img src='resources/images/icon_clickHt.png'>" +
-              		"</span>");
+              $("#interestUI" + BTNsCode).replaceWith("<span id='interestUI" + BTNsCode + "'><img src='resources/images/icon_clickHt.png'></span>");
             } else if (data == "0") {
-              $("#interestUI" + BTNsCode).replaceWith("<span id='interestUI" + BTNsCode + "'>" +
-              		"<img src='resources/images/icon_Ht.png'>" +
-              		"</span>");
+              $("#interestUI" + BTNsCode).replaceWith("<span id='interestUI" + BTNsCode + "'><img src='resources/images/icon_Ht.png'></span>");
             }
           }
         });

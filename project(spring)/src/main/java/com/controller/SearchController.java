@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dto.ReviewDTO;
 import com.dto.SDTO;
+import com.dto.ScoreDTO;
 import com.dto.SearchResultDTO;
 import com.dto.ShopDTO;
 import com.service.SService;
 import com.service.SearchService;
+import com.service.ShopService;
 
 @Controller
 public class SearchController {
@@ -30,6 +32,9 @@ public class SearchController {
 	
 	@Autowired
 	SService sservice;
+	
+	@Autowired
+	ShopService shopService;
 	
 	@RequestMapping("/line")
 	public String lineInfo() {
@@ -60,7 +65,6 @@ public class SearchController {
 	public String search(@RequestParam String station, 
 			@RequestParam("search") String keywords,
 			HttpServletRequest request) {
-		
 		String[] keywordsArray = keywords.split(",");
 		List<String> keywordsList = new ArrayList<>();
 		if(keywords == "") {
@@ -79,21 +83,27 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/shopRetrieve")
-	public String shopTrieve(@RequestParam String sCode, HttpServletRequest request, HttpSession session) {
+	public String shopTrieve(@RequestParam String sCode, @RequestParam String mName, HttpServletRequest request, HttpSession session) {
 		ShopDTO sdto = searchService.shopRetrieve(sCode);
 		//
 		SDTO sdto2 = sservice.sInfo2(sCode);
-		System.out.println("sCode"+sCode);
 		String [] images = sdto.getsImage().split("/");
 		List<String> shopImages = new ArrayList<>();
+		
 		for (String string : images) {
 			shopImages.add(string);
 		}
-//		List<ReviewDTO> list = stService.selectReview(sCode);
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("sCode", sCode);
+		map.put("mName", mName);
+		List<ReviewDTO> rList = shopService.selectReview(sCode);
+		List<ScoreDTO> sList = shopService.selectScore(map);
+		
 		session.setAttribute("sInfo", sdto2);
-		System.out.println("sInfo"+sdto2);
-//		request.setAttribute("shopImages", shopImages);
-//		request.setAttribute("reviewList", list);
+		request.setAttribute("shopImages", shopImages);
+		request.setAttribute("reviewList", rList);
+		request.setAttribute("scoreList", sList);
 		return "member/sView";
 	}
 	

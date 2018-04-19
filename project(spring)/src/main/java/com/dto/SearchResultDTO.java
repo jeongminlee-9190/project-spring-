@@ -6,7 +6,7 @@ import org.apache.ibatis.type.Alias;
 public class SearchResultDTO {
 	
 	//score
-		private String category;
+		private String keyword;
 		private String sCode;
 		private int good;
 		private int bad;
@@ -29,13 +29,11 @@ public class SearchResultDTO {
 		private int sHate;
 		private int sInterest;
 		private String sSubway;
-
-		
-		public String getCategory() {
-			return category;
+		public String getKeyword() {
+			return keyword;
 		}
-		public void setCategory(String category) {
-			this.category = category;
+		public void setKeyword(String keyword) {
+			this.keyword = keyword;
 		}
 		public String getsCode() {
 			return sCode;
@@ -159,13 +157,15 @@ public class SearchResultDTO {
 		}
 		@Override
 		public String toString() {
-			return "SearchResultDTO [category=" + category + ", sCode=" + sCode + ", good=" + good + ", bad=" + bad
+			return "SearchResultDTO [keyword=" + keyword + ", sCode=" + sCode + ", good=" + good + ", bad=" + bad
 					+ ", scoresum=" + scoresum + ", sName=" + sName + ", soId=" + soId + ", sPost=" + sPost + ", sAddr="
 					+ sAddr + ", sPhone=" + sPhone + ", sBusinesshours=" + sBusinesshours + ", sParkinglot="
 					+ sParkinglot + ", sTerrace=" + sTerrace + ", sMenu1=" + sMenu1 + ", sMenu2=" + sMenu2
 					+ ", sCategory=" + sCategory + ", sImage=" + sImage + ", sLike=" + sLike + ", sHate=" + sHate
 					+ ", sInterest=" + sInterest + ", sSubway=" + sSubway + "]";
 		}
+
+		
 		
 		
 
