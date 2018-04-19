@@ -244,7 +244,7 @@
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user01">
 							<label for="keyword_good_user01" class="reviewKeyword_good"></label>
 						</div>
-						<div class="keyword_bad_bg">
+						<div class="keyword_bad_bg ">
 							<input type="checkbox" name="favorKeywords" value="bad,식사" class="meal" id="keyword_bad_user01">
 							<label for="keyword_bad_user01" class="reviewKeyword_bad"></label>
 						</div>
@@ -377,15 +377,15 @@
 		<!-- 키워드 결과 -->
 		<div id="shop_review_result_keyword" class="clearfix">
 			<div>
-				<p id="review_keyword01_txt">파티</p>
+				<p id="review_keyword01_txt"></p>
 				<div id="review_keyword01_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
 			</div>
 			<div>
-				<p id="review_keyword02_txt">혼자</p>
+				<p id="review_keyword02_txt"></p>
 				<div id="review_keyword02_img"><img src="resources/images/shopInfo_review_Rbad.png"></div>
 			</div>
 			<div>
-				<p id="review_keyword03_txt">가격</p>
+				<p id="review_keyword03_txt"></p>
 				<div id="review_keyword03_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
 			</div>
 		</div> <!-- End : shop_review_result_keyword -->
