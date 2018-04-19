@@ -282,9 +282,8 @@
 							<label for="keyword_bad_user04" class="reviewKeyword_bad"></label>
 						</div>
 					</li>
-				 	
 				 	<li class="clearfix">
-						<button type="button" class='category'>식사</button>
+						<button type="button" class='category'>혼자</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user05">
 							<label for="keyword_good_user05" class="reviewKeyword_good"></label>
@@ -295,7 +294,7 @@
 						</div>
 					</li>
 				 	<li class="clearfix">
-						<button type="button" class='category'>회식</button>
+						<button type="button" class='category'>간단한</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user06">
 							<label for="keyword_good_user06" class="reviewKeyword_good"></label>
@@ -306,7 +305,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>데이트</button>
+						<button type="button" class='category'>둘이서</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user07">
 							<label for="keyword_good_user07" class="reviewKeyword_good"></label>
@@ -317,7 +316,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>파티</button>
+						<button type="button" class='category'>갬성</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user08">
 							<label for="keyword_good_user08" class="reviewKeyword_good"></label>
@@ -387,6 +386,18 @@
 			<div>
 				<p id="review_keyword03_txt"></p>
 				<div id="review_keyword03_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
+			</div>
+			<div>
+				<p id="review_keyword04_txt"></p>
+				<div id="review_keyword04_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
+			</div>
+			<div>
+				<p id="review_keyword05_txt"></p>
+				<div id="review_keyword05_img"><img src="resources/images/shopInfo_review_Rbad.png"></div>
+			</div>
+			<div>
+				<p id="review_keyword06_txt"></p>
+				<div id="review_keyword06_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
 			</div>
 		</div> <!-- End : shop_review_result_keyword -->
 		

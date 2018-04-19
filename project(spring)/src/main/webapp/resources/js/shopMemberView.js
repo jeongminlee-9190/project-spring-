@@ -37,6 +37,7 @@ $(document).ready(function(){
 		$(this).nextAll("div").on("click",function(){
 			$(this).hide();
 			$(this).siblings("div").hide();
+			$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
 			$("#shop_review_result_keyword div > p").text("");
 		});
 	});
@@ -58,6 +59,9 @@ $(document).ready(function(){
 		$(this).parent("div").show();
 		$(this).parent("div").siblings("div").show();
 		
+		var userChoiceK = $(this).parent("div").siblings("button").text();
+		$("#shop_review_result_keyword div > p").text(userChoiceK);
+		
 		e.stopPropagation();
 		
 	});
@@ -70,10 +74,25 @@ $(document).ready(function(){
 	
 	//키워드 누르면 키워드 텍스트 하단에 표시 되기
 	$(".shop_list li button").on("click",function(){
-		var userChoiceK = $(this).text();
-		var otherTag = $("#shop_review_result_keyword > div").toArray();
-		console.log(otherTag[0]);
-		$(otherTag).find("p").text(userChoiceK);
+
+		var userChoice = $("#shop_review_result_keyword > div");
+		var userChoiceIdx = $(".shop_list li").index();
+		var name = $(this).text();
+		
+		var n;
+		$.each( userChoice, function(i){
+			n=0;
+			if(i==n){
+				$(userChoice).eq(n).find("p").text(name);
+				n+1;
+				i+1;
+			};
+		});
+		
+		console.log(userChoiceIdx);
+
+		/*$(otherTag).find("p").eq(0).text(name);
+		$(otherTag).find("p").eq(1).text(name);*/
 	});
 	
 	//댓글 더보기
