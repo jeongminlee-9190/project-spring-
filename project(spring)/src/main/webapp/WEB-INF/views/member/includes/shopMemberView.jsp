@@ -399,50 +399,189 @@
 		</div> <!-- End : shop_review_user_write -->
 		
 		<!-- 다른 사용자가 쓴 댓글 -->
-		<div id="shop_review_otherUsers">
-			<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
-			<span id="shop_review_otherUserId"></span>
-			<p id="shop_review_otherUsers_write"></p>
-			
-			<div id="review_other_keyword">
-				<p id="review_other_keyword01_txt">파티</p>
-				<div id="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
-			</div>
-			<div>
-				<p id="review_other_keyword02_txt">혼자</p>
-				<div id="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
-			</div>
-			<div>
-				<p id="review_other_keyword03_txt">가격</p>
-				<div id="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
-			</div>
-			
-			<button type="button">신고</button>
-		</div> <!-- End : shop_review_otherUsers -->
+		<div id="shop_user_allReview_wrap" >
+			<div class="lists">
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
+				
+				<!-- 내가 쓴 댓글 -->
+				<div id="shop_review_my_write_wrap" class="lists__item js-load">
+					<div id="shop_review_my_write">
+						<div class="myText clearfix">
+							<img src="resources/images/shopInfo_userImg.png" title="userIcon">
+							<p class="shop_review_myUserId">${loginInfo.mName}</p>
+							<p class="shop_review_myUsers_write">여기 짱짱맨!</p>
+							<button type="button" class="shop_review_delete">삭제</button>
+							<button type="button" class="shop_review_update">수정</button>
+						</div>
+						
+						<div class="myChoice clearfix">
+							<div>
+								<p id="review_my_keyword01_txt">파티</p>
+								<div id="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+							</div>
+							<div>
+								<p id="review_my_keyword02_txt">혼자</p>
+								<div id="review_my_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+							</div>
+							<div>
+								<p id="review_my_keyword03_txt">가격</p>
+								<div id="review_my_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_my_write -->
+				
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
+				
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
+				
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
+				
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
+				
+				<div id="shop_review_otherUsers" class="lists__item js-load">
+					<div class="otherUserText clearfix">
+						<img src="resources/images/shopInfo_userImg.png" title="OtherUsersIcon">
+						<p class="shop_review_otherUserId">otherUser</p>
+						<p class="shop_review_otherUsers_write">review</p>
+						<button type="button" class="shop_review_report">신고</button>
+					</div>
+					
+					<div class="otherUserChoice clearfix">
+						<div>
+							<p class="review_other_keyword01_txt">파티</p>
+							<div class="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword02_txt">혼자</p>
+							<div class="review_other_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
+						</div>
+						<div>
+							<p class="review_other_keyword03_txt">가격</p>
+							<div class="review_other_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+						</div>
+					</div>
+				</div> <!-- End : shop_review_otherUsers -->
 		
-		<!-- 내가 쓴 댓글 -->
-		<div id="shop_review_user_write2">
-			<img src="resources/images/shopInfo_userImg.png" title="userIcon">
-			<span id="shop_review_userId2"></span>
-			<p id="shop_review_User_write"></p>
+			</div> <!-- End : shop_user_allReview_wrap -->
 			
-			<div id="review_my_keyword_wrap">
-				<p id="review_my_keyword01_txt">파티</p>
-				<div id="review_other_keyword01_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
-			</div>
-			<div>
-				<p id="review_my_keyword02_txt">혼자</p>
-				<div id="review_my_keyword02_img"><img src="resources/images/shopInfo_review_OUbad.png"></div>
-			</div>
-			<div>
-				<p id="review_my_keyword03_txt">가격</p>
-				<div id="review_my_keyword03_img"><img src="resources/images/shopInfo_review_OUgood.png"></div>
+			<div id="js-btn-wrap" class="btn-wrap">
+				<button type="button" id="shopReviewListMoreBtn">
+					<img src="resources/images/shopInfo_review_more.png" title="더보기">
+				</button>
 			</div>
 			
-			<button type="button">수정</button>
-			<button type="button">삭제</button>
-		</div> <!-- End : shop_review_user_write2 -->
-		
+		</div> <!-- End : js-load -->
 	</div> <!-- End : shop_review_wrap -->
 	
 </form> <!-- End : form -->

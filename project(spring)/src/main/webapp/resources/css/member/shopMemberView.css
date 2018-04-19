@@ -821,10 +821,10 @@ input[id="keyword_bad_user08"] + label {
 
 /* 사용자 댓글 쓰기 */
 #shop_review_user_write {
-	width:100%;
+	width:960px;
 	background-color:#fffbd5;
 	border-radius:10px;
-	margin-top:30px;
+	margin:30px 0 20px 0;
 	padding:20px;
 }
 
@@ -836,11 +836,14 @@ input[id="keyword_bad_user08"] + label {
 	float:left;
 	margin:8px 20px 0 10px;
 	width:100px;
+	font-size:15px;
+	font-weight:800;
+	color:#4a4a4a;
 }
 
 #shop_review_user_write > input {
 	float:left;
-	width:717px;
+	width:716px;
 	height:40px;
 	padding-left:10px;
 	outline:none;
@@ -850,12 +853,163 @@ input[id="keyword_bad_user08"] + label {
 #shop_review_user_write > button {
 	float:left;
 	border:none;
-	padding:10px 16px 11px 16px;
+	padding:9px 14px 11px 14px;
 	background-color:#ffa827;
 	color:#fff;
 	font-size:16px;
 	font-weight:700;
 }
 
+/* 댓글 wrap */
+#shop_user_allReview_wrap > div:first-child > div {
+	width:100%;
+	border-bottom:1px solid #e1e2e3;
+}
+/* 사용자가 쓴 댓글  */
+#shop_review_otherUsers {
+	width:100%;
+	padding:30px 0;
+}
+
+#shop_review_otherUsers img {
+	float:left;
+}
+
+#shop_review_otherUsers p {
+	float:left;
+}
+
+.otherUserText > img{
+	display:block;
+	margin:0 10px 0 20px;
+}
+
+.otherUserText .shop_review_otherUserId{
+	width:100px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:800;
+	color:#4a4a4a;
+}
+
+.otherUserText .shop_review_otherUsers_write{
+	width:704px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
+}
+
+.otherUserText .shop_review_report {
+	float:right;
+	border:none;
+	margin:8px 20px 0 0;
+	color:#e80016;
+}
+
+.otherUserChoice {
+	margin:10px 0 0 192px;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
+}
+
+.otherUserChoice > div {
+	float:left;
+	margin-right:30px;
+}
+
+.otherUserChoice > div > div {
+	float:left;
+	margin:4px 0 0 5px;
+}
+
+/* 내가쓴 댓글  */
+#shop_review_my_write {
+	width:100%;
+	margin:30px 0;
+	background-color:#fffbd5;
+	border-radius:10px;
+	padding:15px 0 30px 0;
+}
+
+#shop_review_my_write img {
+	float:left;
+}
+
+#shop_review_my_write p {
+	float:left;
+}
+
+.myText > img{
+	display:block;
+	margin:0 10px 0 20px;
+}
+
+.myText > button {
+	float:right;
+	border:none;
+}
+
+.myText .shop_review_myUserId{
+	width:100px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:800;
+	color:#4a4a4a;
+}
+
+.myText .shop_review_myUsers_write{
+	width:704px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
+}
+
+.myText .shop_review_delete {
+	margin:8px 20px 0 0;
+	color:#e80016;
+}
+
+.myText .shop_review_update {
+	margin:8px 10px 0 0;
+	color:#4a4a4a;
+}
+
+.myChoice {
+	margin:10px 0 0 192px;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
+}
+
+.myChoice > div {
+	float:left;
+	margin-right:30px;
+}
+
+.myChoice > div > div {
+	float:left;
+	margin:4px 0 0 5px;
+}
+
+/* 리뷰 더보기 Btn */
+#shopReviewListMoreBtn {
+	border:none;
+	display:block;
+	margin:0 auto;
+	padding:40px 0 100px 0;
+}
+
+.js-load {
+    display: none;
+}
+.js-load.active {
+    display: block;
+}
+.is_comp.js-load:after {
+    display: none;
+}
 
 

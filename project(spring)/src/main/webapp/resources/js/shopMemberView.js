@@ -87,4 +87,27 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(window).on('load', function () {
+	    load('#shop_user_allReview_wrap', '3');
+	    $("#js-btn-wrap button").on("click", function () {
+	        load('#shop_user_allReview_wrap', '3', '#js-btn-wrap');
+	    })
+	});
+	 
+	function load(id, cnt, btn) {
+	    var girls_list = id + " .js-load:not(.active)";
+	    var girls_length = $(girls_list).length;
+	    var girls_total_cnt;
+	    console.log(id + cnt + btn);
+	    console.log(girls_list + girls_length);
+	    if (cnt < girls_length) {
+	        girls_total_cnt = cnt;
+	        console.log(girls_total_cnt);
+	    } else {
+	        girls_total_cnt = girls_length;
+	        $("#js-btn-wrap button img").attr("src","resources/images/shopInfo_review_close.png");
+	    }
+	    $(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
+	}
+	
 });
