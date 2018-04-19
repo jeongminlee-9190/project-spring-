@@ -43,7 +43,7 @@
 	  	<div class="col-sm-3">
 	  		<c:if test="${SoLevel=='0'}"> 
 		  		<span class="bold">서비스 이용 </span> &emsp;
-		  		<span class="SoFreetrialDate">미승인</span>
+		  		<span class="SoFreetrialDate">${SoFreetrialDate}</span>
 		  	</c:if>
 	  		<c:if test="${SoLevel=='1'}"> 
 		  		<span class="bold">체험 종료 날짜 </span> &emsp;

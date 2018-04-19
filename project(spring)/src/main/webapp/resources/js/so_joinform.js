@@ -83,7 +83,6 @@
  			var re_phone2=/^[0-9]{4,4}$/;
  			var re_phone3=/^[0-9]{4,4}$/;
  			var re_license=/^[0-9]{10,10}$/;
- 			
  			var re_pw = /^[a-z0-9]{8,10}$/; // 비밀번호 검사식
  			var mesg=null;
 
@@ -146,7 +145,6 @@
  		var termRead =0;
  		$("#termRead").click(function(){
  			termRead=1;
- 			console.log("termRead"+termRead);
  		});
  		
  

@@ -15,10 +15,12 @@ public class SoService {
 	@Autowired
 	SoDAO dao;
 	
+	@Transactional
 	public SoDTO login(HashMap<String, String> map) {
 		SoDTO sDTO = dao.login(map);
 		return sDTO;
 	}
+	
 	public String findSoId(HashMap<String, String> map) {
 		String soId = dao.findSoId(map);
 		return soId;
