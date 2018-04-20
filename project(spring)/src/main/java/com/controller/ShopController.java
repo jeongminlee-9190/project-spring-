@@ -72,5 +72,10 @@ public class ShopController {
 		
 	}
 	
+	@RequestMapping(value="/deleteReview")
+	void deleteReview() {
+		
+	}
+	
 
 }
