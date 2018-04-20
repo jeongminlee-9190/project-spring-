@@ -37,7 +37,7 @@ public class MemberController {
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
-		return "search/login";
+		return "member/mLoginForm";
 	}
 	
 	@RequestMapping("/login")

@@ -16,14 +16,14 @@
 </c:if>
 
 <c:if test="${!empty loginInfo }">
-<div id="login_wrap">
-	<a href="loginForm" title="login">
-		<span id="login">${loginInfo.mName}</span>
+<div id="login_wrap" class="memberUI">
+	<a id="login" class="login_after clearfix" href="#" title="${loginInfo.mName}">
+		<span id="login_txt">${loginInfo.mName}</span>
 		<span id="lgoin_icon"><img src="resources/images/login_icon.png"></span>
 	</a>
 	<ul id="user_info_list" class="memberUI">
 	  <li><a href="#">나의 맛집</a></li>
-	  <li><a href="#">프로필 정보</a></li>
+	  <li><a href="mMyPage">프로필 정보</a></li>
 	  <li><a href="#">문의 사항</a></li>
 	  <li><a href="logout">로그아웃</a></li>
 	</ul>
