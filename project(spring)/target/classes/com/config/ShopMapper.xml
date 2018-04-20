@@ -50,6 +50,7 @@
 		select * from score
 		where sCode = #{sCode} and mName = #{mName}
 	</select>
+	
 </mapper>
 	
 	<!-- and (keyword in
