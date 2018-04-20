@@ -74,25 +74,51 @@ $(document).ready(function(){
 	
 	//키워드 누르면 키워드 텍스트 하단에 표시 되기
 	$(".shop_list li button").on("click",function(){
-
-		var userChoice = $("#shop_review_result_keyword > div");
-		var userChoiceIdx = $(".shop_list li").index();
-		var name = $(this).text();
 		
-		var n;
-		$.each( userChoice, function(i){
-			n=0;
-			if(i==n){
-				$(userChoice).eq(n).find("p").text(name);
-				n+1;
-				i+1;
-			};
+		var choiceArr = [];
+		
+		var choiceNum=0;
+		var resultNum=0;
+		
+		var choice = $(this).parent("li").nextAll("li");
+		
+		var userChoiceText = $(this).text();
+		var userResultText = $("#shop_review_result_keyword > div");
+		
+		$.each(choice, function(choiceNum) {
+			choiceArr[choiceNum] = userChoiceText;
+			//console.log(choiceArr);
+			resultNum++;
 		});
 		
-		console.log(userChoiceIdx);
+		var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
+		ResultText += choiceArr[choiceNum];
+		
+		/*if(choiceArr[choiceNum]<resultNum){
+			var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
+			ResultText += choiceArr[choiceNum];
+		}*/
+		
+		console.log(resultNum);
+		console.log(choiceNum);
+	
+		
+		/*for(var resultNum=0; resultNum<choiceArr; resultNum++){
+			choiceArr[choiceNum] = userChoiceText;		
+			console.log("ddd" + resultNum);
+		}
 
-		/*$(otherTag).find("p").eq(0).text(name);
-		$(otherTag).find("p").eq(1).text(name);*/
+		if(choiceNum==resultNum){
+			var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
+			ResultText += choiceArr[choiceNum];
+		}*/
+			
+		//console.log(choiceNum);
+		//console.log(resultNum);
+		//console.log(userChoiceText);
+		
+		//console.log("data:: "+ResultText);
+
 	});
 	
 	//댓글 더보기
