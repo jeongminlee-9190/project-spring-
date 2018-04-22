@@ -73,34 +73,68 @@ $(document).ready(function(){
 	});*/
 	
 	//키워드 누르면 키워드 텍스트 하단에 표시 되기
-	$(".shop_list li button").on("click",function(){
+	$(".shop_list li button").on("click",function(e){
 		
-		var choiceArr = [];
+		/*var choiceArr = [];
+		var resultArr = [];
 		
 		var choiceNum=0;
 		var resultNum=0;
 		
 		var choice = $(this).parent("li").nextAll("li");
+		var result = $("#shop_review_result_keyword > div");
 		
 		var userChoiceText = $(this).text();
 		var userResultText = $("#shop_review_result_keyword > div");
 		
 		$.each(choice, function(choiceNum) {
 			choiceArr[choiceNum] = userChoiceText;
-			//console.log(choiceArr);
 			resultNum++;
 		});
 		
+		$.each(result, function(resultNum) {
+			resultArr[resultNum] = userResultText;
+			choiceNum++;
+		});
+		
 		var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
-		ResultText += choiceArr[choiceNum];
+		ResultText += choiceArr[choiceNum];*/
 		
 		/*if(choiceArr[choiceNum]<resultNum){
 			var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
 			ResultText += choiceArr[choiceNum];
 		}*/
 		
-		console.log(resultNum);
-		console.log(choiceNum);
+		var userChoiceText = $(this).text();
+		var userResultText = $("#shop_review_result_keyword > div");
+		
+		var changeNum = 0;
+		/*for ( var i = 0; i < changeNum.length; i++ ) {
+			console.log(changeNum[i]);
+		}*/
+		var choiceNum;
+		
+		var choiceArr = $(this).parent("li").map(function(idx,ele){
+			choiceNum = $(this).index();	
+			console.log(choiceNum);
+			return choiceNum;
+		});
+		
+		for( var i=0; i<7; i++){
+			choiceNum = changeNum;
+			console.log(choiceNum);
+		}
+		
+		/*var resultArr = $("#shop_review_result_keyword div").map(function(idx,ele){
+			var ResultText = $(userResultText).find("p").eq(choiceNum);
+			ResultText += choiceArr[choiceNum];
+		});
+		for(var i=0; i<resultArr.length; i++){
+			console.log(resultArr);
+		}*/
+		
+		/*console.log(resultNum);
+		console.log(choiceNum);*/
 	
 		
 		/*for(var resultNum=0; resultNum<choiceArr; resultNum++){
