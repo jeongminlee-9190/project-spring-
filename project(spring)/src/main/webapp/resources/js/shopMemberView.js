@@ -32,6 +32,8 @@ $(document).ready(function(){
 	});
 	
 	//버튼 클릭시 좋아요/싫어요 보이기
+	var choiceArr = [];
+	var choiceNum = 0;
 	$(".shop_list li > button").on("click",function(){
 		$(this).nextAll("div").show();
 		$(this).nextAll("div").on("click",function(){
@@ -40,6 +42,18 @@ $(document).ready(function(){
 			$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
 			$("#shop_review_result_keyword div > p").text("");
 		});
+		
+		//키워드 누르면 키워드 텍스트 하단에 표시 되기
+		choiceArr.push($(this).text());
+		console.log(choiceArr);
+		
+		if (choiceNum < 6){
+			choiceNum++;
+			$("#shop_review_result_keyword").append("<div>" + $(this).text() + "</div>");
+		} else {
+			$(this).nextAll("div").hide();
+		}
+			
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기
@@ -71,89 +85,6 @@ $(document).ready(function(){
 	$(".shop_list > li").find("button").nextAll("div").on("click",function(){
 		$(this).fadeOut(300);
 	});*/
-	
-	//키워드 누르면 키워드 텍스트 하단에 표시 되기
-	$(".shop_list li button").on("click",function(e){
-		
-		/*var choiceArr = [];
-		var resultArr = [];
-		
-		var choiceNum=0;
-		var resultNum=0;
-		
-		var choice = $(this).parent("li").nextAll("li");
-		var result = $("#shop_review_result_keyword > div");
-		
-		var userChoiceText = $(this).text();
-		var userResultText = $("#shop_review_result_keyword > div");
-		
-		$.each(choice, function(choiceNum) {
-			choiceArr[choiceNum] = userChoiceText;
-			resultNum++;
-		});
-		
-		$.each(result, function(resultNum) {
-			resultArr[resultNum] = userResultText;
-			choiceNum++;
-		});
-		
-		var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
-		ResultText += choiceArr[choiceNum];*/
-		
-		/*if(choiceArr[choiceNum]<resultNum){
-			var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
-			ResultText += choiceArr[choiceNum];
-		}*/
-		
-		var userChoiceText = $(this).text();
-		var userResultText = $("#shop_review_result_keyword > div");
-		
-		var changeNum = 0;
-		/*for ( var i = 0; i < changeNum.length; i++ ) {
-			console.log(changeNum[i]);
-		}*/
-		var choiceNum;
-		
-		var choiceArr = $(this).parent("li").map(function(idx,ele){
-			choiceNum = $(this).index();	
-			console.log(choiceNum);
-			return choiceNum;
-		});
-		
-		for( var i=0; i<7; i++){
-			choiceNum = changeNum;
-			console.log(choiceNum);
-		}
-		
-		/*var resultArr = $("#shop_review_result_keyword div").map(function(idx,ele){
-			var ResultText = $(userResultText).find("p").eq(choiceNum);
-			ResultText += choiceArr[choiceNum];
-		});
-		for(var i=0; i<resultArr.length; i++){
-			console.log(resultArr);
-		}*/
-		
-		/*console.log(resultNum);
-		console.log(choiceNum);*/
-	
-		
-		/*for(var resultNum=0; resultNum<choiceArr; resultNum++){
-			choiceArr[choiceNum] = userChoiceText;		
-			console.log("ddd" + resultNum);
-		}
-
-		if(choiceNum==resultNum){
-			var ResultText = $(userResultText).find("p").eq(choiceNum).text(userChoiceText);
-			ResultText += choiceArr[choiceNum];
-		}*/
-			
-		//console.log(choiceNum);
-		//console.log(resultNum);
-		//console.log(userChoiceText);
-		
-		//console.log("data:: "+ResultText);
-
-	});
 	
 	//댓글 더보기
 	$(window).on('load', function () {

@@ -375,30 +375,7 @@
 		
 		<!-- 키워드 결과 -->
 		<div id="shop_review_result_keyword" class="clearfix">
-			<div>
-				<p id="review_keyword01_txt"></p>
-				<div id="review_keyword01_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
-			</div>
-			<div>
-				<p id="review_keyword02_txt"></p>
-				<div id="review_keyword02_img"><img src="resources/images/shopInfo_review_Rbad.png"></div>
-			</div>
-			<div>
-				<p id="review_keyword03_txt"></p>
-				<div id="review_keyword03_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
-			</div>
-			<div>
-				<p id="review_keyword04_txt"></p>
-				<div id="review_keyword04_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
-			</div>
-			<div>
-				<p id="review_keyword05_txt"></p>
-				<div id="review_keyword05_img"><img src="resources/images/shopInfo_review_Rbad.png"></div>
-			</div>
-			<div>
-				<p id="review_keyword06_txt"></p>
-				<div id="review_keyword06_img"><img src="resources/images/shopInfo_review_Rgood.png"></div>
-			</div>
+			
 		</div> <!-- End : shop_review_result_keyword -->
 		
 		<!-- 댓글 쓰기 -->
