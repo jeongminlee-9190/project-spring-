@@ -239,7 +239,7 @@
 				</div>
 				<ul id="shop_list01" class="shop_list clearfix">
 					<li class="clearfix">
-						<button type="button" class='category'>식사</button>
+						<button type="button" class='category' data-keyword="식사" >식사</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user01">
 							<label for="keyword_good_user01" class="reviewKeyword_good"></label>
@@ -250,7 +250,7 @@
 						</div>
 					</li>
 				 	<li class="clearfix">
-						<button type="button" class='category'>회식</button>
+						<button type="button" class='category' data-keyword="회식" >회식</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user02">
 							<label for="keyword_good_user02" class="reviewKeyword_good"></label>
@@ -261,7 +261,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>데이트</button>
+						<button type="button" class='category' data-keyword="데이트" >데이트</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user03">
 							<label for="keyword_good_user03" class="reviewKeyword_good"></label>
@@ -272,7 +272,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>파티</button>
+						<button type="button" class='category' data-keyword="파티" >파티</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user04">
 							<label for="keyword_good_user04" class="reviewKeyword_good"></label>
@@ -283,7 +283,7 @@
 						</div>
 					</li>
 				 	<li class="clearfix">
-						<button type="button" class='category'>혼자</button>
+						<button type="button" class='category' data-keyword="혼자" >혼자</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user05">
 							<label for="keyword_good_user05" class="reviewKeyword_good"></label>
@@ -294,7 +294,7 @@
 						</div>
 					</li>
 				 	<li class="clearfix">
-						<button type="button" class='category'>간단한</button>
+						<button type="button" class='category' data-keyword="간단한" >간단한</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user06">
 							<label for="keyword_good_user06" class="reviewKeyword_good"></label>
@@ -305,7 +305,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>둘이서</button>
+						<button type="button" class='category' data-keyword="둘이서" >둘이서</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user07">
 							<label for="keyword_good_user07" class="reviewKeyword_good"></label>
@@ -316,7 +316,7 @@
 						</div>
 					</li>
 					<li>
-						<button type="button" class='category'>갬성</button>
+						<button type="button" class='category' data-keyword="갬성" >갬성</button>
 						<div class="keyword_good_bg">
 							<input type="checkbox" name="favorKeywords" value="good,식사" class="meal" id="keyword_good_user08">
 							<label for="keyword_good_user08" class="reviewKeyword_good"></label>

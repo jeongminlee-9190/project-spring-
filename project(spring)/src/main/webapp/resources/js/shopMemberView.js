@@ -33,31 +33,64 @@ $(document).ready(function(){
 	
 	//버튼 클릭시 좋아요/싫어요 보이기
 	var choiceArr = [];
-	var choiceNum = 0;
-	$(".shop_list li > button").on("click",function(){
+	var choiceKeyword;
+	var choiceArrIndex;
+	
+	$(".shop_list li > button").on("click",function(e){
+		e.stopPropagation();
+		
+		//사용자가 선택한 키워드
+		choiceKeyword = $(this).text();
+		console.log( "choiceKeyword " + choiceKeyword);
+		
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		
+		//버튼 보여지기
 		$(this).nextAll("div").show();
-		$(this).nextAll("div").on("click",function(){
-			$(this).hide();
-			$(this).siblings("div").hide();
-			$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
-			$("#shop_review_result_keyword div > p").text("");
-		});
 		
-		//키워드 누르면 키워드 텍스트 하단에 표시 되기
-		choiceArr.push($(this).text());
-		console.log(choiceArr);
-		
-		if (choiceNum < 6){
-			choiceNum++;
-			$("#shop_review_result_keyword").append("<div>" + $(this).text() + "</div>");
+		//키워드 누르면 키워드 텍스트 하단에 표시 되기		
+		if ( choiceArr.length < 6 && choiceArrIndex==-1){
+			choiceArr.push(choiceKeyword);
+			$("#shop_review_result_keyword").empty();
+			for (var i=0; i<choiceArr.length; i++){
+				$("#shop_review_result_keyword").append("<div>" + choiceArr[i] + "</div>");
+			}
 		} else {
 			$(this).nextAll("div").hide();
 		}
-			
+		
+	});
+	
+	// 버튼 안보여지기
+	$(".shop_list li > button").nextAll("div").on("click",function(e){
+		e.stopPropagation();
+		
+		choiceKeyword = $(this).siblings("button").attr("data-keyword");
+		
+		console.log(choiceKeyword);
+
+		$(this).hide();
+		$(this).siblings("div").hide();
+		$(this).find("input").prop("checked",false).next("label").css("opacity","0.4");
+		$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
+		
+		//키워드 누르면 키워드 텍스트 하단에 표시 없애기
+		
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+	
+		if(choiceArrIndex >=0){
+			choiceArr.splice(choiceArrIndex,1);
+			$("#shop_review_result_keyword").empty();
+			for (var i=0; i<choiceArr.length; i++){
+				$("#shop_review_result_keyword").append("<div>" + choiceArr[i] + "</div>");
+			}
+		}
+
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기
 	$("#shop_review_cate_wrap input:checkbox").on("click",function(e){
+		e.stopPropagation();
 		
 		if($(this).prop("checked")){
 			
@@ -75,8 +108,6 @@ $(document).ready(function(){
 		
 		var userChoiceK = $(this).parent("div").siblings("button").text();
 		$("#shop_review_result_keyword div > p").text(userChoiceK);
-		
-		e.stopPropagation();
 		
 	});
 	
