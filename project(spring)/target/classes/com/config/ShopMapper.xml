@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ShopMapper">
 
+	<select id="selectReview" parameterType="String" resultType="ReviewDTO">
+		select * from review
+		where sCode = #{sCode}
+	</select>
+
 	<insert id="insertReview" parameterType="hashmap">
 		insert into review(rvnum, rvContent, mName, rvWritedate, sCode)
 		values(SEQ_REVIEWBOARD_RVNUM.NEXTVAL, #{reviewContent}, #{mName}, sysdate, #{sCode} )
@@ -20,6 +25,11 @@
 		where mName = #{mName} and sCode = #{sCode}
 	</update>
 	
+	<delete id="deleteReview" parameterType="hashmap">
+		delete from review
+		where rvNum = #{rvNum}
+	</delete>
+	
 	<insert id="insertGoodScore" parameterType="hashmap">
 		insert All
 		<foreach collection="goodKeyword" item="keyword">
@@ -27,7 +37,6 @@
 			values(#{keyword}, #{sCode}, 1, 0, #{mName})
 		</foreach>  SELECT * FROM DUAL
 	</insert>
-	
 	
 	<insert id="insertBadScore" parameterType="hashmap">
 		insert All
@@ -40,16 +49,12 @@
 	<delete id="deleteScore" parameterType="hashmap">
 		delete from score where mName = #{mName} and sCode = #{sCode} 
 	</delete>
-
-	<select id="selectReview" parameterType="String" resultType="ReviewDTO">
-		select * from review
-		where sCode = #{sCode}
-	</select>
 	
 	<select id="selectScore" parameterType="hashmap" resultType="ScoreDTO">
 		select * from score
 		where sCode = #{sCode} and mName = #{mName}
 	</select>
+	
 </mapper>
 	
 	<!-- and (keyword in

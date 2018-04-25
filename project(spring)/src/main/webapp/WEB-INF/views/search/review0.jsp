@@ -30,8 +30,12 @@
 </form>
 
 <c:forEach var="review" items="${reviewList }">
-${review.rvContent }, ${review.mName}<br>
-<hr>
+	${review.rvNum}, ${review.rvContent }, ${review.mName}<br>
+	<c:if test="${loginInfo.mName eq review.mName }">
+		<input type='button' id="deleteReview" data-rvNum='${review.rvNum }' 
+		data-sCode='${review.sCode }' data-mName='${review.mName }' value='삭제'>
+	</c:if>
+	<hr>
 </c:forEach>
 
 <c:forEach var="score" items="${scoreList }">
@@ -45,6 +49,24 @@ ${review.rvContent }, ${review.mName}<br>
 </c:forEach>
 
 <script>
+$("#deleteReview").on("click",function(){
+	var rvNum = $(this).attr("data-rvNum");
+	var sCode = $(this).attr("data-sCode");
+	var mName = $(this).attr("data-mName");
+	var data = {
+			'rvNum':rvNum,
+			'sCode':sCode,
+			'mName':mName
+		}
+	$.ajax({
+		url:'deleteReview',
+		method:'post',
+		contentType:'application/json',
+		data:JSON.stringify(data),
+	});
+	location.reload();
+});
+
 $("#reviewContentSubmit").on("submit",function(evt){
 	if($("#loginInfo")==''){
     	alert("로그인을 하세요");

@@ -38,6 +38,12 @@ public class ShopService {
 		return shopDAO.selectReview(sCode);
 	}
 	
+	@Transactional
+	public void deleteReview(HashMap<String, Object> map) {
+		shopDAO.deleteReview(map);
+		shopDAO.deleteScore(map);
+	}
+	
 	public List<ScoreDTO> selectScore(HashMap<String, Object> map){
 		return shopDAO.selectScore(map);
 	}
