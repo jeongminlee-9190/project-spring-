@@ -32,6 +32,8 @@ $(document).ready(function(){
 	});
 	
 	//버튼 클릭시 좋아요/싫어요 보이기
+	var choiceArr = [];
+	var choiceNum = 0;
 	$(".shop_list li > button").on("click",function(){
 		$(this).nextAll("div").show();
 		$(this).nextAll("div").on("click",function(){
@@ -40,6 +42,18 @@ $(document).ready(function(){
 			$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
 			$("#shop_review_result_keyword div > p").text("");
 		});
+		
+		//키워드 누르면 키워드 텍스트 하단에 표시 되기
+		choiceArr.push($(this).text());
+		console.log(choiceArr);
+		
+		if (choiceNum < 6){
+			choiceNum++;
+			$("#shop_review_result_keyword").append("<div>" + $(this).text() + "</div>");
+		} else {
+			$(this).nextAll("div").hide();
+		}
+			
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기
@@ -71,29 +85,6 @@ $(document).ready(function(){
 	$(".shop_list > li").find("button").nextAll("div").on("click",function(){
 		$(this).fadeOut(300);
 	});*/
-	
-	//키워드 누르면 키워드 텍스트 하단에 표시 되기
-	$(".shop_list li button").on("click",function(){
-
-		var userChoice = $("#shop_review_result_keyword > div");
-		var userChoiceIdx = $(".shop_list li").index();
-		var name = $(this).text();
-		
-		var n;
-		$.each( userChoice, function(i){
-			n=0;
-			if(i==n){
-				$(userChoice).eq(n).find("p").text(name);
-				n+1;
-				i+1;
-			};
-		});
-		
-		console.log(userChoiceIdx);
-
-		/*$(otherTag).find("p").eq(0).text(name);
-		$(otherTag).find("p").eq(1).text(name);*/
-	});
 	
 	//댓글 더보기
 	$(window).on('load', function () {
