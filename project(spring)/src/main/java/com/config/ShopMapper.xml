@@ -4,56 +4,65 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ShopMapper">
 
+	<select id="selectReview" parameterType="String" resultType="ReviewDTO">
+		select * from review
+		where sCode = #{sCode}
+	</select>
+
 	<insert id="insertReview" parameterType="hashmap">
-		insert into review(rvnum, rvContent, mId, rvWritedate, sCode)
-		values(0, #{reviewContent}, #{mId}, sysdate, #{sCode} )
+		insert into review(rvnum, rvContent, mName, rvWritedate, sCode)
+		values(SEQ_REVIEWBOARD_RVNUM.NEXTVAL, #{reviewContent}, #{mName}, sysdate, #{sCode} )
 	</insert>
 
 	<select id="checkReview" parameterType="hashmap" resultType="ReviewDTO">
 		select * from review
-		where mId = #{mId} and sCode = #{sCode}
+		where mName = #{mName} and sCode = #{sCode}
 	</select>
 	
 	<update id="updateReview" parameterType="hashmap">
 		update review 
 		set rvWriteDate = sysdate, rvContent = #{reviewContent}
-		where mId = #{mId} and sCode = #{sCode}
+		where mName = #{mName} and sCode = #{sCode}
 	</update>
+	
+	<delete id="deleteReview" parameterType="hashmap">
+		delete from review
+		where rvNum = #{rvNum}
+	</delete>
 	
 	<insert id="insertGoodScore" parameterType="hashmap">
 		insert All
 		<foreach collection="goodKeyword" item="keyword">
-			into score (keyword, scode, good, bad, mId)
-			values(#{keyword}, #{sCode}, 1, 0, #{mId})
+			into score (keyword, scode, good, bad, mName)
+			values(#{keyword}, #{sCode}, 1, 0, #{mName})
 		</foreach>  SELECT * FROM DUAL
 	</insert>
-	
 	
 	<insert id="insertBadScore" parameterType="hashmap">
 		insert All
 		<foreach collection="badKeyword" item="keyword">
-			into score (keyword, scode, good, bad, mId)
-			values(#{keyword}, #{sCode}, 0, 1, #{mId})
+			into score (keyword, scode, good, bad, mName)
+			values(#{keyword}, #{sCode}, 0, 1, #{mName})
 		</foreach>  SELECT * FROM DUAL
 	</insert>
 	
 	<delete id="deleteScore" parameterType="hashmap">
-		delete from score
-		<where>
-			mId = #{mId} and sCode = #{sCode} and (keyword in
-			<foreach collection="goodKeyword" item="keyword" open="(" close=")" separator=",">
-				#{keyword}
-			</foreach>
-			or keyword in 
-			<foreach collection="badKeyword" item="keyword" open="(" close=")" separator=",">
-				#{keyword}
-			</foreach>
-			)
-		</where>
+		delete from score where mName = #{mName} and sCode = #{sCode} 
 	</delete>
-
-	<select id="selectReview" parameterType="String" resultType="ReviewDTO">
-		select * from review
-		where sCode = #{sCode}
+	
+	<select id="selectScore" parameterType="hashmap" resultType="ScoreDTO">
+		select * from score
+		where sCode = #{sCode} and mName = #{mName}
 	</select>
+	
 </mapper>
+	
+	<!-- and (keyword in
+	<foreach collection="goodKeyword" item="keyword" open="(" close=")" separator=",">
+		#{keyword}
+	</foreach>
+	or keyword in 
+	<foreach collection="badKeyword" item="keyword" open="(" close=")" separator=",">
+		#{keyword}
+	</foreach>
+	) -->

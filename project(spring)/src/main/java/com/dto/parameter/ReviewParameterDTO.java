@@ -1,12 +1,14 @@
 package com.dto.parameter;
 
+import java.util.Arrays;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("ReviewParameterDTO")
 public class ReviewParameterDTO {
 	
 	private String reviewContent;
-	private String mId;
+	private String mName;
 	private String sCode;
 	private String [] favorKeywords;
 	
@@ -17,11 +19,17 @@ public class ReviewParameterDTO {
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
 	}
-	public String getmId() {
-		return mId;
+	
+	public String getmName() {
+		return mName;
 	}
-	public void setmId(String mId) {
-		this.mId = mId;
+	@Override
+	public String toString() {
+		return "ReviewParameterDTO [reviewContent=" + reviewContent + ", mName=" + mName + ", sCode=" + sCode
+				+ ", favorKeywords=" + Arrays.toString(favorKeywords) + "]";
+	}
+	public void setmName(String mName) {
+		this.mName = mName;
 	}
 	public String getsCode() {
 		return sCode;

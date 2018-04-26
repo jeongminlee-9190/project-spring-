@@ -26,6 +26,7 @@
 <script type="text/javascript" src='resources/js/interest.js'></script>
 <script type="text/javascript" src='resources/js/search_new.js'></script>
 <script type="text/javascript" src="resources/js/keyword.js"></script>
+<script type="text/javascript" src="resources/js/user_info_list.js"></script>
 
 <title>갬성갱단</title>
 </head>

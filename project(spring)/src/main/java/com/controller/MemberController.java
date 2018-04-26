@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.MemberDTO;
+import com.dto.SoDTO;
 import com.service.MemberService;
 
 @Controller
@@ -23,7 +24,7 @@ public class MemberController {
 
 	@Autowired
 	MemberService memberService;
-	
+		
 	@RequestMapping("/mLoginForm")
 	public String mLogin() {
 		return "member/mLoginForm";
@@ -36,7 +37,7 @@ public class MemberController {
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
-		return "search/login";
+		return "member/mLoginForm";
 	}
 	
 	@RequestMapping("/login")
@@ -61,20 +62,97 @@ public class MemberController {
 	
 	@RequestMapping(value="/memberAdd",  method=RequestMethod.POST)
 	public String memberAdd(@RequestParam HashMap<String, String> map, HttpServletRequest request) {
-		System.out.println(map);
+		
 		String mPhone1 = map.get("mPhone");
 		String mPhone2 = map.get("mPhone2");
 		String mPhone3 = map.get("mPhone3");
 		String mPhone = mPhone1+"-"+mPhone2+"-"+mPhone3;
+		
 		map.remove("mPhone1");
 		map.remove("mPhone2");
 		map.remove("mPhone3");
 		map.put("mPhone",mPhone);
+		
+		
 		memberService.memberAdd(map);
 		request.setAttribute("success", "회원가입 성공, 로그인 페이지로 이동합니다.");
-		System.out.println(map.get("mPhone1"));
+		
 		return "member/mLoginForm";
 
+	}
+	
+	//member 마이페이지
+	@RequestMapping(value= "/mMyPage", method=RequestMethod.GET)
+	public String mMyPage(HttpSession session,HttpServletRequest request) {
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("loginInfo");
+		String nextPage=null;
+		if(mDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "index_shopowner";
+		}else {
+			String mId = mDTO.getmId();
+			mDTO = memberService.mMyPage(mId);
+			session.setAttribute("MemberMyPage", mDTO);
+			
+			nextPage = "member/mMyPage"; 
+		}
+		return nextPage;
+	}
+	
+	
+	@RequestMapping(value= "/mPwUpdate", method=RequestMethod.POST)
+	public String mPwUpdate(@RequestParam HashMap<String, String> map, HttpSession session, HttpServletRequest request) {
+		MemberDTO mDTO= (MemberDTO)session.getAttribute("loginInfo");
+		String nextPage=null;
+		if(mDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "mLoginForm";
+		}else {
+			String mId = mDTO.getmId();
+			map.put("mId", mId);
+			memberService.mPwUpdate(map);
+			session.setAttribute("success", "비밀번호가 변경되었습니다.");
+			nextPage="redirect:mMyPage";
+		}
+		return nextPage;
+	}
+	
+	//Mypage_pwCheck
+	@RequestMapping(value="/mPwCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public int mPwCheck(@RequestParam String mPasswd,HttpSession session) {
+		MemberDTO mDTO= (MemberDTO)session.getAttribute("loginInfo");
+		String mId = mDTO.getmId();
+		HashMap<String, String> map = new HashMap<>();
+		map.put("mId", mId);
+		map.put("mPasswd", mPasswd);
+		int mPwCheckCnt = memberService.mPwCheck(map);
+		return mPwCheckCnt;
+	}
+	
+	
+	//전화번호 변경
+	@RequestMapping(value= "/mPhoneUpdate", method=RequestMethod.POST)
+	public String mPhoneUpdate(@RequestParam HashMap<String, String> map, HttpSession session,HttpServletRequest request) {
+		MemberDTO mDTO= (MemberDTO)session.getAttribute("loginInfo");
+		String nextPage=null;
+		if(mDTO==null) {
+			request.setAttribute("fail", "로그인을 해주세요.");
+			nextPage = "mLoginForm";
+		}else {
+			String mId = mDTO.getmId();
+			String mPhone1 = map.get("mPhone1");
+			String mPhone2 = map.get("mPhone2");
+			String mPhone3 = map.get("mPhone3");
+			String mPhone = mPhone1+"-"+mPhone2+"-"+mPhone3;
+			HashMap<String, String> map2 = new HashMap<>();
+			map2.put("mId", mId);
+			map2.put("mPhone", mPhone);
+			memberService.mPhoneUpdate(map2);
+			session.setAttribute("success", "전화번호가 변경되었습니다.");
+			nextPage ="redirect:mMyPage";
+		}
+		return nextPage;
 	}
 
 	@ResponseBody

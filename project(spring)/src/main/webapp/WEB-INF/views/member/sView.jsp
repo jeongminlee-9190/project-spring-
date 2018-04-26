@@ -25,6 +25,7 @@
 <script type="text/javascript" src="resources/js/lightslider.js"></script>
 <script type="text/javascript" src="resources/js/lightslider.min.js"></script>
 <script type="text/javascript" src="resources/js/shopMemberView.js"></script>
+<script type="text/javascript" src="resources/js/user_info_list.js"></script>
 
 <title>상점 관리</title>
 
@@ -35,4 +36,6 @@
 <jsp:include page="includes/shopMemberView.jsp" flush="true" />
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
+
+<jsp:include page="../search/review0.jsp" flush="true" />
 </body>

@@ -30,7 +30,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/main")
-	public String main0() {
+	public String main() {
 		return "main";
 	}
 }
