@@ -811,11 +811,16 @@ input[id="keyword_bad_user08"] + label {
 	float:left;
 }
 
+#shop_review_result_keyword div img {
+	float:left;
+	margin:6px 0 0 5px;
+}
+
 #shop_review_result_keyword div button {
 	float:left;
 	border:none;
 	cursor:pointer;
-	margin:8px 0 0 10px;
+	margin:1px 0 0 10px;
 }
 
 

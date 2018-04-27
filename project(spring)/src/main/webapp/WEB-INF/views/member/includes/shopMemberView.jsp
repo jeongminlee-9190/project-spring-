@@ -375,7 +375,6 @@
 		
 		<!-- 키워드 결과 -->
 		<div id="shop_review_result_keyword" class="clearfix">
-			
 		</div> <!-- End : shop_review_result_keyword -->
 		
 		<!-- 댓글 쓰기 -->
