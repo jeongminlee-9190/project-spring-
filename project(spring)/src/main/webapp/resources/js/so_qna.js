@@ -14,9 +14,7 @@ $(document).ready(function(){
 					alert('1:1 문의가 삭제되었습니다.');
 					location.reload(); // 페이지 새로고침
 				},
-				error:function(){
-					console.log("tlfvo");
-				}
+				error:function(){}
 			});
 		});
 		
@@ -37,9 +35,7 @@ $(document).ready(function(){
 					alert('1:1 문의가 수정되었습니다.');
 					location.reload(); // 페이지 새로고침
 				},
-				error:function(){
-					console.log("tlfvo");
-				}
+				error:function(){}
 			});
 		});
 		
