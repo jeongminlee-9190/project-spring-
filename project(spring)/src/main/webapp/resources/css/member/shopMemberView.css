@@ -809,8 +809,15 @@ input[id="keyword_bad_user08"] + label {
 
 #shop_review_result_keyword div p {
 	float:left;
-	margin-right:10px;
 }
+
+#shop_review_result_keyword div button {
+	float:left;
+	border:none;
+	cursor:pointer;
+	margin:8px 0 0 10px;
+}
+
 
 
 /* 사용자 댓글 쓰기 */
