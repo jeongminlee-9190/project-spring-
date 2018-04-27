@@ -63,7 +63,7 @@ $(document).ready(function(){
 							<td>
 								<div class="form-group">
 								  	<label for="qnaTitle">제목:</label>
-								  	<input type="text" class="form-control" id="qnaTitle" name="qnaTitle">
+								  	<input type="text" class="form-control" id="qnaTitle" name="qnaTitle"  maxlength="20">
 								</div>
 								
 							</td>
@@ -72,7 +72,7 @@ $(document).ready(function(){
 							<td>
 								<div class="form-group">
 								  	<label for="qnaContent">내용:</label>
-								  	<textarea class="form-control" rows="10" id="qnaContent" name="qnaContent"></textarea>
+								  	<textarea class="form-control" rows="10" id="qnaContent" name="qnaContent" maxlength="50"></textarea>
 								</div>
 							</td>
 						</tr>

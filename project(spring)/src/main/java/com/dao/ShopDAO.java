@@ -32,6 +32,10 @@ public class ShopDAO {
 		template.update("ShopMapper.updateReview", map);
 	}
 	
+	public void deleteReview(HashMap<String, Object> map) {
+		template.delete("ShopMapper.deleteReview", map);
+	}
+	
 	public void insertGoodScore(HashMap<String, Object> map) {
 		template.insert("ShopMapper.insertGoodScore", map);
 	}

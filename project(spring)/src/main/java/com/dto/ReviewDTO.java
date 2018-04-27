@@ -55,6 +55,11 @@ public class ReviewDTO {
 	public void setsCode(String sCode) {
 		this.sCode = sCode;
 	}
+	@Override
+	public String toString() {
+		return "ReviewDTO [rvNum=" + rvNum + ", rvContent=" + rvContent + ", mName=" + mName + ", rvWritedate="
+				+ rvWritedate + ", sLike=" + sLike + ", sHate=" + sHate + ", sCode=" + sCode + "]";
+	}
 	
 	
 

@@ -97,7 +97,7 @@
 				</c:if>
 				<c:if test="${!empty sImage3}">
 			  		<a class="btn btn-info" data-toggle="modal" data-target="#myModal3">
-			  		<img src="resources/upload/${sImage3}" style="width: 100%; max-width: 700px; vertical-align: middle"></a><br>
+			  		<img src="resources/upload/${sImage3}" style="width: 100%; max-width: 300px; height: 300px; vertical-align: middle"></a><br>
 			  		이미지3
 					<!-- Modal -->
 					<div id="myModal3" class="modal fade" role="dialog">

@@ -804,20 +804,21 @@ input[id="keyword_bad_user08"] + label {
 	font-size:21px;
 	font-weight:800;
 	color:#4a4a4a;
-}
-
-#shop_review_result_keyword > div {
 	margin-right:50px;
 }
 
 #shop_review_result_keyword div p {
 	float:left;
-	margin-right:10px;
 }
 
-#shop_review_result_keyword div > div {
-	margin-top:6px;
+#shop_review_result_keyword div button {
+	float:left;
+	border:none;
+	cursor:pointer;
+	margin:8px 0 0 10px;
 }
+
+
 
 /* 사용자 댓글 쓰기 */
 #shop_review_user_write {

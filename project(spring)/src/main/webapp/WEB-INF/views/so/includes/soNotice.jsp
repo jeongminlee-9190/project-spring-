@@ -59,7 +59,8 @@
 					  			<td>${dto.noticeNum}</td>
 					  			<td>
 					  				<c:set var="noticeTitle" value="${dto.noticeTitle}"/>
-					  				<a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" data-num="${dto.noticeNum}">${fn:substring(noticeTitle, 0, 16)}</a></td>
+					  				<a data-toggle="modal" data-target="#myModal" class="soNoticeRetrieve" 
+					  				data-num="${dto.noticeNum}">${fn:substring(noticeTitle, 0, 16)}</a></td>
 					  			<td>${dto.noticeWritedate}</td>
 					  			<!-- The Modal -->
 								<div class="modal fade" id="myModal">
