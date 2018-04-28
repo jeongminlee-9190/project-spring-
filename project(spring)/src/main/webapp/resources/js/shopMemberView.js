@@ -33,58 +33,120 @@ $(document).ready(function(){
 	
 	//버튼 클릭시 좋아요/싫어요 보이기
 	var choiceArr = [];
-	var choiceNum = 0;
-	$(".shop_list li > button").on("click",function(){
+	var choiceKeyword;
+	var choiceArrIndex;
+	
+	$(".shop_list li > button").on("click",function(e){
+		e.stopPropagation();
+		
+		//사용자가 선택한 키워드
+		choiceKeyword = $(this).text();
+		console.log( "choiceKeyword " + choiceKeyword);
+		
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		
+		//버튼 보여지기
 		$(this).nextAll("div").show();
-		$(this).nextAll("div").on("click",function(){
-			$(this).hide();
-			$(this).siblings("div").hide();
-			$(this).siblings("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
-			$("#shop_review_result_keyword div > p").text("");
-		});
 		
-		//키워드 누르면 키워드 텍스트 하단에 표시 되기
-		choiceArr.push($(this).text());
-		console.log(choiceArr);
-		
-		if (choiceNum < 6){
-			choiceNum++;
-			$("#shop_review_result_keyword").append("<div>" + $(this).text() + "</div>");
+		//키워드 누르면 키워드 텍스트 하단에 표시 되기		
+		if ( choiceArr.length < 6 && choiceArrIndex==-1){
+			choiceArr.push(choiceKeyword);
+			$("#shop_review_result_keyword").empty();
+			for (var i=0; i<choiceArr.length; i++){
+				$("#shop_review_result_keyword")
+				.append("<div><p>" + choiceArr[i] + "</p>" +
+						"<img src='"+goodBadArr[i]+"'>" +
+						"<button type='button' data-keyword='" + choiceArr[i] + "'>" +
+						"<img src='resources/images/shopInfo_review_keyword_del.png'>" +
+						"</button></div>");
+			}
 		} else {
 			$(this).nextAll("div").hide();
 		}
-			
+		
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기
-	$("#shop_review_cate_wrap input:checkbox").on("click",function(e){
-		
-		if($(this).prop("checked")){
-			
-			var labelKey = $(this).next("label");
-			$(labelKey).css("opacity","1");
-			
-			$(this).parent("div").siblings("div").children("input")
-				   .prop("checked",false).next("label").css("opacity","0.4");
-			$(this).prop("checked",true);
-			
-		}
-		
-		$(this).parent("div").show();
-		$(this).parent("div").siblings("div").show();
-		
-		var userChoiceK = $(this).parent("div").siblings("button").text();
-		$("#shop_review_result_keyword div > p").text(userChoiceK);
-		
+	var GBchoice;
+	var GBresult;
+	var goodBad;
+	var goodBadArr = [];
+	//좋아요
+	$(document).on("click",".shop_list li div:nth-child(2) input:checkbox",function(e){
 		e.stopPropagation();
+
+		GBchoice = $(this).parent("div").prev("button").text();
+		console.log("GBchoice" + GBchoice);
+		
+		GBresult = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']")
+					.prev("img").prev("p").text();
+		console.log("GBresult" + GBresult);
+		
+		if($(this).prop("checked",true) && GBresult.match(GBchoice)){
+			$(this).next("label").css("opacity","1");
+			$(this).parent("div").siblings("div").children("input")
+			   .prop("checked",false).next("label").css("opacity","0.4");
+			
+			goodBad = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']").prev("img")
+					.attr("src","resources/images/shopInfo_review_Rgood.png");
+			
+			return goodBadArr.push(goodBad);
+		} 
+		console.log(goodBadArr);
+		
+	});
+	//싫어요
+	$(document).on("click",".shop_list li div:last-child input:checkbox",function(e){
+		e.stopPropagation();
+
+		GBchoice = $(this).parent("div").prev("div").prev("button").text();
+		console.log("GBchoice" + GBchoice);
+		
+		GBresult = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']")
+					.prev("img").prev("p").text();
+		console.log("GBresult" + GBresult);
+
+		if ($(this).prop("checked",true) && GBresult.match(GBchoice)){
+			$(this).next("label").css("opacity","1");
+			$(this).parent("div").siblings("div").children("input")
+			   .prop("checked",false).next("label").css("opacity","0.4");
+			
+			goodBad = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']").prev("img")
+			.attr("src","resources/images/shopInfo_review_Rbad.png");
+			
+			return goodBadArr.push(goodBad);
+		}
+		console.log(goodBadArr);
 		
 	});
 	
-	//키워드 배경 누르면 키워드 checked풀기
-	/*$(this).unbind("click");
-	$(".shop_list > li").find("button").nextAll("div").on("click",function(){
-		$(this).fadeOut(300);
-	});*/
+	// x버튼 누르면 해당 키워드 버튼 안보여지기, 키워드 텍스트 하단에 표시 없애기
+	$(document).on("click","#shop_review_result_keyword div button", function(){
+		
+		choiceKeyword = $(this).prev("img").prev("p").text();
+		console.log(choiceKeyword);
+		
+		// x버튼 누르면 키워드 좋아요,싫어요 버튼 표시 없애기
+		$(".shop_list li > button[data-keyword='" + choiceKeyword + "']" ).nextAll("div").fadeOut(300);
+		$(".shop_list li > button[data-keyword='" + choiceKeyword + "']" )
+			.nextAll("div").find("input").prop("checked",false).next("label").css("opacity","0.4");
+		
+		// x버튼 누르면 키워드 텍스트 하단에 표시 없애기
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		if(choiceArrIndex >=0){
+			choiceArr.splice(choiceArrIndex,1);
+			$("#shop_review_result_keyword").empty();
+			for (var i=0; i<choiceArr.length; i++){
+				$("#shop_review_result_keyword")
+				.append("<div><p>" + choiceArr[i] + "</p>" +
+						"<img src='"+goodBadArr[i]+"'>" +
+						"<button type='button' data-keyword='" + choiceArr[i] + "'>" +
+						"<img src='resources/images/shopInfo_review_keyword_del.png'>" +
+						"</button></div>");
+			}
+		}
+
+	});
 	
 	//댓글 더보기
 	$(window).on('load', function () {
