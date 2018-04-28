@@ -82,6 +82,12 @@ public class ShopController {
 		shopService.deleteReview(map);
 	}
 	
+//	@RequestMapping(value="/myFavorite")
+//	@ResponseBody
+//	List<ShopDTO> selectMyFavorite(){
+//		shopService.selectMyFavorite(mId);
+//	}
+//	
 	
 	
 

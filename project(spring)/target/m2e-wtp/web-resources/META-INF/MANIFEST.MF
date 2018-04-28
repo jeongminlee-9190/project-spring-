@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: jo920208
 Build-Jdk: 1.8.0_161
-=======
-Built-By: acorn
-Build-Jdk: 1.8.0_151
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 Created-By: Maven Integration for Eclipse
 

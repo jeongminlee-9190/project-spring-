@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.ShopDAO;
 import com.dto.ReviewDTO;
 import com.dto.ScoreDTO;
+import com.dto.ShopDTO;
 
 @Service
 public class ShopService {
@@ -46,6 +47,10 @@ public class ShopService {
 	
 	public List<ScoreDTO> selectScore(HashMap<String, Object> map){
 		return shopDAO.selectScore(map);
+	}
+	
+	public List<ShopDTO> selectMyFavorite(String mId){
+		return shopDAO.selectMyFavorite(mId);
 	}
 
 }

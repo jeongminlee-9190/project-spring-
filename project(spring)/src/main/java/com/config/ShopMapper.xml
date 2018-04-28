@@ -55,6 +55,11 @@
 		where sCode = #{sCode} and mName = #{mName}
 	</select>
 	
+	<select id="selectFavoriteShop" parameterType="string" resultType="ShopDTO">
+		select * from shop
+		where scode in (select scode from interest where mid = #{mId})
+	</select>
+	
 </mapper>
 	
 	<!-- and (keyword in

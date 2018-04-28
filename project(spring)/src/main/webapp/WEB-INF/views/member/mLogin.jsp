@@ -22,7 +22,7 @@
 		<span id="lgoin_icon"><img src="resources/images/login_icon.png"></span>
 	</a>
 	<ul id="user_info_list" class="memberUI">
-	  <li><a href="#">나의 맛집</a></li>
+	  <li><a href="myShop">나의 맛집</a></li>
 	  <li><a href="mMyPage">프로필 정보</a></li>
 	  <li><a href="#">문의 사항</a></li>
 	  <li><a href="logout">로그아웃</a></li>
