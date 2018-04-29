@@ -335,10 +335,11 @@
 .shop_menuInfo {
 	font-size:14px;
 	color:#ffe9c7;
-	width:140px;
+	width:100px;
 	overflow: hidden; 
   	text-overflow: ellipsis;
   	white-space: nowrap; 
+  	margin-top:-3px;
 }
 
 .shop_menuPrice {

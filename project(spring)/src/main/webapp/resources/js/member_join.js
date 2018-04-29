@@ -1,35 +1,6 @@
 
 $(document).ready(function(){
-	
-/*	var xmlRequest;
-	function idCheck(id){
-		xmlRequest=new XMLHttpRequest();
-		xmlRequest.onreadystatechange=x;	
-		// MemberIdCheckServlet에 요청
-		xmlRequest.open("get","MIdCheckServlet?mId="+id, true);
-		xmlRequest.send(null); // null은 get일때
-	 }
-	function mnameCheck(mname){
-		xmlRequest=new XMLHttpRequest();
-		xmlRequest.onreadystatechange=y;	
-		// MemberIdCheckServlet에 요청
-		xmlRequest.open("get","MNameCheckServlet?mName="+mname, true);
-		xmlRequest.send(null); // null은 get일때
-	 }//end of req
-	// 응답용
-	function x(){
-		if(xmlRequest.readyState==4 && xmlRequest.status == 200){
-			var time = xmlRequest.responseText;
-			document.querySelector("#result1").innerText=time;
-		} //end of if
-	}
-	function y(){
-		if(xmlRequest.readyState==4 && xmlRequest.status == 200){
-			var time = xmlRequest.responseText;
-			document.querySelector("#result3").innerText=time;
-		} //end of if
-	}//end of response()
-*/	
+
 	var mId = $("#mId");
 	var mPasswd = $("#mPasswd");
 	var mPasswd2 = $("#mPasswd2");

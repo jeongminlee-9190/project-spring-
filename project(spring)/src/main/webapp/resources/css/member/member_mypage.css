@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+#myPage_content_wrapper {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	padding-bottom:130px;
+	font-size:14px;
+}
+
+/* 전체 감싼 form */
+#myPage_content_wrap {
+	display:block;
+	position:relative;
+	left:-220px;
+	margin-top:50px;
+	margin-left:50%;
+}
+
+*html #join_content_wrapper { height:100%;}
+
+/* SIGN US */
+#myPage_title {
+	display:block;
+	position:relative;
+	margin-top:80px;
+	min-width:1200px;
+}
+
+#myPage_title p{
+	display:block;
+	position:relative;
+	left:-120px;
+	margin-left:50%;
+	font-family:gotham_Bold; 
+	font-style:normal; 
+	font-weight:normal;
+	font-size:50px;
+	color:#5e5e5e;
+}
+
+/* 아이디.....출생년도 텍스트 */
+.myPage_list p:first-child{
+	float:left;
+	width:111px;
+	padding:12px 0 12px 15px;
+	margin:0 30px 25px 0;
+	color:#8a8a8a;
+	border-left:5px solid #faa72a;
+}
+
+/* 아이디.....출생년도 사용자가 적는 텍스트 박스 */
+.myPage_list p:last-child {
+	float:left;
+	width:300px;
+	height:40px;
+	margin-top:10px;
+	color:#5e5e5e;
+	font-weight:700;
+}
+
+/* 현재 비밀번호 */
+#myPage_passwd span {
+	margin-left:10px;
+}
+
+/* 비밀번호 변경 placeholder */
+.myPagePwText::-webkit-input-placeholder{font-size:14px;color:#a5a5a5; }  /* Chrome/Opera/Safari */
+.myPagePwText:-moz-placeholder{font-size:14px;color:#a5a5a5;}			   /* Mozilla Firefox 4 to 18 */
+.myPagePwText::-moz-placeholder{font-size:14px;color:#a5a5a5;}		   /* Mozilla Firefox 19+ */
+.myPagePwText:-ms-input-placeholder{font-size:14px;color:#a5a5a5;}	   /* Internet Explorer 10+ */
+.myPagePwText {
+	width:283px; /* border : 1px 1px */
+	height:38px; /* border : 1px 1px */
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	outline:none;
+}
+/* 비밀번호 변경  */
+#myPage_passwdUpdate input {
+	float:left;
+}
+#myPage_passwdUpdate span {
+	margin-left:10px;
+	width:500px;
+}
+
+/* 비밀번호 변경  확인 */
+#myPage_passwdUpdate2 {
+	margin:-10px 0 25px 161px;
+}
+
+#myPage_passwdUpdate2 input:last-child {
+	outline:none;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+	background-color:#faa72a;
+	padding:8px 12px;
+	color:#fff;
+	margin-left:10px;
+}
+
+/* 휴대전화 */
+#mPhone1{
+	width:80px;
+	height:40px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	margin-right:8px;
+	outline:none;
+	padding-left:15px;
+}
+
+#mPhone1 option{
+	padding:10px 0;
+}
+
+#mPhone2{
+	width:65px;
+	height:38px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	margin:0 8px;
+	outline:none;
+	-webkit-appearance: none;
+   	-webkit-border-radius: 0;
+}
+
+#mPhone3{
+	width:65px;
+	height:38px;
+	color:#5e5e5e;
+	background-color:#fff;
+	border:1px solid #e0e0e0;
+	padding-left:15px;
+	margin-left:8px;
+	outline:none;
+	-webkit-appearance: none;
+   	-webkit-border-radius: 0;
+}
+
+#myPage_phoneUpdate input:last-child {
+	outline:none;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+	background-color:#faa72a;
+	padding:8px 12px;
+	color:#fff;
+	margin-left:10px;
+}
+
+/* 출생년도 */
+#mBirth_wrap span:last-child {
+	display:block;
+	font-size:11px;
+	margin-left:158px;
+	margin-top:5px;
+	color:#5e5e5e;
+}
+
+
+/* 가입하기 전체 */
+.joinComplete {
+	display:block;
+	width:460px;
+	text-align:right;
+}
+
+/* 가입하기 */
+#myPage_home button{
+	display:block;
+	background-color:#faa72a;
+	width:460px;
+	border:none;
+	padding:17px 0;
+	color:#fff;
+	font-size:18px;
+	font-weight:900;
+	cursor:pointer;
+	outline:none;
+	margin-top:45px;
+}
+
