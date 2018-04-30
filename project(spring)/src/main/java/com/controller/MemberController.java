@@ -82,19 +82,19 @@ public class MemberController {
 	}
 	
 	//member 마이페이지
-	@RequestMapping(value= "/mMyPage", method=RequestMethod.GET)
+	@RequestMapping(value= "/mMyPageForm", method=RequestMethod.GET)
 	public String mMyPage(HttpSession session,HttpServletRequest request) {
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("loginInfo");
 		String nextPage=null;
 		if(mDTO==null) {
 			request.setAttribute("fail", "로그인을 해주세요.");
-			nextPage = "index_shopowner";
+			nextPage = "main";
 		}else {
 			String mId = mDTO.getmId();
 			mDTO = memberService.mMyPage(mId);
 			session.setAttribute("MemberMyPage", mDTO);
 			
-			nextPage = "member/mMyPage"; 
+			nextPage = "member/mMyPageForm"; 
 		}
 		return nextPage;
 	}
@@ -118,7 +118,7 @@ public class MemberController {
 			map.put("mId", mId);
 			memberService.mPwUpdate(map);
 			session.setAttribute("success", "비밀번호가 변경되었습니다.");
-			nextPage="redirect:mMyPage";
+			nextPage="redirect:mMyPageForm";
 		}
 		return nextPage;
 	}
@@ -156,7 +156,7 @@ public class MemberController {
 			map2.put("mPhone", mPhone);
 			memberService.mPhoneUpdate(map2);
 			session.setAttribute("success", "전화번호가 변경되었습니다.");
-			nextPage ="redirect:mMyPage";
+			nextPage ="redirect:mMyPageForm";
 		}
 		return nextPage;
 	}
