@@ -33,7 +33,7 @@ public class ShopController {
 	SearchService searchService;
 	
 	@RequestMapping("/reviewWrite")
-	String reviewWrite(ReviewParameterDTO rpDTO, RedirectAttributes attr) {
+	public String reviewWrite(ReviewParameterDTO rpDTO, RedirectAttributes attr) {
 		
 		HashMap<String, Object> keywordMap = new HashMap<>();
 		String[] keywords = rpDTO.getFavorKeywords();
@@ -78,7 +78,7 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value="/deleteReview")
-	void deleteReview(@RequestBody HashMap<String, Object> map) {
+	public void deleteReview(@RequestBody HashMap<String, Object> map) {
 		shopService.deleteReview(map);
 	}
 	
