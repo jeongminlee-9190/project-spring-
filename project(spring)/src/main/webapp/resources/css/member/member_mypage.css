@@ -78,11 +78,14 @@
 }
 /* 비밀번호 변경  */
 #myPage_passwdUpdate input {
+	display:block;
 	float:left;
 }
 #myPage_passwdUpdate span {
-	margin-left:10px;
-	width:500px;
+	display:block;
+	margin-left:475px;
+	width:300px;
+	height:40px;
 }
 
 /* 비밀번호 변경  확인 */
