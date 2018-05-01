@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+#myList_content_wrapper {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	padding-bottom:100px;
+}
+
+*html #join_content_wrapper { height:100%;}
+
+/* MY LIST title */
+#myList_title {
+	display:block;
+	position:relative;
+	margin-top:80px;
+	min-width:1200px;
+}
+
+#myList_title p{
+	display:block;
+	position:relative;
+	left:-100px;
+	margin-left:50%;
+	font-family:gotham_Bold; 
+	font-style:normal; 
+	font-weight:normal;
+	font-size:50px;
+	color:#5e5e5e;
+}
+
+/* width 지정 wrap */
+#myList_content_wrap {
+	display:block;
+	position:relative;
+	left:-500px;
+	margin-top:60px;
+	margin-left:50%;
+	width:1000px;
+}
+
+/* 좋아요, 평가 버튼 */
+#myList_content_wrap button {
+	display:block;
+	float:left;
+	width:480px;
+	height:200px;
+	border:none;
+	outline:none;
+	cursor:pointer;
+	color:#fff;
+}
+
+/* 좋아요한 버튼 이미지 */
+#myList_content_wrap button:first-child {
+	margin:0 10px 0 15px;
+	background:url('../../images/member_like_bg.jpg') no-repeat;
+	background-size:536px 256px;
+	background-position:center center;
+}
+
+/* 평가한 버튼 이미지 */
+#myList_content_wrap button:last-child {
+	background:url('../../images/member_review_bg.jpg') no-repeat;
+	background-size:536px 256px;
+	background-position:center center;
+}
+
+/* 좋아요, 평가 title */
+.myList_title p {
+	float:left;
+	font-size:17px;
+	margin-left:159px;
+	margin-right:5px;
+}
+
+.myList_title img {
+	float:left;
+	display:block;
+	margin-top:5px;
+}
+
+.myList_num p{
+	float:left;
+	font-size:25px;
+	font-weight:900;
+}
+
+.myList_num p:first-child{
+	margin:30px 5px 0px 214px;
+	
+}
+
+.myList_num p:last-child{
+	font-size:21px;
+	margin-top:33px;
+}
+
+
+

@@ -40,6 +40,11 @@ public class MemberController {
 		return "member/mLoginForm";
 	}
 	
+	@RequestMapping("/mMyListForm")
+	public String myListForm() {
+		return "member/mMyListForm";
+	}
+	
 	@RequestMapping("/login")
 	public ModelAndView login(@RequestParam HashMap<String, String> map,
 			HttpSession session, ModelAndView mav) {
