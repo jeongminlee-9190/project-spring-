@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#shopTopBtnWrap {
+	display:block;
+	min-width:1200px;
+}
+
+#shop_top_btn {
+	position:fixed;
+	right:50px;
+	bottom:70px;
+	cursor:pointer;
+	border:none;
+	outline:none;
+}
+

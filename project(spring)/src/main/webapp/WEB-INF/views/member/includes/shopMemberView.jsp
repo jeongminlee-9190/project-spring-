@@ -31,10 +31,30 @@
 				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[4]}">
 					<img src="resources/upload/${fn: split(sdto.sImage,'/')[4]}">
 				</c:if></li>
+				<!--  -->
+				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[0]}"> 
+					<a href="resources/upload/${fn: split(sdto.sImage,'/')[0]}">
+						<img src="resources/upload/${fn: split(sdto.sImage,'/')[0]}">
+					</a>
+				</c:if></li>
+				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[1]}">
+					<a href="resources/upload/${fn: split(sdto.sImage,'/')[1]}">
+						<img src="resources/upload/${fn: split(sdto.sImage,'/')[1]}">
+					</a>
+				</c:if></li>
+				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[2]}">
+					<img src="resources/upload/${fn: split(sdto.sImage,'/')[2]}">
+				</c:if></li>
+				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[3]}">
+					<img src="resources/upload/${fn: split(sdto.sImage,'/')[3]}">
+				</c:if></li>
+				<li><c:if test="${!empty fn: split(sdto.sImage,'/')[4]}">
+					<img src="resources/upload/${fn: split(sdto.sImage,'/')[4]}">
+				</c:if></li>
 			</ul>
 			
-			<div class="slide_arrow" id="slide_arrow1"></div>
-			<div class="slide_arrow" id="slide_arrow2"></div>
+			<div class="slide_arrow" id="slide_leftArrow_btn"></div>
+			<div class="slide_arrow" id="slide_rightArrow_btn"></div>
 		</div>
 	</div> <!-- End : shop_slider_wrap -->
 

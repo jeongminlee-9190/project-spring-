@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/member/lightslider.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/lightslider.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/shopMemberView.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/shop_top_btn.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 <!-- jquery -->
@@ -25,6 +26,7 @@
 <script type="text/javascript" src="resources/js/lightslider.js"></script>
 <script type="text/javascript" src="resources/js/lightslider.min.js"></script>
 <script type="module" src="resources/js/shopMemberView.js"></script>
+<script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
 <script type="module" src="resources/js/interest.js"></script>
 
@@ -37,5 +39,5 @@
 <jsp:include page="includes/shopMemberView.jsp" flush="true" />
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
-
+<jsp:include page="includes/shop_top_btn.jsp" flush="true" />
 </body>

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	
     var slider = $('#slider').lightSlider({
-        item:3,
+        item:5,
         auto:true,
         loop:true,
         slideMove:1,
@@ -20,10 +20,10 @@ $(document).ready(function() {
         ]
     });
 	
-	$('#ev_arrow2').click(function(){
+	$('#slide_rightArrow_btn').click(function(){
         slider.goToNextSlide(); 
     });
-	$('#ev_arrow1').click(function(){
+	$('#slide_leftArrow_btn').click(function(){
         slider.goToPrevSlide(); 
     });
     
