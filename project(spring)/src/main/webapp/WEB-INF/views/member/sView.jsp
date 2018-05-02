@@ -26,6 +26,7 @@
 <script type="text/javascript" src="resources/js/lightslider.js"></script>
 <script type="text/javascript" src="resources/js/lightslider.min.js"></script>
 <script type="text/javascript" src="resources/js/shopMemberView.js"></script>
+<script type="text/javascript" src="resources/js/shop_review_keyword.js"></script>
 <script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
 <script type="text/javascript" src="resources/js/shopMemberView_util.js"></script>
@@ -37,13 +38,8 @@
 <div id="AllContentWrap">
 <jsp:include page="../search/search_header.jsp" flush="true" />
 <jsp:include page="includes/shopMemberView.jsp" flush="true" />
+<jsp:include page="includes/shop_top_btn.jsp" flush="true" />
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
 
-<<<<<<< HEAD
-<jsp:include page="includes/shop_top_btn.jsp" flush="true" />
-
-<jsp:include page="../search/review0.jsp" flush="true" />
-=======
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 </body>

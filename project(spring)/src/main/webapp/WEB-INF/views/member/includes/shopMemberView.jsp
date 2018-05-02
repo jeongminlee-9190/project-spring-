@@ -251,7 +251,7 @@
 					<!-- 댓글 키워드 클릭하기 -->
 					<div id="shop_review_cate_wrap">
 				
-						<div id="shop_category01" class="shop_category">
+						<!-- <div id="shop_category01" class="shop_category">
 							<div id="shop_cate_btn01" class="shop_cate_btn">
 								<p>목적</p>
 								<div class="shop_cate_icon">
@@ -392,7 +392,7 @@
 							 	<li><button type="button">종류G</button></li>
 							 	<li><button type="button">종류H</button></li>
 							</ul>
-						</div>
+						</div> -->
 						
 					</div> <!-- End : shop_cate_wrap -->
 					
