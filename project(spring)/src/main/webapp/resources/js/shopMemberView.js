@@ -1,13 +1,12 @@
+import {countInterest, countReview} from './util.js';
 
 $(document).ready(function(){
 	
-	//import를 받고싶다 
-	//후기 갯수 카운트하고 입력
-//	countReview();
-//	let countReview = function(){
-//		let count = $('#myReview > div').length;
-//		$('#shop_title_scoreResult span:nth-child(4)').text(count);
-//	}
+	//좋아요 개수  import from util.js
+	countInterest($('#shop_title_like > span:first-child').attr('data-sCode'));
+	
+	//리뷰 개수 import from util.js
+	countReview();
 	
 	if($('#shop_review_my_write').length > 0){
 		$('#reviewWriteForm').hide();
@@ -27,6 +26,7 @@ $(document).ready(function(){
 		});
 		$('#shop_review_my_write_wrap').empty();
 		$('#reviewWriteForm').slideDown();
+		countReview();
 //		location.reload();
 	});
 	

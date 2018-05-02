@@ -82,15 +82,22 @@ public class ShopController {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		System.out.println(encodingMname);
 		
 		return "redirect: http://localhost:8090/controller/shopRetrieve?sCode="+rpDTO.getsCode()+"&mName="+encodingMname;
 		
 	}
 	
 	@RequestMapping(value="/deleteReview")
+	@ResponseBody
 	public void deleteReview(@RequestBody HashMap<String, Object> map) {
 		shopService.deleteReview(map);
+	}
+	
+	@RequestMapping(value="/countInterest")
+	@ResponseBody
+	public String countInterest(@RequestBody HashMap<String, Object> map) {
+		String sCode = (String)map.get("sCode");
+		return shopService.countInterest(sCode);
 	}
 	
 //	@RequestMapping(value="/myFavorite")
