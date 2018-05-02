@@ -24,9 +24,9 @@
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>               
 <script type="text/javascript" src="resources/js/lightslider.js"></script>
 <script type="text/javascript" src="resources/js/lightslider.min.js"></script>
-<script type="text/javascript" src="resources/js/shopMemberView.js"></script>
+<script type="module" src="resources/js/shopMemberView.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
-<script type="text/javascript" src="resources/js/shopMemberView_util.js"></script>
+<script type="module" src="resources/js/interest.js"></script>
 
 <title>상점 관리</title>
 

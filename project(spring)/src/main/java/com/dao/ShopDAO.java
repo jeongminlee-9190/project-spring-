@@ -57,6 +57,10 @@ public class ShopDAO {
 		return template.selectList("ShopMapper.selectShop", mId);
 	}
 	
+	public String countInterest(String sCode) {
+		return template.selectOne("ShopMapper.countInterest", sCode);
+	}
+	
 	
 
 }

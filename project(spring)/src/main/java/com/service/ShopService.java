@@ -53,4 +53,7 @@ public class ShopService {
 		return shopDAO.selectMyFavorite(mId);
 	}
 
+	public String countInterest(String sCode) {
+		return shopDAO.countInterest(sCode);
+	}
 }

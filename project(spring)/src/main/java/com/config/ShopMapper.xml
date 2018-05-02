@@ -60,4 +60,8 @@
 		where scode in (select scode from interest where mid = #{mId})
 	</select>
 	
+	<select id="countInterest" resultType="string" parameterType="string">
+		select count(icode) from interest where scode = #{sCode} group by scode
+	</select>
+	
 </mapper>

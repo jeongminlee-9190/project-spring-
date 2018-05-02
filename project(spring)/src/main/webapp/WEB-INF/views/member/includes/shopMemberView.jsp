@@ -45,13 +45,17 @@
 				<p>${sdto.sCategory}</p>
 			</div>
 			<div id="shop_title_like">
-				<img src="resources/images/shopInfo_heart_none.png">
-				<button type="button">좋아요</button>
+				<span id="interestUI${sdto.sCode}" class="interestUI" data-sCode="${sdto.sCode}">
+					<img src="resources/images/shopInfo_heart_none.png" title="종아요">
+				</span>
+				<button id="interestBTN${sdto.sCode}" class="interestBTN" data-sCode="${sdto.sCode}">
+					좋아요
+				</button>
 			</div>
 			<div id="shop_title_line"></div>
 			<div id="shop_title_scoreResult">
 				<span class="shop_title_Ntxt">좋아요</span>
-				<span class="shop_title_num">${reviewList.size()}</span>
+				<span class="shop_title_num"></span>
 				<span class="shop_title_Ntxt">후기</span>
 				<span class="shop_title_num"></span>
 			</div>
@@ -385,7 +389,7 @@
 						<img src="resources/images/shopInfo_userImg.png" title="userIcon">
 						<p id="shop_review_userId">${loginInfo.mName}</p>
 						<input type="text" id='review_write_form' name="reviewContent" value="" required>
-						<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo'>
+						<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo' data-login_mId =${loginInfo.mId }>
 		  				<input type="hidden" name="sCode" value="${sInfo.sCode}">
 						<button type='submit' id='reviewSubmit'>확인</button>
 					</div> <!-- End : shop_review_user_write -->
@@ -397,7 +401,7 @@
 			<div class="lists" id='myReview'>
 				<!-- 내가 쓴 댓글 -->
 				<div id="shop_review_my_write_wrap" class="lists__item js-load">
-					<c:forEach var='review' items='${reviewList }'>
+					<c:forEach var='review' items='${reviewList }'><!-- 내 댓글보기 -->
 						<c:if test='${review.mName eq loginInfo.mName }'>
 							<div id="shop_review_my_write">
 								<div class="myText clearfix">
@@ -427,9 +431,9 @@
 								</div>
 							</div>
 						</c:if>
-					</c:forEach>
+					</c:forEach><!-- 내 댓글보기 끝 -->
 				</div> <!-- End : shop_review_my_write -->
-				<c:forEach var='review' items='${reviewList }'>
+				<c:forEach var='review' items='${reviewList }'><!-- 사람들 댓글보기 -->
 					<c:if test='${review.mName ne loginInfo.mName }'>
 						<div id="shop_review_otherUsers" class="lists__item js-load">
 							<div class="otherUserText clearfix">
@@ -452,7 +456,7 @@
 											</c:if>
 										</div>
 									</c:if>
-								</c:forEach>
+								</c:forEach><!-- 사람들 댓글보기 끝 -->
 							</div>
 						</div> <!-- End : shop_review_otherUsers -->
 					</c:if>
