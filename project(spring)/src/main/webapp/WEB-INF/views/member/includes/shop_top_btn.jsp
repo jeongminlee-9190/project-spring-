@@ -6,5 +6,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="shop_top_btn">
-	<p>topBtn만들기</p>
+	<img src="resources/images/icon_Ht.png" title="위로가기">
 </div>
