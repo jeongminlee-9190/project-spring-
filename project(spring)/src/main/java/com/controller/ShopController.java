@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +35,7 @@ public class ShopController {
 	SearchService searchService;
 	
 	@RequestMapping("/reviewWrite")
-	String reviewWrite(ReviewParameterDTO rpDTO, RedirectAttributes attr) {
+	public String reviewWrite(ReviewParameterDTO rpDTO, RedirectAttributes attr) {
 		
 		HashMap<String, Object> keywordMap = new HashMap<>();
 		String[] keywords = rpDTO.getFavorKeywords();
@@ -73,15 +75,29 @@ public class ShopController {
 		attr.addFlashAttribute("shopImages", shopImages);
 		attr.addFlashAttribute("reviewList", rList);
 		attr.addFlashAttribute("scoreList", sList);
-		return "redirect: http://localhost:8090/controller/shopRetrieve?sCode="+rpDTO.getsCode()+"&mName="+rpDTO.getmName();
+		
+		String encodingMname = null;
+		try {
+			encodingMname = URLEncoder.encode(rpDTO.getmName(), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		System.out.println(encodingMname);
+		
+		return "redirect: http://localhost:8090/controller/shopRetrieve?sCode="+rpDTO.getsCode()+"&mName="+encodingMname;
 		
 	}
 	
 	@RequestMapping(value="/deleteReview")
-	void deleteReview(@RequestBody HashMap<String, Object> map) {
+	public void deleteReview(@RequestBody HashMap<String, Object> map) {
 		shopService.deleteReview(map);
 	}
 	
+//	@RequestMapping(value="/myFavorite")
+//	@ResponseBody
+//	List<ShopDTO> selectMyFavorite(){
+//		shopService.selectMyFavorite(mId);
+//	}
 	
 	
 

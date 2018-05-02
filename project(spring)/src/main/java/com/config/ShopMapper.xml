@@ -52,17 +52,12 @@
 	
 	<select id="selectScore" parameterType="hashmap" resultType="ScoreDTO">
 		select * from score
-		where sCode = #{sCode} and mName = #{mName}
+		where sCode = #{sCode}
+	</select>
+	
+	<select id="selectFavoriteShop" parameterType="string" resultType="ShopDTO">
+		select * from shop
+		where scode in (select scode from interest where mid = #{mId})
 	</select>
 	
 </mapper>
-	
-	<!-- and (keyword in
-	<foreach collection="goodKeyword" item="keyword" open="(" close=")" separator=",">
-		#{keyword}
-	</foreach>
-	or keyword in 
-	<foreach collection="badKeyword" item="keyword" open="(" close=")" separator=",">
-		#{keyword}
-	</foreach>
-	) -->

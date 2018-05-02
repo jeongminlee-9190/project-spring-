@@ -31,7 +31,7 @@ public class SearchController {
 	SearchService searchService;
 	
 	@Autowired
-	SService sservice;
+	SService sService;
 	
 	@Autowired
 	ShopService shopService;
@@ -42,7 +42,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/interest")
-	@ResponseBody String interest(@RequestParam String sCode, @RequestParam String mId) {
+	@ResponseBody public String interest(@RequestParam String sCode, @RequestParam String mId) {
 		String iCode = mId+sCode;
 		HashMap<String, String> map = new HashMap<>();
 		map.put("iCode", iCode);
@@ -52,7 +52,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/isInterest")
-	@ResponseBody String isInterest(@RequestParam String sCode, @RequestParam String mId) {
+	@ResponseBody public String isInterest(@RequestParam String sCode, @RequestParam String mId) {
 		String iCode = mId+sCode;
 		HashMap<String, String> map = new HashMap<>();
 		map.put("iCode", iCode);
@@ -83,10 +83,10 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/shopRetrieve")
-	public String shopTrieve(@RequestParam String sCode, @RequestParam String mName, HttpServletRequest request, HttpSession session) {
+	public String shopRetrieve(@RequestParam String sCode, @RequestParam String mName, HttpServletRequest request, HttpSession session) {
 		ShopDTO sdto = searchService.shopRetrieve(sCode);
-		//
-		SDTO sdto2 = sservice.sInfo2(sCode);
+		
+		SDTO sdto2 = sService.sInfo2(sCode);
 		String [] images = sdto.getsImage().split("/");
 		List<String> shopImages = new ArrayList<>();
 		

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dto.ReviewDTO;
 import com.dto.ScoreDTO;
+import com.dto.ShopDTO;
 
 @Repository
 public class ShopDAO {
@@ -50,6 +51,10 @@ public class ShopDAO {
 	
 	public List<ScoreDTO> selectScore(HashMap<String, Object> map) {
 		return template.selectList("ShopMapper.selectScore", map);
+	}
+	
+	public List<ShopDTO> selectMyFavorite(String mId){
+		return template.selectList("ShopMapper.selectShop", mId);
 	}
 	
 	

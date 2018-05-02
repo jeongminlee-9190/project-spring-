@@ -22,7 +22,11 @@
 		<span id="lgoin_icon"><img src="resources/images/login_icon.png"></span>
 	</a>
 	<ul id="user_info_list" class="memberUI">
+<<<<<<< HEAD
+	  <li><a href="myShop">나의 맛집</a></li>
+=======
 	  <li><a href="mMyListForm">나의 맛집</a></li>
+>>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 	  <li><a href="mMyPageForm">프로필 정보</a></li>
 	  <li><a href="#">문의 사항</a></li>
 	  <li><a href="logout">로그아웃</a></li>

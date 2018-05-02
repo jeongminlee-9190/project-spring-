@@ -104,6 +104,12 @@ public class MemberController {
 		return nextPage;
 	}
 	
+	//My Favorite Shop 
+	@RequestMapping(value="/myShop", method=RequestMethod.GET)
+	public String myShop() {
+		return "search/myShop";
+	}
+	
 	
 	@RequestMapping(value= "/mPwUpdate", method=RequestMethod.POST)
 	public String mPwUpdate(@RequestParam HashMap<String, String> map, HttpSession session, HttpServletRequest request) {

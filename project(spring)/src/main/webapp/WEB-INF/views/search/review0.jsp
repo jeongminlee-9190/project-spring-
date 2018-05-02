@@ -6,8 +6,8 @@
 
 <p>${loginInfo.mName }</p><br>
 <form id="reviewWriteForm" action="reviewWrite" method="post">
-  <input type="text" name="reviewContent" style="width:800; height:200">
-  <input type="submit" name="" value="남기기" >
+  <input type="text" name="reviewContent" style="width:800; height:200" required>
+  <input type="submit" value="남기기" >
   <input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo'>
   <input type="hidden" name="sCode" value="${sInfo.sCode}">
 
@@ -49,6 +49,8 @@
 </c:forEach>
 
 <script>
+
+
 $("#deleteReview").on("click",function(){
 	var rvNum = $(this).attr("data-rvNum");
 	var sCode = $(this).attr("data-sCode");
@@ -62,7 +64,7 @@ $("#deleteReview").on("click",function(){
 		url:'deleteReview',
 		method:'post',
 		contentType:'application/json',
-		data:JSON.stringify(data),
+		data:JSON.stringify(data)
 	});
 	location.reload();
 });
