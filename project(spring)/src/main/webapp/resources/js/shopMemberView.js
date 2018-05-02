@@ -1,4 +1,39 @@
+
 $(document).ready(function(){
+	
+	//import를 받고싶다 
+	//후기 갯수 카운트하고 입력
+//	countReview();
+//	let countReview = function(){
+//		let count = $('#myReview > div').length;
+//		$('#shop_title_scoreResult span:nth-child(4)').text(count);
+//	}
+	
+	if($('#shop_review_my_write').length > 0){
+		$('#reviewWriteForm').hide();
+	}
+	
+	$("#shop_review_delete").on("click",function(){
+		var data = {
+				'rvNum':$(this).attr("data-rvNum"),
+				'sCode':$(this).attr("data-sCode"),
+				'mName':$(this).attr("data-mName")
+			}
+		$.ajax({
+			url:'deleteReview',
+			method:'post',
+			contentType:'application/json',
+			data:JSON.stringify(data)
+		});
+		$('#shop_review_my_write_wrap').empty();
+		$('#reviewWriteForm').slideDown();
+//		location.reload();
+	});
+	
+	$('#shop_review_update').on('click',function(){
+		$('#reviewWriteForm').slideToggle();
+		$('#review_write_form').val($('#allReview_my_rvContent').text())
+	})
 	
 	//메뉴 버튼 누르면 메뉴 보이기 sildeToggle
 	$("#shop_menu_title").on("click",function(){
@@ -41,10 +76,8 @@ $(document).ready(function(){
 		
 		//사용자가 선택한 키워드
 		choiceKeyword = $(this).text();
-		console.log( "choiceKeyword " + choiceKeyword);
 		
 		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
-		console.log( "choiceArrIndex:: " + choiceArrIndex);
 		//버튼 보여지기
 		$(this).nextAll("div").show();
 		
@@ -76,11 +109,9 @@ $(document).ready(function(){
 		e.stopPropagation();
 
 		GBchoice = $(this).parent("div").prev("button").text();
-		console.log("GBchoice" + GBchoice);
 		
 		GBresult = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']")
 					.prev("img").prev("p").text();
-		console.log("GBresult" + GBresult);
 		
 		if($(this).prop("checked",true) && GBresult.match(GBchoice)){
 			$(this).next("label").css("opacity","1");
@@ -100,11 +131,9 @@ $(document).ready(function(){
 		e.stopPropagation();
 
 		GBchoice = $(this).parent("div").prev("div").prev("button").text();
-		console.log("GBchoice" + GBchoice);
 		
 		GBresult = $("#shop_review_result_keyword > div button[data-keyword='" + GBchoice + "']")
 					.prev("img").prev("p").text();
-		console.log("GBresult" + GBresult);
 
 		if ($(this).prop("checked",true) && GBresult.match(GBchoice)){
 			$(this).next("label").css("opacity","1");

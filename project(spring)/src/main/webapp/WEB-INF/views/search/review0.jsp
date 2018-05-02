@@ -7,7 +7,7 @@
 <p>${loginInfo.mName }</p><br>
 <form id="reviewWriteForm" action="reviewWrite" method="post">
   <input type="text" name="reviewContent" style="width:800; height:200" required>
-  <input type="submit" name="" value="남기기" >
+  <input type="submit" value="남기기" >
   <input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo'>
   <input type="hidden" name="sCode" value="${sInfo.sCode}">
 

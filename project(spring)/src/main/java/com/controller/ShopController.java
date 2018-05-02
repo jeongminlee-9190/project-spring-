@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -73,7 +75,16 @@ public class ShopController {
 		attr.addFlashAttribute("shopImages", shopImages);
 		attr.addFlashAttribute("reviewList", rList);
 		attr.addFlashAttribute("scoreList", sList);
-		return "redirect: http://localhost:8090/controller/shopRetrieve?sCode="+rpDTO.getsCode()+"&mName="+rpDTO.getmName();
+		
+		String encodingMname = null;
+		try {
+			encodingMname = URLEncoder.encode(rpDTO.getmName(), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		System.out.println(encodingMname);
+		
+		return "redirect: http://localhost:8090/controller/shopRetrieve?sCode="+rpDTO.getsCode()+"&mName="+encodingMname;
 		
 	}
 	
@@ -87,7 +98,6 @@ public class ShopController {
 //	List<ShopDTO> selectMyFavorite(){
 //		shopService.selectMyFavorite(mId);
 //	}
-//	
 	
 	
 
