@@ -42,29 +42,31 @@
 #shop_slider_wrap .content-slider li img {
 	display:block;
 	width:100%;
+	height:100%;
 }
 
 #shop_slider_wrap .slide_arrow {
 	display:block;
 	position:absolute;
-	width:30px;
-	height:58px;
-	top:251px;
+	width:31px;
+	height:60px;
+	top:120px;
 	z-index:10;
+	cursor:pointer;
 }
 
-#shop_slider_wrap #slide_arrow1 {
+#shop_slider_wrap #slide_leftArrow_btn {
 	left:50%;
-	margin-left:-424px;
-	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow1.png") no-repeat;
+	margin-left:-519px;
+	background:url('../../images/shopInfo_img_leftArrow_btn.png') no-repeat;
 	background-size:100%;
 	background-position:center;
 }
 
-#shop_slider_wrap #slide_arrow2 {
+#shop_slider_wrap #slide_rightArrow_btn {
 	left:50%;
-	margin-left:394px;
-	background:url("<?=G5_IMG_URL?>/ev_20171124/btn_arrow2.png") no-repeat;
+	margin-left:519px;
+	background:url('../../images/shopInfo_img_rightArrow_btn.png') no-repeat;
 	background-size:100%;
 	background-position:center;
 }

@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/member/search_new.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/member_myList.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/member_myListResult.css">
+<link rel="stylesheet" type="text/css" href="resources/css/member/shop_top_btn.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 
@@ -28,6 +29,7 @@
 <script type="text/javascript" src="resources/js/keyword.js"></script>
 <script type="text/javascript" src="resources/js/member_myList.js"></script>
 <script type="text/javascript" src="resources/js/member_myListResult.js"></script>
+<script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
 
 <title>나의 맛집</title>
