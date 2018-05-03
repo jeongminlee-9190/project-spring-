@@ -19,18 +19,15 @@
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 <!-- jquery -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=ip9MzYUcGqHV9etI8TeJ&submodules=geocoder"></script>
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>               
 <script type="text/javascript" src="resources/js/lightslider.js"></script>
 <script type="text/javascript" src="resources/js/lightslider.min.js"></script>
-<<<<<<< HEAD
-<script type="text/javascript" src="resources/js/shopMemberView.js"></script>
 <script type="text/javascript" src="resources/js/shop_review_keyword.js"></script>
-=======
 <script type="module" src="resources/js/shopMemberView.js"></script>
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 <script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
 <script type="module" src="resources/js/interest.js"></script>
@@ -45,9 +42,5 @@
 <jsp:include page="includes/shop_top_btn.jsp" flush="true" />
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
-<<<<<<< HEAD
 
-=======
-<jsp:include page="includes/shop_top_btn.jsp" flush="true" />
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 </body>
