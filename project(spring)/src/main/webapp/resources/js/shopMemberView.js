@@ -33,7 +33,9 @@ $(document).ready(function(){
 	$('#shop_review_update').on('click',function(){
 		$('#reviewWriteForm').slideToggle();
 		$('#review_write_form').val($('#allReview_my_rvContent').text())
-	})
+	});
+	
+	
 	
 	//메뉴 버튼 누르면 메뉴 보이기 sildeToggle
 	$("#shop_menu_title").on("click",function(){
@@ -57,14 +59,55 @@ $(document).ready(function(){
 		}
 	});*/
 	
-	//카테고리 리스트 감추기
-	$(".shop_list").hide();
-	
 	//카테고리 버튼 누르면 키워드 보여지기
-	$(".shop_cate_btn").on("click", function(){
+	$(document).on("click",".shop_cate_btn", function(){
 		$(this).next("ul").slideToggle(300);
 		$(this).find("span").fadeToggle(300);
 	});
+	
+	// 좋아요 input + label 묶기 CSS
+	var keyword_good_user = "keyword_good_user";
+	var num;
+	for(num=0; num<24; num++){
+		console.log("input[id='" + keyword_good_user + (num+1) + "']");
+		$(":input[id='" + keyword_good_user + (num+1) + "']").css("display", "none");
+		
+		$(":input[id='" + keyword_good_user + (num+1) + "'] + label").css({
+			"display":"block",
+			"position":"absolute",
+			"top":"15px",
+			"left":"50px",
+			"width":"23px",
+			"height":"20px",
+			"background-image":"url('resources/images/shopInfo_review_LBtn_good.png')",
+			"background-repeat":"no-repeat",
+			"background-size":"100%",
+			"background-position":"center center",
+			"opacity":".4",
+			"cursor":"pointer"
+		});
+	}
+	
+	// 싫어요 input + label 묶기 CSS
+	var keyword_bad_user = "keyword_bad_user";
+	for(num=0; num<24; num++){
+		$(":input[id='" + keyword_bad_user + (num+1) + "']").css("display","none");
+		
+		$(":input[id='" + keyword_bad_user + (num+1) + "'] + label").css({
+			"display":"block",
+			"position":"absolute",
+			"top":"15px",
+			"left":"50px",
+			"width":"23px",
+			"height":"20px",
+			"background-image":"url('resources/images/shopInfo_review_RBtn_bad.png')",
+			"background-repeat":"no-repeat",
+			"background-size":"100%",
+			"background-position":"center center",
+			"opacity":".4",
+			"cursor":"pointer"
+		});
+	}
 	
 	//버튼 클릭시 좋아요/싫어요 보이기
 	var choiceArr = [];
@@ -76,8 +119,9 @@ $(document).ready(function(){
 		
 		//사용자가 선택한 키워드
 		choiceKeyword = $(this).text();
-		
+
 		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		
 		//버튼 보여지기
 		$(this).nextAll("div").show();
 		
@@ -85,7 +129,6 @@ $(document).ready(function(){
 		if ( choiceArr.length < 6 && choiceArrIndex==-1){
 			choiceArr.push(choiceKeyword);
 			
-			//$("#shop_review_result_keyword").empty();
 			for (var i=0; i<1; i++){
 				$("#shop_review_result_keyword")
 				.append("<div><p>" + choiceArr[i+n] + "</p>" +
