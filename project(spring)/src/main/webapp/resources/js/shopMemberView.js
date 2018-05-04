@@ -51,14 +51,6 @@ $(document).ready(function(){
 		$(this).fadeToggle(200);
 	});
 	
-	//사용자가 키워드 good, bad 클릭
-	/*$("#reviewContentSubmit").on("submit",function(evt){
-		if(${empty login}){
-	    alert("로그인을 하세요");
-			evt.preventDefault();
-		}
-	});*/
-	
 	//카테고리 버튼 누르면 키워드 보여지기
 	var keyword_good_user = "keyword_good_user";
 	var keyword_bad_user = "keyword_bad_user";
@@ -77,15 +69,19 @@ $(document).ready(function(){
 	$(document).on("click",".shop_list li > button",function(e){
 		e.stopPropagation();
 		
-		//사용자가 선택한 키워드
-		choiceKeyword = $(this).text();
-
-		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
-		
 		//버튼 보여지기
 		$(this).nextAll("div").show();
 		
-		//키워드 누르면 키워드 텍스트 하단에 표시 되기		
+	});
+	
+	//좋아요, 싫어요 누르면 하단에 텍스트 및 좋아요/싫어요 표시되기
+	$(document).on("click",".shop_list li > div input:checkbox",function(e){
+		//사용자가 선택한 키워드
+		choiceKeyword = $(this).parent("div").siblings("button").text();
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		console.log(choiceKeyword);
+		
+		//텍스트 하단에 표시 되기		
 		if ( choiceArr.length < 6 && choiceArrIndex==-1){
 			choiceArr.push(choiceKeyword);
 			
@@ -99,7 +95,7 @@ $(document).ready(function(){
 			}
 			n++;
 		}
-		
+	
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기

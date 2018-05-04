@@ -264,11 +264,16 @@ overflow-x: hidden;
 
 }
 
-/* 2번째 버튼 color */
+/* 2번째 버튼 */
 #cate_wrap > div:nth-child(2) .cate_btn {
+	width:606px;
+	height:56px;
 	background-color:#fff;
 	border:2px solid #ffa827;
 	color:#ffa827;
+}
+#cate_wrap > div:nth-child(2) .cate_btn p {
+	top:12px;
 }
 
 /* 카테고리 버튼 icon */
@@ -279,16 +284,16 @@ overflow-x: hidden;
 	right:30px;
 }
 
+#cate_wrap > div:nth-child(2) .cate_icon {
+	top:12px;
+}
+
 .cate_icon span {
 	display:block;
 	background-color:#fff;
 	width:20px;
 	height:2px;
 	margin-top:5px;
-}
-
-.cate_icon span:first-child{
-	margin-top:0;
 }
 
 /* 2번째 버튼 icon color */
@@ -298,7 +303,7 @@ overflow-x: hidden;
 
 /* 카테고리 리스트 */
 .list {
-	display:block;
+	display:none;
 	width:100%;
 	height:110px;
 }

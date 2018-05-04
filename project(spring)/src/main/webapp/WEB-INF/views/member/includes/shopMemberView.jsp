@@ -244,34 +244,34 @@
 		</script>	
 	</div> <!-- End : shop_map_wrap -->
 
-		<div id="shop_review_wrap">
-		
-			<p id="shop_review_title" >REVIEW</p>
-			<c:if test='${empty loginInfo }'>
-				<p style='text-align:center'>리뷰를 남기려면 로그인이 필요합니다.</p>
-			</c:if>
-			<c:if test='${!empty loginInfo}'>
-				<form id="reviewWriteForm" action='reviewWrite' method='post' accept-charset='UTF-8'>
-					<!-- 댓글 키워드 클릭하기 -->
-					<div id="shop_review_cate_wrap">
-						
-					</div> <!-- End : shop_cate_wrap -->
-					
-					<!-- 키워드 결과 -->
-					<div id="shop_review_result_keyword" class="clearfix">
-					</div> <!-- End : shop_review_result_keyword -->
-					
-					<!-- 댓글 쓰기 -->
-					<div id="shop_review_user_write" class="clearfix">
-						<img src="resources/images/shopInfo_userImg.png" title="userIcon">
-						<p id="shop_review_userId">${loginInfo.mName}</p>
-						<input type="text" id='review_write_form' name="reviewContent" value="" required>
-						<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo' data-login_mId =${loginInfo.mId }>
-		  				<input type="hidden" name="sCode" value="${sInfo.sCode}">
-						<button type='submit' id='reviewSubmit'>확인</button>
-					</div> <!-- End : shop_review_user_write -->
-				</form>
-			</c:if>
+	<div id="shop_review_wrap">
+	
+		<p id="shop_review_title" >REVIEW</p>
+		<c:if test='${empty loginInfo }'>
+			<p style='text-align:center'>리뷰를 남기려면 로그인이 필요합니다.</p>
+		</c:if>
+		<c:if test='${!empty loginInfo}'>
+			<form id="reviewWriteForm" action='reviewWrite' method='post' accept-charset='UTF-8'>
+				
+				<!-- 댓글 키워드 클릭하기 -->
+				<div id="shop_review_cate_wrap">
+				</div> <!-- End : shop_cate_wrap -->
+				
+				<!-- 키워드 결과 -->
+				<div id="shop_review_result_keyword" class="clearfix">
+				</div> <!-- End : shop_review_result_keyword -->
+				
+				<!-- 댓글 쓰기 -->
+				<div id="shop_review_user_write" class="clearfix">
+					<img src="resources/images/shopInfo_userImg.png" title="userIcon">
+					<p id="shop_review_userId">${loginInfo.mName}</p>
+					<input type="text" id='review_write_form' name="reviewContent" value="" required>
+					<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo' data-login_mId =${loginInfo.mId }>
+	  				<input type="hidden" name="sCode" value="${sInfo.sCode}">
+					<button type='submit' id='reviewSubmit'>확인</button>
+				</div> <!-- End : shop_review_user_write -->
+			</form>
+		</c:if>
 		
 		<!-- 다른 사용자가 쓴 댓글 -->
 		<div id="shop_user_allReview_wrap" >

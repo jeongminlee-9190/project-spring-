@@ -51,7 +51,7 @@
 	width:31px;
 	height:60px;
 	top:120px;
-	z-index:10;
+	z-index:9;
 	cursor:pointer;
 }
 
@@ -386,6 +386,10 @@
 	margin-bottom:50px;
 }
 
+#shop_review_wrap > p:nth-child(2){
+	margin-bottom:50px;
+}
+
 .shop_category {
 	display:block;
 	width:100%;
@@ -421,9 +425,14 @@
 
 /* 2번째 버튼 color */
 #shop_review_cate_wrap > div:nth-child(2) .shop_cate_btn {
+	width:996px; /* border 2px */
+	height:56px; /* border 2px */
 	background-color:#fff;
 	border:2px solid #ffa827;
 	color:#ffa827;
+}
+#shop_review_cate_wrap > div:nth-child(2) .shop_cate_btn p {
+	top:12px;
 }
 
 /* 카테고리 버튼 icon */
@@ -660,6 +669,14 @@
 
 #shop_review_my_write p {
 	float:left;
+}
+
+#allReview_my_rvContent {
+	width:704px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
 }
 
 .myText > img{
