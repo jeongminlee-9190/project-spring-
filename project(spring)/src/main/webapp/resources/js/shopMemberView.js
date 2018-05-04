@@ -60,55 +60,15 @@ $(document).ready(function(){
 	});*/
 	
 	//카테고리 버튼 누르면 키워드 보여지기
+	var keyword_good_user = "keyword_good_user";
+	var keyword_bad_user = "keyword_bad_user";
+	var num;
+	
 	$(document).on("click",".shop_cate_btn", function(){
 		$(this).next("ul").slideToggle(300);
 		$(this).find("span").fadeToggle(300);
 	});
-	
-	// 좋아요 input + label 묶기 CSS
-	var keyword_good_user = "keyword_good_user";
-	var num;
-	for(num=0; num<24; num++){
-		console.log("input[id='" + keyword_good_user + (num+1) + "']");
-		$(":input[id='" + keyword_good_user + (num+1) + "']").css("display", "none");
 		
-		$(":input[id='" + keyword_good_user + (num+1) + "'] + label").css({
-			"display":"block",
-			"position":"absolute",
-			"top":"15px",
-			"left":"50px",
-			"width":"23px",
-			"height":"20px",
-			"background-image":"url('resources/images/shopInfo_review_LBtn_good.png')",
-			"background-repeat":"no-repeat",
-			"background-size":"100%",
-			"background-position":"center center",
-			"opacity":".4",
-			"cursor":"pointer"
-		});
-	}
-	
-	// 싫어요 input + label 묶기 CSS
-	var keyword_bad_user = "keyword_bad_user";
-	for(num=0; num<24; num++){
-		$(":input[id='" + keyword_bad_user + (num+1) + "']").css("display","none");
-		
-		$(":input[id='" + keyword_bad_user + (num+1) + "'] + label").css({
-			"display":"block",
-			"position":"absolute",
-			"top":"15px",
-			"left":"50px",
-			"width":"23px",
-			"height":"20px",
-			"background-image":"url('resources/images/shopInfo_review_RBtn_bad.png')",
-			"background-repeat":"no-repeat",
-			"background-size":"100%",
-			"background-position":"center center",
-			"opacity":".4",
-			"cursor":"pointer"
-		});
-	}
-	
 	//버튼 클릭시 좋아요/싫어요 보이기
 	var choiceArr = [];
 	var choiceKeyword;
@@ -138,8 +98,6 @@ $(document).ready(function(){
 						"</button></div>");
 			}
 			n++;
-		} else {
-			$(this).nextAll("div").hide();
 		}
 		
 	});
