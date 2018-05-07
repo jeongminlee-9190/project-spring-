@@ -21,80 +21,79 @@
 </div>
 	
 <div id="notice_content_wrapper">
-	<form action="mNoticeForm" method="GET" class="form-inline" role="form">
-	
-	</form>
-</div>
-
-<%-- <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-			<h3>공지사항 </h3>
-			<form action="mNotice" method="GET" class="form-inline" role="form">
-				<table class="noticesearch_tbl">
-  					<tr align="center">
-   						<td colspan="5" align="center">
-    						<select name="searchName">
-        						<option value="title">제목</option>
-        						<option value="content">내용</option>
-     						</select>
-			     			<input type="text" class="form-control" id="searchValue" name="searchValue">
-			     			<input type="submit" class="btn btn-primary sm-black-background" value="검색">
-   						</td>
- 					</tr>
-  				</table>
-  			</form>
-			<table class="table table-hover">
-				<colgroup>
-					<col width="15%">
-					<col width="45%">
-					<col width="25%">
-					<col width="15%">
-				</colgroup>
-				 			
-				<thead class="thead-light">
-					<tr>
-					  	<th scope="col">번호</th>
-					  	<th scope="col">제목</th>
-					  	<th scope="col">작성일</th>
-					  	<th scope="col">조회수</th>
-				 	</tr>
-				</thead>
-				<c:forEach var="dto" items="${pageDTO.list}" varStatus="status">
-					<tbody>
-					 	<tr>
-					  		<td align="center">${dto.noticeNum}</td>
-					  		<td><a data-toggle="modal" data-target="#myModal" class="mNoticeRetrieve" data-num="${dto.noticeNum}">${dto.noticeTitle}</a></td>
-					  		<td align="center">${dto.noticeWritedate}</td>
-					  		<td align="center">${dto.noticeReadcnt}</td>
-					  		<!-- The Modal -->
-							<div class="modal fade" id="myModal">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<!-- Modal Header -->
-										<div class="modal-header">
-											<h4 class="modal-title">공지사항 자세히 보기</h4>
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-										</div>
-												        
-										<!-- Modal body -->
-										<div class="modal-body">
-										</div>
-									</div>
-								</div>
-							</div>
-					 	</tr>
-				 	</tbody>
-				</c:forEach>
-			<!-- 페이지번호 -->
+	<div id="notice_wrap">
+		<form action="mNotice" method="GET" role="form">
+			<c:if test="${empty searchName || searchName=='title'}">
+			<div id="notice_search_wrap" class="clearfix">
+				<select name="notice_searchName">
+					<option value="title" selected="selected">제목</option>
+					<option value="content">내용</option>
+				</select>
+				<input type="text" id="searchValue" name="searchValue" placeholder="검색" value="${searchValue}">
+				<button type="submit">
+					<img src="resources/images/search_icon.png" title="검색">
+				</button>
+			</div>
+			</c:if>	
+			<c:if test="${searchName=='content'}">
+			<div id="notice_search_wrap" class="clearfix">
+				<select name="notice_searchName">
+					<option value="title">제목</option>
+					<option value="content" selected="selected">내용</option>
+				</select>
+				<input type="text" id="searchValue" name="searchValue" placeholder="검색" value="${searchValue}">
+				<button type="submit">
+					<img src="resources/images/search_icon.png" title="검색">
+				</button>
+			</div>
+			</c:if>
+		</form>
+		<table id="notice_board_wrap">
+			<thead>
 				<tr>
-				   	<td colspan="5" align="center">◀&nbsp;<jsp:include page="mNoticePaging.jsp" flush="true" />▶</td>
+					<th scope="col">번호</th>
+				  	<th scope="col">제목</th>
+				  	<th scope="col">작성일</th>
+				  	<th scope="col">조회수</th>
 				</tr>
-			</table>
-		</div>
-		<div class="col-md-3"></div>
-	</div>
-</div> --%>
+			</thead>
+			
+			<tbody>
+				<c:forEach var="dto" items="${pageDTO.list}" varStatus="status">
+				<tr>
+					<td>${dto.noticeNum}</td>
+			  		<td><c:set var="noticeTitle" value="${dto.noticeTitle}"/>
+			  			<a data-toggle="modal" data-target="#myModal" class="mNoticeRetrieve" data-num="${dto.noticeNum}">
+			  			${fn:substring(noticeTitle, 0, 16)}</a>
+			  		</td>
+			  		<td>${dto.noticeWritedate}</td>
+			  		<td>${dto.noticeReadcnt}</td>
+			  		<!-- 공지사항 자세히 보기 -->
+					<!-- The Modal -->
+					<div id="myModal" class="modal fade">
+						<div id="noticeMoreWrapper" class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div id="notice_more_header_wrap" class="modal-header">
+									<h4 class="modal-title">공지사항 자세히 보기</h4>
+									<button id="notice_more_close" type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+									        
+								<!-- Modal body -->
+								<div id="modal-body" class="modal-body">
+								</div>
+							 </div>
+						</div>
+					</div>
+				</tr>
+				</c:forEach>
+			</tbody>
 
-  
+		</table>
+		
+		<!-- 페이지번호 -->
+		<div id="notice_page_wrap">
+			<jsp:include page="mNoticePaging.jsp" flush="true" />
+		</div>
+	</div>
+</div>

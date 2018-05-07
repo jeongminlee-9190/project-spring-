@@ -14,11 +14,13 @@
 <link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
 
 <link rel="stylesheet" type="text/css" href="resources/css/member/member_header.css">
-<link href="${pageContext.request.contextPath}/resources/css/member_notice.css" rel="stylesheet" >
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/member/member_notice.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 <script src="resources/js/member_notice.js"></script>
 

@@ -23,13 +23,13 @@ public class NoticeController {
 	@Autowired
 	NoticeService nService;
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	@RequestMapping(value="/mNoticeForm" , method=RequestMethod.GET)
+	@RequestMapping(value="/mNotice" , method=RequestMethod.GET)
 	public ModelAndView mNotice(@RequestParam HashMap<String, String> map, @RequestParam(required=false, defaultValue="1") int curPage,
 								HttpServletRequest request) {
 		PageDTO pageDTO = nService.mNoticeList(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
-		mav.setViewName("admin/mNoticeForm");
+		mav.setViewName("admin/mNotice");
 		String searchName = map.get("searchName");
 		String searchValue = map.get("searchValue");
 		request.setAttribute("searchName", searchName);
@@ -42,7 +42,7 @@ public class NoticeController {
 		PageDTO pageDTO = nService.mNoticeList2(map, curPage);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageDTO",pageDTO);
-		mav.setViewName("member/mNoticeForm");
+		mav.setViewName("member/mNotice");
 		return mav;
 	}
 	
@@ -50,7 +50,7 @@ public class NoticeController {
 	public String mNoticeWrite(NoticeDTO dto, HttpSession session) { 
 		nService.mNoticeWrite(dto);
 		session.setAttribute("success", "게시판 글쓰기 성공");
-		return "redirect:mNoticeForm";
+		return "redirect:mNotice";
 	}
 	
 	@RequestMapping(value="/mNoticeRetrieve", method=RequestMethod.GET)
@@ -75,14 +75,14 @@ public class NoticeController {
 		public String mNoticeDelete(@RequestParam int num, HttpSession session) {
 		nService.mNoticeDelete(num);
 		session.setAttribute("success", "게시판 삭제 성공");
-		return "redirect:mNoticeForm";
+		return "redirect:mNotice";
 	}
 	
 	@RequestMapping(value="/mNoticeUpdate", method=RequestMethod.POST)
 		public String mNoticeUpdate(NoticeDTO dto, HttpSession session) {
 		nService.mNoticeUpdate(dto);
 		session.setAttribute("success","게시판 수정 성공");
-		return "redirect:mNoticeForm";
+		return "redirect:mNotice";
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////

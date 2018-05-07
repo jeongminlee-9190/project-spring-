@@ -23,3 +23,5 @@ footer p{
 	display:block;
 	padding-top:20px;
 }
+
+footer a {text-decoration:none; color:inherit;}
