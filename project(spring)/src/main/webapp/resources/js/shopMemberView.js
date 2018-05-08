@@ -33,7 +33,9 @@ $(document).ready(function(){
 	$('#shop_review_update').on('click',function(){
 		$('#reviewWriteForm').slideToggle();
 		$('#review_write_form').val($('#allReview_my_rvContent').text())
-	})
+	});
+	
+	
 	
 	//메뉴 버튼 누르면 메뉴 보이기 sildeToggle
 	$("#shop_menu_title").on("click",function(){
@@ -49,23 +51,16 @@ $(document).ready(function(){
 		$(this).fadeToggle(200);
 	});
 	
-	//사용자가 키워드 good, bad 클릭
-	/*$("#reviewContentSubmit").on("submit",function(evt){
-		if(${empty login}){
-	    alert("로그인을 하세요");
-			evt.preventDefault();
-		}
-	});*/
-	
-	//카테고리 리스트 감추기
-	$(".shop_list").hide();
-	
 	//카테고리 버튼 누르면 키워드 보여지기
-	$(".shop_cate_btn").on("click", function(){
+	var keyword_good_user = "keyword_good_user";
+	var keyword_bad_user = "keyword_bad_user";
+	var num;
+	
+	$(document).on("click",".shop_cate_btn", function(){
 		$(this).next("ul").slideToggle(300);
 		$(this).find("span").fadeToggle(300);
 	});
-	
+		
 	//버튼 클릭시 좋아요/싫어요 보이기
 	var choiceArr = [];
 	var choiceKeyword;
@@ -74,18 +69,22 @@ $(document).ready(function(){
 	$(document).on("click",".shop_list li > button",function(e){
 		e.stopPropagation();
 		
-		//사용자가 선택한 키워드
-		choiceKeyword = $(this).text();
-		
-		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
 		//버튼 보여지기
 		$(this).nextAll("div").show();
 		
-		//키워드 누르면 키워드 텍스트 하단에 표시 되기		
+	});
+	
+	//좋아요, 싫어요 누르면 하단에 텍스트 및 좋아요/싫어요 표시되기
+	$(document).on("click",".shop_list li > div input:checkbox",function(e){
+		//사용자가 선택한 키워드
+		choiceKeyword = $(this).parent("div").siblings("button").text();
+		choiceArrIndex = choiceArr.indexOf(choiceKeyword);
+		console.log(choiceKeyword);
+		
+		//텍스트 하단에 표시 되기		
 		if ( choiceArr.length < 6 && choiceArrIndex==-1){
 			choiceArr.push(choiceKeyword);
 			
-			//$("#shop_review_result_keyword").empty();
 			for (var i=0; i<1; i++){
 				$("#shop_review_result_keyword")
 				.append("<div><p>" + choiceArr[i+n] + "</p>" +
@@ -95,10 +94,8 @@ $(document).ready(function(){
 						"</button></div>");
 			}
 			n++;
-		} else {
-			$(this).nextAll("div").hide();
 		}
-		
+	
 	});
 	
 	//버튼 클릭 후 좋아요/싫어요 버튼 클릭 하기

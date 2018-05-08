@@ -4,8 +4,8 @@ $(document).ready(function(){
 	var keywords = [];
 	var keyword;
 	var keywordsIndex;
-	$(".k_category ul li button").on("click",function(){
-		
+	
+	$(document).on("click",".k_category ul li button",function(){
 		keyword = $(this).text();
 		keywordsIndex = keywords.indexOf(keyword);
 		console.log(keywordsIndex);
@@ -23,22 +23,11 @@ $(document).ready(function(){
 		}
 	
 	});
-	  
-	//카테고리 리스트 감추기
-	$(".list").hide();
 	
 	//카테고리 버튼 누르면 보여지기
-	$("#cate_btn01").on("click", function(){
-		$("#list01").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
-	});
-	$("#cate_btn02").on("click", function(){
-		$("#category02 ul").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
-	});
-	$("#cate_btn03").on("click", function(){
-		$("#category03 ul").slideToggle("slow");
-		$(this).find("span").fadeToggle("slow");
+	$(document).on("click",".cate_btn", function(){
+		$(this).next("ul").slideToggle(300);
+		$(this).find("span").fadeToggle(300);
 	});
 	
   

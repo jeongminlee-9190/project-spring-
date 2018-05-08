@@ -22,13 +22,16 @@
 
 
 <!-- jquery -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="resources/js/member_join.js"></script>
+<script type="text/javascript" src="resources/js/user_info_list.js"></script>
+<script type="text/javascript" src="resources/js/All_keywords.js"></script>
 <script type="module" src='resources/js/interest.js'></script>
 <script type="text/javascript" src='resources/js/search_new.js'></script>
 <script type="text/javascript" src="resources/js/keyword.js"></script>
 <script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
-<script type="text/javascript" src="resources/js/user_info_list.js"></script>
+
 
 <title>갬성갱단</title>
 </head>
@@ -36,13 +39,9 @@
 <div id="AllContentWrap">
 <div class="emphasized"></div>
 <jsp:include page="search_header.jsp" flush="true" />
-
 <jsp:include page="search_new.jsp" flush="true" />
-
 <jsp:include page="searchresultlist.jsp" flush="true" />
-
 <jsp:include page="../member/includes/shop_top_btn.jsp" flush="true" />
-
 <jsp:include page="../footer/footer.jsp" flush="true" />
 </div>
 </body>

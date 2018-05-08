@@ -1,0 +1,272 @@
+@charset "UTF-8";
+#notice_content_wrapper {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	padding-bottom:90px;
+	font-size:14px;
+}
+
+#notice_content_wrapper a {text-decoration:none; color:inherit;}
+
+*html #notice_content_wrapper { height:100%;}
+
+/* SIGN US */
+#notice_title {
+	display:block;
+	position:relative;
+	margin-top:80px;
+	min-width:1200px;
+}
+
+#notice_title p{
+	display:block;
+	position:relative;
+	left:-98px;
+	margin-left:50%;
+	font-family:gotham_Bold; 
+	font-style:normal; 
+	font-weight:normal;
+	font-size:50px;
+	color:#5e5e5e;
+}
+
+/* 전체 두번째 감싼 wrap */
+#notice_wrap {
+	display:block;
+	position:relative;
+	left:-500px;
+	margin-top:50px;
+	margin-left:50%;
+}
+
+/* 게시판 검색 */
+#notice_search_wrap {
+	display:block;
+	width:1000px;
+	height:50px;
+	color:#5f5f5f;
+	margin-bottom:30px;
+}
+
+#notice_search_wrap select {
+	display:block;
+	float:left;
+	width:100px;
+	height:50px;
+	padding:0 18px;
+	margin-right:10px;
+	border:1px solid #e0e0e0;
+	color:#5f5f5f;
+	font-size:16px;
+	-webkit-appearance:none;  /* 화살표 없애기 for chrome*/
+    -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+    appearance:none;          /* 화살표 없애기 공통*/
+  	background: url('../../images/member_notice_select.png') no-repeat 68px 50%;
+  	outline:none;
+}
+
+#notice_search_wrap select::-ms-expand {
+    display: none;   /* 화살표 없애기 for IE10, 11*/
+}
+
+#notice_search_wrap input {
+	display:block;
+	float:left;
+	width:780px;
+	height:50px;
+	border:1px solid #e0e0e0;
+	border-radius:5px;
+	color:#5f5f5f;
+	margin-right:10px;
+	padding-left:30px;
+}
+
+#notice_search_wrap button {
+	display:block;
+	float:left;
+	width:100px;
+	height:50px;
+	background-color:#ffa827;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+}
+
+/* 게시판 wrap */
+#notice_board_wrap {
+	display:block;
+	width:1000px;
+}
+
+#notice_board_wrap > thead {
+	display:block;
+}
+
+#notice_board_wrap > thead tr th {
+	display:inline-block;
+	padding:17px 0 18px 0;
+	background-color:#e6e6e6;
+	border-radius:5px;
+	color:#5e5e5e;
+	font-size:16px;
+	font-weight:800;
+	text-align:center;
+	margin-right:10px;
+}
+
+#notice_board_wrap > thead tr th:first-child {
+	width:100px;
+}
+#notice_board_wrap > thead tr th:nth-child(2) {
+	width:640px;
+}
+#notice_board_wrap > thead tr th:nth-child(3) {
+	width:130px;
+}
+#notice_board_wrap > thead tr th:last-child {
+	width:100px;
+	margin-right:0px;
+}
+
+#notice_board_wrap > tbody {
+	display:block;
+}
+
+#notice_board_wrap > tbody tr {
+	border-bottom:1px solid #d2d2d2;
+}
+
+#notice_board_wrap > tbody tr td {
+	display:inline-block;
+	padding:23px 0;
+	text-align:center;
+	margin-right:10px;
+	color:#5e5e5e;
+	font-size:14px;
+}
+
+#notice_board_wrap > tbody tr td:first-child {
+	width:100px;
+}
+#notice_board_wrap > tbody tr td:nth-child(2) {
+	width:640px;
+	text-align:left;
+}
+
+#notice_board_wrap > tbody tr td:nth-child(2) a {
+	display:block;
+	margin-left:30px;
+	cursor:pointer;
+}
+#notice_board_wrap > tbody tr td:nth-child(3) {
+	width:130px;
+}
+#notice_board_wrap > tbody tr td:last-child {
+	width:100px;
+	margin-right:0px;
+}
+
+#notice_page_wrap {
+	text-align:center;
+	width:1000px;
+	margin-top:60px;
+	color:#5e5e5e;
+	font-size:15px;
+}
+
+.notice_page_num {
+	margin-left:30px;
+}
+
+/* 공지사항 자세히 보기 */
+#noticeMoreWrapper {
+	width:1000px;
+}
+
+#notice_more_wrap {
+	display:block;
+	width:1000px;
+}
+
+#notice_more_header_wrap {
+	padding:20px 0;
+	border-bottom:1px solid #d2d2d2;
+	margin:0 20px; 
+	text-align:center;
+}
+
+#notice_more_header_wrap h4 {
+	color:#5e5e5e;
+	font-size:20px;
+	font-weight:800;
+}
+
+#notice_more_close {
+	margin-top:-25px;
+}
+
+#modal-body {
+	padding:0 20px;	
+}
+
+#notice_more_title_wrap {
+	padding:20px 0;
+	border-bottom:1px solid #d2d2d2;
+}
+
+#notice_more_subTitle_wrap {
+	padding:20px 0;
+	border-bottom:1px solid #d2d2d2;
+}
+
+#notice_more_subTitle_wrap div {
+	float:left;
+}
+
+.notice_more_subTitle > p {
+	float:left;
+	font-size:15px;
+	color:#5e5e5e;
+	margin:0;
+}
+
+.notice_more_subTitle > p:first-child {
+	font-weight:800;
+	margin-right:40px;
+}
+
+.notice_more_subTitle > p:last-child {
+	margin-right:100px;
+}
+
+#notice_more_text {
+	width:960px;
+	margin:20px 0;
+}
+
+#notice_more_text textarea{
+	width:100%;
+	height:200px;
+	resize: vertical;
+}
+
+#notice_more_del {
+	display:block;
+	margin:0 auto;
+	width:150px;
+	margin-bottom:20px;
+}
+
+#notice_more_del input {
+	display:block;
+	width:100%;
+	padding:13px 0;
+	background-color:#faa72a;
+	color:#fff;
+	font-size:15px;
+	font-weight:800;
+	border:none;
+	border-radius:5px;
+}
+

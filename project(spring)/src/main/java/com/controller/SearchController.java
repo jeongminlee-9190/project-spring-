@@ -41,6 +41,11 @@ public class SearchController {
 		return "station/line";
 	}
 	
+	@RequestMapping("/reviewKeywords")
+	public String reviewKeyword() {
+		return "station/reviewKeywords";
+	}
+	
 	@RequestMapping("/interest")
 	@ResponseBody public String interest(@RequestParam String sCode, @RequestParam String mId) {
 		String iCode = mId+sCode;

@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="shop_member_view_wrap">
 <c:set var="sdto" value="${sInfo}"></c:set>
@@ -244,177 +243,34 @@
 		</script>	
 	</div> <!-- End : shop_map_wrap -->
 
-		<div id="shop_review_wrap">
-		
-			<p id="shop_review_title" >REVIEW</p>
-			<c:if test='${empty loginInfo }'>
-				<p style='text-align:center'>리뷰를 남기려면 로그인이 필요합니다.</p>
-			</c:if>
-			<c:if test='${!empty loginInfo}'>
-				<form id="reviewWriteForm" action='reviewWrite' method='post' accept-charset='UTF-8'>
-					<!-- 댓글 키워드 클릭하기 -->
-					<div id="shop_review_cate_wrap">
+	<div id="shop_review_wrap">
+	
+		<p id="shop_review_title" >REVIEW</p>
+		<c:if test='${empty loginInfo }'>
+			<p style='text-align:center'>리뷰를 남기려면 로그인이 필요합니다.</p>
+		</c:if>
+		<c:if test='${!empty loginInfo}'>
+			<form id="reviewWriteForm" action='reviewWrite' method='post' accept-charset='UTF-8'>
 				
-						<div id="shop_category01" class="shop_category">
-							<div id="shop_cate_btn01" class="shop_cate_btn">
-								<p>목적</p>
-								<div class="shop_cate_icon">
-									<span></span>
-									<span></span>
-									<span></span>
-								</div>
-							</div>
-							<ul id="shop_list01" class="shop_list clearfix">
-								<li class="clearfix">
-									<button type="button" class='category' data-keyword="식사" >식사</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/식사" class="meal" id="keyword_good_user01">
-										<label for="keyword_good_user01" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg ">
-										<input type="checkbox" name="favorKeywords" value="bad/식사" class="meal" id="keyword_bad_user01">
-										<label for="keyword_bad_user01" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-							 	<li class="clearfix">
-									<button type="button" class='category' data-keyword="회식" >회식</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/회식" id="keyword_good_user02">
-										<label for="keyword_good_user02" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/회식" id="keyword_bad_user02">
-										<label for="keyword_bad_user02" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-								<li>
-									<button type="button" class='category' data-keyword="데이트" >데이트</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/데이트" id="keyword_good_user03">
-										<label for="keyword_good_user03" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/데이트" id="keyword_bad_user03">
-										<label for="keyword_bad_user03" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-								<li>
-									<button type="button" class='category' data-keyword="파티" >파티</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/파티" id="keyword_good_user04">
-										<label for="keyword_good_user04" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/파티" id="keyword_bad_user04">
-										<label for="keyword_bad_user04" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-							 	<li class="clearfix">
-									<button type="button" class='category' data-keyword="혼자" >혼자</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/혼자" id="keyword_good_user05">
-										<label for="keyword_good_user05" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/혼자" id="keyword_bad_user05">
-										<label for="keyword_bad_user05" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-							 	<li class="clearfix">
-									<button type="button" class='category' data-keyword="간단한" >간단한</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/간단한" id="keyword_good_user06">
-										<label for="keyword_good_user06" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/간단한" id="keyword_bad_user06">
-										<label for="keyword_bad_user06" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-								<li>
-									<button type="button" class='category' data-keyword="둘이서" >둘이서</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/둘이서" id="keyword_good_user07">
-										<label for="keyword_good_user07" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/둘이서" id="keyword_bad_user07">
-										<label for="keyword_bad_user07" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-								<li>
-									<button type="button" class='category' data-keyword="갬성" >갬성</button>
-									<div class="keyword_good_bg">
-										<input type="checkbox" name="favorKeywords" value="good/갬성" id="keyword_good_user08">
-										<label for="keyword_good_user08" class="reviewKeyword_good"></label>
-									</div>
-									<div class="keyword_bad_bg">
-										<input type="checkbox" name="favorKeywords" value="bad/갬성" id="keyword_bad_user08">
-										<label for="keyword_bad_user08" class="reviewKeyword_bad"></label>
-									</div>
-								</li>
-							</ul>
-						</div>
-						
-						<div id="shop_category02" class="shop_category">
-							<div id="shop_cate_btn02" class="shop_cate_btn">
-								<p>기분</p>
-								<div class="shop_cate_icon">
-									<span></span>
-									<span></span>
-									<span></span>
-								</div>
-							</div>
-							<ul id="shop_list02" class="shop_list clearfix">
-								<li><button type="button">기분A</button></li>
-							 	<li><button type="button">기분B</button></li>
-							 	<li><button type="button">기분C</button></li>
-							 	<li><button type="button">기분D</button></li>
-							 	<li><button type="button">기분E</button></li>
-							 	<li><button type="button">기분F</button></li>
-							 	<li><button type="button">기분G</button></li>
-							 	<li><button type="button">기분H</button></li>
-							</ul>
-						</div>
-						
-						<div id="shop_category03" class="shop_category">
-							<div id="shop_cate_btn03" class="shop_cate_btn">
-								<p>종류</p>
-								<div class="shop_cate_icon">
-									<span></span>
-									<span></span>
-									<span></span>
-								</div>
-							</div>
-							<ul id="shop_list03" class="shop_list clearfix">
-								<li><button type="button">종류A</button></li>
-							 	<li><button type="button">종류B</button></li>
-							 	<li><button type="button">종류C</button></li>
-							 	<li><button type="button">종류D</button></li>
-							 	<li><button type="button">종류E</button></li>
-							 	<li><button type="button">종류F</button></li>
-							 	<li><button type="button">종류G</button></li>
-							 	<li><button type="button">종류H</button></li>
-							</ul>
-						</div>
-						
-					</div> <!-- End : shop_cate_wrap -->
-					
-					<!-- 키워드 결과 -->
-					<div id="shop_review_result_keyword" class="clearfix">
-					</div> <!-- End : shop_review_result_keyword -->
-					
-					<!-- 댓글 쓰기 -->
-					<div id="shop_review_user_write" class="clearfix">
-						<img src="resources/images/shopInfo_userImg.png" title="userIcon">
-						<p id="shop_review_userId">${loginInfo.mName}</p>
-						<input type="text" id='review_write_form' name="reviewContent" value="" required>
-						<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo' data-login_mId =${loginInfo.mId }>
-		  				<input type="hidden" name="sCode" value="${sInfo.sCode}">
-						<button type='submit' id='reviewSubmit'>확인</button>
-					</div> <!-- End : shop_review_user_write -->
-				</form>
-			</c:if>
+				<!-- 댓글 키워드 클릭하기 -->
+				<div id="shop_review_cate_wrap">
+				</div> <!-- End : shop_cate_wrap -->
+				
+				<!-- 키워드 결과 -->
+				<div id="shop_review_result_keyword" class="clearfix">
+				</div> <!-- End : shop_review_result_keyword -->
+				
+				<!-- 댓글 쓰기 -->
+				<div id="shop_review_user_write" class="clearfix">
+					<img src="resources/images/shopInfo_userImg.png" title="userIcon">
+					<p id="shop_review_userId">${loginInfo.mName}</p>
+					<input type="text" id='review_write_form' name="reviewContent" value="" required>
+					<input type="hidden" name="mName" value="${loginInfo.mName}" id='loginInfo' data-login_mId =${loginInfo.mId }>
+	  				<input type="hidden" name="sCode" value="${sInfo.sCode}">
+					<button type='submit' id='reviewSubmit'>확인</button>
+				</div> <!-- End : shop_review_user_write -->
+			</form>
+		</c:if>
 		
 		<!-- 다른 사용자가 쓴 댓글 -->
 		<div id="shop_user_allReview_wrap" >

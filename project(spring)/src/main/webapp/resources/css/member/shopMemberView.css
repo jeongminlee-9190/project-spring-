@@ -51,7 +51,7 @@
 	width:31px;
 	height:60px;
 	top:120px;
-	z-index:10;
+	z-index:9;
 	cursor:pointer;
 }
 
@@ -386,6 +386,10 @@
 	margin-bottom:50px;
 }
 
+#shop_review_wrap > p:nth-child(2){
+	margin-bottom:50px;
+}
+
 .shop_category {
 	display:block;
 	width:100%;
@@ -421,9 +425,14 @@
 
 /* 2번째 버튼 color */
 #shop_review_cate_wrap > div:nth-child(2) .shop_cate_btn {
+	width:996px; /* border 2px */
+	height:56px; /* border 2px */
 	background-color:#fff;
 	border:2px solid #ffa827;
 	color:#ffa827;
+}
+#shop_review_cate_wrap > div:nth-child(2) .shop_cate_btn p {
+	top:12px;
 }
 
 /* 카테고리 버튼 icon */
@@ -453,7 +462,7 @@
 
 /* 카테고리 리스트 */
 .shop_list {
-	display:block;
+	display:none;
 	width:100%;
 	height:105px;
 }
@@ -507,294 +516,6 @@
 	background-color:rgba(222, 31, 85, 0.8);
 	border-top-right-radius:10px;
 	border-bottom-right-radius:10px;
-}
-
-input[id="keyword_good_user01"] {
-	display:none;
-}
-
-input[id="keyword_good_user01"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user01"] {
-	display:none;
-}
-
-input[id="keyword_bad_user01"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user02"] {
-	display:none;
-}
-
-input[id="keyword_good_user02"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user02"] {
-	display:none;
-}
-
-input[id="keyword_bad_user02"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user03"] {
-	display:none;
-}
-
-input[id="keyword_good_user03"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user03"] {
-	display:none;
-}
-
-input[id="keyword_bad_user03"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user04"] {
-	display:none;
-}
-
-input[id="keyword_good_user04"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user04"] {
-	display:none;
-}
-
-input[id="keyword_bad_user04"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user05"] {
-	display:none;
-}
-
-input[id="keyword_good_user05"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user05"] {
-	display:none;
-}
-
-input[id="keyword_bad_user05"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user06"] {
-	display:none;
-}
-
-input[id="keyword_good_user06"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user06"] {
-	display:none;
-}
-
-input[id="keyword_bad_user06"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user07"] {
-	display:none;
-}
-
-input[id="keyword_good_user07"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user07"] {
-	display:none;
-}
-
-input[id="keyword_bad_user07"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_good_user08"] {
-	display:none;
-}
-
-input[id="keyword_good_user08"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_LBtn_good.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
-}
-
-input[id="keyword_bad_user08"] {
-	display:none;
-}
-
-input[id="keyword_bad_user08"] + label {
-	display:block;
-	position:absolute;
-	top:15px;
-	left:50px;
-	width:23px;
-	height:20px;
-	background:url('../../images/shopInfo_review_RBtn_bad.png') no-repeat;
-	background-size:100%;
-	background-position:center center;
-	opacity:.4;
-	cursor: pointer;
 }
 
 /* 키워드 좋아요/싫어요 결과 */
@@ -948,6 +669,14 @@ input[id="keyword_bad_user08"] + label {
 
 #shop_review_my_write p {
 	float:left;
+}
+
+#allReview_my_rvContent {
+	width:704px;
+	margin:8px 20px 0 0;
+	font-size:15px;
+	font-weight:400;
+	color:#4a4a4a;
 }
 
 .myText > img{
