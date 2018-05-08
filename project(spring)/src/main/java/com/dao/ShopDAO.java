@@ -61,6 +61,15 @@ public class ShopDAO {
 		return template.selectOne("ShopMapper.countInterest", sCode);
 	}
 	
+	public List<String> myInterest(String mId){
+		return template.selectList("ShopMapper.myInterest", mId);
+	}
 	
+	public List<String> myReview(String mName){
+		return template.selectList("ShopMapper.myReview", mName);
+	}
 
+	public List<ShopDTO> myShop(List<String> sCodeList){
+		return template.selectList("ShopMapper.myShop", sCodeList);
+	}
 }

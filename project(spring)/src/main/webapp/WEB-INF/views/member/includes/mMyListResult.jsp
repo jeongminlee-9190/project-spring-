@@ -11,6 +11,8 @@
 		<img src="resources/images/member_miniITitle_icon.png" title="">
 	</div>
 	
+	<div id="test"></div>
+	
 	<c:forEach var="shop" items="${shopList}">
 	<div class="searchList_wrap clearfix" >
 	

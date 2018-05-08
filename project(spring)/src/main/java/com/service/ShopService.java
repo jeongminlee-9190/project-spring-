@@ -56,4 +56,25 @@ public class ShopService {
 	public String countInterest(String sCode) {
 		return shopDAO.countInterest(sCode);
 	}
+	
+	@Transactional
+	public List<ShopDTO> myInterest(String mId) {
+		List<String> sCodeList = shopDAO.myInterest(mId);
+		return shopDAO.myShop(sCodeList);
+	}
+	
+	@Transactional
+	public List<ShopDTO> myReview(String mName){
+		List<String> sCodeList = shopDAO.myReview(mName);
+		return shopDAO.myShop(sCodeList);
+	}
+	
+	public HashMap<String, String> countMyFavorite(String mId, String mName) {
+		String myInterestCnt = String.valueOf(shopDAO.myInterest(mId).size());
+		String myReviewCnt = String.valueOf(shopDAO.myReview(mName).size());
+		HashMap<String, String> CntMap = new HashMap<>();
+		CntMap.put("myInterestCnt", myInterestCnt);
+		CntMap.put("myReviewCnt", myReviewCnt);
+		return CntMap;
+	}
 }

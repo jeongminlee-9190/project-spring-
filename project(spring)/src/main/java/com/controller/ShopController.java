@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -103,9 +104,23 @@ public class ShopController {
 //	@RequestMapping(value="/myFavorite")
 //	@ResponseBody
 //	List<ShopDTO> selectMyFavorite(){
-//		shopService.selectMyFavorite(mId);
 //	}
 	
+	@RequestMapping(value="/myInterest", method=RequestMethod.GET)
+	@ResponseBody List<ShopDTO> myInterest(String mId) {
+		List<ShopDTO> shopList = shopService.myInterest(mId);
+		return shopList;
+	}
 	
+	@RequestMapping(value="/myReview", method=RequestMethod.GET)
+	@ResponseBody List<ShopDTO> myReview(String mName){
+		List<ShopDTO> shopList = shopService.myReview(mName);
+		return shopList;
+	}
+	
+	@RequestMapping(value="/countMyFavorit", method=RequestMethod.GET)
+	@ResponseBody HashMap<String, String> countMyFavorite(String mId, String mName) {
+		return shopService.countMyFavorite(mId, mName);
+	}
 
 }

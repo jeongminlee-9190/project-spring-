@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<div id="myList_title">
+<div id="myList_title" data-mId='${loginInfo.mId }' data-mName='${loginInfo.mName }'>
 	<p>MY LIST</p>
 </div>
 
@@ -19,7 +19,7 @@
 				<img src="resources/images/member_like_icon.png" title="내가 좋아요한 맛집">
 			</div>
 			<div class="myList_num clearfix">
-				<p>10</p>
+				<p></p>
 				<p>개</p>
 			</div>
 		</button>
@@ -30,7 +30,7 @@
 				<img src="resources/images/member_review_icon.png" title="내가 평가한 맛집">
 			</div>
 			<div class="myList_num clearfix">
-				<p>6</p>
+				<p></p>
 				<p>개</p>
 			</div>
 		</button>

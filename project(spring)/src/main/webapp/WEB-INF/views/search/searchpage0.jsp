@@ -24,7 +24,7 @@
 <!-- jquery -->
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="resources/js/member_join.js"></script>
-<script type="text/javascript" src='resources/js/interest.js'></script>
+<script type="module" src='resources/js/interest.js'></script>
 <script type="text/javascript" src='resources/js/search_new.js'></script>
 <script type="text/javascript" src="resources/js/keyword.js"></script>
 <script type="text/javascript" src="resources/js/shop_top_btn.js"></script>

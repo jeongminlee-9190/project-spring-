@@ -64,4 +64,21 @@
 		select count(icode) from interest where scode = #{sCode} group by scode
 	</select>
 	
+	<select id="myInterest" resultType="string" parameterType="string">
+		select scode from interest where mid = #{mId}
+	</select>
+	
+	<select id="myShop" parameterType="arraylist" resultType="ShopDTO">
+		select * from shop 
+		<where>
+			sCode in 
+			<foreach collection="list" item="sCode" separator="," open="(" close=")">
+				#{sCode}
+			</foreach>
+		</where>
+	</select>
+	
+	<select id="myReview" parameterType="string" resultType="string">
+		select sCode from review where mName = #{mId}
+	</select>
 </mapper>
