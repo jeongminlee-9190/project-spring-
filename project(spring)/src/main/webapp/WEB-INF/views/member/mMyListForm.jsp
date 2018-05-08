@@ -22,15 +22,17 @@
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 
-<!-- jquery -->
+<!-- javascript -->
 <script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src='resources/js/interest.js'></script>
+<script type="module" src='resources/js/interest.js'></script>
+<script type="module" src='resources/js/interest_export.js'></script>
 <script type="text/javascript" src='resources/js/search_new.js'></script>
 <script type="text/javascript" src="resources/js/keyword.js"></script>
 <script type="text/javascript" src="resources/js/member_myList.js"></script>
-<script type="text/javascript" src="resources/js/member_myListResult.js"></script>
+<script type="module" src="resources/js/member_myListResult.js"></script>
 <script type="text/javascript" src="resources/js/shop_top_btn.js"></script>
 <script type="text/javascript" src="resources/js/user_info_list.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <title>나의 맛집</title>
 </head>
