@@ -16,9 +16,9 @@
 <c:set var="searchValue" value="${pageDTO.searchValue}" />
 <c:forEach var="i" begin="1" end="${pageNum}" varStatus="status">
     <c:if test="${curPage == (status.index)}">
-      ${status.index}&nbsp;&nbsp;
+      <span class="notice_page_num">${status.index}</span>
     </c:if>
     <c:if test="${curPage != (status.index)}">
-    <a href="mNotice2?curPage=${status.index}&searchName=${searchName}&searchValue=${searchValue}">${status.index}</a>&nbsp;&nbsp;
+    <a href="mNotice2?curPage=${status.index}&searchName=${searchName}&searchValue=${searchValue}" class="notice_page_num">${status.index}</a>
     </c:if>
 </c:forEach>

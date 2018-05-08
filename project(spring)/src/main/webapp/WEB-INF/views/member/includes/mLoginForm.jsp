@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="login_title">
 	<p>LOGIN</p>
@@ -22,7 +21,7 @@
 			</a>
 			
 			<div id="mLine"></div>
-			<a href="" title="아이디 및 비밀번호 찾기">
+			<a href="mIdPwSearchForm" title="아이디 및 비밀번호 찾기">
 				<input type="button" value="아이디 및 비밀번호 찾기">
 			</a>
 			
