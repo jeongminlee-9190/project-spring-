@@ -61,4 +61,16 @@
     	where mName = #{mName}
 	</select>
 	
+	<select id="findmId" parameterType="hashmap" resultType="string">
+    	select mId
+   		from member
+   		where mName = #{mName} and and mPhone = #{mPhone}
+	</select>
+	
+	<select id="findmPasswd" parameterType="hashmap" resultType="string">
+    	select mPasswd
+   		from member
+   		where soId = #{mId} and and mName = #{mName} and mPhone = #{mPhone}
+	</select>
+	
 </mapper>

@@ -51,5 +51,15 @@ public class MemberDAO {
 	public int mJoinNameCheck(String mNameChk) {
 		return template.selectOne("MemberMapper.mJoinNameCheck",mNameChk);
 	}
+	
+	public String findmId(HashMap<String, String> map) {
+		String mId = template.selectOne("MemberMapper.findmId",map);
+		return mId;
+	}
+	
+	public String findmPasswd(HashMap<String, String> map) {
+		String mPasswd = template.selectOne("MemberMapper.findmPasswd",map);
+		return mPasswd;
+	}
 
 }

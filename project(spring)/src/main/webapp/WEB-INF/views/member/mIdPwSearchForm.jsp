@@ -14,12 +14,13 @@
 <link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
 
 <link rel="stylesheet" type="text/css" href="resources/css/member/member_header.css">
-
+<link rel="stylesheet" type="text/css" href="resources/css/member/member_mIdPwSearch.css">
 <link rel="stylesheet" type="text/css" href="resources/css/member/footer.css">
 
 <!-- jquery -->
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.js"></script>
-<script src="resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="resources/js/member_mIdPwSearch.js"></script>
 
 <title>아이디/비밀번화 찾기</title>
 </head>
