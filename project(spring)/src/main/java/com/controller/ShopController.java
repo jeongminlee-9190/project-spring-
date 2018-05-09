@@ -60,14 +60,11 @@ public class ShopController {
 		keywordMap.put("goodKeyword", goodKeywordList);
 		keywordMap.put("badKeyword", badKeywordList);
 		
-<<<<<<< HEAD
 		System.out.println(rpDTO.getsCode());
 		System.out.println(rpDTO.getmName());
 		System.out.println(goodKeywordList);
 		System.out.println(badKeywordList);
 		
-=======
->>>>>>> branch 'master' of https://github.com/jeongminlee-9190/project-spring-.git
 		shopService.reviewWrite(keywordMap);
 		
 		ShopDTO sdto = searchService.shopRetrieve(rpDTO.getsCode());
