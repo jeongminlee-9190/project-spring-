@@ -60,12 +60,6 @@ public class ShopController {
 		keywordMap.put("goodKeyword", goodKeywordList);
 		keywordMap.put("badKeyword", badKeywordList);
 		
-		System.out.println(rpDTO.getsCode());
-		System.out.println(rpDTO.getmName());
-		System.out.println(goodKeywordList);
-		System.out.println(badKeywordList);
-		
-		
 		shopService.reviewWrite(keywordMap);
 		
 		ShopDTO sdto = searchService.shopRetrieve(rpDTO.getsCode());
