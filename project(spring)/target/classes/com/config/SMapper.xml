@@ -55,10 +55,10 @@
 	
 	<insert id="sScoreInsert" parameterType="string">
 		insert all
-			into score (category,sCode) values ('식사',#{sCode})
-			into score (category,sCode) values ('회식',#{sCode})
-			into score (category,sCode) values ('데이트',#{sCode})
-			into score (category,sCode) values ('파티',#{sCode})
+			into score (keyword,sCode) values ('식사',#{sCode})
+			into score (keyword,sCode) values ('회식',#{sCode})
+			into score (keyword,sCode) values ('데이트',#{sCode})
+			into score (keyword,sCode) values ('파티',#{sCode})
 		select * from dual
 	</insert>
 </mapper>
