@@ -48,6 +48,14 @@ public class MemberService {
 	public int mJoinNameCheck(String mNameChk) {
 		return memberDAO.mJoinNameCheck(mNameChk);
 	}
+	
+	public String findmId(HashMap<String, String> map) {
+		String mId = memberDAO.findmId(map);
+		return mId;
+	}
+	public String findmPasswd(HashMap<String, String> map) {
+		return memberDAO.findmPasswd(map);
+	}
 
 
 }
