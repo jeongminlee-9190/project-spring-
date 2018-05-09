@@ -188,5 +188,42 @@ public class MemberController {
 
         return String.valueOf(result);
     }
+	
+	//아이디 비밀번호 찾기
+	@ResponseBody
+	@RequestMapping(value="/mIdPwSearch", method=RequestMethod.POST)
+	public String mFind(@RequestParam HashMap<String, String> map, HttpServletRequest request) {
+		String mPhone1 = map.get("mPhone1");
+		String mPhone2 = map.get("mPhone2");
+		String mPhone3 = map.get("mPhone3");
+		String mPhone = mPhone1+"-"+mPhone2+"-"+mPhone3;
+		String find = map.get("find");
+		String nextPage=null;
+		map.remove("mPhone1");
+		map.remove("mPhone2");
+		map.remove("mPhone3");
+		map.put("mPhone",mPhone);
+	
+		if(find.equals("mId")) {
+			String mId = memberService.findmId(map);
+			if(mId!=null) {
+				request.setAttribute("findmIdResult", mId);
+				nextPage="member/mIdPwSearchForm";
+			}else {
+				request.setAttribute("findfail", "일치하는 정보가 없습니다.");
+				nextPage="member/mIdPwSearchForm";
+			}
+		}else {
+			String mPasswd = memberService.findmPasswd(map);
+			if(mPasswd!=null) {
+				request.setAttribute("findmPasswdResult", mPasswd);
+				nextPage="m/mIdPwSearchForm";
+			}else {
+				request.setAttribute("findfail", "일치하는 정보가 없습니다.");
+				nextPage="m/mIdPwSearchForm";
+			}
+		}
+		return nextPage;
+	}
 
 }

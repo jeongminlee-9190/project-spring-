@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+#idpwSearch_content_wrapper {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	padding-bottom:150px;
+}
+
+*html #idpwSearch_content_wrapper { height:100%;}
+
+#idpwSearch_title {
+	position:relative;
+	display:block;
+	min-width:1200px;
+	margin-top:80px;
+}
+
+#idpwSearch_title div{
+	display:block;
+	position:relative;
+	left:-251px;
+	margin-left:50%;
+	font-family: gotham_Bold; 
+	font-style: normal; 
+	font-weight: normal;
+	font-size:50px;
+	color:#5e5e5e;
+}
+
+#idpwSearch_title div p {
+	display:inline-block;
+	margin-right:15px;
+}
+
+#idpwSearch_title div p:nth-child(2) {
+	vertical-align:4px;
+	font-size:40px;
+}
+
+#idpwSearch_title div p:nth-child(3) {
+	letter-spacing:-3px;
+}
+
+#idpwSearch_content_wrap {
+	display:block;
+	position:relative;
+	left:-300px;
+	margin-top:50px;
+	margin-left:50%;
+	width:600px;
+}
+
+#idpwSearch_content_wrap > div button {
+	width:300px;
+	height:50px;
+	border:none;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	outline:none;
+	background-color:#faa72a;
+	color:#fff;
+	font-family: gotham_Medium; 
+	font-style: normal; 
+	font-weight: normal;
+	font-size:22px;
+	cursor:pointer;
+}
+
+#idpwSearch_content_wrap > div button:first-child {
+	float:left;
+}
+
+#idpwSearch_content_wrap > div button:last-child {
+	float:right;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label {
+	display:block;
+} 
+
+.idpwSearch_wrap > div:nth-child(2) label span{
+	display:inline-block;
+	width:116px;
+	margin:0 44px 0 40px;
+	font-size:14px;
+	color:#5e5e5e;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input{
+	width:345px;
+	height:45px;
+	padding-left:15px;
+	border:1px solid #e0e0e0;
+	border-radius:5px;
+	outline:none;
+	margin-bottom:10px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch1"] {
+	width:85px;
+	margin-right:11px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch2"] {
+	width:85px;
+	margin:0 11px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch3"] {
+	width:85px;
+	margin-left:11px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch1-2"] {
+	width:85px;
+	margin-right:11px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch2-2"] {
+	width:85px;
+	margin:0 11px;
+}
+
+.idpwSearch_wrap > div:nth-child(2) label input[id="mPhoneSearch3-2"] {
+	width:85px;
+	margin-left:11px;
+}
+
+#idSearch_txt {
+	margin:78px 0 79px 0;	
+}
+
+#pwSearch_txt {
+	margin:50px 0;
+}
+
+.idpwSearch_btn button{
+	width:600px;
+	padding:17px 0 21px 0;
+	border:none;
+	border-radius:5px;
+	outline:none;
+	background-color:#faa72a;
+	color:#fff;
+	font-size:17px;
+	font-weight:800;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
