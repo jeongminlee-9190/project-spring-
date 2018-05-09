@@ -66,14 +66,40 @@ $(document).ready(function(){
 	var choiceKeyword;
 	var choiceArrIndex;
 	var n = 0;
-	$(document).on("click",".shop_list li > button",function(e){
-		e.stopPropagation();
+	$(document).on("mouseover",".shop_list li > button",function(){
 		
-		//버튼 보여지기
 		$(this).nextAll("div").show();
 		
+		/*if($(this).nextAll("div").children("input:checkbox").prop("checked")==true){
+			$(this).nextAll("div").show();
+		}*/
+
 	});
-	
+	$(document).on("mouseout",".shop_list li > div",function(e){
+		
+		/*if($(this).find("input:checkbox").prop("checked")==false){
+			$(this).hide();
+			$(this).siblings("div").hide();
+		}*/
+		console.log($(this).children("input:checkbox").prop("checked")==true);
+		
+		if($(this).children("input:checkbox").prop("checked")==true){
+			$(this).show();
+			$(this).siblings("div").show();
+		}  
+		if($(this).children("input:checkbox").prop("checked")==true ||
+		$(this).siblings("div").children("input:checkbox").prop("checked")==false){
+			$(this).show();
+			$(this).siblings("div").show();
+		}
+		if($(this).children("input:checkbox").prop("checked")==false &&
+		$(this).siblings("div").children("input:checkbox").prop("checked")==false){
+			$(this).hide();
+			$(this).siblings("div").hide();
+		}
+
+	});
+		
 	//좋아요, 싫어요 누르면 하단에 텍스트 및 좋아요/싫어요 표시되기
 	$(document).on("click",".shop_list li > div input:checkbox",function(e){
 		//사용자가 선택한 키워드
