@@ -7,17 +7,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" 
+	  content="text/html; charset=UTF-8; width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+	  name="viewport" >
+	  
 <!-- css -->
 <!-- reset -->
 <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
 <!-- font -->
 <link rel="stylesheet" type="text/css" href="resources/css/fonts.css">
 
+<!-- web -->
 <link rel="stylesheet" href="resources/css/member/main.css">
 <link rel="stylesheet" href="resources/css/member/login.css">
 <link rel="stylesheet" href="resources/css/member/search.css">
 <link rel="stylesheet" href="resources/css/member/footer.css">
+
+<!-- mobile -->
+<link rel="stylesheet" href="resources/css/member/main_mobile.css">
+<link rel="stylesheet" href="resources/css/member/login_mobile.css">
+<link rel="stylesheet" href="resources/css/member/search_mobile.css">
+<link rel="stylesheet" href="resources/css/member/footer_mobile.css">
 
 <!-- jquery -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
