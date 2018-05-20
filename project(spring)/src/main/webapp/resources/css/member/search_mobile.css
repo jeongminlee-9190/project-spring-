@@ -6,6 +6,8 @@
 	
 	/* ================================= search ================================= */
 	
+	input[type=text] {-webkit-appearance:none;}
+	
 	/* 검색 창 */
 	#search {
 		top:155px; 
