@@ -60,6 +60,8 @@
 		position:relative;
 		display:block;
 		min-width:414px;
+		overflow:-webkit-paged-x;
+		padding-bottom:0px;
 	}
 
 }
@@ -122,7 +124,7 @@
 	/* ================================= center ================================= */
 	#content_wrapper {
 		min-width:320px;
-		padding-bottom:180px;
+		padding-bottom:30px;
 	}
 
 }

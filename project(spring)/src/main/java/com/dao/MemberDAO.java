@@ -25,7 +25,7 @@ public class MemberDAO {
 	
 		
 		template.insert("MemberMapper.memberAdd",map);
-		template.insert("MemberMapper.pointAdd",map);
+		/*template.insert("MemberMapper.pointAdd",map);*/
 	}
 	
 	public MemberDTO mMyPage(String mId) {
