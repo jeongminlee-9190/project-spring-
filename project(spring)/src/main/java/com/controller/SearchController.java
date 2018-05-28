@@ -84,6 +84,7 @@ public class SearchController {
 		map.put("keyword", keywordsList);
 		List<SearchResultDTO> srDTO = searchService.search(map);
 		request.setAttribute("shopList", srDTO);
+		System.out.println(srDTO.size());
 		return "search/searchpage0";
 	}
 	

@@ -29,6 +29,7 @@ public class SearchResultDTO {
 		private int sHate;
 		private int sInterest;
 		private String sSubway;
+		
 		public String getKeyword() {
 			return keyword;
 		}
