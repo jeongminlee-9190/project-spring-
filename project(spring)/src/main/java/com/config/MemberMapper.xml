@@ -20,10 +20,10 @@
 		values(#{mId},#{mPasswd},#{mName},#{mPhone},#{mBirth})
 	</insert>
 	
-	<insert id="pointAdd" parameterType="hashmap">
+	<!-- <insert id="pointAdd" parameterType="hashmap">
 		insert into pointTb (pNum,mId,pDate,point,pTotal)
 		values(SEQ_pointTb_pNum.NEXTVAL,#{mId},sysdate,1000,1000)
-	</insert>
+	</insert> -->
 	
 	<select id="mMyPage" parameterType="string" resultType="MemberDTO">
     	select mId,mPasswd,mName,mPhone,mBirth

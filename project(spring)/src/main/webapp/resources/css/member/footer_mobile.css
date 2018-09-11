@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* 반응형 */
+/* 아이폰 6,7,8 + */
+@media (max-width: 414px) {
+
+	/* ================================= footer ================================= */
+	#footer {
+		min-width:414px;
+	}
+	
+	footer {
+		font-size:10px;
+	}
+	
+}
+
+/* 아이폰 6,7,8 */
+@media (max-width: 375px) {
+
+	/* ================================= footer ================================= */
+	#footer {
+		min-width:375px;
+	}
+	
+}	
+
+/* 갤럭시 5 */
+@media (max-width: 360px) {
+
+	/* ================================= footer ================================= */
+	#footer {
+		min-width:360px;
+	}
+	
+}
+
+/* 아이폰 5,SE */
+@media (max-width: 320px) {
+
+	/* ================================= footer ================================= */
+	#footer {
+		min-width:320px;
+	}
+	
+	footer {
+		height:80px;
+	}
+	
+	footer p a:last-child {
+		display:block;
+		margin-top:10px;
+	}
+	
+}	

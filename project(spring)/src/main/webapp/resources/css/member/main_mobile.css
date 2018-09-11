@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* 반응형 */
+/* 아이폰 6,7,8 + */
+@media (max-width: 414px) {
+	
+	/* ================================= header ================================= */
+	#header {
+		position:relative; 
+		min-width:414px;
+		height:250px; 
+	}
+	
+	#logo {
+		display:block; 
+		margin-left:50%; 
+		width:201px; 
+		height:65px;
+		position:absolute; 
+		top:45px; 
+		left:-100px;
+	}
+	
+	#logo img {width:100%;}
+	
+	.slide_wrap {
+    width:100%;
+	}
+	
+	.slide {
+	    padding-left: 0;
+	    margin-bottom:0;
+	}
+	.slide li {
+	    display: block;
+	    position:absolute;
+	    top:0;
+	    height:250px; 
+	    width:100%;
+	}
+	
+	.slide li:first-child {
+		background:url('../../images/mobile_main_bg01.jpg') no-repeat;
+	}
+	.slide li:nth-child(2) {
+		background:url('../../images/mobile_main_bg02.jpg') no-repeat;
+	}
+	.slide li:nth-child(3) {
+		background:url('../../images/mobile_main_bg03.jpg') no-repeat;
+	}
+	.slide li:nth-child(4) {
+		background:url('../../images/mobile_main_bg04.jpg') no-repeat;
+	}
+	.slide li:last-child {
+		background:url('../../images/mobile_main_bg05.jpg') no-repeat;
+	}
+	
+	/* ================================= center ================================= */
+	#content_wrapper {
+		position:relative;
+		display:block;
+		min-width:414px;
+		overflow:-webkit-paged-x;
+		padding-bottom:0px;
+	}
+
+}
+
+/* 아이폰 6,7,8 */
+@media (max-width: 375px) {
+	
+	/* ================================= header ================================= */
+	#header {
+		min-width:375px;
+	}
+	
+	#logo {
+		width:182px; 
+		left:-90.5px;
+	}
+	
+	/* ================================= center ================================= */
+	#content_wrapper {
+		min-width:375px;
+	}
+
+}
+
+/* 갤럭시 5 */
+@media (max-width: 360px) {
+	
+	/* ================================= header ================================= */
+	#header {
+		min-width:360px;
+	}
+	
+	#logo {
+		width:175px; 
+		left:-87px;
+		top:45px;
+	}
+	
+	/* ================================= center ================================= */
+	#content_wrapper {
+		min-width:360px;
+	}
+
+}
+
+/* 아이폰 5,SE */
+@media (max-width: 320px) {
+	
+	/* ================================= header ================================= */
+	#header {
+		min-width:320px;
+	}
+	
+	#logo {
+		width:157px; 
+		left:-78px;
+		top:60px;
+	}
+	
+	/* ================================= center ================================= */
+	#content_wrapper {
+		min-width:320px;
+		padding-bottom:30px;
+	}
+
+}

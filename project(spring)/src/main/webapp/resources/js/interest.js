@@ -2,7 +2,7 @@ import {countInterest} from './util.js';
 
 $(document).ready(function () {
     var mId = $('#loginInfo').attr('data-login_mId');
-    if (mId != undefined) {
+    if (mId != '') {
       $.each($(".interestUI"), function () {
         var UIsCode = $(this).attr("data-sCode");
         $.ajax({
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     $(".interestBTN").on("click", function () {
 		var BTNsCode = $(this).attr("data-sCode");
-	      if (mId != undefined) {
+	      if (mId != '') {
 	        $.ajax({
 	          type: "post",
 	          url: "interest",

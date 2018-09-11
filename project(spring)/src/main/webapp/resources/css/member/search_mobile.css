@@ -1,0 +1,372 @@
+@charset "UTF-8";
+
+/* 반응형 */
+/* 아이폰 6,7,8 + */
+@media (max-width: 414px) {
+	
+	/* ================================= search ================================= */
+	
+	input[type=text] {-webkit-appearance:none;}
+	
+	/* 검색 창 */
+	#search {
+		top:155px; 
+		left:-187px;
+		width:307px; /* border 1px */
+	}
+	
+	/* 검색 버튼 */
+	#search_btn {
+		top:155px;
+		left:137px;
+	}
+	
+	/* 검색 placeholder */
+	#search::-webkit-input-placeholder{font-size:13px;color:#a3a3a3; }  /* Chrome/Opera/Safari */
+	#search:-moz-placeholder{font-size:13px;color:#a3a3a3;}			   /* Mozilla Firefox 4 to 18 */
+	#search::-moz-placeholder{font-size:13px;color:#a3a3a3;}		   /* Mozilla Firefox 19+ */
+	#search:-ms-input-placeholder{font-size:13px;color:#a3a3a3;}	   /* Internet Explorer 10+ */
+	
+	/* ================================= subway ================================= */
+	/* 지하철 wrap */
+	#subway_wrap {
+		top:30px;
+		left:-202px;
+		width:404px;
+	}
+	
+	#line_wrap {
+		width:200px;
+		max-width:200px;
+	}
+	
+	#line_btn {
+		width:200px;
+	}
+	
+	#line_wrap ul li {
+		width:196px; /* border : 2px 2px */
+		max-width:200px;
+	}
+	
+	#station_wrap {
+		width:200px;
+		max-width:200px;
+	}
+	
+	#station_btn{
+		width:200px;
+	}
+	
+	#station_1 li {
+		width:196px; /* border : 2px 2px */
+		max-width:200px;
+	}
+	
+	/* ================================= keyword ================================= */
+	
+	/* 카테고리 3개 감싸고 있는 id */
+	#cate_wrap {
+		left:-202px;
+	}
+	
+	.k_category {
+		width:404px;
+	}
+	
+	.cate_btn > p {
+		left:152px;
+	}
+	
+	/* 2번째 버튼 */
+	#cate_wrap > div:nth-child(2) .cate_btn {
+		width:400px;
+	}
+	#cate_wrap > div:nth-child(2) .cate_btn p {
+		top:12px;
+	}
+	
+	/* 카테고리 버튼 icon */
+	.cate_icon {
+		top:18px;
+	}
+	
+	#cate_wrap > div:nth-child(2) .cate_icon {
+		top:14px;
+	}
+	
+	/* 카테고리 리스트 */
+	.list {
+		display:none;
+		width:100%;
+		height:212px;
+	}
+	
+	.list li {
+		float:left;
+		margin:5px 4px 0 0;
+	}
+	
+	.list li:nth-child(2n) {
+		float:right;
+		margin-right:0;
+	}
+
+	
+	.list li button {
+		width:200px; 
+	}
+	
+}
+
+/* 아이폰 6,7,8 */
+@media (max-width: 375px) {
+	
+	/* ================================= search ================================= */
+	
+	#search {
+		left:-169.5px;
+		width:272px; /* border 1px */
+	}
+	
+	/* 검색 버튼 */
+	#search_btn {
+		top:155px;
+		left:119.5px;
+	}
+	
+	/* ================================= subway ================================= */
+	/* 지하철 wrap */
+	#subway_wrap {
+		left:-182.5px;
+		width:365px;
+	}
+	
+	#line_wrap {
+		width:181px;
+		max-width:181px;
+	}
+	
+	#line_btn {
+		width:181px;
+	}
+	
+	#line_wrap ul li {
+		width:177px; /* border : 2px 2px */
+		max-width:181px;
+	}
+	
+	#station_wrap {
+		width:181px;
+		max-width:181px;
+	}
+	
+	#station_btn{
+		width:181px;
+	}
+	
+	#station_1 li {
+		width:177px; /* border : 2px 2px */
+		max-width:181px;
+	}
+	
+	/* ================================= keyword ================================= */
+	
+	/* 카테고리 3개 감싸고 있는 id */
+	#cate_wrap {
+		left:-182.5px;
+	}
+	
+	.k_category {
+		width:365px;
+	}
+	
+	.cate_btn > p {
+		left:137px;
+	}
+	
+	/* 2번째 버튼 */
+	#cate_wrap > div:nth-child(2) .cate_btn {
+		width:361px;
+	}
+	
+	/* 카테고리 버튼 icon */
+	
+	/* 카테고리 리스트 */
+	.list {
+		height:212px;
+	}
+
+	.list li button {
+		width:180px; 
+	}
+	
+}
+
+/* 갤럭시 5 */
+@media (max-width: 360px) {
+	
+	/* ================================= search ================================= */
+	
+	#search {
+		left:-163px;
+		width:258px; /* border 1px */
+	}
+	
+	/* 검색 버튼 */
+	#search_btn {
+		top:155px;
+		left:112px;
+	}
+	
+	/* ================================= subway ================================= */
+	/* 지하철 wrap */
+	#subway_wrap {
+		left:-176px;
+		width:352px;
+	}
+	
+	#line_wrap {
+		width:174px;
+		max-width:174px;
+	}
+	
+	#line_btn {
+		width:174px;
+	}
+	
+	#line_wrap ul li {
+		width:170px; /* border : 2px 2px */
+		max-width:174px;
+	}
+	
+	#station_wrap {
+		width:174px;
+		max-width:174px;
+	}
+	
+	#station_btn{
+		width:174px;
+	}
+	
+	#station_1 li {
+		width:170px; /* border : 2px 2px */
+		max-width:174px;
+	}
+	
+	/* ================================= keyword ================================= */
+	
+	/* 카테고리 3개 감싸고 있는 id */
+	#cate_wrap {
+		left:-176px;
+	}
+	
+	.k_category {
+		width:352px;
+	}
+	
+	.cate_btn > p {
+		left:132px;
+	}
+	
+	/* 2번째 버튼 */
+	#cate_wrap > div:nth-child(2) .cate_btn {
+		width:348px; /* border 2px 2px */
+	}
+	
+	/* 카테고리 버튼 icon */
+	
+	/* 카테고리 리스트 */
+	.list {
+		height:212px;
+	}
+
+	.list li button {
+		width:174px; 
+	}
+	
+}
+
+/* 아이폰 5, SE */
+@media (max-width: 320px) {
+	
+	/* ================================= search ================================= */
+	
+	#search {
+		left:-145px;
+		width:239px; /* border 1px */
+	}
+	
+	/* 검색 버튼 */
+	#search_btn {
+		top:155px;
+		left:94px;
+	}
+	
+	/* ================================= subway ================================= */
+	/* 지하철 wrap */
+	#subway_wrap {
+		left:-156px;
+		width:312px;
+	}
+	
+	#line_wrap {
+		width:154px;
+		max-width:154px;
+	}
+	
+	#line_btn {
+		width:154px;
+	}
+	
+	#line_wrap ul li {
+		width:150px; /* border : 2px 2px */
+		max-width:154px;
+	}
+	
+	#station_wrap {
+		width:154px;
+		max-width:154px;
+	}
+	
+	#station_btn{
+		width:154px;
+	}
+	
+	#station_1 li {
+		width:150px; /* border : 2px 2px */
+		max-width:154px;
+	}
+	
+	/* ================================= keyword ================================= */
+	
+	/* 카테고리 3개 감싸고 있는 id */
+	#cate_wrap {
+		left:-156px;
+	}
+	
+	.k_category {
+		width:312px;
+	}
+	
+	.cate_btn > p {
+		left:102px;
+	}
+	
+	/* 2번째 버튼 */
+	#cate_wrap > div:nth-child(2) .cate_btn {
+		width:308px; /* border 2px 2px */
+	}
+	
+	/* 카테고리 버튼 icon */
+	
+	/* 카테고리 리스트 */
+	.list {
+		height:212px;
+	}
+
+	.list li button {
+		width:154px; 
+	}
+	
+}
